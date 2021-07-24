@@ -4,3 +4,4 @@
 - przygotowac util do kopiowania tablicy
 
 - bubble sort rekursja ogonowa
+- asercja, czy tablica wynikowa zawiera te same elementy, np sumowac elementy obydwu tablic, uwaga na overflow!
