@@ -6,6 +6,7 @@
 - z³o¿onoœæ pamiêciowa: `O(n)`
 [X] bezpieczny
 [X] stabilny numerycznie
+[X] dzia³a w miejscu
 
 ## Idea algorytmu
 Algorytm dzieli tablicê liczb na dwie czêœci, sortuje oddzielnie ka¿d¹ z nich.

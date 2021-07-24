@@ -1,8 +1,7 @@
 ﻿#include <iostream>
-#include <map>
-
-#include "bubble_sort.hpp"
+#include <string>
 #include "array_utils.hpp"
+#include "bubble_sort.hpp"
 #include "assert.hpp"
 
 using std::cout;
@@ -11,16 +10,14 @@ using std::string;
 
 int main(int argc, char** argv)
 {
-	int* arr = new int[]{20, 19, 18, 17};
-	int n = 4;
-	
-	bubble_sort sort;
-	asc_comparator asc;
+	const int n = 10000;
+	const asc_comparator comp;
+	const bubble_sort bubble_sort;
+	int* arr = arr_random_natural(n);
 
-	cout << arr_to_string(arr, n) << endl;
-	sort(arr, 4, asc);
-	cout << arr_to_string(arr, n) << endl;
-	check_arr_sorted(arr, n, asc);
+	bubble_sort(arr, n, comp);
+	check_arr_sorted(arr, n, comp);
+	cout << arr_to_string(arr, n, '\n') << endl;
 	
 	return 0;
 }

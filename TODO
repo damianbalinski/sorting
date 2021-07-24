@@ -1,2 +1,6 @@
 - dodac kilka klas implementujacych algorytmy sortowania
-- dodac metode sort, ktora bedzie wywolywana przez operator wywolania funkcji
+- przygotowaæ testy do bubble_sort - pusta tablica, talica tych samuch liczb, przypadki graniczne, ostatnia niepasujaca, 
+- przygotowac plik z testowymi tablicami oraz ich rozmiarami,
+- przygotowac util do kopiowania tablicy
+
+- bubble sort rekursja ogonowa
