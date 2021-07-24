@@ -1,5 +1,6 @@
 #include "selection_sort.hpp"
 #include "swap.hpp"
+#include "minimum.hpp"
 
 /**
  * SORTOWANIE PRZEZ WYBIERANIE (SELECTION SORT)
@@ -18,25 +19,25 @@
  * zaczynamy z tablic¹ pomniejszon¹ o ten element.
  *
  * OPIS ALGORYTMU
- * Algorytm sk³ada siê z dwóch pêtli zagnie¿d¿onych. Pêtla zewnêtrzna for okreœla
- * indeks, od którego zaczyna siê nieposortowana tablica. W danej iteracji wszystkie
- * elementy przed indeksem i s¹ ju¿ posortowane. W trakcie iteracji przechodzimy
- * tablicê elementów jeszcze nie posortowanych, szukaj¹c najmniejszego z nich.
- * Nastêpnie zamieniamy ten element z elementem stoj¹cym na pierwszej pozycji
- * w tablicy elementów jeszcze nie posortowanych oraz przechodzimy do nastêpnej
- * iteracji z tablic¹ pomniejszon¹ o pierwszy element.
+ * Algorytm wykorzystuje pojedyncz¹ pêtlê oraz algorytm wyszukiwania minimum.
+ * Pêtla for okreœla indeks, od którego zaczyna siê nieposortowana tablica.
+ * W danej iteracji wszystkie elementy przed indeksem i s¹ ju¿ posortowane.
+ * W trakcie wyszukujemy indeksu elementu najmniejszego oraz zamieniamy ten element
+ * z elementem stoj¹cym na pierwszej pozycji w tablicy elementów jeszcze nie
+ * posortowanych. Nastêpnie przechodzimy do nastêpnej iteracji z tablic¹ pomniejszon¹
+ * o pierwszy element.
  *
  * Z£O¯ONOŒÆ CZASOWA OPTYMISTYCZNA O(n^2) - tablica posortowana
  * O(n) - pêtla zewnêtrzna
- * O(n) - pêtla wewnêtrzna
+ * O(n) - minimum
  * 
  * Z£O¯ONOŒÆ CZASOWA PESYMISTYCZNA O(n^2) - tablica posortowana w odwrotnym porz¹dku
  * O(n) - pêtla zewnêtrzna
- * O(n) - pêtla wewnêtrzna
+ * O(n) - minimum
  * 
  * Z£O¯ONOŒÆ CZASOWA ŒREDNIA O(n^2)
  * O(n) - pêtla zewnêtrzna
- * O(n) - pêtla wewnêtrzna
+ * O(n) - minimum
  *
  * Z£O¯ONOŒÆ PAMIÊCIOWA O(1)
  * O(1) - nie potrzebuje dodatkowej pamiêci
@@ -45,10 +46,7 @@ void selection_sort::sort(int arr[], const size_t n, const comparator& comp)
 {
     for (size_t i = 0; i < n-1; i++)
     {
-        size_t min = i;
-        for (size_t j = i + 1; j < n; j++)
-            if (comp.lt(arr[j], arr[min]))
-                min = j;
+        const size_t min = minimum_index_of_partial(arr, i, n, comp);
         swap(&arr[i], &arr[min]);
     }
 }
