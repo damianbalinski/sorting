@@ -1,8 +1,13 @@
-- dodac kilka klas implementujacych algorytmy sortowania
-- przygotowaæ testy do bubble_sort - pusta tablica, talica tych samuch liczb, przypadki graniczne, ostatnia niepasujaca, 
-- przygotowac plik z testowymi tablicami oraz ich rozmiarami,
+- przygotowac plik z testowymi tablicami oraz ich rozmiarami, pusta tablica, talica tych samuch liczb, przypadki graniczne, ostatnia niepasujaca, 
 - przygotowac util do kopiowania tablicy
 
 - bubble sort rekursja ogonowa
 - insertion sort rekursja ogonowa
+- selection sort rekursja ogonowa
+
+- testowac czy algorytm dobrze sortuje bez flagi NDEBUG
+- testowac czas sortowania z flaga NDEBUG
+
 - asercja, czy tablica wynikowa zawiera te same elementy, np sumowac elementy obydwu tablic, uwaga na overflow!
+
+- skrypt instalacyjny (rownoczescie spis uzywanych bibliotek)

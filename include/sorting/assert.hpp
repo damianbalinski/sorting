@@ -1,26 +1,22 @@
 #pragma once
-#include <cassert>
 #include "comparator.hpp"
 
-inline void check_num_in_range(const int a, const int min, const int max)
-{
-	assert((a >= min && a <= max) && "Number is not in given range");
-}
+#ifndef NDEBUG
+	#define check_num_in_range(A, MIN, MAX)		__check_num_in_range(A, MIN, MAX)
+	#define check_num_greater_than_zero(A)		__check_num_greater_than_zero(A)
+	#define check_num_greater_than_other(A, B)	__check_num_greater_than_other(A, B)
+	#define check_arr_sorted(ARR, N, COMP)		__check_arr_sorted(ARR, N, COMP)
+#else
+	#define check_num_in_range(A, MIN, MAX)
+	#define check_greater_than_zero(A)
+	#define check_num_greater_than_other(A, B)
+	#define check_arr_sorted(ARR, N, COMP)
+#endif
 
-inline void check_arr_sorted(int* const arr, const size_t n, const comparator& comp)
-{
-	for (size_t i = 0; i < n-1; i++)
-	{
-		assert((comp.le(arr[i], arr[i + 1])) && "Array is not sorted");
-	}
-}
+void __check_num_in_range(int a, int min, int max);
 
-inline void check_greater_than_zero(const size_t n)
-{
-	assert((n > 0) && "Number is not greater than 0");
-}
+void __check_num_greater_than_zero(int n);
 
-inline void check_greater_than_other(const size_t a, const size_t b)
-{
-	assert((a > b) && "Argument is not greater that the other");
-}
+void __check_num_greater_than_other(int a, int b);
+
+void __check_arr_sorted(int* arr, size_t n, const comparator& comp);
