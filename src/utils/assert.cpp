@@ -40,7 +40,7 @@ void __check_arr_sorted(int* const arr, const size_t n, const comparator& comp)
 {
 	for (size_t i = 0; i < n - 1; i++)
 	{
-		if (comp.le(arr[i], arr[i + 1]))
+		if (comp.gt(arr[i], arr[i + 1]))
 		{
 			std::cerr << "assertion failed" << std::endl;
 			std::cerr << RED << arr_to_string_with_ids(arr, n) << std::endl;

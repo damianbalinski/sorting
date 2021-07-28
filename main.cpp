@@ -13,12 +13,13 @@ using std::string;
 
 int main(int argc, char** argv)
 {
-	const int n = 5;
-	const asc_comparator comp;
-	int arr[] = {-10, -30, 100, -10, -3};
+	const int n = 10000;
+	const desc_comparator comp;
+	const bubble_sort sort;
+	int* arr = arr_random_natural(n);
 
-	int max = maximum_index(arr, n, comp);
-
-	cout << max << endl;
+	sort(arr, n, comp);
+	check_arr_sorted(arr, n, comp);
+	
 	return 0;
 }
