@@ -3,7 +3,7 @@
 
 int minimum(int* const arr, const size_t n, const comparator& comp)
 {
-    check_num_greater_than_zero(n);
+	check_num_greater_than_zero(n);
 	int min = arr[0];
 	
     for (size_t i = 1; i < n; i++)

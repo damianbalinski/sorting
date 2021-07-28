@@ -6,6 +6,7 @@
 #include "selection_sort.hpp"
 #include "assert.hpp"
 #include "maximum.hpp"
+#include "quick_partition.hpp"
 
 using std::cout;
 using std::endl;
@@ -14,12 +15,15 @@ using std::string;
 int main(int argc, char** argv)
 {
 	const int n = 10000;
-	const desc_comparator comp;
+	const asc_comparator comp;
 	const bubble_sort sort;
+	const quick_partition partition;
 	int* arr = arr_random_natural(n);
 
-	sort(arr, n, comp);
-	check_arr_sorted(arr, n, comp);
+	int pivot = partition(arr, n, comp);
+	check_arr_partitioned(arr, n, pivot, comp);
+
+	cout << pivot << endl;
 	
 	return 0;
 }

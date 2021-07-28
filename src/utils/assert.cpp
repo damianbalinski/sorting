@@ -7,33 +7,38 @@
 #define RED     "\033[31m"
 #define WHITE   "\033[37m"
 
-inline void __pretty_assert(const bool condition, const std::string& msg)
+inline void __pretty_assertion(const std::string& msg)
 {
-	if (!condition)
-	{
-		std::cerr << "assertion failed" << std::endl;
-		std::cerr << RED << msg << WHITE << std::endl;
-		std::cerr << "program is aborted" << std::endl;
-		abort();
-	}
+	std::cerr << "assertion failed" << std::endl;
+	std::cerr << RED << msg << WHITE << std::endl;
+	std::cerr << "program is aborted" << std::endl;
+	abort();
+}
+
+inline void __pretty_assertion_with_arr(int* const arr, const size_t n, const std::string& msg)
+{
+	std::cerr << "assertion failed" << std::endl;
+	std::cerr << RED << arr_to_string_with_ids(arr, n) << msg << WHITE << std::endl;
+	std::cerr << "program is aborted" << std::endl;
+	abort();
 }
 
 void __check_num_in_range(const int a, const int min, const int max)
 {
-	__pretty_assert((a >= min && a <= max),
-		fmt::format("Number {} is not in range ({}, {})", a, min, max));
+	if (!(a >= min && a <= max))
+		__pretty_assertion(fmt::format("Number {} is not in range ({}, {})", a, min, max));
 }
 
 void __check_num_greater_than_zero(const int n)
 {
-	__pretty_assert((n > 0),
-		fmt::format("Number {} is not greater than zero", n));
+	if (!(n > 0))
+		__pretty_assertion(fmt::format("Number {} is not greater than zero", n));
 }
 
 void __check_num_greater_than_other(const int a, const int b)
 {
-	__pretty_assert((a > b),
-		fmt::format("Number {} is not greater than {}", a, b));
+	if (!(a > b))
+		__pretty_assertion(fmt::format("Number {} is not greater than {}", a, b));
 }
 
 void __check_arr_sorted(int* const arr, const size_t n, const comparator& comp)
@@ -42,12 +47,32 @@ void __check_arr_sorted(int* const arr, const size_t n, const comparator& comp)
 	{
 		if (comp.gt(arr[i], arr[i + 1]))
 		{
-			std::cerr << "assertion failed" << std::endl;
-			std::cerr << RED << arr_to_string_with_ids(arr, n) << std::endl;
-			std::cerr << fmt::format("Array is not sorted at positions {} and {} [{}, {}]", 
-				i, i+1, arr[i], arr[i+1]) << WHITE << std::endl;
-			std::cerr << "program is aborted" << std::endl;
-			abort();
+			__pretty_assertion_with_arr(arr, n,
+				fmt::format("Array is not sorted at positions {} and {} [{}, {}]",i, i+1, arr[i], arr[i+1])
+			);
+		}
+	}
+}
+
+void __check_arr_partitioned(int* const arr, const size_t n, const size_t pivot, const comparator& comp)
+{
+	for (size_t i = 0; i < pivot; i++)
+	{
+		if (comp.gt(arr[i], arr[pivot]))
+		{
+			__pretty_assertion_with_arr(arr, n,
+				fmt::format("Array is not partitioned at position {} [{}], pivot {} [{}]", i, arr[i], pivot, arr[pivot])
+			);
+		}
+	}
+
+	for (size_t i = pivot+1; i < n; i++)
+	{
+		if (comp.lt(arr[i], arr[pivot]))
+		{
+			__pretty_assertion_with_arr(arr, n,
+				fmt::format("Array is not partitioned at position {} [{}], pivot {} [{}]", i, arr[i], pivot, arr[pivot])
+			);
 		}
 	}
 }
