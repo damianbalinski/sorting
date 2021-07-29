@@ -11,3 +11,10 @@
 - asercja, czy tablica wynikowa zawiera te same elementy, np sumowac elementy obydwu tablic, uwaga na overflow!
 
 - skrypt instalacyjny (rownoczescie spis uzywanych bibliotek)
+
+
+SHELL SORT
+- algorytm jest ulepszona wersja insertion sort, wykorzystujemy fakt, ze
+dla optymistycznego przypadku insertion sort wykonuje sie w czasie O(n)
+
+- poprawic opic insertion-sort

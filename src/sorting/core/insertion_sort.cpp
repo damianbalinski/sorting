@@ -1,6 +1,6 @@
 #include "insertion_sort.hpp"
-#include "types.hpp"
-#include <cstddef>
+
+// TODO poprawic opis
 
 /**
  * SORTOWANIE PRZEZ WSTAWIANIE (INSERTION SORT)
@@ -15,7 +15,7 @@
  * Algorytm sk³ada siê z n itracji. W k-tej iteracji bierzemy tablicê rozmiaru k+1,
  * gdzie pierwszych k-elementów jest posortowan¹ tablic¹ z poprzedniej iteracji,
  * zaœ k+1-ty element jest kluczem, który nale¿y wstawiæ do tej tablicy zgodnie
- * z porz¹dkiem sortowania. Pod koniec k-tej iterazji pierwszych k+1 elementów
+ * z porz¹dkiem sortowania. Pod koniec k-tej iteracji pierwszych k+1 elementów
  * tablicy jest posortowanych, zatem po n-1 iteracjach ca³a tablica jest posortowana.
  * 
  * OPIS ALGORYTMU
@@ -24,7 +24,7 @@
  * w której pierwszych k-elementów jest posortowanych z poprzedniej iteracji, zaœ
  * ostatni element jest kluczem, który nale¿y wstawiæ do tej tablicy zgodnie z
  * porz¹dkiem sortowania. Wewn¹trz pêtli while przechodzimy oraz przesuwamy w
- * prawo elementy tablicy od elementu przedostniego (indeks i-1) do elementu
+ * prawo elementy tablicy od elementu przedostatniego (indeks i-1) do elementu
  * pierwszego (indeks 0). Przesuwanie koñczymy, gdy natrafimy na element
  * mniejszy/równy od klucza. Po wyjœciu z pêtli while w zwolnionym miejscu
  * wstawiamy klucz, otrzymuj¹c posortowan¹ tablicê d³ugoœci k+1.
@@ -49,14 +49,14 @@ void insertion_sort::sort(int arr[], const size_t n, const comparator& comp)
     for (size_t i = 1; i < n; i++)
     {
         const int key = arr[i];
-        number j = i - 1;
+        size_t j = i;
 
-        while (j >= 0 && comp.gt(arr[j], key))
+        while (j >= 1 && comp.gt(arr[j-1], key))
         {
-            arr[j+1] = arr[j];
+            arr[j] = arr[j-1];
             j--;
         }
 
-        arr[j+1] = key;
+        arr[j] = key;
     }
 }
