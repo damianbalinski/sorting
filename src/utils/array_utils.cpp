@@ -3,12 +3,18 @@
 #include <sstream>
 #include <ctime>
 
-std::string arr_to_string(int* const arr, const size_t n)
+int __static_srand()
+{
+	srand(time(NULL));
+	return 0;
+}
+
+std::string arr_to_string(const int* const arr, const size_t n)
 {
 	return arr_to_string(arr, n, ' ');
 }
 
-std::string arr_to_string(int* const arr, const size_t n, const char separator)
+std::string arr_to_string(const int* const arr, const size_t n, const char separator)
 {
 	std::ostringstream os;
 	for (size_t i = 0; i < n; i++) {
@@ -17,7 +23,7 @@ std::string arr_to_string(int* const arr, const size_t n, const char separator)
 	return os.str();
 }
 
-std::string arr_to_string_with_ids(int* const arr, const size_t n)
+std::string arr_to_string_with_ids(const int* const arr, const size_t n)
 {
 	std::ostringstream os;
 	for (size_t i = 0; i < n; i++) {
@@ -28,10 +34,22 @@ std::string arr_to_string_with_ids(int* const arr, const size_t n)
 
 int* arr_random_natural(const size_t n)
 {
-	srand(time(0));
+	static int __ignored = __static_srand();
 	
 	int* arr = new int[n];
 	for (size_t i = 0; i < n; i++)
 		arr[i] = rand();
 	return arr;
+}
+
+int* arr_copy(const int* const src, const size_t n)
+{
+	int* const dest = new int[n];
+	memcpy(dest, src, n*sizeof(int));
+	return dest;
+}
+
+void arr_copy(int* const dest, const int* const src, const size_t n)
+{
+	memcpy(dest, src, n*sizeof(int));
 }

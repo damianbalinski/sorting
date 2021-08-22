@@ -18,3 +18,4 @@ SHELL SORT
 dla optymistycznego przypadku insertion sort wykonuje sie w czasie O(n)
 
 - poprawic opic insertion-sort
+- rozwa¿yæ opcjê u¿ycia wrappera array<int> zamiast int[], mo¿liwoœæ u¿ycia asercji

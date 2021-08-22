@@ -15,7 +15,7 @@ inline void __pretty_assertion(const std::string& msg)
 	abort();
 }
 
-inline void __pretty_assertion_with_arr(int* const arr, const size_t n, const std::string& msg)
+inline void __pretty_assertion_with_arr(const int* const arr, const size_t n, const std::string& msg)
 {
 	std::cerr << "assertion failed" << std::endl;
 	std::cerr << RED << arr_to_string_with_ids(arr, n) << msg << WHITE << std::endl;
@@ -41,7 +41,7 @@ void __check_num_greater_than_other(const int a, const int b)
 		__pretty_assertion(fmt::format("Number {} is not greater than {}", a, b));
 }
 
-void __check_arr_sorted(int* const arr, const size_t n, const comparator& comp)
+void __check_arr_sorted(const int* const arr, const size_t n, const comparator& comp)
 {
 	for (size_t i = 0; i < n - 1; i++)
 	{
@@ -54,7 +54,7 @@ void __check_arr_sorted(int* const arr, const size_t n, const comparator& comp)
 	}
 }
 
-void __check_arr_partitioned(int* const arr, const size_t n, const size_t pivot, const comparator& comp)
+void __check_arr_partitioned(const int* const arr, const size_t n, const size_t pivot, const comparator& comp)
 {
 	for (size_t i = 0; i < pivot; i++)
 	{
@@ -72,6 +72,19 @@ void __check_arr_partitioned(int* const arr, const size_t n, const size_t pivot,
 		{
 			__pretty_assertion_with_arr(arr, n,
 				fmt::format("Array is not partitioned at position {} [{}], pivot {} [{}]", i, arr[i], pivot, arr[pivot])
+			);
+		}
+	}
+}
+
+void __check_arr_equal(const int* const arr1, const int* const arr2, const size_t n, const comparator& comp)
+{
+	for (size_t i = 0; i < n; i++)
+	{
+		if (comp.ne(arr1[i], arr2[i]))
+		{
+			__pretty_assertion_with_arr(arr1, n,
+				fmt::format("Arrays are not equal at position {} [{} != {}]", i, arr1[i], arr2[i])
 			);
 		}
 	}
