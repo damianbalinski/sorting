@@ -53,3 +53,11 @@ void arr_copy(int* const dest, const int* const src, const size_t n)
 {
 	memcpy(dest, src, n*sizeof(int));
 }
+
+size_t* arr_from(const size_t a, const size_t b)
+{
+	size_t* const arr = new size_t[2];
+	arr[0] = a;
+	arr[1] = b;
+	return arr;
+}
