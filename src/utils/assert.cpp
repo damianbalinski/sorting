@@ -89,3 +89,16 @@ void __check_arr_equal(const int* const arr1, const int* const arr2, const size_
 		}
 	}
 }
+
+void __check_arr_in_range_right_open(const int* arr, const size_t n, const int max)
+{
+	for (size_t i = 0; i < n; i++)
+	{
+		if (!(arr[i] >= 0 && arr[i] < max))
+		{
+			__pretty_assertion_with_arr(arr, n,
+				fmt::format("Arrays is not in range [0, {}) at position {} [{}]", max, i, arr[i])
+			);
+		}
+	}
+}
