@@ -19,3 +19,10 @@ dla optymistycznego przypadku insertion sort wykonuje sie w czasie O(n)
 
 - poprawic opic insertion-sort
 - rozwa¿yæ opcjê u¿ycia wrappera array<int> zamiast int[], mo¿liwoœæ u¿ycia asercji
+
+- dodac gapper do shell-sort, gapper to obiekt wyliczajacy gap na podstawie poprzedniego
+- rozwazyc dodanie gap do bubble sort
+- rozwazyc dodanie gap do insertion_sort
+- rozwazyc dodanie swapped do bubble sort
+
+- zmienic nazwa katalogu z indexing na positioning, dodac implementacje gapperow

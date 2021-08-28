@@ -24,7 +24,7 @@ using std::string;
 
 int main(int argc, char** argv)
 {
-	const size_t n = 100;
+	const size_t n = 5000;
 	int* arr = arr_random_in_range(n, bucket_sort::MAX);
 	bucket_sort sort;
 	asc_comparator comp;
