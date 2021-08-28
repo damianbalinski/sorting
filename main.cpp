@@ -14,6 +14,7 @@
 #include "dual_pivot_quick_sort.hpp"
 #include "counting_sort.hpp"
 #include "radix_sort.hpp"
+#include "bucket_sort.hpp"
 #include "simple_indexer.hpp"
 #include "radix_indexer.hpp"
 
@@ -21,19 +22,15 @@ using std::cout;
 using std::endl;
 using std::string;
 
-size_t my_function(int* arr, size_t n)
-{
-	return arr[n];
-}
-
 int main(int argc, char** argv)
 {
-	const size_t n = 10000;
-	int* arr = arr_random_in_range(n, counting_sort::MAX);
-	counting_sort sort;
+	const size_t n = 100;
+	int* arr = arr_random_in_range(n, bucket_sort::MAX);
+	bucket_sort sort;
 	asc_comparator comp;
 	sort(arr, n, comp);
 	check_arr_sorted(arr, n, comp);
-
+	cout << arr_to_string_with_ids(arr, n) << endl;
+	
 	return 0;
 }

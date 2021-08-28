@@ -1,11 +1,13 @@
 #pragma once
 #include "indexer.hpp"
 
-class simple_indexer: public indexer
+class bucket_indexer : public indexer
 {
 public:
-	simple_indexer(const size_t max) : indexer(max) {}
+	const size_t buckets;
 	
+	bucket_indexer(const size_t max, const size_t buckets) : indexer(max), buckets(buckets) {}
+
 	size_t operator()(const int arr[], const size_t i) const override { return index(arr, i); }
 
 private:

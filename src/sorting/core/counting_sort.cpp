@@ -1,6 +1,5 @@
 #include "counting_sort.hpp"
 #include "array_utils.hpp"
-#include "assert.hpp"
 
 size_t const counting_sort::MAX = 1024;
 
