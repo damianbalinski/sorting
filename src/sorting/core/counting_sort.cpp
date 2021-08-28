@@ -2,7 +2,7 @@
 #include "array_utils.hpp"
 #include "assert.hpp"
 
-int counting_sort::MAX = 1024;
+size_t const counting_sort::MAX = 1024;
 
 /**
  * ?? (??)
@@ -30,24 +30,22 @@ int counting_sort::MAX = 1024;
  * Z£O¯ONOŒÆ PAMIÊCIOWA ??
  * ?? - nie potrzebuje dodatkowej pamiêci
  */
-void counting_sort::sort(int arr[], const size_t n, const int max)
+void counting_sort::sort(int arr[], const size_t n, const indexer& indexer)
 {
-	check_arr_in_range_right_open(arr, n, max);
-	
 	int* res = new int[n];
-	size_t* count = new size_t[max+1]();
+	size_t* count = new size_t[indexer.max]();
 
 	for (size_t i = 0; i < n; i++)
-		count[arr[i]]++;
+		count[indexer(arr,i)]++;
 
-	for (int i = 1; i < max; i++)
+	for (size_t i = 1; i < indexer.max; i++)
 		count[i] += count[i-1];
 
 	for (size_t i = n; i > 0; i--)
 	{
 		const size_t j = i-1;
-		res[count[arr[j]]-1] = arr[j];
-		count[arr[j]]--;
+		res[count[indexer(arr,j)]-1] = arr[j];
+		count[indexer(arr,j)]--;
 	}
 
 	arr_copy(arr, res, n);

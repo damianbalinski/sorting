@@ -29,6 +29,12 @@ void __check_num_in_range(const int a, const int min, const int max)
 		__pretty_assertion(fmt::format("Number {} is not in range ({}, {})", a, min, max));
 }
 
+void __check_num_in_range_right_open(const size_t a, const size_t min, const size_t max)
+{
+	if (!(a >= min && a < max))
+		__pretty_assertion(fmt::format("Number {} is not in range ({}, {})", a, min, max));
+}
+
 void __check_num_greater_than_zero(const int n)
 {
 	if (!(n > 0))
@@ -85,19 +91,6 @@ void __check_arr_equal(const int* const arr1, const int* const arr2, const size_
 		{
 			__pretty_assertion_with_arr(arr1, n,
 				fmt::format("Arrays are not equal at position {} [{} != {}]", i, arr1[i], arr2[i])
-			);
-		}
-	}
-}
-
-void __check_arr_in_range_right_open(const int* arr, const size_t n, const int max)
-{
-	for (size_t i = 0; i < n; i++)
-	{
-		if (!(arr[i] >= 0 && arr[i] < max))
-		{
-			__pretty_assertion_with_arr(arr, n,
-				fmt::format("Arrays is not in range [0, {}) at position {} [{}]", max, i, arr[i])
 			);
 		}
 	}
