@@ -13,11 +13,12 @@
       "variables": [
         {
           "name": "CMAKE_TOOLCHAIN_FILE",
-          "value": "C:\\Users\\gumis\\lib\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
+          "value": "${env.USERPROFILE}\\lib\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
         },
         {
           "name": "CMAKE_PREFIX_PATH",
-          "value": "C:\\Users\\gumis\\lib\\vcpkg\\installed\\x86-windows\\share"
+          "value": "${env.USERPROFILE}\\lib\\vcpkg\\installed\\x86-windows\\share"
+
         }
       ]
     }
