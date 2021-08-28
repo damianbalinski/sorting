@@ -17,6 +17,7 @@
 #include "bucket_sort.hpp"
 #include "simple_indexer.hpp"
 #include "radix_indexer.hpp"
+#include "comb_gapper.hpp"
 
 using std::cout;
 using std::endl;
@@ -24,13 +25,8 @@ using std::string;
 
 int main(int argc, char** argv)
 {
-	const size_t n = 5000;
-	int* arr = arr_random_in_range(n, bucket_sort::MAX);
-	bucket_sort sort;
-	asc_comparator comp;
-	sort(arr, n, comp);
-	check_arr_sorted(arr, n, comp);
-	cout << arr_to_string_with_ids(arr, n) << endl;
+	const size_t n = 10000;
+	comb_gapper gapper;
 	
 	return 0;
 }
