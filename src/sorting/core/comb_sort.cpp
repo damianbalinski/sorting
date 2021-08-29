@@ -1,4 +1,6 @@
-#include "shell_sort.hpp"
+#include "comb_sort.hpp"
+#include "bubble_sort.hpp"
+#include "swap.hpp"
 
 /**
  * SORTOWANIE SHELLA (SHELL SORT)
@@ -26,22 +28,13 @@
  * Z£O¯ONOŒÆ PAMIÊCIOWA ??
  * ?? - nie potrzebuje dodatkowej pamiêci
  */
-void shell_sort::sort(int arr[], const size_t n, const comparator& comp, const gapper& gapper)
+void comb_sort::sort(int arr[], const size_t n, const comparator& comp, const gapper& gapper)
 {
+
 	for (size_t gap = gapper(n); gap > 0; gap = gapper(gap))
-	{
-        for (size_t i = gap; i < n; i++)
-        {
-            const int key = arr[i];
-            size_t j = i;
+		for (size_t i = 0; i < n-gap; i++)
+			if (arr[i] > arr[i+gap])
+				swap(&arr[i], &arr[i+gap]);
 
-            while (j >= gap && comp.gt(arr[j-gap], key))
-            {
-                arr[j] = arr[j-gap];
-                j -= gap;
-            }
-
-            arr[j] = key;
-        }
-	}
+	bubble_sort::sort(arr, n, comp, swapper());
 }
