@@ -83,6 +83,28 @@ void __check_arr_partitioned(const int* const arr, const size_t n, const size_t 
 	}
 }
 
+void __check_arr_is_binary_max_heap(const int* const arr, const size_t n, const comparator& comp)
+{
+	for (size_t i = 0; i < n; i++)
+	{
+		const size_t left = 2*i + 1;
+		if (left < n && comp.gt(arr[left], arr[i]))
+		{
+			__pretty_assertion_with_arr(arr, n,
+				fmt::format("Array is not binary max heap at position {} [{}], left {} [{}]", i, arr[i], left, arr[left])
+			);
+		}
+
+		const size_t right = 2*i + 2;
+		if (right < n && comp.gt(arr[right], arr[i]))
+		{
+			__pretty_assertion_with_arr(arr, n,
+				fmt::format("Array is not binary max heap at position {} [{}], right {} [{}]", i, arr[i], right, arr[right])
+			);
+		}
+	}
+}
+
 void __check_arr_equal(const int* const arr1, const int* const arr2, const size_t n, const comparator& comp)
 {
 	for (size_t i = 0; i < n; i++)
