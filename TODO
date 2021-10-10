@@ -1,5 +1,8 @@
+- do opisu algorytmów, w seksji opis dodaæ opis linijki, która jest odpowiedzialna za wyjœcie z pêtli
+
+- przerobiæ opisy algorytmów, bez znaków w opisie ogólnym, tylko ogólna koncepcja
+
 - przygotowac plik z testowymi tablicami oraz ich rozmiarami, pusta tablica, talica tych samuch liczb, przypadki graniczne, ostatnia niepasujaca, 
-- przygotowac util do kopiowania tablicy
 
 - bubble sort rekursja ogonowa
 - insertion sort rekursja ogonowa
@@ -17,12 +20,10 @@ SHELL SORT
 - algorytm jest ulepszona wersja insertion sort, wykorzystujemy fakt, ze
 dla optymistycznego przypadku insertion sort wykonuje sie w czasie O(n)
 
-- poprawic opic insertion-sort
 - rozwa¿yæ opcjê u¿ycia wrappera array<int> zamiast int[], mo¿liwoœæ u¿ycia asercji
 
-- dodac gapper do shell-sort, gapper to obiekt wyliczajacy gap na podstawie poprzedniego
 - rozwazyc dodanie gap do bubble sort
 - rozwazyc dodanie gap do insertion_sort
 - rozwazyc dodanie swapped do bubble sort
 
-- zmienic nazwa katalogu z indexing na positioning, dodac implementacje gapperow
+- implementacja std::sort

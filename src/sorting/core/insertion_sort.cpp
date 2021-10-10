@@ -1,7 +1,5 @@
 #include "insertion_sort.hpp"
 
-// TODO poprawic opis
-
 /**
  * SORTOWANIE PRZEZ WSTAWIANIE (INSERTION SORT)
  * 
@@ -12,22 +10,17 @@
  * dzia³a w miejscu          - TAK
  *
  * IDEA ALGORYTMU
- * Algorytm sk³ada siê z n itracji. W k-tej iteracji bierzemy tablicê rozmiaru k+1,
- * gdzie pierwszych k-elementów jest posortowan¹ tablic¹ z poprzedniej iteracji,
- * zaœ k+1-ty element jest kluczem, który nale¿y wstawiæ do tej tablicy zgodnie
- * z porz¹dkiem sortowania. Pod koniec k-tej iteracji pierwszych k+1 elementów
- * tablicy jest posortowanych, zatem po n-1 iteracjach ca³a tablica jest posortowana.
+ * Algorytm sk³ada siê z n iteracji. W ka¿dej iteracji do posortowanej tablicy
+ * wstawiamy nowy element na odpowiedniej pozycji, otrzymuj¹c posortowan¹ tablicê
+ * o jeden element d³u¿sz¹. Po n-1 iteracjach ca³a tablica jest posortowana.
  * 
  * OPIS ALGORYTMU
- * Pêtlê for zaczynamy od tablicy rozmiaru 2, poniewa¿ tablica jednoelementowa
- * jest zawsze posortowana. W k-tej iteracji rozpatrujemy tablicê rozmiaru k+1,
- * w której pierwszych k-elementów jest posortowanych z poprzedniej iteracji, zaœ
- * ostatni element jest kluczem, który nale¿y wstawiæ do tej tablicy zgodnie z
- * porz¹dkiem sortowania. Wewn¹trz pêtli while przechodzimy oraz przesuwamy w
- * prawo elementy tablicy od elementu przedostatniego (indeks i-1) do elementu
- * pierwszego (indeks 0). Przesuwanie koñczymy, gdy natrafimy na element
- * mniejszy/równy od klucza. Po wyjœciu z pêtli while w zwolnionym miejscu
- * wstawiamy klucz, otrzymuj¹c posortowan¹ tablicê d³ugoœci k+1.
+ * Pêtlê zewnêtrzn¹ zaczynamy od elementu na pozycji 2, poniewa¿ tablica
+ * jednoelementowa jest posortowana.  W k-tej iteracji pêtli zewnêtrznej dysponujemy
+ * posortowan¹ tablic¹ rozmiaru k oraz k+1-tym elementem, który nale¿y wstawiæ do
+ * tej tablicy. W pêtli wewnêtrznej przechodzimy tablicê od koñca, szukaj¹c miejsca
+ * dla nowego elementu. Element ten wstawiamy do tablicy, przesuwaj¹c wszystich
+ * s¹siadów wiêkszych od niego o jedno miejsce w prawo. 
  * 
  * Z£O¯ONOŒÆ CZASOWA OPTYMISTYCZNA O(n) - tablica posortowana
  * O(n) - zewnêtrzna petla for
