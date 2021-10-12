@@ -1,7 +1,7 @@
 #include "maximum.hpp"
 #include "assert.hpp"
 
-int maximum(int* const arr, const size_t n, const comparator& comp)
+int maximum(const int* const arr, const size_t n, const comparator& comp)
 {
 	check_num_greater_than_zero(n);
 	int max = arr[0];
@@ -14,7 +14,7 @@ int maximum(int* const arr, const size_t n, const comparator& comp)
 	return max;
 }
 
-size_t maximum_index(int* const arr, const size_t n, const comparator& comp)
+size_t maximum_index(const int* const arr, const size_t n, const comparator& comp)
 {
 	check_num_greater_than_zero(n);
 	size_t max = 0;
