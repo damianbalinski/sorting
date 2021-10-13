@@ -1,7 +1,6 @@
 #include "quick_sort.hpp"
 #include "quick_partition.hpp"
 
-// TODO opis
 /*
  * Algorytm quick sort sk³ada siê z dwóch kroków. Pierwszym z nich jest partycja
  * tablicy na dwie czêœci. Nastêpnie rekurencyjnie sortujemy ka¿d¹ z otrzymanych

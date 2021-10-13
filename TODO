@@ -27,3 +27,11 @@ dla optymistycznego przypadku insertion sort wykonuje sie w czasie O(n)
 - rozwazyc dodanie swapped do bubble sort
 
 - implementacja std::sort
+
+- dodac pivot_selector -> wyszukuje pivota oraz, jesli to konieczne, zamienia miejscami elementy
+- simple_pivot_selector
+- median_of_three_pivot_selector
+- dual_pivot_selector
+- simple_sual_pivot_selector
+
+- usunac tworzenie binary_max_heap w intro_sort

@@ -6,8 +6,11 @@
 class heap_sort : public sorting
 {
 public:
-	void operator()(int arr[], const size_t n, const comparator& comp) const override { sort(arr, n, comp, binary_max_heap()); }
+	void operator()(int arr[], const size_t n, const comparator& comp) const override { sort(arr, n, comp); }
+
+	static void sort(int arr[], size_t n, const comparator& comp) { sort(arr, n, comp, binary_max_heap()); }
 
 private:
+	
 	static void sort(int arr[], size_t n, const comparator& comp, const heap& heap);
 };
