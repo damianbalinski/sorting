@@ -9,3 +9,4 @@ public:
 private:
 	static size_t select(int arr[], size_t n, const comparator& comp);
 };
+ 

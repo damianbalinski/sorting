@@ -1,5 +1,6 @@
 #include "quick_sort.hpp"
 #include "quick_partition.hpp"
+#include "simple_pivot_selector.hpp"
 
 /*
  * Algorytm quick sort sk³ada siê z dwóch kroków. Pierwszym z nich jest partycja
@@ -36,7 +37,7 @@ void quick_sort::sort(int arr[], const size_t n, const comparator& comp)
 {
     if (n > 1)
     {
-        const size_t pivot = quick_partition::partition(arr, n, comp);
+        const size_t pivot = quick_partition::partition(arr, n, comp, simple_pivot_selector());
         sort(arr, pivot, comp);
     	sort(arr+(pivot+1), n-(pivot+1), comp);
     }

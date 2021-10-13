@@ -1,9 +1,12 @@
 #include "quick_partition.hpp"
 #include "swap.hpp"
 
-size_t quick_partition::partition(int arr[], const size_t n, const comparator& comp)
+const pivot_selector& quick_partition::DEFAULT_PIVOT_SELECTOR = simple_pivot_selector{};
+
+size_t quick_partition::partition(int arr[], const size_t n, const comparator& comp, const pivot_selector& pivot_selector)
 {
-	int pivot = arr[n-1];
+	const size_t pivot_index = pivot_selector(arr, n, comp);
+	int pivot = arr[pivot_index];
 	size_t i = 0;
 
 	for (size_t j = 0; j < n; j++)
@@ -15,6 +18,6 @@ size_t quick_partition::partition(int arr[], const size_t n, const comparator& c
         }
     }
 
-	swap(&arr[i], &arr[n-1]);
+	swap(&arr[i], &arr[pivot_index]);
 	return i;
 }
