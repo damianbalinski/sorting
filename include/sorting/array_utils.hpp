@@ -13,6 +13,6 @@ int* arr_random_in_range(size_t n, int max);
 
 int* arr_copy(const int* src, size_t n);
 
-void arr_copy(int* dest, const int* src, size_t n);
+int* arr_copy(int* dest, const int* src, size_t n);
 
 size_t* arr_from(size_t a, size_t b);

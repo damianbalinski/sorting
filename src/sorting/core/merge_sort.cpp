@@ -1,8 +1,6 @@
 #include "merge_sort.hpp"
 #include "array_utils.hpp"
 
-// TODO przeniesc kopiowanie tablicy z metody merge do metody sort
-
 /**
  * SORTOWANIE PRZEZ SCALANIE (MERGE SORT)
  *
@@ -38,14 +36,17 @@ void merge_sort::sort(int arr[], const size_t n, const comparator& comp)
 		
 		sort(arr, n1, comp);
 		sort(arr+n1, n2, comp);
-		merge(arr, n1, n2, comp);
+
+		int* buff = new int[n1];
+		merge(arr, buff, n1, n2, comp);
+		delete [] buff;
 	}
 }
 
-void merge_sort::merge(int arr[], const size_t n1, const size_t n2, const comparator& comp)
+void merge_sort::merge(int arr[], int buff[], const size_t n1, const size_t n2, const comparator& comp)
 {
-	int* left = arr_copy(arr, n1);
-	int* right = arr_copy(arr+n1, n2);
+	int* left = arr_copy(buff, arr, n1);
+	int* right = arr + n1;
 
 	size_t i, j, k;
 	i = j = k = 0;
@@ -60,9 +61,4 @@ void merge_sort::merge(int arr[], const size_t n1, const size_t n2, const compar
 
 	if (i < n1)
 		arr_copy(arr+k, left+i, n1-i);
-	else if (j < n2)
-		arr_copy(arr+k, right+j, n2-j);
-
-	delete [] left;
-	delete [] right;
 }

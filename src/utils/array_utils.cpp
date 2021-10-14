@@ -64,9 +64,10 @@ int* arr_copy(const int* const src, const size_t n)
 	return dest;
 }
 
-void arr_copy(int* const dest, const int* const src, const size_t n)
+int* arr_copy(int* const dest, const int* const src, const size_t n)
 {
 	memcpy(dest, src, n*sizeof(int));
+	return dest;
 }
 
 size_t* arr_from(const size_t a, const size_t b)
