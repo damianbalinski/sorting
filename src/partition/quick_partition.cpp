@@ -1,4 +1,5 @@
 #include "quick_partition.hpp"
+#include "simple_pivot_selector.hpp"
 #include "swap.hpp"
 
 const pivot_selector& quick_partition::DEFAULT_PIVOT_SELECTOR = simple_pivot_selector{};

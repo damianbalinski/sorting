@@ -1,7 +1,6 @@
 #pragma once
 #include "partition.hpp"
 #include "pivot_selector.hpp"
-#include "simple_pivot_selector.hpp"
 
 class quick_partition: public partition
 {

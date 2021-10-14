@@ -1,8 +1,7 @@
 #include "intro_sort.hpp"
 #include "insertion_sort.hpp"
 #include "heap_sort.hpp"
-#include "median_of_three.hpp"
-#include "swap.hpp"
+#include "median_of_three_pivot_selector.hpp"
 #include "quick_partition.hpp"
 
 /**
@@ -44,10 +43,7 @@ void intro_sort::sort(int arr[], const size_t n, const size_t depth, const compa
 		heap_sort::sort(arr, n, comp);
 	}
 
-	const size_t median = median_of_three_index(arr, n, comp);
-	swap(&arr[median], &arr[n-1]);
-
-	const size_t pivot = quick_partition::partition(arr, n, comp);
+	const size_t pivot = quick_partition::partition(arr, n, comp, median_of_three_pivot_selector());
 	sort(arr, pivot, depth - 1, comp);
 	sort(arr+pivot+1, n - (pivot + 1), depth - 1, comp);
 }

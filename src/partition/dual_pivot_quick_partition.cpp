@@ -1,18 +1,22 @@
 #include "dual_pivot_quick_partition.hpp"
+#include "simple_dual_pivot_selector.hpp"
 #include "array_utils.hpp"
 #include "swap.hpp"
 
-const size_t* dual_pivot_quick_partition::partition(int arr[], const size_t n, const comparator& comp)
-{
-	const size_t left_pivot_pos = 0;
-	const size_t right_pivot_pos = n-1;
+const multi_pivot_selector& dual_pivot_quick_partition::DEFAULT_DUAL_PIVOT_SELECTOR = simple_dual_pivot_selector{};
 
-	swap_in_order(&arr[left_pivot_pos], &arr[right_pivot_pos], comp);
-	const int left_pivot = arr[left_pivot_pos];
-	const int right_pivot = arr[right_pivot_pos];
+size_t* dual_pivot_quick_partition::partition(int arr[], const size_t n, const comparator& comp, const multi_pivot_selector& multi_pivot_selector)
+{
+	const size_t* pivots = multi_pivot_selector(arr, n, 2, comp);
+	const size_t left_index = pivots[0];
+	const size_t right_index = pivots[1];
+	delete [] pivots;
 	
-	size_t i = left_pivot_pos + 1;
-	size_t j = right_pivot_pos - 1;
+	const int left_pivot = arr[left_index];
+	const int right_pivot = arr[right_index];
+	
+	size_t i = left_index + 1;
+	size_t j = right_index - 1;
 	size_t k = i;
 
 	while (k <= j)
@@ -34,7 +38,7 @@ const size_t* dual_pivot_quick_partition::partition(int arr[], const size_t n, c
 
 	i--;
 	j++;
-	swap(&arr[left_pivot_pos], &arr[i]);
-	swap(&arr[right_pivot_pos], &arr[j]);
+	swap(&arr[left_index], &arr[i]);
+	swap(&arr[right_index], &arr[j]);
 	return arr_from(i, j);
 }

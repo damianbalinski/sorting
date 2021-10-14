@@ -33,5 +33,7 @@ dla optymistycznego przypadku insertion sort wykonuje sie w czasie O(n)
 - median_of_three_pivot_selector
 - dual_pivot_selector
 - simple_sual_pivot_selector
+- Library sort, or gapped insertion sort
+- Timsort (sortowanie typów obiektowych w javie wykorzystuje algorytm TimSort)
 
 - usunac tworzenie binary_max_heap w intro_sort

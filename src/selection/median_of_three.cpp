@@ -1,9 +1,5 @@
 #include "median_of_three.hpp"
-
-inline size_t safe_mean_of_two(const size_t a, const size_t b)
-{
-	return a + (b-a)/2;
-}
+#include "numeric_utils.hpp"
 
 int median_of_three(const int* const arr, const size_t n, const comparator& comp)
 {
