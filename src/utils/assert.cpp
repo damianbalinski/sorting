@@ -1,11 +1,9 @@
 #include "assert.hpp"
 #include "array_utils.hpp"
+#include "colors.hpp"
 #include <iostream>
 #include <string>
 #include <fmt/format.h>
-
-#define RED     "\033[31m"
-#define WHITE   "\033[37m"
 
 inline void __pretty_assertion(const std::string& msg)
 {
