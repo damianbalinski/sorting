@@ -1,4 +1,5 @@
 #include "array_utils.hpp"
+#include "swap.hpp"
 #include <string>
 #include <sstream>
 #include <ctime>
@@ -67,6 +68,13 @@ int* arr_copy(const int* const src, const size_t n)
 int* arr_copy(int* const dest, const int* const src, const size_t n)
 {
 	memcpy(dest, src, n*sizeof(int));
+	return dest;
+}
+
+int* arr_swap(int* const dest, int* const src, const size_t n)
+{
+	for (size_t i=0; i<n; i++)
+		swap(&dest[i], &src[i]);
 	return dest;
 }
 
