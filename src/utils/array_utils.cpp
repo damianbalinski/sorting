@@ -1,6 +1,6 @@
 #include "array_utils.hpp"
 #include "swap.hpp"
-#include <string>
+#include "colors.hpp"
 #include <sstream>
 #include <ctime>
 
@@ -17,15 +17,31 @@ void set_random_seed()
 
 std::string arr_to_string(const int* const arr, const size_t n)
 {
-	return arr_to_string(arr, n, ' ');
+	return arr_to_string(arr, n, ' ', WHITE);
 }
 
-std::string arr_to_string(const int* const arr, const size_t n, const char separator)
+std::string arr_to_string(const int* const arr, const size_t n, const char separator, const char* const color)
 {
 	std::ostringstream os;
+	os << color;
 	for (size_t i = 0; i < n; i++) {
 		os << arr[i] << separator;
 	}
+	os << WHITE;
+	return os.str();
+}
+
+std::string arr_to_string_with_pivot(const int* const arr, const size_t n, const size_t pivot)
+{
+	return arr_to_string_with_pivot(arr, n, pivot, ' ', WHITE, BLUE);
+}
+
+std::string arr_to_string_with_pivot(const int* const arr, const size_t n, const size_t pivot, const char separator, const char* const color, const char* const pivot_color)
+{
+	std::ostringstream os;
+	os << arr_to_string(arr, pivot, separator, color);
+	os << pivot_color << pivot << color << separator;
+	os << arr_to_string(arr+pivot+1, n-pivot-1, separator, color);
 	return os.str();
 }
 
