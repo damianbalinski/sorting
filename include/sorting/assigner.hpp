@@ -20,3 +20,14 @@ public:
 	int assign(const int dest) const { return dest; }
 	int* assign_many(int* const dest, const int* const src, size_t n) const { return __assign_many(dest, src, n); }
 };
+
+class counting_assigner : public assigner
+{
+public:
+	counting_assigner(size_t* const counter): counter(counter) {}
+	int assign(const int dest) const { (*counter)++; return dest; }
+	int* assign_many(int* const dest, const int* const src, size_t n) const { (*counter) += n; return __assign_many(dest, src, n); }
+
+private:
+	size_t* const counter;
+};

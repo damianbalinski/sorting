@@ -29,7 +29,8 @@
 #include "debugger.hpp"
 #include "colors.hpp"
 #include "operation.hpp"
-#include "comparator.hpp"
+#include "swapper.hpp"
+#include "assigner.hpp"
 
 using std::cout;
 using std::endl;
@@ -37,17 +38,27 @@ using std::string;
 
 int main(int argc, char** argv)
 {
-	const size_t n = 1000;
+	size_t COMPARISONS = 0;
+	size_t SWAPS = 0;
+	size_t ASSIGNS = 0;
+
+	const size_t n = 10000;
+	//int* arr = arr_random_natural(n);
 	int* arr = arr_random_in_range(n, 1000);
-	
+
 	operation oper(
-		asc_comparator{},
-		simple_swapper{}
+		counting_asc_comparator{&COMPARISONS},
+		counting_swapper{&SWAPS},
+		counting_assigner(&ASSIGNS)
 	);
 	
-	bubble_sort sort;
+	quick_sort sort;
 	sort(arr, n, oper);
-	
-	check_arr_sorted(arr, n, oper); 
+	check_arr_sorted(arr, n, oper);
+
+	cout << "comparisons: " << COMPARISONS << endl;
+	cout << "swaps      : " << SWAPS << endl;
+	cout << "assigns    : " << ASSIGNS << endl;
+
 	return 0;
 }
