@@ -1,0 +1,29 @@
+- pocz¹tki sortwania (Bubble Sort, Insertion Sort)
+- prze³om 1 (Quick Sort - brytyjski naukowiec Antony Hoare)
+- prze³om 2 (Vladimir Yaroslavskiy - )
+- dalsze wynalazki (QuickMerge, Intro Sort)
+
+Problem porz¹dkowania zbioru elementów towarzyszy ludzkoœci od zarania dziejów.
+Nic wiêc dziwnego, ¿e sortowanie jest jednym z najbardziej powszechnych problemów
+wspó³czenej informatyki. 
+
+W literaturze idea sortowania danych po raz pierwszy pojawi³a siê w ..., kiedy to ...
+opublikowa³ pracê ...,
+
+Od tamtego czasu wiele rzeczy siê zmieni³o, powstawa³y coraz to nowsze algorytmy sortuj¹ce.
+
+Prawdziwym prze³omem by³ rok ... kiedy to ... opracowa³ algorytm Dual Pivot Quick Sort.
+Przez kilka nastêpnych lat koncepcja sortowania wielopiwotowego zosta³a niesamowicie
+wyeksploatowana, a efekty badañ z tamtego okresu widoczne s¹ we wspó³czesnych implementacjach.
+Np. biblioteka standardowa javy do dnia dzisiajszego (java ...) stsuje algorytm
+dual pivot quick sort jako g³ówny algorytm sortuj¹cy.
+
+Mija³y lata, a wiemy ¿e je¿eli coœ siê nie rozwija to w œwiecie IT cofa siê.
+Wiemy ¿e ka¿dy z algorytmów ma swoje s³abe i mocne strony. Quick sort ... merge sort ...
+
+Ludzie zastanawiali siê w jaki sposób po³¹czyæ algorytmy sortuj¹ce w taki sposób, aby
+ko¿ystaæ z tego, co maj¹ najlepsze: tak narodzi³ siê pomys³ na QuickMergeSort
+
+Powsta³y algorytmy hybrydowe, czyli po³¹czenie wielu podstawowych algorytmów sortuj¹cych
+w specyficzny sposób. Dziêki czemu mo¿liwe jest wykorzystywanie zalet, które niesie ze
+sob¹ ka¿dy z algorytów oraz niwelowanie wad.

@@ -16,3 +16,4 @@ public:
 		*b = temp;
 	}
 };
+class counting_swapper : public swapper{};

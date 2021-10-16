@@ -1,16 +1,32 @@
+0. Wstêp
+   1. Historyjka
+   2. Zakres pracy, g³ówne sposoby na modyfikacjê algorytmów, za³o¿enia
+   3. Cel pracy
+   4. Przegl¹d literatury
+   5. Opis zawartoœci pracy
 1. S³ownik pojêæ.
    1. Notacja O()
-2. Wstêp ogólny (historyjka).
-3. Wstêp szczegó³owy
-   1. Idea pracy, g³ówne sposoby na modyfikacjê algorytmów, za³o¿enia
-   2. Cel pracy
-   2. Wykorzystane biblioteki
-2. Przegl¹d podstawowych algorytmów sortuj¹cych oraz problemy wynikaj¹ce z ich stosowania.
-   Takich jak: koniecznoœæ alokacji dodatkowego miejsca w pamiêci, du¿a liczba operacji porównania, s³aba pesymistyczna z³o¿onoœæ czasowa.
-   1. Quick Sort 
-   2. Merge Sort (ma³o porównañ, du¿a z³o¿onoœæ pamiêciowa)
-3. Przegl¹d hybrydowych algorytmów sortuj¹cych w miejscu.
+   2. Algorytm dzia³aj¹cy w miejscu
+   3. Algorytm stabilny
+2. Analiza problemu
+   1. Model matematyczny worst case
+   2. Model matematyczny average case
+3. Implementacja aplikacji
+   1. Wykorzystana technologia, C++, œrodowisk, budowanie aplikacji
+   2. Ogólna koncepcja
+   3. Model UML systemu, rozbicie na wstrzykiwane komponenty, wzorce projektowe
+   4. Implementacja QuickMerge w pseudokodzie
+3. Przegl¹d podstawowych algorytmów sortuj¹cych oraz problemy wynikaj¹ce z ich
+   stosowania (np. koniecznoœæ alokacji dodatkowego miejsca w pamiêci, du¿a liczba
+   operacji porównania, s³aba pesymistyczna z³o¿onoœæ czasowa)
+   1. Quick Sort, wykresy
+   2. Merge Sort, wykresy (ma³o porównañ, du¿a z³o¿onoœæ pamiêciowa)
+4. Przegl¹d hybrydowych algorytmów sortuj¹cych.
+   1. Intro Sort, wykresy
+   2. QuickMerge Sort, wykresy
 5. Testy
-   1. sposób testowania implementacji
+   1. Sposób testowania implementacji
    2. Testy czasowe
    3. Testy pamiêciowe
+6. Podsumowanie wyników
+7. Bibliografia

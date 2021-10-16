@@ -37,3 +37,28 @@ dla optymistycznego przypadku insertion sort wykonuje sie w czasie O(n)
 - Timsort (sortowanie typów obiektowych w javie wykorzystuje algorytm TimSort)
 
 - usunac tworzenie binary_max_heap w intro_sort
+
+- TODO ka¿dy rozdzia³ ma akapit wprowadzaj¹cy
+
+- opis algorytmow w pseudokdzie - algorithm2e
+
+- zliaczanie operacji w bucket_sort, counting_sort
+
+REFACTORING
+counting_sort - zliczac operacje przypisania i operacje na tablicy
+dual_pivot_quick_partition - swapper z oper
+quick_partition - swapper z oper
+median_of_three_pivot_selector - swapper z oper
+swap - przeniesc swap i swap_in_order do oper
+bucket_sort - zliczac operacje na tablicy
+comb_sort - swapper z oper
+heap_sort - swap z oper
+merge_sort - zliczac operacje przypisania
+selection_sort - swap z oper
+shell_sort - zliczac operacje przypisania
+quick_merge_sort - swap z oper
+binary_max_heap - swap z oper
+insertion_sort - zliczac operacje przypisania
+
+podczas zliczania wylaczyc asercje
+quick_merge_sort - zliczac operacje na tablicach

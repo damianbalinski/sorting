@@ -1,5 +1,4 @@
 #include "array_utils.hpp"
-#include "swap.hpp"
 #include "colors.hpp"
 #include <sstream>
 #include <ctime>
@@ -87,10 +86,10 @@ int* arr_copy(int* const dest, const int* const src, const size_t n)
 	return dest;
 }
 
-int* arr_swap(int* const dest, int* const src, const size_t n)
+int* arr_swap(int* const dest, int* const src, const size_t n, const operation& oper)
 {
 	for (size_t i=0; i<n; i++)
-		swap(&dest[i], &src[i]);
+		oper.swap(&dest[i], &src[i]);
 	return dest;
 }
 
