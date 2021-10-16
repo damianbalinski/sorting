@@ -46,7 +46,7 @@ void bucket_sort::sort(int arr[], const size_t n, const operation& oper, const b
 	for (size_t b = 0; b < indexer.buckets; b++)
 	{
 		const size_t n = buckets[b].size();
-		arr_copy(arr + k, buckets[b].data(), n);
+		oper.arr_copy(arr + k, buckets[b].data(), n);
 		k += n;
 	}
 	

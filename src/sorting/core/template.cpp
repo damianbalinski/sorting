@@ -1,11 +1,12 @@
 /**
  * ?? (??)
  * 
- * œrednia z³o¿onoœæ czasowa - ??
- * z³o¿onoœæ pamiêciowa      - ??
- * stabilny                  - ??
- * stabilny numerycznie      - ??
- * dzia³a w miejscu          - ??
+ * œrednia z³o¿onoœæ czasowa   - ??
+ * z³o¿onoœæ pamiêciowa        - ??
+ * stabilny                    - ??
+ * stabilny numerycznie        - ??
+ * dzia³a w miejscu            - ??
+ * mo¿liwy porz¹dek sortowania - ASC | DESC | ASC+DESC
  *
  * IDEA ALGORYTMU
  * ??

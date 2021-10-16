@@ -45,8 +45,8 @@ void merge_sort::sort(int arr[], const size_t n, const operation& oper)
 
 void merge_sort::merge(int arr[], int buff[], const size_t n1, const size_t n2, const operation& oper)
 {
-	int* left = arr_copy(buff, arr, n1);
-	int* right = arr + n1;
+	const int* const left = oper.arr_copy(buff, arr, n1);
+	const int* const right = arr + n1;
 
 	size_t i, j, k;
 	i = j = k = 0;
@@ -54,11 +54,11 @@ void merge_sort::merge(int arr[], int buff[], const size_t n1, const size_t n2, 
 	while (i < n1 && j < n2)
 	{
 		if (oper.lt(left[i], right[j]))
-			arr[k++] = left[i++];
+			arr[k++] = oper.assign(left[i++]);
 		else
-			arr[k++] = right[j++];
+			arr[k++] = oper.assign(right[j++]);
 	}
 
 	if (i < n1)
-		arr_copy(arr+k, left+i, n1-i);
+		oper.arr_copy(arr+k, left+i, n1-i);
 }

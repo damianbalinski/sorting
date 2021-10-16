@@ -2,3 +2,5 @@ decorator
 facade
 strategy
 builder
+
+klasy sa bezstanwe, wystepuje tylko przeplyw bez modyfikacji zawartosci

@@ -43,11 +43,11 @@ void counting_sort::sort(int arr[], const size_t n, const operation& oper, const
 	for (size_t i = n; i > 0; i--)
 	{
 		const size_t j = i-1;
-		res[count[indexer(arr,j)]-1] = arr[j];
+		res[count[indexer(arr,j)]-1] = oper.assign(arr[j]);
 		count[indexer(arr,j)]--;
 	}
 
-	arr_copy(arr, res, n);
+	oper.arr_copy(arr, res, n);
 	delete [] res;
 	delete [] count;
 }
