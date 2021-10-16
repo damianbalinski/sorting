@@ -1,5 +1,4 @@
 #include "binary_max_heap.hpp"
-#include "swap.hpp"
 
 void binary_max_heap::heap(int arr[], const size_t n, const operation& oper) const
 {
@@ -21,7 +20,7 @@ void binary_max_heap::heapify(int arr[], const size_t n, const size_t i, const o
 
 	if (largest != i)
 	{
-		swap(&arr[i], &arr[largest]);
+		oper.swap(&arr[i], &arr[largest]);
 		heapify(arr, n, largest, oper);
 	}
 }

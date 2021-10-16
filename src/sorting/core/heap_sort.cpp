@@ -1,5 +1,4 @@
 #include "heap_sort.hpp"
-#include "swap.hpp"
 
 /**
  * ?? (??)
@@ -33,7 +32,7 @@ void heap_sort::sort(int arr[], const size_t n, const operation& oper, const hea
 
 	for (size_t i = n; i > 0; i--)
 	{
-		swap(&arr[0], &arr[i-1]);
+		oper.swap(&arr[0], &arr[i-1]);
 		heap.heapify(arr, i-1, 0, oper);
 	}
 }

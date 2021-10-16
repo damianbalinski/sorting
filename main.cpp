@@ -37,11 +37,15 @@ using std::string;
 
 int main(int argc, char** argv)
 {
-	const size_t n = 10000;
+	const size_t n = 1000;
 	int* arr = arr_random_in_range(n, 1000);
 	
-	operation oper(desc_comparator{});
-	intro_sort sort;
+	operation oper(
+		asc_comparator{},
+		simple_swapper{}
+	);
+	
+	bubble_sort sort;
 	sort(arr, n, oper);
 	
 	check_arr_sorted(arr, n, oper); 

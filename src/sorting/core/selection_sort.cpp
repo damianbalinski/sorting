@@ -1,5 +1,4 @@
 #include "selection_sort.hpp"
-#include "swap.hpp"
 #include "maximum.hpp"
 
 /**
@@ -45,6 +44,6 @@ void selection_sort::sort(int arr[], const size_t n, const operation& oper)
     for (size_t i = n; i > 1; i--)
     {
         const size_t max = maximum_index(arr, i, oper);
-        swap(&arr[i-1], &arr[max]);
+        oper.swap(&arr[i-1], &arr[max]);
     }
 }
