@@ -1,7 +1,6 @@
 #include "quick_merge_sort.hpp"
 #include "quick_partition.hpp"
 #include "simple_pivot_selector.hpp"
-#include "array_utils.hpp"
 
 void quick_merge_sort::sort(int arr[], const size_t n, const operation& oper)
 {
@@ -40,7 +39,8 @@ void quick_merge_sort::merge_sort_by_swaps(int arr[], int buff[], const size_t n
 
 void quick_merge_sort::merge_by_swaps(int arr[], int buff[], const size_t n1, const size_t n2, const operation& oper)
 {
-	int* left = arr_swap(buff, arr, n1, oper);
+	oper.arr_swap(buff, arr, n1);
+	int* left = buff;
 	int* right = arr + n1;
 
 	size_t i, j, k;
@@ -55,5 +55,5 @@ void quick_merge_sort::merge_by_swaps(int arr[], int buff[], const size_t n1, co
 	}
 
 	if (i < n1)
-		arr_swap(arr + k, left + i, n1 - i, oper);
+		oper.arr_swap(arr+k, left+i, n1-i);
 }

@@ -86,13 +86,6 @@ int* arr_copy(int* const dest, const int* const src, const size_t n)
 	return dest;
 }
 
-int* arr_swap(int* const dest, int* const src, const size_t n, const operation& oper)
-{
-	for (size_t i=0; i<n; i++)
-		oper.swap(&dest[i], &src[i]);
-	return dest;
-}
-
 size_t* arr_from(const size_t a, const size_t b)
 {
 	size_t* const arr = new size_t[2];
