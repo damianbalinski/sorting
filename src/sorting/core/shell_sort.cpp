@@ -26,7 +26,7 @@
  * Z£O¯ONOŒÆ PAMIÊCIOWA ??
  * ?? - nie potrzebuje dodatkowej pamiêci
  */
-void shell_sort::sort(int arr[], const size_t n, const comparator& comp, const gapper& gapper)
+void shell_sort::sort(int arr[], const size_t n, const operation& oper, const gapper& gapper)
 {
 	for (size_t gap = gapper(n); gap > 0; gap = gapper(gap))
 	{
@@ -35,7 +35,7 @@ void shell_sort::sort(int arr[], const size_t n, const comparator& comp, const g
             const int key = arr[i];
             size_t j = i;
 
-            while (j >= gap && comp.gt(arr[j-gap], key))
+            while (j >= gap && oper.gt(arr[j-gap], key))
             {
                 arr[j] = arr[j-gap];
                 j -= gap;

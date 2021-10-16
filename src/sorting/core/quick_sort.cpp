@@ -33,12 +33,12 @@
  * Z£O¯ONOŒÆ PAMIÊCIOWA ??
  * ?? - nie potrzebuje dodatkowej pamiêci
  */
-void quick_sort::sort(int arr[], const size_t n, const comparator& comp)
+void quick_sort::sort(int arr[], const size_t n, const operation& oper)
 {
     if (n > 1)
     {
-        const size_t pivot = quick_partition::partition(arr, n, comp, simple_pivot_selector());
-        sort(arr, pivot, comp);
-    	sort(arr+(pivot+1), n-(pivot+1), comp);
+        const size_t pivot = quick_partition::partition(arr, n, oper, simple_pivot_selector());
+        sort(arr, pivot, oper);
+    	sort(arr+(pivot+1), n-(pivot+1), oper);
     }
 }

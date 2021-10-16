@@ -4,10 +4,10 @@
 class merge_sort : public sorting
 {
 public:
-	void operator()(int arr[], const size_t n, const comparator& comp) const override { sort(arr, n, comp); }
+	void operator()(int arr[], const size_t n, const operation& oper) const override { sort(arr, n, oper); }
 
 private:
-	static void sort(int arr[], size_t n, const comparator& comp);
+	static void sort(int arr[], size_t n, const operation& oper);
 	
-	static void merge(int arr[], int buff[], size_t n1, size_t n2, const comparator& comp);
+	static void merge(int arr[], int buff[], size_t n1, size_t n2, const operation& oper);
 };

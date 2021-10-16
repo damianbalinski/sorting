@@ -4,9 +4,9 @@
 class simple_pivot_selector : public pivot_selector
 {
 public:
-	size_t operator()(int arr[], const size_t n, const comparator& comp) const override { return select(arr, n, comp); }
+	size_t operator()(int arr[], const size_t n, const operation& oper) const override { return select(arr, n, oper); }
 
 private:
-	static size_t select(int arr[], size_t n, const comparator& comp);
+	static size_t select(int arr[], size_t n, const operation& oper);
 };
  

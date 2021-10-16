@@ -1,18 +1,18 @@
 #include "median_of_three.hpp"
 #include "numeric_utils.hpp"
 
-int median_of_three(const int* const arr, const size_t n, const comparator& comp)
+int median_of_three(const int* const arr, const size_t n, const operation& oper)
 {
 	const int a = arr[0];
 	const int c = arr[n-1];
 	const int b = arr[safe_mean_of_two(0, n-1)];
 
-	if (comp.gt(a,b) ^ comp.gt(a,c)) return a;
-	if (comp.lt(b,a) ^ comp.lt(b,c)) return b;
+	if (oper.gt(a,b) ^ oper.gt(a,c)) return a;
+	if (oper.lt(b,a) ^ oper.lt(b,c)) return b;
 	return c;
 }
 
-size_t median_of_three_index(const int* const arr, const size_t n, const comparator& comp)
+size_t median_of_three_index(const int* const arr, const size_t n, const operation& oper)
 {
 	const size_t a_index = 0;
 	const size_t c_index = n-1;
@@ -22,7 +22,7 @@ size_t median_of_three_index(const int* const arr, const size_t n, const compara
 	const int b = arr[b_index];
 	const int c = arr[c_index];
 
-	if (comp.gt(a, b) ^ comp.gt(a, c)) return a_index;
-	if (comp.lt(b, a) ^ comp.lt(b, c)) return b_index;
+	if (oper.gt(a, b) ^ oper.gt(a, c)) return a_index;
+	if (oper.lt(b, a) ^ oper.lt(b, c)) return b_index;
 	return c_index;
 }

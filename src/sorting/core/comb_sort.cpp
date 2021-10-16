@@ -28,7 +28,7 @@
  * Z£O¯ONOŒÆ PAMIÊCIOWA ??
  * ?? - nie potrzebuje dodatkowej pamiêci
  */
-void comb_sort::sort(int arr[], const size_t n, const comparator& comp, const gapper& gapper)
+void comb_sort::sort(int arr[], const size_t n, const operation& oper, const gapper& gapper)
 {
 
 	for (size_t gap = gapper(n); gap > 0; gap = gapper(gap))
@@ -36,5 +36,5 @@ void comb_sort::sort(int arr[], const size_t n, const comparator& comp, const ga
 			if (arr[i] > arr[i+gap])
 				swap(&arr[i], &arr[i+gap]);
 
-	bubble_sort::sort(arr, n, comp, swapper());
+	bubble_sort::sort(arr, n, oper, swapper());
 }

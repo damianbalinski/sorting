@@ -33,10 +33,10 @@
  * Z£O¯ONOŒÆ PAMIÊCIOWA O(1)
  * O(1) - nie potrzebuje dodatkowej pamiêci
  */
-void bubble_sort::sort(int arr[], const size_t n, const comparator& comp, const swapper& swapper)
+void bubble_sort::sort(int arr[], const size_t n, const operation& oper, const swapper& swapper)
 {
 	for (size_t i = 0; i < n-1; i++)
 		for (size_t j = 0; j < n-i-1; j++)
-			if (comp.gt(arr[j],arr[j+1]))
+			if (oper.gt(arr[j],arr[j+1]))
 				swapper(&arr[j], &arr[j+1]);
 }

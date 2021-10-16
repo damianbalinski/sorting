@@ -29,7 +29,7 @@ size_t const counting_sort::MAX = 1024;
  * Z£O¯ONOŒÆ PAMIÊCIOWA ??
  * ?? - nie potrzebuje dodatkowej pamiêci
  */
-void counting_sort::sort(int arr[], const size_t n, const indexer& indexer)
+void counting_sort::sort(int arr[], const size_t n, const operation& oper, const indexer& indexer)
 {
 	int* res = new int[n];
 	size_t* count = new size_t[indexer.max]();

@@ -27,23 +27,23 @@
  * Z£O¯ONOŒÆ PAMIÊCIOWA ??
  * ?? - nie potrzebuje dodatkowej pamiêci
  */
-void merge_sort::sort(int arr[], const size_t n, const comparator& comp)
+void merge_sort::sort(int arr[], const size_t n, const operation& oper)
 {
 	if (n > 1)
 	{
 		const size_t n1 = n / 2;
 		const size_t n2 = n - n1;
 		
-		sort(arr, n1, comp);
-		sort(arr+n1, n2, comp);
+		sort(arr, n1, oper);
+		sort(arr+n1, n2, oper);
 
 		int* buff = new int[n1];
-		merge(arr, buff, n1, n2, comp);
+		merge(arr, buff, n1, n2, oper);
 		delete [] buff;
 	}
 }
 
-void merge_sort::merge(int arr[], int buff[], const size_t n1, const size_t n2, const comparator& comp)
+void merge_sort::merge(int arr[], int buff[], const size_t n1, const size_t n2, const operation& oper)
 {
 	int* left = arr_copy(buff, arr, n1);
 	int* right = arr + n1;
@@ -53,7 +53,7 @@ void merge_sort::merge(int arr[], int buff[], const size_t n1, const size_t n2, 
 
 	while (i < n1 && j < n2)
 	{
-		if (comp.lt(left[i], right[j]))
+		if (oper.lt(left[i], right[j]))
 			arr[k++] = left[i++];
 		else
 			arr[k++] = right[j++];

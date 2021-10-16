@@ -5,9 +5,9 @@
 
 const multi_pivot_selector& dual_pivot_quick_partition::DEFAULT_DUAL_PIVOT_SELECTOR = simple_dual_pivot_selector{};
 
-size_t* dual_pivot_quick_partition::partition(int arr[], const size_t n, const comparator& comp, const multi_pivot_selector& multi_pivot_selector)
+size_t* dual_pivot_quick_partition::partition(int arr[], const size_t n, const operation& oper, const multi_pivot_selector& multi_pivot_selector)
 {
-	const size_t* pivots = multi_pivot_selector(arr, n, 2, comp);
+	const size_t* pivots = multi_pivot_selector(arr, n, 2, oper);
 	const size_t left_index = pivots[0];
 	const size_t right_index = pivots[1];
 	delete [] pivots;
@@ -21,13 +21,13 @@ size_t* dual_pivot_quick_partition::partition(int arr[], const size_t n, const c
 
 	while (k <= j)
 	{
-		if (comp.lt(arr[k], left_pivot))
+		if (oper.lt(arr[k], left_pivot))
 		{
 			swap(&arr[k++], &arr[i++]);
 		}
-		else if (comp.ge(arr[k], right_pivot))
+		else if (oper.ge(arr[k], right_pivot))
 		{
-			while (comp.gt(arr[j], right_pivot) && k < j) j--;
+			while (oper.gt(arr[j], right_pivot) && k < j) j--;
 			swap(&arr[k], &arr[j--]);
 		}
 		else

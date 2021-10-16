@@ -4,10 +4,10 @@
 class binary_max_heap : public heap
 {
 public:
-	void operator()(int arr[], size_t n, const comparator& comp) const override { heap(arr, n, comp); }
+	void operator()(int arr[], size_t n, const operation& oper) const override { heap(arr, n, oper); }
 
-	void heapify(int arr[], size_t n, size_t i, const comparator& comp) const override;
+	void heapify(int arr[], size_t n, size_t i, const operation& oper) const override;
 
 private:
-	void heap(int arr[], size_t n, const comparator& comp) const;
+	void heap(int arr[], size_t n, const operation& oper) const;
 };

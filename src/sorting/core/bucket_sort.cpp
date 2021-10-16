@@ -1,5 +1,4 @@
 #include "bucket_sort.hpp"
-#include "comparator.hpp"
 #include "array_utils.hpp"
 #include <vector>
 
@@ -33,7 +32,7 @@ size_t const bucket_sort::BUCKETS = 10;
  * Z£O¯ONOŒÆ PAMIÊCIOWA ??
  * ?? - nie potrzebuje dodatkowej pamiêci
  */
-void bucket_sort::sort(int arr[], const size_t n, const bucket_indexer& indexer, const sorting& sort)
+void bucket_sort::sort(int arr[], const size_t n, const operation& oper, const bucket_indexer& indexer, const sorting& sort)
 {
 	std::vector<int>* const buckets = new std::vector<int>[indexer.buckets];
 
@@ -41,7 +40,7 @@ void bucket_sort::sort(int arr[], const size_t n, const bucket_indexer& indexer,
 		buckets[indexer(arr, i)].push_back(arr[i]);
 
 	for (size_t b = 0; b < indexer.buckets; b++)
-		sort(buckets[b].data(), buckets[b].size(), asc_comparator());
+		sort(buckets[b].data(), buckets[b].size(), oper);
 
 	size_t k = 0;
 	for (size_t b = 0; b < indexer.buckets; b++)

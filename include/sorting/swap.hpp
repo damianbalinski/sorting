@@ -1,5 +1,5 @@
 #pragma once
-#include "comparator.hpp"
+#include "operation.hpp"
 
 inline void swap(int* a, int* b)
 {
@@ -8,7 +8,7 @@ inline void swap(int* a, int* b)
 	*b = temp;
 }
 
-inline void swap_in_order(int* a, int* b, const comparator& comp)
+inline void swap_in_order(int* a, int* b, const operation& oper)
 {
-	if (comp.gt(*a, *b)) swap(a, b);
+	if (oper.gt(*a, *b)) swap(a, b);
 }

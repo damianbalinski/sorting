@@ -18,6 +18,7 @@
 #include "bucket_sort.hpp"
 #include "comb_sort.hpp"
 #include "intro_sort.hpp"
+#include "quick_merge_sort.hpp"
 #include "simple_indexer.hpp"
 #include "radix_indexer.hpp"
 #include "comb_gapper.hpp"
@@ -25,7 +26,10 @@
 #include "binary_max_heap.hpp"
 #include "heap_sort.hpp"
 #include "numeric_utils.hpp"
-#include <algorithm>
+#include "debugger.hpp"
+#include "colors.hpp"
+#include "operation.hpp"
+#include "comparator.hpp"
 
 using std::cout;
 using std::endl;
@@ -33,15 +37,13 @@ using std::string;
 
 int main(int argc, char** argv)
 {
-	const size_t n = 100;
-	int* arr = arr_random_natural(n);
-	asc_comparator comp;
-	dual_pivot_quick_sort sort;
-
-	sort(arr, n, comp);
-	check_arr_sorted(arr, n, comp);
-
-	cout << arr_to_string_with_ids(arr, n);
+	const size_t n = 10000;
+	int* arr = arr_random_in_range(n, 1000);
 	
+	operation oper(desc_comparator{});
+	intro_sort sort;
+	sort(arr, n, oper);
+	
+	check_arr_sorted(arr, n, oper); 
 	return 0;
 }

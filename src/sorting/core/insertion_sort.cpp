@@ -37,14 +37,14 @@
  * Z£O¯ONOŒÆ PAMIÊCIOWA O(1)
  * O(1) - nie potrzebuje dodatkowej pamiêci
  */
-void insertion_sort::sort(int arr[], const size_t n, const comparator& comp)
+void insertion_sort::sort(int arr[], const size_t n, const operation& oper)
 {
     for (size_t i = 1; i < n; i++)
     {
         const int key = arr[i];
         size_t j = i;
 
-        while (j >= 1 && comp.gt(arr[j-1], key))
+        while (j >= 1 && oper.gt(arr[j-1], key))
         {
             arr[j] = arr[j-1];
             j--;

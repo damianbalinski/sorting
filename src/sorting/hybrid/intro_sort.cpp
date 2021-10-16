@@ -30,20 +30,21 @@
  * Z£O¯ONOŒÆ PAMIÊCIOWA ??
  * ?? - nie potrzebuje dodatkowej pamiêci
  */
-void intro_sort::sort(int arr[], const size_t n, const size_t depth, const comparator& comp)
+void intro_sort::sort(int arr[], const size_t n, const size_t depth, const operation& oper)
 {
 	if (n < MAX_DEPTH)
 	{
-		insertion_sort::sort(arr, n, comp);
+		insertion_sort::sort(arr, n, oper);
 		return;
 	}
 
 	if (depth == 0)
 	{
-		heap_sort::sort(arr, n, comp);
+		heap_sort::sort(arr, n, oper);
+		return;
 	}
 
-	const size_t pivot = quick_partition::partition(arr, n, comp, median_of_three_pivot_selector());
-	sort(arr, pivot, depth - 1, comp);
-	sort(arr+pivot+1, n - (pivot + 1), depth - 1, comp);
+	const size_t pivot = quick_partition::partition(arr, n, oper, median_of_three_pivot_selector());
+	sort(arr, pivot, depth - 1, oper);
+	sort(arr+pivot+1, n - (pivot + 1), depth - 1, oper);
 }

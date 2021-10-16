@@ -1,27 +1,27 @@
 #include "minimum.hpp"
 #include "assert.hpp"
 
-int minimum(const int* const arr, const size_t n, const comparator& comp)
+int minimum(const int* const arr, const size_t n, const operation& oper)
 {
 	check_num_greater_than_zero(n);
 	int min = arr[0];
 	
     for (size_t i = 1; i < n; i++)
     {
-        if (comp.lt(arr[i], min))
+        if (oper.lt(arr[i], min))
             min = arr[i];
     }
 	return min;
 }
 
-size_t minimum_index(const int* const arr, const size_t n, const comparator& comp)
+size_t minimum_index(const int* const arr, const size_t n, const operation& oper)
 {
     check_num_greater_than_zero(n);
     size_t min = 0;
 	
     for (size_t i = 1; i < n; i++)
     {
-        if (comp.lt(arr[i], arr[min]))
+        if (oper.lt(arr[i], arr[min]))
             min = i;
     }
     return min;
