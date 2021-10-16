@@ -33,14 +33,14 @@ std::string arr_to_string(const int* const arr, const size_t n, const char separ
 
 std::string arr_to_string_with_pivot(const int* const arr, const size_t n, const size_t pivot)
 {
-	return arr_to_string_with_pivot(arr, n, pivot, ' ', WHITE, BLUE);
+	return arr_to_string_with_pivot(arr, n, pivot, ' ', WHITE, PURPLE);
 }
 
 std::string arr_to_string_with_pivot(const int* const arr, const size_t n, const size_t pivot, const char separator, const char* const color, const char* const pivot_color)
 {
 	std::ostringstream os;
 	os << arr_to_string(arr, pivot, separator, color);
-	os << pivot_color << pivot << color << separator;
+	os << pivot_color << arr[pivot] << color << separator;
 	os << arr_to_string(arr+pivot+1, n-pivot-1, separator, color);
 	return os.str();
 }
