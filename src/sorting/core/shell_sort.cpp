@@ -32,16 +32,16 @@ void shell_sort::sort(int arr[], const size_t n, const operation& oper, const ga
 	{
         for (size_t i = gap; i < n; i++)
         {
-            const int key = arr[i];
+            const int key = oper.assign(arr[i]);
             size_t j = i;
 
             while (j >= gap && oper.gt(arr[j-gap], key))
             {
-                arr[j] = arr[j-gap];
+                arr[j] = oper.assign(arr[j-gap]);
                 j -= gap;
             }
 
-            arr[j] = key;
+            arr[j] = oper.assign(key);
         }
 	}
 }

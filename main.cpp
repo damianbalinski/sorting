@@ -52,7 +52,7 @@ int main(int argc, char** argv)
 		counting_assigner(&ASSIGNS)
 	);
 	
-	quick_sort sort;
+	insertion_sort sort;
 	sort(arr, n, oper);
 	check_arr_sorted(arr, n, oper);
 

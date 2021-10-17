@@ -11,8 +11,8 @@ size_t* dual_pivot_quick_partition::partition(int arr[], const size_t n, const o
 	const size_t right_index = pivots[1];
 	delete [] pivots;
 	
-	const int left_pivot = arr[left_index];
-	const int right_pivot = arr[right_index];
+	const int left_pivot = oper.assign(arr[left_index]);
+	const int right_pivot = oper.assign(arr[right_index]);
 	
 	size_t i = left_index + 1;
 	size_t j = right_index - 1;

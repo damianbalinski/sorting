@@ -4,13 +4,6 @@
 
 - przygotowac plik z testowymi tablicami oraz ich rozmiarami, pusta tablica, talica tych samuch liczb, przypadki graniczne, ostatnia niepasujaca, 
 
-- bubble sort rekursja ogonowa
-- insertion sort rekursja ogonowa
-- selection sort rekursja ogonowa
-
-- testowac czy algorytm dobrze sortuje bez flagi NDEBUG
-- testowac czas sortowania z flaga NDEBUG
-
 - asercja, czy tablica wynikowa zawiera te same elementy, np sumowac elementy obydwu tablic, uwaga na overflow!
 
 - skrypt instalacyjny (rownoczescie spis uzywanych bibliotek)
@@ -22,21 +15,9 @@ dla optymistycznego przypadku insertion sort wykonuje sie w czasie O(n)
 
 - rozwa¿yæ opcjê u¿ycia wrappera array<int> zamiast int[], mo¿liwoœæ u¿ycia asercji
 
-- rozwazyc dodanie gap do bubble sort
-- rozwazyc dodanie gap do insertion_sort
-- rozwazyc dodanie swapped do bubble sort
 
-- implementacja std::sort
-
-- dodac pivot_selector -> wyszukuje pivota oraz, jesli to konieczne, zamienia miejscami elementy
-- simple_pivot_selector
-- median_of_three_pivot_selector
-- dual_pivot_selector
-- simple_sual_pivot_selector
 - Library sort, or gapped insertion sort
 - Timsort (sortowanie typów obiektowych w javie wykorzystuje algorytm TimSort)
-
-- usunac tworzenie binary_max_heap w intro_sort
 
 - TODO ka¿dy rozdzia³ ma akapit wprowadzaj¹cy
 
@@ -44,21 +25,7 @@ dla optymistycznego przypadku insertion sort wykonuje sie w czasie O(n)
 
 - zliaczanie operacji w bucket_sort, counting_sort
 
-REFACTORING
-counting_sort - zliczac operacje przypisania i operacje na tablicy
-dual_pivot_quick_partition - swapper z oper
-quick_partition - swapper z oper
-median_of_three_pivot_selector - swapper z oper
-swap - przeniesc swap i swap_in_order do oper
-bucket_sort - zliczac operacje na tablicy
-comb_sort - swapper z oper
-heap_sort - swap z oper
-merge_sort - zliczac operacje przypisania
-selection_sort - swap z oper
-shell_sort - zliczac operacje przypisania
-quick_merge_sort - swap z oper
-binary_max_heap - swap z oper
-insertion_sort - zliczac operacje przypisania
 
-podczas zliczania wylaczyc asercje
-quick_merge_sort - zliczac operacje na tablicach
+podczas zliczania wlaczyc flage NDEBUG
+
+skrypt testuj¹cy
