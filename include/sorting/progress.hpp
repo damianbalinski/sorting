@@ -2,6 +2,7 @@
 #include "colors.hpp"
 #include "numeric_utils.hpp"
 #include <string>
+#include <iostream>
 
 #define PROGRESS
 
