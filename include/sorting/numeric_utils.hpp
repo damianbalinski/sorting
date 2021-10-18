@@ -9,3 +9,8 @@ inline size_t safe_mean_of_two(const size_t a, const size_t b)
 {
 	return a + (b - a) / 2;
 }
+
+inline size_t max(const size_t a, const size_t b)
+{
+	return (a>b) ? a : b;
+}
