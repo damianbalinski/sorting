@@ -29,3 +29,5 @@ dla optymistycznego przypadku insertion sort wykonuje sie w czasie O(n)
 podczas zliczania wlaczyc flage NDEBUG
 
 skrypt testuj¹cy
+
+- dodac milliseconds do tesing_result i testing_row

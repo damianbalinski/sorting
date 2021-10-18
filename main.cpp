@@ -31,6 +31,11 @@
 #include "operation.hpp"
 #include "swapper.hpp"
 #include "assigner.hpp"
+#include "testing_unit.hpp"
+#include "testing_engine.hpp"
+#include "range.hpp"
+#include "progress.hpp"
+#include <fstream>
 
 using std::cout;
 using std::endl;
@@ -38,27 +43,26 @@ using std::string;
 
 int main(int argc, char** argv)
 {
-	size_t COMPARISONS = 0;
-	size_t SWAPS = 0;
-	size_t ASSIGNS = 0;
+	std::ofstream file;
+	file.open("test_001.csv");
+	testing_engine engine(file);
 
-	const size_t n = 10000;
-	//int* arr = arr_random_natural(n);
-	int* arr = arr_random_in_range(n, 1000);
+	engine.add(bubble_sort{}, 100, 1000);
+	//engine.add(bucket_sort{}, 100, 1000);
+	engine.add(comb_sort{}, 100, 1000);
+	//engine.add(counting_sort{}, 100, 1000);
+	engine.add(dual_pivot_quick_sort{}, 100, 1000);
+	engine.add(heap_sort{}, 100, 1000);
+	engine.add(insertion_sort{}, 100, 1000);
+	engine.add(merge_sort{}, 100, 1000);
+	engine.add(quick_sort{}, 100, 1000);
+	engine.add(radix_sort{}, 100, 1000);
+	engine.add(selection_sort{}, 100, 1000);
+	engine.add(shell_sort{}, 100, 1000);
+	engine.add(intro_sort{}, 100, 1000);
+	engine.add(quick_merge_sort{}, 100, 1000);
+	engine.add(quick_merge_sort{}, 100, range{10000, 100000, 5000});
 
-	operation oper(
-		counting_asc_comparator{&COMPARISONS},
-		counting_swapper{&SWAPS},
-		counting_assigner(&ASSIGNS)
-	);
-	
-	insertion_sort sort;
-	sort(arr, n, oper);
-	check_arr_sorted(arr, n, oper);
-
-	cout << "comparisons: " << COMPARISONS << endl;
-	cout << "swaps      : " << SWAPS << endl;
-	cout << "assigns    : " << ASSIGNS << endl;
-
+	engine.start();
 	return 0;
 }
