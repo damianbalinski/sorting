@@ -9,6 +9,8 @@ public:
 	static const size_t MAX;
 
 	static const size_t BUCKETS;
+
+	const char* name() const override { return "bucket_sort"; }
 	
 	void operator()(int arr[], const size_t n, const operation& oper) const override { sort(arr, n, oper, bucket_indexer(MAX, BUCKETS), bubble_sort()); }
 

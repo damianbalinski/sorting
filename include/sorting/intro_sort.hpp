@@ -5,6 +5,8 @@
 class intro_sort : public sorting
 {
 public:
+	const char* name() const override { return "intro_sort"; }
+
 	void operator()(int arr[], const size_t n, const operation& oper) const override { sort(arr, n, calculate_max_depth(n), oper); }
 
 private:
