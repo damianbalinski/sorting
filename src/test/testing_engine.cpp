@@ -17,7 +17,7 @@ void testing_engine::add(const sorting& sorting, const size_t repeats, const ran
 		testing_units.emplace_back(testing_unit(sorting, repeats, n));
 }
 
-void testing_engine::start() const
+void testing_engine::start(std::ostream& ostream) const
 {
 	size_t id_global = 0;
 	for (const testing_unit& unit: testing_units)

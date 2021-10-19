@@ -10,17 +10,15 @@
 class testing_engine
 {
 public:
-	testing_engine(std::ostream& ostream):
-		ostream(ostream), testing_units(std::vector<testing_unit>{}) {}
+	testing_engine(): testing_units(std::vector<testing_unit>{}) {}
 
 	void add(const sorting& sorting, size_t repeats, size_t n);
 
 	void add(const sorting& sorting, size_t repeats, const range& range);
 
-	void start() const;
+	void start(std::ostream& ostream) const;
 
 private:
-	std::ostream& ostream;
 	std::vector<testing_unit> testing_units;
 
 	testing_row test(const testing_unit& unit, size_t id_global, size_t id) const;

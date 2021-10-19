@@ -45,7 +45,7 @@ int main(int argc, char** argv)
 {
 	std::ofstream file;
 	file.open("test_001.csv");
-	testing_engine engine(file);
+	testing_engine engine{};
 
 	engine.add(bubble_sort{}, 100, 1000);
 	//engine.add(bucket_sort{}, 100, 1000);
@@ -63,6 +63,6 @@ int main(int argc, char** argv)
 	engine.add(quick_merge_sort{}, 100, 1000);
 	engine.add(quick_merge_sort{}, 100, range{10000, 100000, 5000});
 
-	engine.start();
+	engine.start(file);
 	return 0;
 }
