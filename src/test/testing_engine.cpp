@@ -26,27 +26,15 @@ void testing_engine::start(std::ostream& ostream) const
 		for (size_t id = 0; id < unit.repeats; )
 		{
 			PROGRESS_STEP(id, unit.repeats);
-			save_row(ostream, test(unit, id_global++, id++));
+			const testing_invariants invariants{ id_global++, id++, unit.n, unit.sorting_name };
+			const testing_results results = test(unit.sorting, unit.n);
+			save_row(ostream, testing_row{invariants, results});
 		}
 		PROGRESS_END();
 	}
 }
 
-testing_row testing_engine::test(const testing_unit& unit, const size_t id_global, const size_t id) const
-{
-	const testing_result result = test_sorting(unit.sorting, unit.n);
-	return testing_row{
-		id_global,
-		id,
-		unit.sorting_name,
-		unit.n,
-		result.comparisons,
-		result.swaps,
-		result.assigns
-	};
-}
-
-testing_result testing_engine::test_sorting(const sorting& sort, const size_t n) const
+testing_results testing_engine::test(const sorting& sort, const size_t n) const
 {
 	int* arr = arr_random_natural(n);
 
@@ -65,5 +53,5 @@ testing_result testing_engine::test_sorting(const sorting& sort, const size_t n)
 
 	delete [] arr;
 
-	return testing_result{COMPARISONS, SWAPS, ASSIGNS};
+	return testing_results{COMPARISONS, SWAPS, ASSIGNS};
 }

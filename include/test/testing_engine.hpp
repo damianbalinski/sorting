@@ -2,7 +2,7 @@
 #include "range.hpp"
 #include "sorting.hpp"
 #include "testing_unit.hpp"
-#include "testing_result.hpp"
+#include "testing_results.hpp"
 #include "testing_row.hpp"
 #include <ostream>
 #include <vector>
@@ -21,8 +21,6 @@ public:
 private:
 	std::vector<testing_unit> testing_units;
 
-	testing_row test(const testing_unit& unit, size_t id_global, size_t id) const;
-
-	testing_result test_sorting(const sorting& sort, size_t n) const;
+	testing_results test(const sorting& sort, size_t n) const;
 
 };
