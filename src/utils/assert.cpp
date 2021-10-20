@@ -45,6 +45,12 @@ void __check_num_greater_than_other(const int a, const int b)
 		__pretty_assertion(fmt::format("Number {} is not greater than {}", a, b));
 }
 
+void __check_nums_are_equal(const size_t a, const size_t b)
+{
+	if (!(a == b))
+		__pretty_assertion(fmt::format("Number {} is not equal to {}", a, b));
+}
+
 void __check_arr_sorted(const int* const arr, const size_t n, const operation& oper)
 {
 	for (size_t i = 0; i < n - 1; i++)
