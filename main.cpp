@@ -33,6 +33,7 @@
 #include "assigner.hpp"
 #include "testing_unit.hpp"
 #include "testing_engine.hpp"
+#include "stream_utils.hpp"
 #include "range.hpp"
 #include "progress.hpp"
 #include <fstream>
@@ -43,14 +44,10 @@ using std::string;
 
 int main(int argc, char** argv)
 {
-	std::ofstream file;
-	file.open("test_001.csv");
 	testing_engine engine{};
 
 	engine.add(bubble_sort{}, 100, 1000);
-	//engine.add(bucket_sort{}, 100, 1000);
 	engine.add(comb_sort{}, 100, 1000);
-	//engine.add(counting_sort{}, 100, 1000);
 	engine.add(dual_pivot_quick_sort{}, 100, 1000);
 	engine.add(heap_sort{}, 100, 1000);
 	engine.add(insertion_sort{}, 100, 1000);
@@ -61,8 +58,16 @@ int main(int argc, char** argv)
 	engine.add(shell_sort{}, 100, 1000);
 	engine.add(intro_sort{}, 100, 1000);
 	engine.add(quick_merge_sort{}, 100, 1000);
-	engine.add(quick_merge_sort{}, 100, range{10000, 100000, 5000});
 
-	engine.start(file);
+	std::ofstream output;
+	output.open("test_001.csv");
+	engine.testing(output);
+	output.close();
+
+	std::ifstream input;
+	input.open("test_001.csv", std::ios::in);
+	engine.statistics(input);
+	input.close();
+
 	return 0;
 }

@@ -16,7 +16,9 @@ public:
 
 	void add(const sorting& sorting, size_t repeats, const range& range);
 
-	void start(std::ostream& ostream) const;
+	void testing(std::ostream& ostream) const;
+
+	void statistics(std::istream& istream) const;
 
 private:
 	std::vector<testing_unit> testing_units;
