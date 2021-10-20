@@ -9,3 +9,6 @@ include_directories("./include/test/")
 
 find_package(fmt CONFIG REQUIRED)
 target_link_libraries(sorting PRIVATE fmt::fmt-header-only)
+
+find_package(scn CONFIG REQUIRED)
+target_link_libraries(sorting PRIVATE scn::scn scn::scn-header-only)

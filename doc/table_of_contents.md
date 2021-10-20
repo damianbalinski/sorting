@@ -16,17 +16,17 @@
    2. Ogólna koncepcja
    3. Model UML systemu, rozbicie na wstrzykiwane komponenty, wzorce projektowe
    4. Implementacja QuickMerge w pseudokodzie
-3. Przegl¹d podstawowych algorytmów sortuj¹cych oraz problemy wynikaj¹ce z ich
+4. Przegl¹d podstawowych algorytmów sortuj¹cych oraz problemy wynikaj¹ce z ich
    stosowania (np. koniecznoœæ alokacji dodatkowego miejsca w pamiêci, du¿a liczba
    operacji porównania, s³aba pesymistyczna z³o¿onoœæ czasowa)
    1. Quick Sort, wykresy
    2. Merge Sort, wykresy (ma³o porównañ, du¿a z³o¿onoœæ pamiêciowa)
-4. Przegl¹d hybrydowych algorytmów sortuj¹cych.
+5. Przegl¹d hybrydowych algorytmów sortuj¹cych.
    1. Intro Sort, wykresy
    2. QuickMerge Sort, wykresy
-5. Testy
+6. Testy
    1. Sposób testowania implementacji
    2. Testy czasowe
    3. Testy pamiêciowe
-6. Podsumowanie wyników
-7. Bibliografia
+7. Podsumowanie wyników
+8. Bibliografia
