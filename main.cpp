@@ -58,16 +58,20 @@ int main(int argc, char** argv)
 	engine.add(shell_sort{}, 100, 1000);
 	engine.add(intro_sort{}, 100, 1000);
 	engine.add(quick_merge_sort{}, 100, 1000);
+	//engine.add(quick_sort{}, 1000, range{100, 1000, 10});
 
-	//std::ofstream output;
-	//output.open("test_001.csv");
-	//engine.testing(output);
-	//output.close();
+	std::ofstream output;
+	output.open("test_001.csv");
+	engine.testing(output);
+	output.close();
 
 	std::ifstream input;
 	input.open("test_001.csv", std::ios::in);
-	engine.statistics(input);
+	std::ofstream output_results;
+	output_results.open("results_001.csv");
+	engine.statistics(input, output_results);
 	input.close();
+	output_results.close();
 
 	return 0;
 }

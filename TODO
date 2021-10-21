@@ -31,3 +31,5 @@ podczas zliczania wlaczyc flage NDEBUG
 skrypt testuj¹cy
 
 - dodac milliseconds do tesing_result i testing_row
+
+- dodac testing_invariants do testing_unit albo zastapic testin_invariants przez testing_unit

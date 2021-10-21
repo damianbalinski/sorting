@@ -5,8 +5,8 @@
 #include <fstream>
 #include <scn/scn.h>
 
-void save_row(std::ostream& ostream, const testing_identifier& identifier,
-const testing_results& results, const testing_invariants& invariants)
+void save_row(std::ostream& ostream, const testing_invariants& invariants,
+const testing_results& results, const testing_identifier& identifier)
 {
 	fmt::print(ostream, "{},{},{},{},{},{},{}\n",
 		identifier.id_global, identifier.id,
@@ -14,8 +14,8 @@ const testing_results& results, const testing_invariants& invariants)
 		invariants.n, invariants.sorting_name);
 }
 
-void save_results(std::ostream& ostream, const testing_results& results,
-const testing_invariants& invariants)
+void save_results(std::ostream& ostream, const testing_invariants& invariants,
+const testing_results& results)
 {
 	fmt::print(ostream, "{},{},{},{},{}\n",
 		invariants.sorting_name, invariants.n,

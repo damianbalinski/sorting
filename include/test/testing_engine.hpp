@@ -3,7 +3,6 @@
 #include "sorting.hpp"
 #include "testing_unit.hpp"
 #include "testing_results.hpp"
-#include "testing_row.hpp"
 #include <ostream>
 #include <vector>
 
@@ -16,9 +15,9 @@ public:
 
 	void add(const sorting& sorting, size_t repeats, const range& range);
 
-	void testing(std::ostream& ostream) const;
+	void testing(std::ostream& output) const;
 
-	void statistics(std::istream& istream) const;
+	void statistics(std::istream& input, std::ostream& output) const;
 
 private:
 	std::vector<testing_unit> testing_units;

@@ -1,11 +1,11 @@
 #include "testing_engine.hpp"
 #include "testing_averager.hpp"
+#include "testing_identifier.hpp"
 #include "operation.hpp"
 #include "progress.hpp"
 #include "array_utils.hpp"
 #include "stream_utils.hpp"
 #include "assert_arr.hpp"
-#include <fmt/format.h>
 
 void testing_engine::add(const sorting& sorting, const size_t repeats, const size_t n)
 {
@@ -18,37 +18,45 @@ void testing_engine::add(const sorting& sorting, const size_t repeats, const ran
 		testing_units.emplace_back(testing_unit(sorting, repeats, n));
 }
 
-void testing_engine::testing(std::ostream& ostream) const
+void testing_engine::testing(std::ostream& output) const
 {
+	PROGRESS_TITLE("TESTING");
 	size_t id_global = 0;
 	for (const testing_unit& unit: testing_units)
 	{
-		PROGRESS_INIT(fmt::format("{:28}  {:6} ", unit.sorting_name, unit.n));
+		const testing_invariants invariants = unit.invariants;
+
+		PROGRESS_INIT(invariants.sorting_name, invariants.n);
 		for (size_t id = 0; id < unit.repeats; )
 		{
 			PROGRESS_STEP(id, unit.repeats);
-			const testing_invariants invariants{ id_global++, id++, unit.n, unit.sorting_name };
-			const testing_results results = test(unit.sorting, unit.n);
-			save_row(ostream, testing_row{ invariants, results });
+			const testing_results results = test(unit.sorting, invariants.n);
+			save_row(output, invariants, results, testing_identifier{ id_global++, id++ });
 		}
 		PROGRESS_END();
 	}
 }
 
-void testing_engine::statistics(std::istream& istream) const
+void testing_engine::statistics(std::istream& input, std::ostream& output) const
 {
+	PROGRESS_TITLE("STATISTICS");
 	size_t id_global = 0;
 	for (const testing_unit& unit : testing_units)
 	{
-		PROGRESS_INIT(fmt::format("{:28}  {:6} ", unit.sorting_name, unit.n));
-		testing_averager averager{ unit };
+		const testing_invariants invariants = unit.invariants;
+		testing_averager averager{ unit.repeats };
+
+		PROGRESS_INIT(invariants.sorting_name, invariants.n);
 		for (size_t id = 0; id < unit.repeats; )
 		{
 			PROGRESS_STEP(id, unit.repeats);
-			const testing_invariants invariants{ id_global++, id++, unit.n, unit.sorting_name };
-			const testing_row row = read_row(istream, invariants);
+			const testing_results results = read_results(input, testing_identifier{ id_global++, id++ });
+			averager.add(results);
 		}
 		PROGRESS_END();
+
+		const testing_results results = averager.average_results();
+		save_results(output, invariants, results);
 	}
 }
 
