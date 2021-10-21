@@ -30,10 +30,16 @@ void __check_num_greater_than_zero(const int n)
 		__pretty_assertion(fmt::format("Number {} is not greater than zero", n));
 }
 
-void __check_num_greater_than_other(const int a, const int b)
+void __check_num_greater_than(const int a, const int b)
 {
 	if (!(a > b))
 		__pretty_assertion(fmt::format("Number {} is not greater than {}", a, b));
+}
+
+void __check_num_greater_than_or_equal_to(size_t a, size_t b)
+{
+	if (!(a >= b))
+		__pretty_assertion(fmt::format("Number {} is not greater than or equal to {}", a, b));
 }
 
 void __check_num_equal(const size_t a, const size_t b)
