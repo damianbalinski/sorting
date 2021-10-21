@@ -48,8 +48,8 @@ void __check_num_equal(const size_t a, const size_t b)
 		__pretty_assertion(fmt::format("Number {} is not equal to {}", a, b));
 }
 
-void __check_addition_overflow(const size_t sum, const size_t n)
+void __check_num_add_overflow(const size_t a, const size_t b)
 {
-	if (!(sum+n >= sum))
-		__pretty_assertion(fmt::format("Adding {} into {} causes overflow", n, sum));
+	if (!(a+b >= a))
+		__pretty_assertion(fmt::format("Adding {} into {} causes overflow", b, a));
 }
