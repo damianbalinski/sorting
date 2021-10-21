@@ -1,6 +1,5 @@
 #pragma once
 #include "sorting.hpp"
-#include "testing_results.hpp"
 
 class testing_unit
 {
