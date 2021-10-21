@@ -7,14 +7,21 @@
 #define PROGRESS
 
 #ifdef PROGRESS
+	#define PROGRESS_TITLE(STR)	__progress_title(STR)
 	#define PROGRESS_INIT(STR)	__progress_init(STR)
 	#define PROGRESS_STEP(I,N)	__progress_step(I, N)
 	#define PROGRESS_END()		__progress_end()
 #else
+	#define PROGRESS_TITLE(STR)
 	#define PROGRESS_INIT(STR)
 	#define PROGRESS_END()
 	#define PROGRESS_STEP()
 #endif
+
+inline void __progress_title(std::string str)
+{
+	std::cout << BLUE << str << WHITE << std::endl;
+}
 
 inline void __progress_init(std::string str)
 {
