@@ -1,21 +1,21 @@
 #pragma once
-#include "testing_unit.hpp"
+#include "testing_results.hpp"
 
 class testing_averager
 {
 public:
-	testing_averager(const testing_unit& unit):
-		sorting_name(unit.sorting_name), repeats(unit.repeats), n(unit.n),
-		all_comparisons(0), all_swaps(0), all_assigns(0) {}
+	testing_averager(const size_t repeats):
+		repeats(repeats), counter(0), comparisons(0), swaps(0), assigns(0) {}
 
 	void add(const testing_results& results);
 
-private:
-	const char* const sorting_name;
-	const size_t repeats;
-	const size_t n;
+	testing_results average_results() const;
 
-	size_t all_comparisons;
-	size_t all_swaps;
-	size_t all_assigns;
+private:
+	const size_t repeats;
+	size_t counter;
+
+	size_t comparisons;
+	size_t swaps;
+	size_t assigns;
 };
