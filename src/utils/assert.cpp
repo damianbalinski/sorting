@@ -51,6 +51,12 @@ void __check_nums_are_equal(const size_t a, const size_t b)
 		__pretty_assertion(fmt::format("Number {} is not equal to {}", a, b));
 }
 
+void __check_addition_overflow(const size_t sum, const size_t n)
+{
+	if (!(sum+n >= sum))
+		__pretty_assertion(fmt::format("Adding {} into {} causes overflow", n, sum));
+}
+
 void __check_arr_sorted(const int* const arr, const size_t n, const operation& oper)
 {
 	for (size_t i = 0; i < n - 1; i++)
