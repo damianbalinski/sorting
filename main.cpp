@@ -59,10 +59,10 @@ int main(int argc, char** argv)
 	engine.add(intro_sort{}, 100, 1000);
 	engine.add(quick_merge_sort{}, 100, 1000);
 
-	std::ofstream output;
-	output.open("test_001.csv");
-	engine.testing(output);
-	output.close();
+	//std::ofstream output;
+	//output.open("test_001.csv");
+	//engine.testing(output);
+	//output.close();
 
 	std::ifstream input;
 	input.open("test_001.csv", std::ios::in);

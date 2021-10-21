@@ -22,12 +22,12 @@ testing_row read_row(std::istream& istream, const testing_invariants& invariants
 	std::string s;
 	istream >> s;
 
-	scn::scan(istream, "{},{},{},{},{},{},{}",
+	scn::scan(s, "{},{},{},{},{},{},{}",
 		id_global, id, comparisons, swaps, assigns, n, sorting_name);
 
-	check_nums_are_equal(id_global, invariants.id_global);
-	check_nums_are_equal(id, invariants.id);
-	check_nums_are_equal(n, invariants.n);
+	check_num_equal(id_global, invariants.id_global);
+	check_num_equal(id, invariants.id);
+	check_num_equal(n, invariants.n);
 
 	const testing_results results{ comparisons, swaps, assigns };
 	return testing_row{ invariants, results };

@@ -1,9 +1,10 @@
 #include "testing_engine.hpp"
+#include "testing_averager.hpp"
 #include "operation.hpp"
 #include "progress.hpp"
 #include "array_utils.hpp"
 #include "stream_utils.hpp"
-#include "assert.hpp"
+#include "assert_arr.hpp"
 #include <fmt/format.h>
 
 void testing_engine::add(const sorting& sorting, const size_t repeats, const size_t n)
@@ -40,6 +41,7 @@ void testing_engine::statistics(std::istream& istream) const
 	for (const testing_unit& unit : testing_units)
 	{
 		PROGRESS_INIT(fmt::format("{:28}  {:6} ", unit.sorting_name, unit.n));
+		testing_averager averager{ unit };
 		for (size_t id = 0; id < unit.repeats; )
 		{
 			PROGRESS_STEP(id, unit.repeats);
