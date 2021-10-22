@@ -24,7 +24,7 @@ void testing_engine::testing(std::ostream& output) const
 	size_t id_global = 0;
 	for (const testing_unit& unit: testing_units)
 	{
-		const testing_invariants invariants = unit.invariants;
+		const testing_invariants& invariants = unit.invariants;
 
 		PROGRESS_INIT(invariants.sorting_name, invariants.n);
 		for (size_t id = 0; id < unit.repeats; )
@@ -43,7 +43,7 @@ void testing_engine::statistics(std::istream& input, std::ostream& output) const
 	size_t id_global = 0;
 	for (const testing_unit& unit : testing_units)
 	{
-		const testing_invariants invariants = unit.invariants;
+		const testing_invariants& invariants = unit.invariants;
 		testing_averager averager{ unit.repeats };
 
 		PROGRESS_INIT(invariants.sorting_name, invariants.n);
