@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include <string>
 #include "timer.hpp"
+#include "constants.hpp"
 #include "assert.hpp"
 #include "array_utils.hpp"
 #include "bubble_sort.hpp"
@@ -44,7 +45,7 @@ using std::string;
 
 int main(int argc, char** argv)
 {
-	comprehensive_engine engine{};
+	comprehensive_engine engine{TEST_DIRECTORY, "test02" };
 	const range rng{ 10, 100, 10 };
 
 	engine.add(bubble_sort{}, 10, rng);
@@ -62,7 +63,9 @@ int main(int argc, char** argv)
 	engine.add(intro_sort{}, 100, rng);
 	engine.add(quick_sort{}, 10, rng);
 	engine.add(quick_merge_sort{}, 100, rng);
-	engine.start("test01");
+
+	engine.start();
+	cout << engine.config();
 
 	return 0;
 }
