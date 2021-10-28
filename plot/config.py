@@ -17,5 +17,5 @@ class Config:
         self.plots = []
 
         for p in config['plots']:
-            x, y = import_data(p['input'], p['xcolumn'], p['ycolumn'])
+            x, y = import_data(p['input'], config['xcolumn'], config['ycolumn'])
             self.plots.append(Plot(p['label'], x, y))
