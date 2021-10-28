@@ -376,4 +376,4 @@ main.pdf
 .idea
 
 # Test
-test/**
+*.csv

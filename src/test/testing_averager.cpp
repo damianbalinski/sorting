@@ -8,11 +8,12 @@ void testing_averager::add(const testing_results& results)
 	comparisons = safe_add(comparisons, results.comparisons);
 	swaps = safe_add(swaps, results.swaps);
 	assigns = safe_add(assigns, results.assigns);
+	time = safe_add(time, results.time);
 	counter++;
 }
 
 testing_results testing_averager::average_results() const
 {
 	check_num_equal(repeats, counter);
-	return testing_results{ comparisons/repeats, swaps/repeats, assigns/repeats };
+	return testing_results{ comparisons/repeats, swaps/repeats, assigns/repeats, time/repeats };
 }

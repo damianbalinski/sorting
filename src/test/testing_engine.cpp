@@ -6,6 +6,7 @@
 #include "array_utils.hpp"
 #include "stream_utils.hpp"
 #include "assert_arr.hpp"
+#include "timer.hpp"
 
 void testing_engine::add(const sorting& sorting, const size_t repeats, const size_t n)
 {
@@ -67,6 +68,7 @@ testing_results testing_engine::test(const sorting& sort, const size_t n) const
 	size_t COMPARISONS = 0;
 	size_t SWAPS = 0;
 	size_t ASSIGNS = 0;
+	size_t TIME = 0;
 
 	operation oper(
 		counting_asc_comparator{ &COMPARISONS },
@@ -74,10 +76,13 @@ testing_results testing_engine::test(const sorting& sort, const size_t n) const
 		counting_assigner{ &ASSIGNS }
 	);
 
-	sort(arr, n, oper);
+	TIME = timer{
+		[&](){ sort(arr, n, oper); }
+	}.run();
+
 	check_arr_sorted(arr, n, oper);
 
 	delete [] arr;
 
-	return testing_results{ COMPARISONS, SWAPS, ASSIGNS };
+	return testing_results{ COMPARISONS, SWAPS, ASSIGNS, TIME };
 }

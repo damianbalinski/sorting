@@ -4,10 +4,12 @@ class testing_results
 {
 public:
 
-	testing_results(const size_t comparisons, const size_t swaps, const size_t assigns):
-		comparisons(comparisons), swaps(swaps), assigns(assigns) {}
+	testing_results(const size_t comparisons, const size_t swaps, const size_t assigns, const size_t time):
+		comparisons(comparisons), swaps(swaps), assigns(assigns), time(time), all(comparisons+3*swaps+assigns) {}
 
 	const size_t comparisons;
 	const size_t swaps;
 	const size_t assigns;
+	const size_t time;
+	const size_t all;
 };

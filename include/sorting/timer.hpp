@@ -1,13 +1,22 @@
 #pragma once
 #include <chrono>
-#include <iostream>
 #include <functional>
 
-inline void timer(std::function<void()> task)
+class timer
 {
-	auto begin = std::chrono::steady_clock::now();
-	task();
-	auto end = std::chrono::steady_clock::now();
+public:
+	timer(const std::function<void()> task): task(task) {}
 
-	std::cout << "Total time = " << std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count() << "[us]" << std::endl;
-}
+	size_t run() const
+	{
+		using namespace std::chrono;
+
+		const auto begin = steady_clock::now();
+		task();
+		const auto end = steady_clock::now();
+		return duration_cast<microseconds>(end - begin).count();
+	}
+
+private:
+	const std::function<void()> task;
+};
