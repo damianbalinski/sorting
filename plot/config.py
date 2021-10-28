@@ -19,3 +19,10 @@ class Config:
         for p in config['plots']:
             x, y = import_data(p['input'], config['xcolumn'], config['ycolumn'])
             self.plots.append(Plot(p['label'], x, y))
+
+        for p in config['super_plots']:
+            n = config['n']
+            step = max(1, n//100)
+            x = list(range(0, n+step, step))
+            y = list(map(p['function'], x))
+            self.plots.append(Plot(p['label'], x, y))
