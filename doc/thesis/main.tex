@@ -1,0 +1,87 @@
+\documentclass{book}
+
+\usepackage{imports}
+
+\usepackage{styles}
+
+\usepackage{commands}
+
+\frontmatter
+
+\begin{document}
+
+	\begin{titlingpage}
+		\vspace*{\fill}
+		\begin{center}
+			\begin{picture}(300,510)
+				\put(11,520){\makebox(0,0)[l]{\large \textsc{Wydział Informatyki i Telekomunikacji}}}
+				\put(11,500){\makebox(0,0)[l]{\large \textsc{Politechnika Wrocławska}}}
+
+				\put(80,320){\Huge \textsc{Analiza eksperymentalna}}
+				\put(80,280){\Huge \textsc{nowych algorytmów}}
+				\put(80,240){\Huge \textsc{sortowania w miejscu}}
+
+				\put(90,200){\makebox(0,0)[l]{\large \textsc{Damian Baliński}}}
+				\put(90,180){\makebox(0,0)[l]{\large \textsc{Nr indeksu: 250332}}}
+
+				\put(200,100){\makebox(0,0)[l]{\large Praca inżynierska napisana}}
+				\put(200,80){\makebox(0,0)[l]{\large pod kierunkiem}}
+				\put(200,60){\makebox(0,0)[l]{\large dr inż. Zbigniewa Gołębiewskiego}}
+				
+				\put(115,-70){\includegraphics[width=0.15\textwidth]{img/pwr}}
+				\put(106,-80){\makebox(0,0)[bl]{\large \textsc{Wrocław 2021}}}
+			\end{picture}
+		\end{center}	
+		\vspace*{\fill}
+	\end{titlingpage}
+	
+        \cleardoublepage
+		
+	\pagenumbering{Roman}
+	\pagestyle{tableOfContentStyle}
+	\tableofcontents
+	\cleardoublepage
+		
+	\pagestyle{custom}
+	\mainmatter
+	
+	% ROZDZIAŁY
+
+%	\input{abstract}
+%	\cleardoublepage
+
+%	\input{chanpter01}
+%	\cleardoublepage
+
+%	\input{chanpter02}
+%	\cleardoublepage
+	
+%	\input{chanpter03}
+%	\cleardoublepage
+	
+%	\input{chanpter04}
+%	\cleardoublepage
+	
+%	\input{summary}
+%	\cleardoublepage
+	
+	
+	%BIBLIOGRAFIA
+
+	\pagestyle{bibliographyStyle}
+	\bibliographystyle{plabbrv}
+%	\bibliography{bibliography}
+	\thispagestyle{chapterBeginStyle}
+        \addcontentsline{toc}{chapter}{Bibliografia}
+	\cleardoublepage
+	
+	% DODATKI
+	
+	\appendix
+	\pagestyle{appendixStyle}
+	
+%	\input{appendix01}
+	\cleardoublepage
+
+\end{document}
+

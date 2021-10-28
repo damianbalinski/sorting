@@ -1,0 +1,72 @@
+\ProvidesPackage{commands}
+
+
+% SKRÓTY MATEMATYCZNE
+
+% Skrócony symbol liczb rzeczywistych
+\newcommand{\RR}{\mathbb{R}}
+
+% Skrócony symbol liczb naturalnych
+\newcommand{\NN}{\mathbb{N}}
+
+% Skrócony symbol liczb wymiernych
+\newcommand{\QQ}{\mathbb{Q}}
+
+% Skrócony symbol liczb całkowitych
+\newcommand{\ZZ}{\mathbb{Z}}
+
+% Skrócony symbol logicznej implikacji
+\newcommand{\IMP}{\rightarrow}
+
+% Skrócony symbol  logicznej równoważności
+\newcommand{\IFF}{\leftrightarrow}
+
+
+% ŚRODOWISKA
+
+% Środowisko do twierdzeń
+\newtheorem{theorem}{Twierdzenie}[chapter]
+
+% Środowisko do lematów
+\newtheorem{lemma}{Lemat}[chapter]
+
+% Środowisko do przykładów
+\newtheorem{example}{Przykład}[chapter]
+
+% Środowisko do wniosków
+\newtheorem{corollary}{Wniosek}[chapter]
+
+% Środowisko do definicji
+\newtheorem{definition}{Definicja}[chapter]
+
+% Środowisko do dowodów
+\newenvironment{proof}{
+	\par\noindent \textbf{Dowód.}
+}{
+	\begin{flushright}
+		\vspace*{-6mm}\mbox{$\blacklozenge$}
+	\end{flushright}
+}
+
+% Środowisko do uwag
+\newenvironment{remark}{
+	\bigskip \par\noindent \small \textbf{Uwaga.}
+}{
+	\begin{small}
+		\vspace*{4mm}
+	\end{small}
+}
+
+
+% SŁOWNIK
+
+% Prawidłowe dzielenie wyrazów
+\hyphenation{wszy-stkich ko-lu-mnę każ-da od-leg-łość
+	dzie-dzi-ny dzie-dzi-na rów-nych rów-ny
+	pole-ga zmie-nna pa-ra-met-rów wzo-rem po-cho-dzi
+	o-trzy-ma wte-dy wa-run-ko-wych lo-gicz-nie
+	skreś-la-na skreś-la-ną cał-ko-wi-tych wzo-rów po-rzą-dek po-rząd-kiem
+	przy-kład pod-zbio-rów po-mię-dzy re-pre-zen-to-wa-ne
+	rów-no-waż-ne bi-blio-te-kach wy-pro-wa-dza ma-te-ria-łów
+	prze-ka-za-nym skoń-czo-nym moż-esz na-tu-ral-na cią-gu tab-li-cy
+	prze-ka-za-nej od-po-wied-nio}
