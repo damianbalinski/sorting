@@ -23,5 +23,4 @@ private:
 	std::vector<testing_unit> testing_units;
 
 	testing_results test(const sorting& sort, size_t n) const;
-
 };

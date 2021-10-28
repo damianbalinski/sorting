@@ -36,7 +36,7 @@
 #include "stream_utils.hpp"
 #include "range.hpp"
 #include "progress.hpp"
-#include <fstream>
+#include "comprehensive_engine.hpp"
 
 using std::cout;
 using std::endl;
@@ -44,34 +44,25 @@ using std::string;
 
 int main(int argc, char** argv)
 {
-	testing_engine engine{};
+	comprehensive_engine engine{};
+	const range rng{ 10, 100, 10 };
 
-	engine.add(bubble_sort{}, 100, 1000);
-	engine.add(comb_sort{}, 100, 1000);
-	engine.add(dual_pivot_quick_sort{}, 100, 1000);
-	engine.add(heap_sort{}, 100, 1000);
-	engine.add(insertion_sort{}, 100, 1000);
-	engine.add(merge_sort{}, 100, 1000);
-	engine.add(quick_sort{}, 100, 1000);
-	engine.add(radix_sort{}, 100, 1000);
-	engine.add(selection_sort{}, 100, 1000);
-	engine.add(shell_sort{}, 100, 1000);
-	engine.add(intro_sort{}, 100, 1000);
-	engine.add(quick_merge_sort{}, 100, 1000);
-	//engine.add(quick_sort{}, 1000, range{100, 1000, 10});
-
-	std::ofstream output;
-	output.open("test_001.csv");
-	engine.testing(output);
-	output.close();
-
-	std::ifstream input;
-	input.open("test_001.csv", std::ios::in);
-	std::ofstream output_results;
-	output_results.open("results_001.csv");
-	engine.statistics(input, output_results);
-	input.close();
-	output_results.close();
+	engine.add(bubble_sort{}, 10, rng);
+	engine.add(merge_sort{}, 10, rng);
+	engine.add(bubble_sort{}, 100, rng);
+	engine.add(comb_sort{}, 100, rng);
+	engine.add(dual_pivot_quick_sort{}, 100, rng);
+	engine.add(heap_sort{}, 100, rng);
+	engine.add(insertion_sort{}, 100, rng);
+	engine.add(merge_sort{}, 100, rng);
+	engine.add(quick_sort{}, 100, rng);
+	engine.add(radix_sort{}, 100, rng);
+	engine.add(selection_sort{}, 100, rng);
+	engine.add(shell_sort{}, 100, rng);
+	engine.add(intro_sort{}, 100, rng);
+	engine.add(quick_sort{}, 10, rng);
+	engine.add(quick_merge_sort{}, 100, rng);
+	engine.start("test01");
 
 	return 0;
 }

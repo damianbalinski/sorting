@@ -20,6 +20,11 @@
           "value": "${env.USERPROFILE}\\lib\\vcpkg\\installed\\x86-windows\\share"
 
         }
+      ],
+      "environments": [
+        {
+          "TEST_DIRECTORY": "${projectDir}\\test"
+        }
       ]
     }
   ]

@@ -9,13 +9,13 @@
 
 void testing_engine::add(const sorting& sorting, const size_t repeats, const size_t n)
 {
-	testing_units.emplace_back(testing_unit(sorting, repeats, n));
+	testing_units.emplace_back(testing_unit{sorting, repeats, n});
 }
 
 void testing_engine::add(const sorting& sorting, const size_t repeats, const range& range)
 {
-	for(size_t n = range.begin; n <= range.end; n += range.step)
-		testing_units.emplace_back(testing_unit(sorting, repeats, n));
+	for (size_t n = range.begin; n <= range.end; n += range.step)
+		add(sorting, repeats, n);
 }
 
 void testing_engine::testing(std::ostream& output) const
