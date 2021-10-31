@@ -370,10 +370,12 @@ FodyWeavers.xsd
 *.blg
 *.gz
 *.toc
-main.pdf
 
 # JetBrains
 .idea
 
 # Test
 *.csv
+
+# Thesis
+*-raw.pdf
