@@ -1,0 +1,43 @@
+{
+  "title": "Test title",
+  "output": "output.png",
+  "prefix": "test02",
+  "plots": [
+    {
+      "config": {
+        "title": "Test plot A",
+        "xlabel": "n [n]",
+        "ylabel": "comparison [n]",
+        "property": "comparisons",
+        "type": "average",
+        "range": {
+          "begin": 1,
+          "end": 10,
+          "step": 1
+        },
+        "repeats": 10
+
+      },
+      "super": [
+        {
+          "label": "n*n",
+          "expression": "n*n"
+        },
+        {
+          "label": "n",
+          "expression": "n"
+        }
+      ],
+      "tests": [
+        {
+          "algorithm": "quick_sort",
+          "label": "Quick Sort"
+        },
+        {
+          "algorithm": "merge_sort",
+          "label": "Merge Sort"
+        }
+      ]
+    }
+  ]
+}
