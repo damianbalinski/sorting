@@ -38,3 +38,9 @@ testing_results read_results(std::istream& istream, const testing_identifier& id
 
 	return testing_results{ comparisons, swaps, assigns, time };
 }
+
+void save_results(std::ostream& ostream, const size_t n, const results& results)
+{
+	fmt::print(ostream, "{},{},{},{},{},{}\n",
+		n, results.comparisons, results.swaps, results.assigns, results.time, results.all);
+}

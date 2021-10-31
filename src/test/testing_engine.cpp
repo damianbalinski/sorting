@@ -21,7 +21,6 @@ void testing_engine::add(const sorting& sorting, const size_t repeats, const ran
 
 void testing_engine::testing(std::ostream& output) const
 {
-	PROGRESS_TITLE("TESTING");
 	size_t id_global = 0;
 	for (const testing_unit& unit: testing_units)
 	{
@@ -40,7 +39,6 @@ void testing_engine::testing(std::ostream& output) const
 
 void testing_engine::statistics(std::istream& input, std::ostream& output) const
 {
-	PROGRESS_TITLE("STATISTICS");
 	size_t id_global = 0;
 	for (const testing_unit& unit : testing_units)
 	{
