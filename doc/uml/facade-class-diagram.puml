@@ -1,0 +1,36 @@
+@startuml
+'!include styles/card-style.puml
+
+hide sorting fields
+hide sorting methods
+interface sorting {
+}
+
+hide operation fields
+class operation <<Facade>> {
+	compare()
+	swap()
+	assign()
+}
+
+hide comparator fields
+class comparator {
+	compare()
+}
+
+hide swapper fields
+class swapper {
+	swap()
+}
+
+hide assigner fields
+class assigner {
+	assign()
+}
+
+sorting -- operation
+operation o-- comparator
+operation o-- swapper
+operation o-- assigner
+
+@enduml

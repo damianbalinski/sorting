@@ -1,0 +1,110 @@
+@startuml
+'!include styles/card-style.puml
+
+class testing_engine {
+	List<sorting> sortings
+	test()
+}
+
+hide testing_averager fields
+class testing_averager {
+	average()
+}
+
+hide sorting fields
+interface sorting {
+	sort()
+}
+
+hide quick_sort fields
+class quick_sort {
+	sort()
+}
+
+hide dual_pivot_quick_sort fields
+class dual_pivot_quick_sort {
+	sort()
+}
+
+hide quick_merge_sort fields
+class quick_merge_sort {
+	sort()
+}
+
+hide merge_sort fields
+class merge_sort {
+	sort()
+}
+
+hide inner_sort fields
+class inner_sort {
+	sort()
+}
+
+hide partitioning fields
+interface partitioning {
+	partition()
+}
+
+hide simple_partitioning fields
+class simple_partitioning {
+	partition()
+}
+
+hide median_of_three_paritioning fields
+class median_of_three_paritioning {
+	partition()
+}
+
+hide operation methods
+class operation {
+	comparator
+	swapper
+	assigner
+}
+
+hide comparator members
+interface comparator
+hide simple_comparator members
+hide count_comparator members
+
+hide swapper members
+interface swapper
+hide simple_swapper members
+hide count_swapper members
+
+hide assigner members
+interface assigner
+hide simple_assigner members
+hide count_assigner members
+
+testing_engine --o sorting
+testing_engine -o testing_averager
+
+sorting ..|> quick_sort
+sorting ..|> dual_pivot_quick_sort
+sorting ..|> quick_merge_sort
+sorting ..|> merge_sort
+sorting ..|> inner_sort
+
+quick_sort --- partitioning
+dual_pivot_quick_sort --- partitioning
+quick_merge_sort --- partitioning
+
+partitioning ..|> simple_partitioning
+partitioning ..|> median_of_three_paritioning
+
+
+sorting --o operation
+operation --o comparator
+operation --o swapper
+operation --o assigner
+
+comparator ..|> simple_comparator
+comparator ..|> count_comparator
+swapper ..|> simple_swapper
+swapper ..|> count_swapper
+assigner ..|> simple_assigner
+assigner ..|> count_assigner
+
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+'!include styles/card-style.puml
+
+hide testing_results methods
+class testing_results <<Value-Object>> {
+	- **final** comparisons
+	- **final** swaps
+	- **final** assigns
+	- **final** time
+}
+
+@enduml
