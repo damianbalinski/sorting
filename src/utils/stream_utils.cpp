@@ -1,8 +1,11 @@
 #include "stream_utils.hpp"
 #include "assert.hpp"
+#include "assert_stream.hpp"
 #include <fmt/format.h>
 #include <fmt/ostream.h>
 #include <fstream>
+#include <sstream>
+#include <iostream>
 #include <scn/scn.h>
 
 void save_row(std::ostream& ostream, const testing_invariants& invariants,
@@ -39,8 +42,16 @@ testing_results read_results(std::istream& istream, const testing_identifier& id
 	return testing_results{ comparisons, swaps, assigns, time };
 }
 
-void save_results(std::ostream& ostream, const size_t n, const results& results)
+void save_results(std::ostream& output, const size_t n, const results& results)
 {
-	fmt::print(ostream, "{},{},{},{},{},{}\n",
+	fmt::print(output, "{},{},{},{},{},{}\n",
 		n, results.comparisons, results.swaps, results.assigns, results.time, results.all);
+}
+
+std::string read_file(std::istream& input)
+{
+	check_istream_open(input);
+	std::stringstream s;
+	while (input >> s.rdbuf()) {}
+	return s.str();
 }
