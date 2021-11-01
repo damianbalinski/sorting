@@ -3,7 +3,7 @@
 #include "timer.hpp"
 #include "assert_arr.hpp"
 
-results executor::test(const sorting& sort, const size_t n) const
+results executor::test(const sorting* const sort, const size_t n) const
 {
 	int* arr = arr_random_natural(n);
 
@@ -19,7 +19,7 @@ results executor::test(const sorting& sort, const size_t n) const
 	);
 
 	TIME = timer{
-		[&]() { sort(arr, n, oper); }
+		[&]() { (*sort)(arr, n, oper); }
 	}.run();
 
 	check_arr_sorted(arr, n, oper);
