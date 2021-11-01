@@ -23,7 +23,8 @@
       ],
       "environments": [
         {
-          "TEST_DIRECTORY": "${projectDir}\\test"
+          "TEST_DIRECTORY": "${projectDir}\\test",
+          "CONFIG_DIRECTORY": "${projectDir}"
         }
       ]
     }

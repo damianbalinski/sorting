@@ -1,24 +1,25 @@
 {
   "title": "Test title",
   "output": "output.png",
-  "prefix": "test02",
+  "prefix": "test11",
   "plots": [
     {
-      "config": {
+      "type": "average",
+      "invariants": {
         "title": "Test plot A",
         "xlabel": "n [n]",
         "ylabel": "comparison [n]",
-        "property": "comparisons",
-        "type": "average",
+        "xcolumn": "n",
+        "ycolumn": "comparisons",
         "range": {
-          "begin": 1,
-          "end": 10,
-          "step": 1
+          "begin": 100,
+          "end": 1000,
+          "step": 100
         },
-        "repeats": 10
+        "repeats": 100
 
       },
-      "super": [
+      "functions": [
         {
           "label": "n*n",
           "expression": "n*n"
@@ -28,7 +29,7 @@
           "expression": "n"
         }
       ],
-      "tests": [
+      "sortings": [
         {
           "algorithm": "quick_sort",
           "label": "Quick Sort"
@@ -36,6 +37,10 @@
         {
           "algorithm": "merge_sort",
           "label": "Merge Sort"
+        },
+        {
+          "algorithm": "dual_pivot_quick_sort",
+          "label": "Dual Pivot Quick Sort"
         }
       ]
     }
