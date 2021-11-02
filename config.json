@@ -1,7 +1,9 @@
 {
   "title": "Test title",
-  "output": "output.png",
+  "output": "output4",
   "prefix": "test11",
+  "grid": "(1, 2)",
+  "size": "(7, 3.5)",
   "plots": [
     {
       "type": "average",
@@ -11,22 +13,24 @@
         "ylabel": "comparison [n]",
         "xcolumn": "n",
         "ycolumn": "comparisons",
+        "legend": "inside",
         "range": {
           "begin": 100,
           "end": 1000,
           "step": 100
         },
-        "repeats": 100
+        "n": 1000,
+        "repeats": 1000
 
       },
       "functions": [
         {
-          "label": "n*n",
-          "expression": "n*n"
-        },
-        {
           "label": "n",
           "expression": "n"
+        },
+        {
+          "label": "nlog(n)",
+          "expression": "nlog(n)"
         }
       ],
       "sortings": [
@@ -41,6 +45,33 @@
         {
           "algorithm": "dual_pivot_quick_sort",
           "label": "Dual Pivot Quick Sort"
+        }
+      ]
+    },
+    {
+      "type": "average",
+      "invariants": {
+        "title": "Test plot B",
+        "xlabel": "n [n]",
+        "ylabel": "comparison [n]",
+        "xcolumn": "n",
+        "ycolumn": "comparisons",
+        "legend": "inside",
+        "range": {
+          "begin": 100,
+          "end": 1000,
+          "step": 100
+        },
+        "n": 1000,
+        "repeats": 100
+
+      },
+      "functions": [
+      ],
+      "sortings": [
+        {
+          "algorithm": "quick_sort",
+          "label": "Quick Sort"
         }
       ]
     }

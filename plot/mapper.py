@@ -36,7 +36,7 @@ def map_sorting(sorting, path, invariants):
     path = path.algorithm(sorting['algorithm'])
     df = pd.read_csv(path.get_path(), names=['n', 'comparisons', 'swaps', 'assigns', 'time', 'all'])
     return Line(
-        df[invariants.xcolumn],
-        df[invariants.ycolumn],
+        [0] + list(df[invariants.xcolumn]),
+        [0] + list(df[invariants.ycolumn]),
         sorting['label']
     )

@@ -11,4 +11,4 @@ class PlotPath:
         return self
 
     def get_path(self):
-        return '{}/{}'.format(self.__directory, self.__filename)
+        return '{}/{}.svg'.format(self.__directory, self.__filename)

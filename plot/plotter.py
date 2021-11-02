@@ -1,5 +1,9 @@
 class Plotter:
 
+    def limits(self, ax, invariants):
+        ax.set_ylim(ymin=0)
+        ax.set_xlim(xmin=0, xmax=invariants.n)
+
     def labels(self, ax, invariants):
         ax.set(
             title=invariants.title,
