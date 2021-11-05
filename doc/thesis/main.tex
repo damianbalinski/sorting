@@ -1,10 +1,10 @@
 \documentclass{book}
 
-\usepackage{imports}
+\usepackage{imports/imports}
 
-\usepackage{styles}
+\usepackage{imports/styles}
 
-\usepackage{commands}
+\usepackage{imports/commands}
 
 \frontmatter
 
@@ -45,43 +45,48 @@
 	\pagestyle{custom}
 	\mainmatter
 	
-	% ROZDZIAŁY
-
-%	\input{abstract}
-%	\cleardoublepage
-
-%	\input{chapter01}
-%	\cleardoublepage
-
-%	\input{chapter02}
-%	\cleardoublepage
 	
-	\input{chapter03_implementation}
+	% CHAPTERS
+
+	\input{chapters/abstract}
+	\cleardoublepage
+
+	\input{chapters/chapter01-problem-analysis}
 	\cleardoublepage
 	
-%	\input{chapter04}
-%	\cleardoublepage
+	\input{chapters/chapter02-basic-sorting-algorithms}
+	\cleardoublepage
 	
-%	\input{summary}
-%	\cleardoublepage
+	\input{chapters/chapter03-hybrid-sorting-algorithms}
+	\cleardoublepage
+
+	\input{chapters/chapter04-implementation}
+	\cleardoublepage
+	
+	\input{chapters/summary}
+	\cleardoublepage
 	
 	
-	%BIBLIOGRAFIA
+	% BIBLIOGRAPHY
 
 	\pagestyle{bibliographyStyle}
 	\bibliographystyle{plabbrv}
-%	\bibliography{bibliography}
+	\bibliography{chapters/bibliography}
 	\thispagestyle{chapterBeginStyle}
         \addcontentsline{toc}{chapter}{Bibliografia}
 	\cleardoublepage
 	
-	% DODATKI
+	
+	% APPENDICES
 	
 	\appendix
 	\pagestyle{appendixStyle}
 	
-%	\input{appendix01}
+	\appendix
+	\input{chapters/appendixA-dictionary}
+	\cleardoublepage
+
+	\input{chapters/appendixB-application-environment}
 	\cleardoublepage
 
 \end{document}
-
