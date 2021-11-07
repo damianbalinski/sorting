@@ -1,23 +1,23 @@
 class Plotter:
 
-    def limits(self, ax, invariants):
+    def limits(self, ax, metadata):
         ax.set_ylim(ymin=0)
-        ax.set_xlim(xmin=0, xmax=invariants.n)
+        ax.set_xlim(xmin=0, xmax=metadata.n)
 
-    def labels(self, ax, invariants):
+    def labels(self, ax, metadata):
         ax.set(
-            title=invariants.title,
-            xlabel=invariants.xlabel,
-            ylabel=invariants.ylabel
+            title=metadata.title,
+            xlabel=metadata.xlabel,
+            ylabel=metadata.ylabel
         )
 
-    def legend(self, ax, invariants):
-        if invariants.legend == 'inside':
+    def legend(self, ax, metadata):
+        if metadata.legend == 'inside':
             ax.legend()
-        elif invariants.legend == 'outside':
+        elif metadata.legend == 'outside':
             ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
         else:
             pass
 
-    def grid(self, ax, invariants):
+    def grid(self, ax, metadata):
         ax.grid()

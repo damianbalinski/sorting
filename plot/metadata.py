@@ -1,4 +1,4 @@
-class Invariants:
+class Metadata:
 
     def __init__(self, json):
         self.title = json['title']

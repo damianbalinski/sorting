@@ -33,12 +33,12 @@ def map_function(function, n):
     )
 
 
-def map_sorting(sorting, path, invariants):
+def map_sorting(sorting, path, metadata):
     path = path.algorithm(sorting['algorithm'])
     df = pd.read_csv(path.get_path(), names=['n', 'comparisons', 'swaps', 'assigns', 'time', 'all'])
     return Line(
-        [0] + list(df[invariants.xcolumn]),
-        [0] + list(df[invariants.ycolumn]),
+        [0] + list(df[metadata.xcolumn]),
+        [0] + list(df[metadata.ycolumn]),
         sorting['label'],
         sorting['color'],
     )
