@@ -9,5 +9,6 @@ namespace cfg
 	{
 		std::string prefix;
 		std::vector<plot> plots;
+		invariants invariants;
 	};
 }

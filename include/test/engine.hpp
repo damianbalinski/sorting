@@ -1,6 +1,6 @@
 #pragma once
-#include "configuration.hpp"
-#include "plot.hpp"
+#include "unit.hpp"
+#include <vector>
 #include <string>
 
 class engine
@@ -11,9 +11,9 @@ public:
 	void test() const;
 
 private:
-	cfg::configuration configuration;
-
-	void test_single_plot(const cfg::plot& plot) const;
+	invariants invariants;
+	std::string prefix;
+	std::vector<unit> units;
 
 	std::string filename_config() const;
 
