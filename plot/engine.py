@@ -9,11 +9,12 @@ class Engine:
 
     def __init__(self, json):
         path = TestPath().prefix(json['prefix'])
+        n = json['invariants']['range']['end']
         self.title = json['title']
         self.output = json['output']
         self.grid = eval(json['grid'])
         self.size = eval(json['size'])
-        self.plots = [Plot(p, path) for p in json['plots']]
+        self.plots = [Plot(p, path, n) for p in json['plots']]
 
     def draw(self):
         plt.style.use('science')
