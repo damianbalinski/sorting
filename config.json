@@ -1,77 +1,139 @@
 {
-  "title": "Test title",
-  "output": "output4",
-  "prefix": "test11",
-  "grid": "(1, 2)",
-  "size": "(7, 3.5)",
+  "title": "Liczba wykonanych operacji w algorytmie Quick Sort\n w zależności od rozmiaru tablicy",
+  "output": "quick-sort",
+  "prefix": "test0",
+  "grid": "(2, 2)",
+  "size": "(7, 7)",
   "plots": [
     {
       "type": "average",
       "invariants": {
-        "title": "Test plot A",
-        "xlabel": "n [n]",
-        "ylabel": "comparison [n]",
+        "title": "Liczba operacji porównania",
+        "xlabel": "rozmiar tablicy [n]",
+        "ylabel": "liczba porównań [n]",
         "xcolumn": "n",
         "ycolumn": "comparisons",
         "legend": "inside",
         "range": {
           "begin": 100,
-          "end": 1000,
+          "end": 10000,
           "step": 100
         },
-        "n": 1000,
-        "repeats": 1000
+        "n": 10000,
+        "repeats": 100
 
       },
       "functions": [
         {
-          "label": "n",
-          "expression": "n"
-        },
-        {
           "label": "nlog(n)",
-          "expression": "nlog(n)"
+          "expression": "nlog(n)",
+          "color": "silver"
         }
       ],
       "sortings": [
         {
           "algorithm": "quick_sort",
-          "label": "Quick Sort"
-        },
-        {
-          "algorithm": "merge_sort",
-          "label": "Merge Sort"
-        },
-        {
-          "algorithm": "dual_pivot_quick_sort",
-          "label": "Dual Pivot Quick Sort"
+          "label": "Quick Sort",
+          "color": "red"
         }
       ]
     },
     {
       "type": "average",
       "invariants": {
-        "title": "Test plot B",
-        "xlabel": "n [n]",
-        "ylabel": "comparison [n]",
+        "title": "Liczba operacji zamiany miejsc",
+        "xlabel": "rozmiar tablicy [n]",
+        "ylabel": "liczba zamian miejsc [n]",
         "xcolumn": "n",
-        "ycolumn": "comparisons",
+        "ycolumn": "swaps",
         "legend": "inside",
         "range": {
           "begin": 100,
-          "end": 1000,
+          "end": 10000,
           "step": 100
         },
-        "n": 1000,
+        "n": 10000,
         "repeats": 100
 
       },
       "functions": [
+        {
+          "label": "nlog(n)",
+          "expression": "nlog(n)",
+          "color": "silver"
+        }
       ],
       "sortings": [
         {
           "algorithm": "quick_sort",
-          "label": "Quick Sort"
+          "label": "Quick Sort",
+          "color": "red"
+        }
+      ]
+    },
+    {
+      "type": "average",
+      "invariants": {
+        "title": "Liczba operacji przypisania",
+        "xlabel": "rozmiar tablicy [n]",
+        "ylabel": "liczba przypisań [n]",
+        "xcolumn": "n",
+        "ycolumn": "assigns",
+        "legend": "inside",
+        "range": {
+          "begin": 100,
+          "end": 10000,
+          "step": 100
+        },
+        "n": 10000,
+        "repeats": 100
+
+      },
+      "functions": [
+        {
+          "label": "n",
+          "expression": "n",
+          "color": "silver"
+        }
+      ],
+      "sortings": [
+        {
+          "algorithm": "quick_sort",
+          "label": "Quick Sort",
+          "color": "red"
+        }
+      ]
+    },
+    {
+      "type": "average",
+      "invariants": {
+        "title": "Czas trwania algorytmu",
+        "xlabel": "rozmiar tablicy [n]",
+        "ylabel": "czas [n]",
+        "xcolumn": "n",
+        "ycolumn": "all",
+        "legend": "inside",
+        "range": {
+          "begin": 100,
+          "end": 10000,
+          "step": 100
+        },
+        "n": 10000,
+        "repeats": 100
+
+      },
+      "functions": [
+        {
+          "label": "nlog(n)",
+          "expression": "nlog(n)",
+          "color": "silver"
+        }
+      ],
+      "sortings": [
+        {
+          "algorithm": "quick_sort",
+          "label": "Quick Sort",
+          "color": "red"
         }
       ]
     }
