@@ -42,11 +42,11 @@ z praktyki hermetyzacji danych wewnątrz obiektowej abstrakcji. Użytkownik zewn
 danego komponentu nie ma dostępu do procesów zachodzących w jego wnętrzu. Może to prowadzić do tzw. efektów
 ubocznych (ang. side effects), przez co wyniki zwracane przez program stają się niewiarygodne.\\
 
-Aby tego uniknąć zastosowano model bezstanowy. Żaden z algorytmów sortujących nie posiada zmiennych składowych,
-które mogły by zostać zmodyfikowane w trakcie działania programu. Podczas testowania dane są przekazywane
-poprzez sygnatury metod, wzorując się na technice programowania funkcyjnego. Dzięki temu wszystkie algorytmy
-sortujące wykorzystane w implementacji są oznaczone jako niemodyfikowalne, nie mogą zmienić stanu aktualnie
-testowanego algorytmu. Gwarantuje to całkowitą separację poszczególnych testów.
+Aby tego uniknąć zastosowano model bezstanowy. Żaden z algorytmów sortujących w zaimplementowanym systemie
+nie posiada zmiennych składowych, które mogły by zostać zmodyfikowane w trakcie działania programu. Podczas
+testowania dane są przekazywane poprzez sygnatury metod, wzorując się na technice programowania funkcyjnego.
+Dzięki temu wszystkie algorytmy sortujące wykorzystane w implementacji są oznaczone jako niemodyfikowalne,
+nie mogą zmienić stanu aktualnie testowanego algorytmu. Gwarantuje to całkowitą separację poszczególnych testów.
 
 \section{Model aplikacji}
 % rozbicie na wstrzykiwane komponenty
@@ -59,7 +59,7 @@ testowanego algorytmu. Gwarantuje to całkowitą separację poszczególnych test
 	\includesvg[inkscapelatex=false,width=1.0\columnwidth]{img/project-class-diagram.svg}
 \end{figure}
 
-\subsection{Diagram przepływu}
+\subsection{Diagram aktywności}
 % na wejściu przyjmuje konfigurację, w oparciu o konfigurację wywołuje testy i zapisuje do pliku
 
 \section{Wzorce projektowe}
@@ -79,7 +79,7 @@ do obiektów bezpośrednio odpowiedzialnych za ich wykonanie.
 \subsection{Obiekt-Wartość}
 Proces testowania algorytmu składa się z wielu iteracji. Każdy z atomowych testów wchodzących w skład
 iteracji powinien być całkowicie niezależny i odseparowana od innych testów. Aby to zapewnić, dane pochodzące
-z osobnych pojedynczego testu są przekazywane za pomocą \BOLD{obiektów-wartości}. Pola w takim obiekcie po
+z osobnych testów są przekazywane za pomocą \BOLD{obiektów-wartości}. Pola w takim obiekcie po
 inicjalizacji stają się niemodyfikowalne. Użytkownik może jedynie odczytać ich wartość, bez możliwości ich modyfikacji. \BOLD{Obiekt-wartość} jest gwarancją, że wyniki pochodzące z testu są rzetelne oraz nie zostały
 zmodyfikowane w trakcie przepływu danych pomiędzy procesami.
 
@@ -89,7 +89,7 @@ zmodyfikowane w trakcie przepływu danych pomiędzy procesami.
 \end{figure}
 
 \subsection{Strategia}
-% wszystko to strategia
+% wszystko to strategia, wstrzykiwany algorytm składowy jest strategią testowania
 
 % TODO executor
 

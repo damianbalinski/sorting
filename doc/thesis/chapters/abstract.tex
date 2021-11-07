@@ -3,14 +3,50 @@
 
 Ogólna historia algorytmów sortujących. Motywacja tworzenie algorytmów 
 
-\section{Zakres pracy}
-Implementacja silnika testującego algorytmy sortujące. Implementacja silnika graficznego do wizualizacji testów.
-Analiza podstawowych algorytmów sortujących. Analiza hybrydowych algorytmów sortujących.
+\iffalse
+- początki sortwania (Bubble Sort, Insertion Sort)
+- przełom 1 (Quick Sort - brytyjski naukowiec Antony Hoare)
+- przełom 2 (Vladimir Yaroslavskiy - )
+- dalsze wynalazki (QuickMerge, Intro Sort)
+
+Problem porządkowania zbioru elementów towarzyszy informatyce od początku.
+Nic więc dziwnego, że sortowanie jest jednym z najbardziej powszechnych problemów
+współczenej informatyki. 
+
+W literaturze idea sortowania danych po raz pierwszy pojawiła się w ..., kiedy to ...
+opublikował pracę ...,
+
+Od tamtego czasu wiele rzeczy się zmieniło, powstawały coraz to nowsze algorytmy sortujące.
+
+Prawdziwym przełomem był rok ... kiedy to ... opracował algorytm Dual Pivot Quick Sort.
+Przez kilka następnych lat koncepcja sortowania wielopiwotowego została niesamowicie
+wyeksploatowana, a efekty badań z tamtego okresu widoczne są we współczesnych implementacjach.
+Np. biblioteka standardowa javy do dnia dzisiajszego (java ...) stsuje algorytm
+dual pivot quick sort jako główny algorytm sortujący.
+
+Mijały lata, a wiemy że jeżeli coś się nie rozwija to w świecie IT cofa się.
+Wiemy że każdy z algorytmów ma swoje słabe i mocne strony. Quick sort ... merge sort ...
+
+Ludzie zastanawiali się w jaki sposób połączyć algorytmy sortujące w taki sposób, aby
+kożystać z tego, co mają najlepsze: tak narodził się pomysł na QuickMergeSort
+
+Powstały algorytmy hybrydowe, czyli połączenie wielu podstawowych algorytmów sortujących
+w specyficzny sposób. Dzięki czemu możliwe jest wykorzystywanie zalet, które niesie ze
+sobą każdy z algorytów oraz niwelowanie wad. Algorytmy hybrydowe łączą ze sobą najlepsze
+części algorytmów podstawowych.
+\fi
+
+\section{Cel pracy}
+Motywem przewodnim pracy jest analiza nowoczesnych algorytmów sortujących w miejscu, takich jak koncepcja QuickMerge Sort. W tym celu przygotowano analizę porównawczą podstawowych algorytmów sortujących oraz dokonano przeglądu
+zmodyfikowanych wersji tych algorytmów oraz przeanalizowano nowoczesne algorytmy hybrydowe, będące połączeniem dwóch
+lub wielu algorytmów podstawowych.
 
 % TODO jak zdaze to tez proba modyfikacji istniejacych algorytmow
 
-\section{Cel pracy}
-Celem jest analiza nowoczesnych technik algorytmów sortujących, takich jak koncepcja QuickMerge Sort.
+\section{Zakres pracy}
+Aby ułatwić analizę algorytmów przygotowany został silnik testujący oraz silnik graficzny, które w oparciu o plik
+konfiguracyjny przeprowadzają testy oraz tworzą wizualizację wyników tych testów. Wykorzystując podane narzędzia
+została przeprowadzona analiza podstawowych oraz hybrydowych algorytmów.
 
 \section{Przegląd literatury}
 Ogólny opis pracy Sebastiana Wilda. Pomysł na algorytm QuickMerge Sort.
@@ -18,5 +54,5 @@ Ogólny opis pracy Sebastiana Wilda. Pomysł na algorytm QuickMerge Sort.
 \section{Zawartości pracy}
 Ogólny sposób organizacji dokumentu.
 Rozdział pierwszy - analiza matematyczna problemu.
-Rozdział drugi - przegląd oraz analiza podstawowych algorytmów sortujących.
+Rozdział drugi - przegląd podstawowych algorytmów sortujących.
 Rozdział trzeci - przegląd hybrydowych algorytmów sortujących.

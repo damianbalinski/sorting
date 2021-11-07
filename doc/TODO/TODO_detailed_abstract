@@ -1,5 +1,0 @@
-Za³o¿enia
-Wiele algorytmów sortuj¹cych bazuje na pewnych za³o¿eniach odnoœnie wejœciowego zbioru danych.
-Np. algorytm ... doskonale radzi sobie ze zbiorem danych prawie posortowanym, tzn.
-takim w którym ... . W tej pracy zak³adamy ¿e dane wejœciowe s¹ losowe, tzn na wejœciu mamy losow¹ permutacjê.
-Bêdziemy siê skupiaæ nad œredni¹ z³o¿onoœci¹ czasow¹.
