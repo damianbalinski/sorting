@@ -7,11 +7,23 @@
 \section{Założenia}
 
 \subsection{Założenia odnośnie testowanych parametrów}
-Testowana będzie złożoność czasowa, w tym celu analizowane są takie parametry jak: liczba porównań,
+TODO: Testowana będzie złożoność czasowa, w tym celu analizowane są takie parametry jak: liczba porównań,
 liczba swapów oraz liczba przypisań, z pominięciem operacji wykonywanych na iteratorach pętli -
-wyjaśnienie dlaczego.
+wyjaśnienie dlaczego.\\
+
+TODO: Ponieważ rzeczywisty czas wykonywania algorytmu różni się w zależności od maszyny oraz architektury systemu
+na którym przeprowadzany test, zostało przyjęte następujące założenie:
+Złożoność czasowa została określona wzorem:
+
+\boldmath$$T = n_c + 3 \cdot n_s + n_a $$
+
+Gdzie:\\
+\boldmath$T$ - czas trwania algorytmu\\
+$n_c$ - liczba operacji porównania\\
+$n_s$ - liczba operacji zamiany miejsc\\
+$n_a$ - liczba operacji przypisania\\
 
 \subsection{Założenia odnośnie danych wejściowych}
-Wiele algorytmów sortujących bazuje na pewnych założeniach odnośnie wejściowego zbioru danych.
+TODO: Wiele algorytmów sortujących bazuje na pewnych założeniach odnośnie wejściowego zbioru danych.
 Np. algorytm ... doskonale radzi sobie ze zbiorem danych prawie posortowanym, tzn.
 takim w którym ... . W tej pracy zakładamy że dane wejściowe będą losowym ciągiem liczb powtórzeniami.

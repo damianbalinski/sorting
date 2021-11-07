@@ -377,5 +377,8 @@ FodyWeavers.xsd
 # Test
 *.csv
 
+# Temp
+temp/*.svg
+
 # Thesis
 *-raw.pdf
