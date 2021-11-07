@@ -30,3 +30,6 @@ skrypt testuj¹cy
 - TODO rozwazyc dodanie wzorca projektowego budowniczy
 
 - TODO merge-sort merge na kilka czesci, wiecej niz 2
+
+- TODO przechowywac algorytm partycjonowania w quick sort, przechowywac algorytm wyboru pivota w partycjonowaniu,
+inicjalizowac w parserze konfiguracji, wywolywac w metodzie sortujacej

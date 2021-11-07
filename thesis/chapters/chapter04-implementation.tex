@@ -1,21 +1,25 @@
 \chapter{Implementacja systemu}
 \thispagestyle{chapterBeginStyle}
 
-% TODO linki do dokumentacji
-\section{Struktura systemu}
-Aplikacja składa się z dwóch niezależnych części: silnika testującego oraz silnika graficznego.\\
 
-Silnik testujący to generycznych biblioteka algorytmów sortujących oraz narzędzie przetwarzające
-te algorytmy. Aplikacja w oparciu o konfigurację wejściową generuje zestaw testowy oraz utrwala
+\section{Struktura systemu}
+Aplikacja składa się z dwóch modułów: silnika testującego oraz silnika graficznego.
+Działanie systemu jest określane na podstawie współdzielonego pliku konfiguracyjnego. W pliku konfiguracyjnym
+określone są rodzaje testów jakie należy przeprowadzić oraz metadane potrzebne do wygenerowania wizualizacji.\\
+
+Silnik testujący to generyczna biblioteka algorytmów sortujących oraz narzędzie przetwarzające
+te algorytmy. Aplikacja w oparciu o plik konfiguracyjny generuje zestaw testowy oraz utrwala
 wyniki przeprowadzonych testów na dysku. W zależności od konfiguracji, silnik testujący może
 sumować, zliczać lub uśredniać liczbę wykonywanych operacji takich jak: liczba porównań, liczba
-operacji zamiany miejsc, liczba operacji przypisania. Ta część aplikacji została napisana w języku
-C++ z wykorzystaniem technik programowania obiektowego.\\
+operacji zamiany miejsc, liczba operacji przypisania oraz czas trwania algorytmu. Ta część aplikacji
+została napisana w języku C++ \footnote{Dokumentacja języka C++: \url{https://en.cppreference.com}}
+z wykorzystaniem technik programowania obiektowego.\\
 
 Silnik graficzny to zbiór skryptów przetwarzających wyniki z silnika testującego. Na podstawie pliku
-konfiguracyjnego oraz danych wejściowych generowane są wizualizacje graficzne w postaci wykresów, dzięki
-czemu użytkownik końcowy może w łatwy sposób analizować oraz porównywać testowane algorytmy. Ta część
-systemu została napisana w języku Python przy użyciu biblioteki matplotlib.
+konfiguracyjnego oraz danych testowych generowane są wizualizacje graficzne w postaci wykresów, dzięki
+czemu użytkownik końcowy może w łatwy sposób analizować oraz porównywać badane algorytmy. Ta część
+systemu została napisana w języku Python \footnote{Dokumentacja języka Python: \url{https://docs.python.org/3/}}
+przy użyciu biblioteki matplotlib \footnote{Dokumentacja biblioteki matplotlib: \url{https://matplotlib.org/}}.
 
 
 \section{Koncepcje architektury silnika testującego}
@@ -32,7 +36,7 @@ ogranicza się do podmiany jego algorytmów składowych, bez konieczności inger
 \subsection{Obiektowość}
 Aby uprościć organizację kodu zastosowano model obiektowy. Każdy z algorytmów wykorzystywanych w systemie
 został zamodelowany za pomocą odrębnej klasy. Dla każdej rodziny algorytmów tego samego typu istnieje
-nadrzędna klasa abstrakcyjna określająca interfejs dla tej rodziny. Korzyści wynikające z zastosowanego
+nadrzędna klasa bazowa określająca interfejs dla tej rodziny. Korzyści wynikające z zastosowanego
 modelu, takie jak statyczny polimorfizm oraz dziedziczenie gwarantują bardziej wiarygodne działanie programu
 oraz umożliwiają wykrywanie błędów strukturalnych już na etapie kompilacji projektu.
 
