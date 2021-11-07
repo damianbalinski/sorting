@@ -8,9 +8,9 @@ class Plot:
         path = path.type(json['type'])
         self.plotter = map_plotter(json['type'])
         self.invariants = Invariants(json['invariants'])
-        functions = [map_function(f, self.invariants.n) for f in json['functions']]
         sortings = [map_sorting(s, path, self.invariants) for s in json['sortings']]
-        self.lines = functions + sortings
+        functions = [map_function(f, self.invariants.n) for f in json['functions']]
+        self.lines = sortings + functions
 
     def draw(self, ax):
         self.plotter.draw(ax, self.invariants, self.lines)

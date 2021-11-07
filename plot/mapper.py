@@ -28,7 +28,8 @@ def map_function(function, n):
     return Line(
         [n for n in rng],
         [exp(n) for n in rng],
-        function['label']
+        function['label'],
+        function['color'],
     )
 
 
@@ -38,5 +39,6 @@ def map_sorting(sorting, path, invariants):
     return Line(
         [0] + list(df[invariants.xcolumn]),
         [0] + list(df[invariants.ycolumn]),
-        sorting['label']
+        sorting['label'],
+        sorting['color'],
     )
