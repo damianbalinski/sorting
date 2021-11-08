@@ -1,12 +1,9 @@
 #include "dual_pivot_quick_partition.hpp"
-#include "simple_dual_pivot_selector.hpp"
 #include "array_utils.hpp"
 
-const multi_pivot_selector& dual_pivot_quick_partition::DEFAULT_DUAL_PIVOT_SELECTOR = simple_dual_pivot_selector{};
-
-size_t* dual_pivot_quick_partition::partition(int arr[], const size_t n, const operation& oper, const multi_pivot_selector& multi_pivot_selector)
+size_t* dual_pivot_quick_partition::partitione(int arr[], const size_t n, const operation& oper) const
 {
-	const size_t* pivots = multi_pivot_selector(arr, n, 2, oper);
+	const size_t* pivots = (*selector)(arr, n, 2, oper);
 	const size_t left_index = pivots[0];
 	const size_t right_index = pivots[1];
 	delete [] pivots;

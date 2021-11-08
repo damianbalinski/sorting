@@ -5,10 +5,9 @@
 class quick_partition: public partition
 {
 public:
-	size_t operator()(int arr[], const size_t n, const operation& oper) const override { return partition(arr, n, oper, DEFAULT_PIVOT_SELECTOR); }
+	quick_partition(const pivot_selector* const selector) : partition(selector) {}
 
-	static size_t partition(int arr[], size_t n, const operation& oper, const pivot_selector& pivot_selector);
+	size_t operator()(int arr[], const size_t n, const operation& oper) const override { return partitione(arr, n, oper); }
 
-private:
-	const static pivot_selector& DEFAULT_PIVOT_SELECTOR;
+	size_t partitione(int arr[], size_t n, const operation& oper) const;
 };
