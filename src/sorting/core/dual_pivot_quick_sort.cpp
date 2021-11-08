@@ -1,6 +1,5 @@
 #include "dual_pivot_quick_sort.hpp"
 #include "dual_pivot_quick_partition.hpp"
-#include "simple_dual_pivot_selector.hpp"
 
 /**
  * ?? (??)
@@ -31,11 +30,11 @@
  * CIEKAWOSTKI
  *   - sortowanie typów podstawowych w javie wykorzystuje algorytm Dual Pivot Quick Sort
  */
-void dual_pivot_quick_sort::sort(int arr[], const size_t n, const operation& oper)
+void dual_pivot_quick_sort::sort(int arr[], const size_t n, const operation& oper) const
 {
 	if (n > 1)
 	{
-		const size_t* pivots = dual_pivot_quick_partition::partition(arr, n, oper, simple_dual_pivot_selector());
+		const size_t* pivots = (*partition)(arr, n, 2, oper);
 		const size_t n1 = pivots[0];
 		const size_t n2 = pivots[1] - pivots[0] - 1;
 		const size_t n3 = n - pivots[1] - 1;

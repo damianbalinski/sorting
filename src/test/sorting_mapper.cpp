@@ -14,6 +14,11 @@
 #include "shell_sort.hpp"
 #include "intro_sort.hpp"
 #include "quick_merge_sort.hpp"
+#include "quick_partition.hpp"
+#include "dual_pivot_quick_partition.hpp"
+#include "simple_pivot_selector.hpp"
+#include "median_of_three_pivot_selector.hpp"
+#include "simple_dual_pivot_selector.hpp"
 
 const sorting* sorting_mapper::map(const std::string& str)
 {
@@ -34,13 +39,13 @@ const sorting* sorting_mapper::allocate(const std::string& str)
 	if (str == "selection_sort")	return new selection_sort{};
 
 	// FAST
-	if (str == "dual_pivot_quick_sort") return new dual_pivot_quick_sort{};
+	if (str == "dual_pivot_quick_sort") return new dual_pivot_quick_sort{new dual_pivot_quick_partition{new simple_dual_pivot_selector{}}};
 	if (str == "heap_sort")			return new heap_sort{};
 	if (str == "merge_sort")		return new merge_sort{};
-	if (str == "quick_sort")		return new quick_sort{};
+	if (str == "quick_sort")		return new quick_sort{new quick_partition{new simple_pivot_selector{}}};
 	if (str == "shell_sort")		return new shell_sort{};
-	if (str == "intro_sort")		return new intro_sort{};
-	if (str == "quick_merge_sort")	return new quick_merge_sort{};
+	if (str == "intro_sort")		return new intro_sort{new quick_partition{new median_of_three_pivot_selector{}}};
+	if (str == "quick_merge_sort")	return new quick_merge_sort{new quick_partition{new simple_pivot_selector{}}};
 
 	fail("Unrecognized sorting algorithm");
 }

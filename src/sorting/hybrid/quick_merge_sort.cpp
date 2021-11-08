@@ -1,13 +1,12 @@
 #include "quick_merge_sort.hpp"
 #include "quick_partition.hpp"
-#include "simple_pivot_selector.hpp"
 
-void quick_merge_sort::sort(int arr[], const size_t n, const operation& oper)
+void quick_merge_sort::sort(int arr[], const size_t n, const operation& oper) const
 {
 	
 	if (n > 1)
 	{
-		const size_t pivot = quick_partition::partition(arr, n, oper, simple_pivot_selector());
+		const size_t pivot = (*partition)(arr, n, oper);
 		const size_t n1 = pivot;
 		const size_t n2 = n - pivot - 1;
 

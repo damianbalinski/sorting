@@ -1,7 +1,6 @@
 #include "intro_sort.hpp"
 #include "insertion_sort.hpp"
 #include "heap_sort.hpp"
-#include "median_of_three_pivot_selector.hpp"
 #include "quick_partition.hpp"
 
 /**
@@ -30,7 +29,7 @@
  * Z£O¯ONOŒÆ PAMIÊCIOWA ??
  * ?? - nie potrzebuje dodatkowej pamiêci
  */
-void intro_sort::sort(int arr[], const size_t n, const size_t depth, const operation& oper)
+void intro_sort::sort(int arr[], const size_t n, const size_t depth, const operation& oper) const
 {
 	if (n < MAX_DEPTH)
 	{
@@ -44,7 +43,7 @@ void intro_sort::sort(int arr[], const size_t n, const size_t depth, const opera
 		return;
 	}
 
-	const size_t pivot = quick_partition::partition(arr, n, oper, median_of_three_pivot_selector());
+	const size_t pivot = (*partition)(arr, n, oper);
 	sort(arr, pivot, depth - 1, oper);
 	sort(arr+pivot+1, n - (pivot + 1), depth - 1, oper);
 }
