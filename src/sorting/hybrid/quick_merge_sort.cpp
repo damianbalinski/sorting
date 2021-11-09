@@ -1,5 +1,4 @@
 #include "quick_merge_sort.hpp"
-#include "quick_partition.hpp"
 
 void quick_merge_sort::sort(int arr[], const size_t n, const operation& oper) const
 {

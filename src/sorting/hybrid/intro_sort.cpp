@@ -1,7 +1,6 @@
 #include "intro_sort.hpp"
 #include "insertion_sort.hpp"
 #include "heap_sort.hpp"
-#include "quick_partition.hpp"
 
 /**
  * SORTOWANIE INTROSPEKTYWNE (INTRO SORT)

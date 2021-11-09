@@ -1,6 +1,6 @@
-#include "quick_partition.hpp"
+#include "lemuto_partition.hpp"
 
-size_t quick_partition::partitione(int arr[], const size_t n, const operation& oper) const
+size_t lemuto_partition::partitione(int arr[], const size_t n, const operation& oper) const
 {
 	const size_t pivot_index = (*selector)(arr, n, oper);
 	const int pivot = oper.assign(arr[pivot_index]);
