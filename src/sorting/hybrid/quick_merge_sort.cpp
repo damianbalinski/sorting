@@ -1,23 +1,22 @@
 #include "quick_merge_sort.hpp"
+#include "partition_result.hpp"
 
 void quick_merge_sort::sort(int arr[], const size_t n, const operation& oper) const
 {
 	
 	if (n > 1)
 	{
-		const size_t pivot = (*partition)(arr, n, oper);
-		const size_t n1 = pivot;
-		const size_t n2 = n - pivot - 1;
+		const partition_result r = (*partition)(arr, n, oper);
 
-		if (n1 < n2)
+		if (r.n1 < r.n2)
 		{
-			merge_sort_by_swaps(arr, arr+pivot+1, n1, oper);
-			sort(arr+pivot+1, n2, oper);
+			merge_sort_by_swaps(r.arr1, r.arr2, r.n1, oper);
+			sort(r.arr2, r.n2, oper);
 		}
 		else
 		{
-			merge_sort_by_swaps(arr+pivot+1, arr, n2, oper);
-			sort(arr, n1, oper);
+			merge_sort_by_swaps(r.arr2, r.arr1, r.n2, oper);
+			sort(r.arr1, r.n1, oper);
 		}
 	}
 }

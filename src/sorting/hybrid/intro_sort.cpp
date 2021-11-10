@@ -1,6 +1,7 @@
 #include "intro_sort.hpp"
 #include "insertion_sort.hpp"
 #include "heap_sort.hpp"
+#include "partition_result.hpp"
 
 /**
  * SORTOWANIE INTROSPEKTYWNE (INTRO SORT)
@@ -42,7 +43,7 @@ void intro_sort::sort(int arr[], const size_t n, const size_t depth, const opera
 		return;
 	}
 
-	const size_t pivot = (*partition)(arr, n, oper);
-	sort(arr, pivot, depth - 1, oper);
-	sort(arr+pivot+1, n - (pivot + 1), depth - 1, oper);
+	const partition_result r = (*partition)(arr, n, oper);
+	sort(r.arr1, r.n1, depth-1, oper);
+	sort(r.arr2, r.n2, depth-1, oper);
 }
