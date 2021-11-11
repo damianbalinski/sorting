@@ -7,4 +7,6 @@ class Metadata:
         self.xcolumn = json['xcolumn']
         self.ycolumn = json['ycolumn']
         self.legend = json['legend']
+        self.ymax = json.get('ymax')
+        self.xmax = n
         self.n = n

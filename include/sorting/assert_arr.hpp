@@ -1,6 +1,8 @@
 #pragma once
 #include "operation.hpp"
 
+#define NDEBUG_ARR
+
 #ifndef NDEBUG_ARR
 	#define check_arr_sorted(ARR, N, OPER)				__check_arr_sorted(ARR, N, OPER)
 	#define check_arr_partitioned(ARR, N, PIVOT, OPER)	__check_arr_partitioned(ARR, N, PIVOT, OPER)

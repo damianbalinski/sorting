@@ -14,9 +14,13 @@ class TestPath:
         self.__type = t
         return self
 
+    def generator(self, g):
+        self.__generator = g
+        return self
+
     def algorithm(self, a):
         self.__algorithm = a
         return self
 
     def get_path(self):
-        return '{}/{}_{}_{}.csv'.format(self.__directory, self.__prefix, self.__type, self.__algorithm)
+        return '{}/{}_{}_{}_{}.csv'.format(self.__directory, self.__prefix, self.__type, self.__generator, self.__algorithm)

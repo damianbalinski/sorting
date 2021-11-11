@@ -17,12 +17,13 @@ def map_expression(expression):
     return {
         'n': lambda n: n,
         'n*n': lambda n: n*n,
+        '0.5n*n': lambda n: 0.5*n*n,
         'log(n)': lambda n: log(n) if n > 0 else 0,
         'nlog(n)': lambda n: n*log(n) if n > 0 else 0,
     }[expression]
 
 
-def map_function(function, n):
+def map_function(function, colors, n):
     step = max(1, n // 100)
     rng = range(0, n + step, step)
     exp = map_expression(function['expression'])
@@ -31,16 +32,16 @@ def map_function(function, n):
         [n for n in rng],
         [exp(n) for n in rng],
         function['label'],
-        function['color'],
+        colors.next_gray()
     )
 
 
-def map_sorting(sorting, path, metadata):
-    path = path.algorithm(sorting['algorithm'])
+def map_sorting(sorting, path, colors, metadata):
+    path = path.generator(sorting['generator']).algorithm(sorting['algorithm'])
     df = pd.read_csv(path.get_path(), names=['n', 'comparisons', 'swaps', 'assigns', 'time', 'all'])
     return Line(
         [0] + list(df[metadata.xcolumn]),
         [0] + list(df[metadata.ycolumn]),
         sorting['label'],
-        sorting['color'],
+        colors.next_color()
     )

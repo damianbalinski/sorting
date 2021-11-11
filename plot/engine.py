@@ -19,6 +19,7 @@ class Engine:
     def draw(self):
         plt.style.use('science')
         # plt.style.use(['science', 'no-latex'])
+
         fig, axes = plt.subplots(*self.grid, constrained_layout=True)
         axes = self.map_axes_into_array(axes)
 

@@ -11,10 +11,6 @@ std::string arr_to_string_with_pivot(const int* arr, size_t n, size_t pivot, cha
 
 std::string arr_to_string_with_ids(const int* arr, size_t n);
 
-int* arr_random_natural(size_t n);
-
-int* arr_random_in_range(size_t n, int max);
-
 size_t* arr_from(size_t a, size_t b);
 
 size_t* arr_from(size_t a, size_t b, size_t c);

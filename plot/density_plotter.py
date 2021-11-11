@@ -15,6 +15,10 @@ class DensityPlotter(Plotter):
             y = kde(x)
             ax.plot(x, y, color=l.color, label=l.label)
 
+        self.limits(ax, metadata)
         self.labels(ax, metadata)
         self.legend(ax, metadata)
         self.grid(ax, metadata)
+
+    def limits(self, ax, metadata):
+        ax.set_ylim(ymin=0)
