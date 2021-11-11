@@ -1,6 +1,7 @@
 #pragma once
 #include "executor.hpp"
 #include "sorting.hpp"
+#include <cstring>
 
 class unit
 {
@@ -12,7 +13,7 @@ public:
 	const sorting* sorting;
 
 	bool operator==(const unit& other) const {
-		return executor->name() == other.executor->name() &&
-			sorting->name() == other.sorting->name();
+		return strcmp(executor->name(), other.executor->name()) == 0
+			&& strcmp(sorting->name(), other.sorting->name()) == 0;
 	}
 };

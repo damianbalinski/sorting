@@ -11,6 +11,7 @@ const executor* executor_mapper::map(const std::string& str)
 const executor* executor_mapper::allocate(const std::string& str)
 {
 	if (str == "simple")	return new simple_executor{};
+	if (str == "density")	return new simple_executor{};
 	if (str == "average")	return new average_executor{};
 
 	fail("Unrecognized executor");
