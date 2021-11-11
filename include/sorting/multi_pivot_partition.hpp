@@ -5,6 +5,8 @@
 class multi_pivot_partition
 {
 public:
+	virtual const char* name() const = 0;
+
 	multi_pivot_partition(const multi_pivot_selector* const selector): selector(selector) {}
 
 	virtual size_t* operator()(int arr[], size_t n, size_t number_of_pivots, const operation& oper) const = 0;

@@ -6,6 +6,8 @@
 class partition
 {
 public:
+	virtual const char* name() const = 0;
+
 	partition(const pivot_selector* const selector): selector(selector) {}
 
 	virtual partition_result operator()(int arr[], size_t n, const operation& oper) const = 0;

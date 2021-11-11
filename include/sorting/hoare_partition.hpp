@@ -1,10 +1,13 @@
 #pragma once
 #include "partition.hpp"
 #include "pivot_selector.hpp"
+#include "string_utils.hpp"
 
 class hoare_partition : public partition
 {
 public:
+	const char* name() const override { return concat("_hoare_partition", selector->name()); }
+
 	hoare_partition(const pivot_selector* const selector) : partition(selector) {}
 
 	partition_result operator()(int arr[], const size_t n, const operation& oper) const override { return partitione(arr, n, oper); }
