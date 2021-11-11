@@ -1,4 +1,5 @@
 from simple_plotter import *
+from density_plotter import *
 from math import log
 from line import *
 import pandas as pd
@@ -8,6 +9,7 @@ def map_plotter(type):
     return {
         'simple': SimplePlotter(),
         'average': SimplePlotter(),
+        'density': DensityPlotter(),
     }[type]
 
 
