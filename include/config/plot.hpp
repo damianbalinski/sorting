@@ -1,6 +1,6 @@
 #pragma once
 #include "executor.hpp"
-#include "sorting.hpp"
+#include "unit_test.hpp"
 #include <vector>
 
 namespace cfg
@@ -8,7 +8,7 @@ namespace cfg
 	struct plot
 	{
 		const executor* executor;
-		std::vector<const sorting*> sortings;
+		std::vector<unit_test> tests;
 	};
 
 }

@@ -1,11 +1,10 @@
 #include "executor.hpp"
-#include "array_utils.hpp"
 #include "timer.hpp"
 #include "assert_arr.hpp"
 
-results executor::test(const sorting* const sort, const size_t n) const
+results executor::test(const generator* generator, const sorting* sorting, const size_t n) const
 {
-	int* arr = arr_random_natural(n);
+	int* arr = (*generator)(n);
 
 	size_t COMPARISONS = 0;
 	size_t SWAPS = 0;
@@ -19,7 +18,7 @@ results executor::test(const sorting* const sort, const size_t n) const
 	);
 
 	TIME = timer{
-		[&]() { (*sort)(arr, n, oper); }
+		[&]() { (*sorting)(arr, n, oper); }
 	}.run();
 
 	check_arr_sorted(arr, n, oper);

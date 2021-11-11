@@ -1,18 +1,7 @@
 #include "array_utils.hpp"
 #include "colors.hpp"
+#include "random.hpp"
 #include <sstream>
-#include <ctime>
-
-int __random_seed()
-{
-	srand(time(nullptr));
-	return 0;
-}
-
-void set_random_seed()
-{
-	static int __ignored = __random_seed();
-}
 
 std::string arr_to_string(const int* const arr, const size_t n)
 {

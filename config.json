@@ -1,139 +1,99 @@
 {
-  "title": "Liczba wykonanych operacji w algorytmie Quick Sort\n w zależności od rozmiaru tablicy",
-  "output": "quick-sort",
-  "prefix": "test0",
+  "title": "Rozkład prawdopodobieństwa liczby wykonanych operacji\n w algorytmie Quick Sort dla stałego rozmiaru tablicy n = 10000",
+  "output": "quick-sort-density",
+  "prefix": "test001",
   "grid": "(2, 2)",
   "size": "(7, 7)",
+  "invariants": {
+    "range": {
+      "begin": 100,
+      "end": 10000,
+      "step": 100
+    },
+    "repeats": 100
+  },
   "plots": [
     {
-      "type": "average",
-      "invariants": {
-        "title": "Liczba operacji porównania",
-        "xlabel": "rozmiar tablicy [n]",
-        "ylabel": "liczba porównań [n]",
+      "type": "density",
+      "metadata": {
+        "title": "a) porównania",
+        "xlabel": "liczba porównań [n]",
+        "ylabel": "prawdopodobieństwo",
         "xcolumn": "n",
         "ycolumn": "comparisons",
-        "legend": "inside",
-        "range": {
-          "begin": 100,
-          "end": 10000,
-          "step": 100
-        },
-        "n": 10000,
-        "repeats": 100
-
+        "legend": "inside"
       },
       "functions": [
-        {
-          "label": "nlog(n)",
-          "expression": "nlog(n)",
-          "color": "silver"
-        }
       ],
       "sortings": [
         {
           "algorithm": "quick_sort",
           "label": "Quick Sort",
-          "color": "red"
+          "color": "red",
+	        "generator": "random"
         }
       ]
     },
     {
-      "type": "average",
-      "invariants": {
-        "title": "Liczba operacji zamiany miejsc",
-        "xlabel": "rozmiar tablicy [n]",
-        "ylabel": "liczba zamian miejsc [n]",
+      "type": "density",
+      "metadata": {
+        "title": "b) zamiany miejsc",
+        "xlabel": "liczba zamian miejsc [n]",
+        "ylabel": "prawdopodobieństwo",
         "xcolumn": "n",
         "ycolumn": "swaps",
-        "legend": "inside",
-        "range": {
-          "begin": 100,
-          "end": 10000,
-          "step": 100
-        },
-        "n": 10000,
-        "repeats": 100
-
+        "legend": "inside"
       },
       "functions": [
-        {
-          "label": "nlog(n)",
-          "expression": "nlog(n)",
-          "color": "silver"
-        }
       ],
       "sortings": [
         {
           "algorithm": "quick_sort",
           "label": "Quick Sort",
-          "color": "red"
+          "color": "red",
+	        "generator": "random"
         }
       ]
     },
     {
-      "type": "average",
-      "invariants": {
-        "title": "Liczba operacji przypisania",
-        "xlabel": "rozmiar tablicy [n]",
-        "ylabel": "liczba przypisań [n]",
+      "type": "density",
+      "metadata": {
+        "title": "c) przypisania",
+        "xlabel": "liczba przypisań [n]",
+        "ylabel": "prawdopodobieństwo",
         "xcolumn": "n",
         "ycolumn": "assigns",
-        "legend": "inside",
-        "range": {
-          "begin": 100,
-          "end": 10000,
-          "step": 100
-        },
-        "n": 10000,
-        "repeats": 100
-
+        "legend": "inside"
       },
       "functions": [
-        {
-          "label": "n",
-          "expression": "n",
-          "color": "silver"
-        }
       ],
       "sortings": [
         {
           "algorithm": "quick_sort",
           "label": "Quick Sort",
-          "color": "red"
+          "color": "red",
+	        "generator": "random"
         }
       ]
     },
     {
-      "type": "average",
-      "invariants": {
-        "title": "Czas trwania algorytmu",
-        "xlabel": "rozmiar tablicy [n]",
-        "ylabel": "czas [n]",
+      "type": "density",
+      "metadata": {
+        "title": "d) wszystkie operacje",
+        "xlabel": "liczba wszystkich operacji [n]",
+        "ylabel": "prawdopodobieństwo",
         "xcolumn": "n",
         "ycolumn": "all",
-        "legend": "inside",
-        "range": {
-          "begin": 100,
-          "end": 10000,
-          "step": 100
-        },
-        "n": 10000,
-        "repeats": 100
-
+        "legend": "inside"
       },
       "functions": [
-        {
-          "label": "nlog(n)",
-          "expression": "nlog(n)",
-          "color": "silver"
-        }
       ],
       "sortings": [
         {
           "algorithm": "quick_sort",
           "label": "Quick Sort",
-          "color": "red"
+          "color": "red",
+	        "generator": "random"
         }
       ]
     }

@@ -17,5 +17,5 @@ private:
 
 	std::string filename_config() const;
 
-	std::string filename_test(const executor* executor, const sorting* sorting) const;
+	std::string filename_test(const executor* executor, const generator* generator, const sorting* sorting) const;
 };

@@ -2,7 +2,7 @@
 #include "progress.hpp"
 #include "stream_utils.hpp"
 
-void simple_executor::execute(std::ostream& output, const sorting* const sorting, const invariants& invariants) const
+void simple_executor::execute(std::ostream& output, const generator* generator, const sorting* sorting, const invariants& invariants) const
 {
 	const range& range = invariants.range;
 	const size_t repeats = invariants.repeats;
@@ -14,7 +14,7 @@ void simple_executor::execute(std::ostream& output, const sorting* const sorting
 		for (size_t i = 0; i < repeats; i++)
 		{
 			PROGRESS_STEP(i, repeats);
-			const results results = test(sorting, n);
+			const results results = test(generator, sorting, n);
 			save_results(output, n, results);
 		}
 		PROGRESS_END();

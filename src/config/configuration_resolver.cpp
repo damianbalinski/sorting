@@ -26,9 +26,9 @@ std::vector<unit> configuration_resolver::get_units() const
 	std::vector<unit> units{};
 	for (const cfg::plot& plot: configuration.plots)
 	{
-		for (const sorting* sorting: plot.sortings)
+		for (const unit_test test: plot.tests)
 		{
-			const unit u{plot.executor, sorting};
+			const unit u{ plot.executor, test.generator, test.sorting };
 			if (std::find(units.begin(), units.end(), u) == units.end()) {
 				units.push_back(u);
 			}

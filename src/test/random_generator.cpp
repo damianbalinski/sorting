@@ -1,17 +1,5 @@
 #include "random_generator.hpp"
-#include <cstdlib>
-#include <ctime>
-
-int __random_seed()
-{
-	srand(time(nullptr));
-	return 0;
-}
-
-void set_random_seed()
-{
-	static int __ignored = __random_seed();
-}
+#include "random.hpp"
 
 int* random_generator::generate(const size_t n)
 {

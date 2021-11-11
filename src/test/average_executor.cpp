@@ -3,7 +3,7 @@
 #include "stream_utils.hpp"
 #include "averager.hpp"
 
-void average_executor::execute(std::ostream& output, const sorting* const sorting, const invariants& invariants) const
+void average_executor::execute(std::ostream& output, const generator* const generator, const sorting* const sorting, const invariants& invariants) const
 {
 	const range& range = invariants.range;
 	const size_t repeats = invariants.repeats;
@@ -16,7 +16,7 @@ void average_executor::execute(std::ostream& output, const sorting* const sortin
 		for (size_t i = 0; i < repeats; i++)
 		{
 			PROGRESS_STEP(i, repeats);
-			const results results = test(sorting, n);
+			const results results = test(generator, sorting, n);
 			averager.add(results);
 		}
 		PROGRESS_END();
