@@ -16,7 +16,6 @@ void simple_executor::execute(std::ostream& output, const sorting* const sorting
 			PROGRESS_STEP(i, repeats);
 			const results results = test(sorting, n);
 			save_results(output, n, results);
-			
 		}
 		PROGRESS_END();
 	}
