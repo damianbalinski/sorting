@@ -1,19 +1,35 @@
 @startuml
 '!include styles/card-style.puml
 
-class testing_engine {
-	List<sorting> sortings
-	test()
+hide unit methods
+class unit {
+	executor
+	sorting
+	averager
 }
 
-hide testing_averager fields
-class testing_averager {
-	average()
+hide invariants members
+class invariants
+
+class engine {
+	List<unit> units
+	invariants
+	test()
 }
 
 hide sorting fields
 interface sorting {
 	sort()
+}
+
+hide averager fields
+class averager {
+	average()
+}
+
+hide executor fields
+class executor {
+	execute()
 }
 
 hide quick_sort fields
@@ -31,28 +47,33 @@ class quick_merge_sort {
 	sort()
 }
 
+hide intro_sort fields
+class intro_sort {
+	sort()
+}
+
 hide merge_sort fields
 class merge_sort {
 	sort()
 }
 
-hide inner_sort fields
-class inner_sort {
-	sort()
-}
-
-hide partitioning fields
-interface partitioning {
+hide partition fields
+interface partition {
 	partition()
 }
 
-hide simple_partitioning fields
-class simple_partitioning {
+hide lemuto_partition fields
+class lemuto_partition {
 	partition()
 }
 
-hide median_of_three_paritioning fields
-class median_of_three_paritioning {
+hide hoare_partition fields
+class hoare_partition {
+	partition()
+}
+
+hide median_of_three_parition fields
+class median_of_three_parition {
 	partition()
 }
 
@@ -78,33 +99,42 @@ interface assigner
 hide simple_assigner members
 hide count_assigner members
 
-testing_engine --o sorting
-testing_engine -o testing_averager
+engine o-- unit
+engine o-- invariants
 
-sorting ..|> quick_sort
-sorting ..|> dual_pivot_quick_sort
-sorting ..|> quick_merge_sort
-sorting ..|> merge_sort
-sorting ..|> inner_sort
+unit *-- averager
+unit *-- executor
+unit *-- sorting
 
-quick_sort --- partitioning
-dual_pivot_quick_sort --- partitioning
-quick_merge_sort --- partitioning
+skinparam groupInheritance 3
+skinparam linetype polyline
 
-partitioning ..|> simple_partitioning
-partitioning ..|> median_of_three_paritioning
+sorting <|.. quick_sort
+sorting <|.. dual_pivot_quick_sort
+sorting <|.. quick_merge_sort
+sorting <|.. intro_sort
+sorting <|.. merge_sort
+
+quick_sort o-- partition
+dual_pivot_quick_sort o-- partition
+quick_merge_sort o-- partition
+intro_sort o-- partition
+
+partition <|.. lemuto_partition
+partition <|.. hoare_partition
+partition <|.. median_of_three_parition
 
 
-sorting --o operation
-operation --o comparator
-operation --o swapper
-operation --o assigner
+sorting *-- operation
+operation *--- comparator
+operation *--- swapper
+operation *--- assigner
 
-comparator ..|> simple_comparator
-comparator ..|> count_comparator
-swapper ..|> simple_swapper
-swapper ..|> count_swapper
-assigner ..|> simple_assigner
-assigner ..|> count_assigner
+comparator <|.. simple_comparator
+comparator <|.. count_comparator
+swapper <|.. simple_swapper
+swapper <|.. count_swapper
+assigner <|.. simple_assigner
+assigner <|.. count_assigner
 
 @enduml

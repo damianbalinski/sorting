@@ -1,0 +1,21 @@
+@startuml
+start
+group Konfiguracja
+	:parsowanie konfiguracji;
+	:przygotowanie planszy;
+end group
+
+while (wykresy dostępne) is (tak)
+
+	group Testy
+	while (testy dostępne) is (tak)
+		:wczytywanie wyników testu;
+	end while(nie)
+	end group
+	:tworzenie pojedynczego wykresu;
+
+end while (nie)
+
+:zapisywanie planszy;
+stop
+@enduml

@@ -1,0 +1,17 @@
+@startuml
+start
+group Konfiguracja
+	:parsowanie konfiguracji;
+	:mapowanie wykresów na testy;
+	:usuwanie duplikatów;
+end group
+
+group Testy
+while (testy dostępne) is (tak)
+	:generowanie danych testowych;
+	:uruchamianie testu jednostkowego;
+	:utrwalanie wyników testu;
+end while(nie)
+end group
+stop
+@enduml
