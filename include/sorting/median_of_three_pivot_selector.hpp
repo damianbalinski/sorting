@@ -4,6 +4,8 @@
 class median_of_three_pivot_selector : public pivot_selector
 {
 public:
+	const char* name() const override { return "_median_of_three_selector"; }
+
 	size_t operator()(int arr[], const size_t n, const operation& oper) const override { return select(arr, n, oper); }
 
 private:
