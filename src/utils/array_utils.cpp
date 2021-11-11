@@ -80,3 +80,21 @@ size_t* arr_from(const size_t a, const size_t b)
 	arr[1] = b;
 	return arr;
 }
+
+size_t* arr_from(const size_t a, const size_t b, const size_t c)
+{
+	size_t* const arr = new size_t[3];
+	arr[0] = a;
+	arr[1] = b;
+	arr[2] = c;
+	return arr;
+}
+
+int** arr_of_ptr_from(int* const a, int* const b, int* const c)
+{
+	int** const arr = new int*[3];
+	arr[0] = a;
+	arr[1] = b;
+	arr[2] = c;
+	return arr;
+}

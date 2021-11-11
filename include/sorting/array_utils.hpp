@@ -16,3 +16,7 @@ int* arr_random_natural(size_t n);
 int* arr_random_in_range(size_t n, int max);
 
 size_t* arr_from(size_t a, size_t b);
+
+size_t* arr_from(size_t a, size_t b, size_t c);
+
+int** arr_of_ptr_from(int* a, int* b, int* c);
