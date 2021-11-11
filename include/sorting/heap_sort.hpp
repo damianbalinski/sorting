@@ -13,6 +13,5 @@ public:
 	static void sort(int arr[], size_t n, const operation& oper) { sort(arr, n, oper, binary_max_heap()); }
 
 private:
-	
 	static void sort(int arr[], size_t n, const operation& oper, const heap& heap);
 };

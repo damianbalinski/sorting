@@ -2,13 +2,14 @@
 #include "sorting.hpp"
 #include "numeric_utils.hpp"
 #include "partition.hpp"
+#include "string_utils.hpp"
 
 class intro_sort : public sorting
 {
 public:
 	intro_sort(const partition* const partition) : partition(partition) {}
 
-	const char* name() const override { return "intro_sort"; }
+	const char* name() const override { return concat("intro_sort", partition->name()); }
 
 	void operator()(int arr[], const size_t n, const operation& oper) const override { sort(arr, n, calculate_max_depth(n), oper); }
 

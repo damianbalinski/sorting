@@ -1,13 +1,14 @@
 #pragma once
 #include "sorting.hpp"
 #include "partition.hpp"
+#include "string_utils.hpp"
 
 class quick_sort : public sorting
 {
 public:
 	quick_sort(const partition* const partition): partition(partition) {}
 
-	const char* name() const override { return "quick_sort"; }
+	const char* name() const override { return concat("quick_sort", partition->name()); }
 
 	void operator()(int arr[], const size_t n, const operation& oper) const override { sort(arr, n, oper); }
 
