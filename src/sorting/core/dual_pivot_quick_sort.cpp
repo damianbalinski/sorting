@@ -34,14 +34,9 @@ void dual_pivot_quick_sort::sort(int arr[], const size_t n, const operation& ope
 {
 	if (n > 1)
 	{
-		const size_t* pivots = (*partition)(arr, n, 2, oper);
-		const size_t n1 = pivots[0];
-		const size_t n2 = pivots[1] - pivots[0] - 1;
-		const size_t n3 = n - pivots[1] - 1;
-		
-		sort(arr, n1, oper);
-		sort(arr+pivots[0]+1, n2, oper);
-		sort(arr+pivots[1]+1, n3, oper);
-		delete [] pivots;
+		const multi_pivot_partition_result r = (*partition)(arr, n, 2, oper);
+		sort(r.arrs[0], r.ns[0], oper);
+		sort(r.arrs[1], r.ns[1], oper);
+		sort(r.arrs[2], r.ns[2], oper);
 	}
 }
