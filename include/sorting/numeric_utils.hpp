@@ -23,3 +23,15 @@ inline size_t safe_add(const size_t a, const size_t b)
 	check_num_add_overflow(a, b);
 	return a + b;
 }
+
+inline void safe_swap(int* const a, int* const b)
+{
+	const int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+inline void safe_swap_many(int* const a, int* const b, const size_t n)
+{
+	for (size_t i = 0; i < n; i++) safe_swap(a + i, b + i);
+}
