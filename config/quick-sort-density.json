@@ -1,0 +1,101 @@
+{
+  "title": "Rozkład prawdopodobieństwa liczby wykonanych operacji\n w algorytmie Quick Sort dla stałego rozmiaru tablicy n = 10000",
+  "output": "quick-sort-density",
+  "prefix": "test001",
+  "grid": "(2, 2)",
+  "size": "(7, 7)",
+  "invariants": {
+    "range": {
+      "begin": 100,
+      "end": 10000,
+      "step": 100
+    },
+    "repeats": 100
+  },
+  "plots": [
+    {
+      "type": "density",
+      "metadata": {
+        "title": "a) porównania",
+        "xlabel": "liczba porównań [n]",
+        "ylabel": "prawdopodobieństwo",
+        "xcolumn": "n",
+        "ycolumn": "comparisons",
+        "legend": "inside"
+      },
+      "functions": [
+      ],
+      "sortings": [
+        {
+          "algorithm": "quick_sort",
+          "label": "Quick Sort",
+          "color": "red",
+	        "generator": "random"
+        }
+      ]
+    },
+    {
+      "type": "density",
+      "metadata": {
+        "title": "b) zamiana miejsc",
+        "xlabel": "liczba zamian miejsc [n]",
+        "ylabel": "prawdopodobieństwo",
+        "xcolumn": "n",
+        "ycolumn": "swaps",
+        "legend": "inside"
+      },
+      "functions": [
+      ],
+      "sortings": [
+        {
+          "algorithm": "quick_sort",
+          "label": "Quick Sort",
+          "color": "red",
+	        "generator": "random"
+        }
+      ]
+    },
+    {
+      "type": "density",
+      "metadata": {
+        "title": "c) przypisania",
+        "xlabel": "liczba przypisań [n]",
+        "ylabel": "prawdopodobieństwo",
+        "xcolumn": "n",
+        "ycolumn": "assigns",
+        "legend": "inside"
+      },
+      "functions": [
+      ],
+      "sortings": [
+        {
+          "algorithm": "quick_sort",
+          "label": "Quick Sort",
+          "color": "red",
+	        "generator": "random"
+        }
+      ]
+    },
+    {
+      "type": "density",
+      "metadata": {
+        "title": "d) wszystkie operacje",
+        "xlabel": "liczba wszystkich operacji [n]",
+        "ylabel": "prawdopodobieństwo",
+        "xcolumn": "n",
+        "ycolumn": "all",
+        "legend": "inside"
+      },
+      "functions": [
+      ],
+      "sortings": [
+        {
+          "algorithm": "quick_sort",
+          "label": "Quick Sort",
+          "color": "red",
+	        "generator": "random"
+        }
+      ]
+    }
+  ]
+}

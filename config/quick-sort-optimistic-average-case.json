@@ -1,7 +1,7 @@
 {
-  "title": "Liczba wykonanych operacji w algorytmie Quick Sort\n dla danych posortowanych w odwrotnej kolejności\n w zależności od rozmiaru tablicy",
-  "output": "quick-sort-average-reversed",
-  "prefix": "test1",
+  "title": "Liczba wykonanych operacji w algorytmie Quick Sort\n dla przypadku średniego oraz optymistycznego\n w zależności od rozmiaru tablicy",
+  "output": "quick-sort-optimistic-average-case",
+  "prefix": "test0",
   "grid": "(1, 3)",
   "size": "(10.5, 3.5)",
   "invariants": {
@@ -25,15 +25,20 @@
       },
       "functions": [
         {
-          "label": "$\\frac{1}{2} n^2$",
-          "expression": "0.5n*n"
+          "label": "$n\\log{}n$",
+          "expression": "nlog(n)"
         }
       ],
       "sortings": [
         {
           "algorithm": "quick_sort",
-          "label": "Quick Sort",
-          "generator": "reversed"
+          "label": "p. średni",
+          "generator": "random"
+        },
+        {
+          "algorithm": "quick_sort_middle_pivot_selector",
+          "label": "p. optymistyczny",
+          "generator": "sorted"
         }
       ]
     },
@@ -49,15 +54,20 @@
       },
       "functions": [
         {
-          "label": "$\\frac{1}{2} n^2$",
-          "expression": "0.5n*n"
+          "label": "$n\\log{}n$",
+          "expression": "nlog(n)"
         }
       ],
       "sortings": [
         {
           "algorithm": "quick_sort",
-          "label": "Quick Sort",
-          "generator": "reversed"
+          "label": "p. średni",
+          "generator": "random"
+        },
+        {
+          "algorithm": "quick_sort_middle_pivot_selector",
+          "label": "p. optymistyczny",
+          "generator": "sorted"
         }
       ]
     },
@@ -80,8 +90,13 @@
       "sortings": [
         {
           "algorithm": "quick_sort",
-          "label": "Quick Sort",
-          "generator": "reversed"
+          "label": "p. średni",
+          "generator": "random"
+        },
+        {
+          "algorithm": "quick_sort_middle_pivot_selector",
+          "label": "p. optymistyczny",
+          "generator": "sorted"
         }
       ]
     }

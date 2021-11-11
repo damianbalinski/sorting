@@ -1,0 +1,89 @@
+{
+  "title": "Liczba wykonanych operacji w algorytmie Quick Sort\n dla przypadku pesymistycznego w zależności od rozmiaru tablicy",
+  "output": "quick-sort-pessimistic-case",
+  "prefix": "test1",
+  "grid": "(1, 3)",
+  "size": "(10.5, 3.5)",
+  "invariants": {
+    "range": {
+      "begin": 100,
+      "end": 1000,
+      "step": 100
+    },
+    "repeats": 100
+  },
+  "plots": [
+    {
+      "type": "average",
+      "metadata": {
+        "title": "a) porównania",
+        "xlabel": "rozmiar tablicy [n]",
+        "ylabel": "liczba porownań [n]",
+        "xcolumn": "n",
+        "ycolumn": "comparisons",
+        "legend": "inside"
+      },
+      "functions": [
+        {
+          "label": "$\\frac{1}{2} n^2$",
+          "expression": "1/2n*n"
+        }
+      ],
+      "sortings": [
+        {
+          "algorithm": "quick_sort",
+          "label": "p. pesymistyczny",
+          "generator": "reversed"
+        }
+      ]
+    },
+    {
+      "type": "average",
+      "metadata": {
+        "title": "b) zamiana miejsc",
+        "xlabel": "rozmiar tablicy [n]",
+        "ylabel": "liczba zamian miejsc [n]",
+        "xcolumn": "n",
+        "ycolumn": "swaps",
+        "legend": "inside"
+      },
+      "functions": [
+        {
+          "label": "$\\frac{1}{4} n^2$",
+          "expression": "1/4n*n"
+        }
+      ],
+      "sortings": [
+        {
+          "algorithm": "quick_sort",
+          "label": "p. pesymistyczny",
+          "generator": "reversed"
+        }
+      ]
+    },
+    {
+      "type": "average",
+      "metadata": {
+        "title": "c) przypisania",
+        "xlabel": "rozmiar tablicy [n]",
+        "ylabel": "liczba przypisań [n]",
+        "xcolumn": "n",
+        "ycolumn": "assigns",
+        "legend": "inside"
+      },
+      "functions": [
+        {
+          "label": "$n$",
+          "expression": "n"
+        }
+      ],
+      "sortings": [
+        {
+          "algorithm": "quick_sort",
+          "label": "p. pesymistyczny",
+          "generator": "reversed"
+        }
+      ]
+    }
+  ]
+}
