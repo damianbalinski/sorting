@@ -19,6 +19,7 @@
 #include "simple_pivot_selector.hpp"
 #include "median_of_three_pivot_selector.hpp"
 #include "simple_dual_pivot_selector.hpp"
+#include "middle_pivot_selector.hpp"
 
 const sorting* sorting_mapper::map(const std::string& str)
 {
@@ -46,6 +47,9 @@ const sorting* sorting_mapper::allocate(const std::string& str)
 	if (str == "shell_sort")		return new shell_sort{};
 	if (str == "intro_sort")		return new intro_sort{new lemuto_partition{new median_of_three_pivot_selector{}}};
 	if (str == "quick_merge_sort")	return new quick_merge_sort{new lemuto_partition{new simple_pivot_selector{}}};
+
+	// MIXED
+	if (str == "quick_sort_middle_pivot_selector") return new quick_sort{new lemuto_partition{new middle_pivot_selector{}}};
 
 	fail("Unrecognized sorting algorithm");
 }
