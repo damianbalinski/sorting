@@ -3,6 +3,8 @@
 
 
 \section{Quick Sort}
+\input{chapters/tables/quick-sort}
+
 Historia algorytmu Quick Sort sięga drugiej połowy XX wieku. W roku 1959 brytyjski naukowiec Tony Hoare
 opracował, a dwa lata później opublikował pierwszą wersję tego algorytmu. Od tamtego czasu powstało wiele
 udoskonaleń tego algorytmu, jednak jego koncepcja nadal jest widoczna we współczesnych językach programowania
@@ -18,10 +20,11 @@ z drugiej tablicy. Drugim etapem jest rekurencyjne sortowanie lewej oraz prawej 
 Algorytm Quick Sort wykorzystuje technikę dziel i zwyciężaj, ponieważ problem sortowania tablicy wejściowej
 rozbija na sortowanie dwóch podtablic.
 
-
-% Tabelska sortowania
+% TODO: Tabelska sortowania
+% TODO: ile procentowo mniej porownan wykonuje w przypadku optymistycznym w porownaniu do przypadku średniego
 
 \subsection{Analiza algorytmu Quick Sort}
+
 Liczba operacji wykonywanych przez algorytm Quick Sort została przeanalizowana pod kątem trzech przypadków:
 optymistycznego, średniego oraz pesymistycznego.\\
 
@@ -64,15 +67,50 @@ Głównym problemem algorytmu Quick Sort jest jego słaba pesymistyczna złożon
 Kolejnym problemem tego algorytmu jest stosunkowo duża liczba wykonywanych operacji porównania w stosunku do liczby pozostałych operacji. Punkt ten jest szczególnie istotny w sytuacji, gdy sortowane są złożone struktury, dla których
 wykonanie pojedynczej operacji porównania jest znacznie kosztowniejsze od pozostałych operacji. W tym przypadku bardziej wskazanym wydaje się użycie algorytmu Merge Sort, którego analizę przeprowadzono w kolejnym rozdziale.
 
-
-\section{Merge Sort}
-Ogólna koncepcja algorytmu, autor, rok powstania, bez pseudokodu.
-
-\subsection{Analiza algorytmu Merge Sort}
-Wykresy liczby operacji porównania, zamiany miejsc, przypisania. Eksperymentalna analiza wartości
-oczekiwanej liczby operacji.
-
+\subsection{Możliwości optymalizacyjne}
+Ponieważ złożoność czasowa algorytmu Quick Sort uwarunkowana jest poprzez złożoność algorytmu partycjonowania, optymalizacja algorytmu może opierać się ulepszanie algorytmu partycjonowania, aby jak najefektywniej wyszukiwał pivot, zapewniając podział tablicy wejściowej na dwie tablice o zbliżonej długości.
+ 
 % Tabelka sortowania
 
+\section{Merge Sort}
+\input{chapters/tables/merge-sort}
+
+Algorytm Merge Sort został opracowany przez Johna von Neumanna w 1945 roku. Tak jak Quick Sort, algorytm ten wykorzystuje
+technikę dziel i zwyciężaj aby rekurencyjnie rozbić problem sortowania danych wejściowych na dwie listy mniejszej długości.
+W przeciwieństwie do algorytmu Quick Sort, algorytm Merge Sort do poprawnego działania potrzebuje dodatkowej pamięci.
+W rozważanej implementacji algorytm alokuje dodatkowy bufor długości $n/2$.\\
+
+Algorytm Merge Sort składa się z trzech etapów. Pierwszym krokiem jest podział tablicy wejściowej na dwie części o zbliżonej długości. Drugim etapem jest rekurencyjne sortowanie każdej z części. Ostatnim krokiem jest scalenie tablic cząstkowych zgodnie z porządkiem sortowania. Aby efektywnie wykonać ostatni krok, algorytm Merge Sort potrzebuje zewnętrznego bufora.\\
+
+\subsection{Analiza algorytmu Merge Sort}
+Liczba operacji wykonywanych przez algorytm Merge Sort została przeanalizowana pod kątem trzech przypadków:
+optymistycznego, średniego oraz pesymistycznego.\\
+
+Dla algorytmu Merge Sort przypadek optymistyczny (\ref{fig:merge-sort-optimistic-average-pessimistic-case}) następuje wówczas, gdy w każdym kroku scalania lewa podtablica zawiera tylko elementy mniejsze od wszystkich elementów z prawej podtablicy. Efekt ten uzyskano, wprowadzając dane już posortowane. Z analizy eksperymentalnej wynika, że w tym przypadku
+algorytm Merge Sort działa ze złożonością czasową rzędu $O(n\log{}n)$.\\
+
+Przypadek pesymistyczny (\ref{fig:merge-sort-optimistic-average-pessimistic-case}) zachodzi, gdy liczba porównać między 
+sobą elementów w trakcie scalania jest możliwie największa. Efekt ten uzyskano, preparując dane wejściowe w taki sposób,
+aby w każdym kroku scalania porównywane tablice zawierały elementy na przemian większe oraz mniejsze. Z analizy wynika, że złożoność czasowa algorytmu w przypadku pesymistycznym jest równa $O(n\log{}n)$, a więc jest tego samego rzędu co złożoność optymistyczna.\\
+
+Przypadek średni (\ref{fig:merge-sort-optimistic-average-pessimistic-case}) zbadano wprowadzając na wejście losowe dane z powtórzeniami. Analiza wykazała, że w przypadku średnim złożoność algorytmu jest równa $O(n\log{}n)$.\\
+
+W przeciwieństwie do algorytmu Quick Sort, algorytm Merge Sort wykonuje dokładnie tyle samo operacji porównania co operacji
+przypisania. Jest to zgodne z rzeczywistością, ponieważ w trakcie scalania każdej operacji porównania towarzyszy przypisanie wartości do bufora. Można zauważyć, że algorytm Merge Sort w rozpatrywanej postaci nie wykonuje operacji zamiany miejsc.\\
+
+Eksperymentalna analiza wartości oczekiwanej liczby operacji.
+
+\begin{figure}[H]
+	\centering
+	\includesvg[inkscapelatex=false,width=1.0\columnwidth]{img/plot/merge-sort-optimistic-average-pessimistic-case.svg}
+	\caption[]{}
+	\label{fig:merge-sort-optimistic-average-pessimistic-case}
+\end{figure}
+
 \subsection{Problemy związane z algorytmem Merge Sort}
-Konieczność alokacji dodatkowych zasobów.
+Słaba pesymistyczna złożoność czasowa.
+Konieczność alokacji dodatkowych zasobów, w obecnej implementacji potrzebuje n/2 dodatkowo zaalokowanej pamięci.
+
+\subsection{Możliwości optymalizacyjne}
+% optymalizacja polega na ulepszeniu algorytmu mergujacego
+Modyfikacja buforów, aby nie alokowano dodatkowej pamięci. Być może modyfikacja algorytmu mergowania.
