@@ -3,27 +3,67 @@
 
 
 \section{Quick Sort}
-Ogólna koncepcja algorytmu, autor, rok powstania, bez pseudokodu, gdzie algorytm jest wykorzystywany
-(java)
+Historia algorytmu Quick Sort sięga drugiej połowy XX wieku. W roku 1959 brytyjski naukowiec Tony Hoare
+opracował, a dwa lata później opublikował pierwszą wersję tego algorytmu. Od tamtego czasu powstało wiele
+udoskonaleń tego algorytmu, jednak jego koncepcja nadal jest widoczna we współczesnych językach programowania
+\,\footnote{Dokumentacja biblioteki sortującej w języku java: \url{https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Arrays.html}}.
+Na cześć algorytmu Quick Sort standardowa funkcja sortująca w języku C++ nosi nazwę qsort
+\,\footnote{Dokumentacja funkcji sortującej qsort:
+\url{https://en.cppreference.com/w/cpp/algorithm/qsort}}.\\
 
-% Algorytm ten oraz jego wariacje są nadal powszechne w wielu systemach komupetorych [link do java8] 
-% Dziel i zwyciężaj, partycjonowanie na dwie podtablice, i sortowanie kazdej oddzielnie
+Algorytm Quick Sort składa się z dwóch etapów. Pierwszym z nich jest partycjonowanie zbioru wejściowego.
+Po tym kroku tablica wejściowa jest rozbita na dwa rozłączne zbiory, w których wszystkie elementy pierwszego
+zbioru są skumulowane po lewej stronie tablicy oraz każdy z tych elementów jest większy od dowolnego elementu
+z drugiej tablicy. Drugim etapem jest rekurencyjne sortowanie lewej oraz prawej podtablicy.
+Algorytm Quick Sort wykorzystuje technikę dziel i zwyciężaj, ponieważ problem sortowania tablicy wejściowej
+rozbija na sortowanie dwóch podtablic.
+
+
 % Tabelska sortowania
-% British computer scientist Tony Hoare in 1959
-% algorytm yen odcisna pietno w historii, na jego czesc metoda sortujaca w systremach unix naztwa sie qsort
 
 \subsection{Analiza algorytmu Quick Sort}
-Wykresy liczby operacji porównania, zamiany miejsc, przypisania. Eksperymentalna analiza wartości
-oczekiwanej liczby operacji.
+Liczba operacji wykonywanych przez algorytm Quick Sort została przeanalizowana pod kątem trzech przypadków:
+optymistycznego, średniego oraz pesymistycznego.\\
+
+Dla algorytmu Quick Sort przypadek optymistyczny (\ref{fig:quick-sort-optimistic-average}) następuje wówczas, gdy algorytm partycjonowania przy każdym wywołaniu dzieli tablicę wejściową na dwie równe części. Efekt ten uzyskano, wprowadzając dane już posortowane oraz stosując algorytm wybierający pivot dokładnie w połowie tablicy. Z analizy eksperymentalnej wynika, że w przypadku optymistycznym algorytm działa ze złożonością czasową $O(n\log{}n)$.\\
+
+Przypadek pesymistyczny (\ref{fig:quick-sort-pessimistic}) zachodzi, gdy drzewo wowołań rekurencyjnych jest możliwie najgłębsze. Efekt ten uzyskano, wprowadzając dane już posortowane oraz stosując algorytm wybierający pivot jako ostatni element tablicy. W tej sytuacji w kolejnych iteracjach rozpatrywana jest tablica z rozmiarem o jeden mniejszy od poprzedniej, a więc drzewo wywołań rekurencyjnych ma głębokość $n$. Z analizy wynika, że złożoność czasowa algorytmu w przypadku pesymistycznym wynosi $O(n^2)$.\\
+
+Przypadek średni (\ref{fig:quick-sort-optimistic-average}) został zbadany wprowadzając losowe dane z powtórzeniami oraz stosując algorytm wybierający pivot jako ostatni element tablicy. Analiza eksperymentalna wykazała, że w przypadku średnim algorytm Quick Sort ma złożoność czasową równą $O(n\log{}n)$, a więc jest tego samego rzędu co dla przypadku optymistycznego.\\
+
+Porównując liczbę wykonywanych operacji można zauważyć, że algorytm Quick Sort wykonuje prawie dwa więcej operacji porównania
+niż operacji zamiany miejsc. Liczba pojedynczych operacji przypisania rośnie liniowo, a więc jest znikoma w porównaniu z
+liczbą pozostałych operacji.\\
+
+Analizując rozkład prawdopodobieństwa liczby wykonanych operacji (\ref{fig:quick-sort-density}) użyto tablicy losowych danych o stałym rozmiarze $n = 10000$. Można zauważyć, że liczba operacji porównania oraz liczba operacji zamiany miejsc nie są przedstawiane za pomocą rozkładu normalnego. Bardziej prawdopodobne jest wykonanie większej liczby tych operacji w stosunku do wartości średniej. Z kolei rozkład liczby wykonanych operacji przypisania przedstawia się za pomocą rozkładu normalnego, z jednakowym prawdopodobieństwem liczba ta może być większa lub mniejsza od wartości średniej.\\
 
 \begin{figure}[H]
 	\centering
-	\includesvg[inkscapelatex=false,width=1.0\columnwidth]{img/plot/quick-sort.svg}
+	\includesvg[inkscapelatex=false,width=1.0\columnwidth]{img/plot/quick-sort-optimistic-average-case.svg}
+	\caption[]{}
+	\label{fig:quick-sort-optimistic-average}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includesvg[inkscapelatex=false,width=1.0\columnwidth]{img/plot/quick-sort-pessimistic-case.svg}
+	\caption[]{}
+	\label{fig:quick-sort-pessimistic}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includesvg[inkscapelatex=false,width=1.0\columnwidth]{img/plot/quick-sort-density.svg}
+	\caption[]{}
+	\label{fig:quick-sort-density}
 \end{figure}
 
 \subsection{Problemy związane z algorytmem Quick Sort}
-Wiele kosztownych operacji porównania, przeciwieństwo algorytmu Merge Sort.
-Słaba pesymistyczna złożoność czasowa.
+Głównym problemem algorytmu Quick Sort jest jego słaba pesymistyczna złożoność czasowa. Ponieważ algorytm działa rekurencyjnie, w przypadku pesymistycznym głębokość drzewa wywołań rekurencyjnych może przekroczyć maksymalną liczbę ramek stosu, powodując awaryjne zatrzymanie programu.\\
+
+Kolejnym problemem tego algorytmu jest stosunkowo duża liczba wykonywanych operacji porównania w stosunku do liczby pozostałych operacji. Punkt ten jest szczególnie istotny w sytuacji, gdy sortowane są złożone struktury, dla których
+wykonanie pojedynczej operacji porównania jest znacznie kosztowniejsze od pozostałych operacji. W tym przypadku bardziej wskazanym wydaje się użycie algorytmu Merge Sort, którego analizę przeprowadzono w kolejnym rozdziale.
+
 
 \section{Merge Sort}
 Ogólna koncepcja algorytmu, autor, rok powstania, bez pseudokodu.
