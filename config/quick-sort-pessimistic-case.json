@@ -1,5 +1,5 @@
 {
-  "title": "Liczba wykonanych operacji w algorytmie Quick Sort\n dla przypadku pesymistycznego w zależności od rozmiaru tablicy",
+  "title": "Liczba operacji wykonanych przez algorytm Quick Sort\n dla przypadku pesymistycznego w zależności od rozmiaru tablicy",
   "output": "quick-sort-pessimistic-case",
   "prefix": "test1",
   "grid": "(1, 3)",

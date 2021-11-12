@@ -1,5 +1,5 @@
 {
-  "title": "Rozkład prawdopodobieństwa liczby wykonanych operacji\n w algorytmie Quick Sort dla losowych danych\nprzy stałym rozmiarze tablicy n = 10000",
+  "title": "Rozkład prawdopodobieństwa liczby operacji wykonanych\n przez algorytm Quick Sort dla losowych danych\nprzy stałym rozmiarze tablicy n = 10000",
   "output": "quick-sort-density",
   "prefix": "test3",
   "grid": "(1, 3)",

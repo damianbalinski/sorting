@@ -1,7 +1,7 @@
 {
-  "title": "Liczba operacji wykonanych przez algorytm Quick Sort\n dla przypadku średniego oraz optymistycznego\n w zależności od rozmiaru tablicy",
-  "output": "quick-sort-optimistic-average-case",
-  "prefix": "test0",
+  "title": "Liczba operacji wykonanych przez algorytm Merge Sort\n dla przypadku średniego, optymistycznego oraz pesymistycznego\n w zależności od rozmiaru tablicy",
+  "output": "merge-sort-optimistic-average-pessimistic-case",
+  "prefix": "test4",
   "grid": "(1, 3)",
   "size": "(10.5, 3.5)",
   "invariants": {
@@ -31,14 +31,19 @@
       ],
       "sortings": [
         {
-          "algorithm": "quick_sort",
+          "algorithm": "merge_sort",
           "label": "p. średni",
           "generator": "random"
         },
         {
-          "algorithm": "quick_sort_middle_pivot_selector",
+          "algorithm": "merge_sort",
           "label": "p. optymistyczny",
           "generator": "sorted"
+        },
+        {
+          "algorithm": "merge_sort",
+          "label": "p. pesymistyczny",
+          "generator": "hard_merge"
         }
       ]
     },
@@ -53,21 +58,22 @@
         "legend": "inside"
       },
       "functions": [
-        {
-          "label": "$n\\log{}n$",
-          "expression": "nlog(n)"
-        }
       ],
       "sortings": [
         {
-          "algorithm": "quick_sort",
+          "algorithm": "merge_sort",
           "label": "p. średni",
           "generator": "random"
         },
         {
-          "algorithm": "quick_sort_middle_pivot_selector",
+          "algorithm": "merge_sort",
           "label": "p. optymistyczny",
           "generator": "sorted"
+        },
+        {
+          "algorithm": "merge_sort",
+          "label": "p. pesymistyczny",
+          "generator": "hard_merge"
         }
       ]
     },
@@ -83,20 +89,25 @@
       },
       "functions": [
         {
-          "label": "$n$",
-          "expression": "n"
+          "label": "$n\\log{}n$",
+          "expression": "nlog(n)"
         }
       ],
       "sortings": [
         {
-          "algorithm": "quick_sort",
+          "algorithm": "merge_sort",
           "label": "p. średni",
           "generator": "random"
         },
         {
-          "algorithm": "quick_sort_middle_pivot_selector",
+          "algorithm": "merge_sort",
           "label": "p. optymistyczny",
           "generator": "sorted"
+        },
+        {
+          "algorithm": "merge_sort",
+          "label": "p. pesymistyczny",
+          "generator": "hard_merge"
         }
       ]
     }
