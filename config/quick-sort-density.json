@@ -1,16 +1,16 @@
 {
-  "title": "Rozkład prawdopodobieństwa liczby wykonanych operacji\n w algorytmie Quick Sort dla stałego rozmiaru tablicy n = 10000",
+  "title": "Rozkład prawdopodobieństwa liczby wykonanych operacji\n w algorytmie Quick Sort dla losowych danych\nprzy stałym rozmiarze tablicy n = 10000",
   "output": "quick-sort-density",
-  "prefix": "test001",
-  "grid": "(2, 2)",
-  "size": "(7, 7)",
+  "prefix": "test3",
+  "grid": "(1, 3)",
+  "size": "(10.5, 3.5)",
   "invariants": {
     "range": {
       "begin": 100,
       "end": 10000,
       "step": 100
     },
-    "repeats": 100
+    "repeats": 10000
   },
   "plots": [
     {
@@ -18,7 +18,7 @@
       "metadata": {
         "title": "a) porównania",
         "xlabel": "liczba porównań [n]",
-        "ylabel": "prawdopodobieństwo",
+        "ylabel": "gęstość prawd.",
         "xcolumn": "n",
         "ycolumn": "comparisons",
         "legend": "inside"
@@ -29,8 +29,7 @@
         {
           "algorithm": "quick_sort",
           "label": "Quick Sort",
-          "color": "red",
-	        "generator": "random"
+	      "generator": "random"
         }
       ]
     },
@@ -39,7 +38,7 @@
       "metadata": {
         "title": "b) zamiana miejsc",
         "xlabel": "liczba zamian miejsc [n]",
-        "ylabel": "prawdopodobieństwo",
+        "ylabel": "gęstość prawd.",
         "xcolumn": "n",
         "ycolumn": "swaps",
         "legend": "inside"
@@ -50,8 +49,7 @@
         {
           "algorithm": "quick_sort",
           "label": "Quick Sort",
-          "color": "red",
-	        "generator": "random"
+	      "generator": "random"
         }
       ]
     },
@@ -60,7 +58,7 @@
       "metadata": {
         "title": "c) przypisania",
         "xlabel": "liczba przypisań [n]",
-        "ylabel": "prawdopodobieństwo",
+        "ylabel": "gęstość prawd.",
         "xcolumn": "n",
         "ycolumn": "assigns",
         "legend": "inside"
@@ -71,29 +69,7 @@
         {
           "algorithm": "quick_sort",
           "label": "Quick Sort",
-          "color": "red",
-	        "generator": "random"
-        }
-      ]
-    },
-    {
-      "type": "density",
-      "metadata": {
-        "title": "d) wszystkie operacje",
-        "xlabel": "liczba wszystkich operacji [n]",
-        "ylabel": "prawdopodobieństwo",
-        "xcolumn": "n",
-        "ycolumn": "all",
-        "legend": "inside"
-      },
-      "functions": [
-      ],
-      "sortings": [
-        {
-          "algorithm": "quick_sort",
-          "label": "Quick Sort",
-          "color": "red",
-	        "generator": "random"
+          "generator": "random"
         }
       ]
     }
