@@ -2,6 +2,7 @@ from path_test import *
 from path_plot import *
 from plot import *
 import numpy as np
+import matplotlib
 import matplotlib.pyplot as plt
 
 
@@ -19,6 +20,7 @@ class Engine:
     def draw(self):
         plt.style.use('science')
         # plt.style.use(['science', 'no-latex'])
+        matplotlib.rcParams['text.latex.preamble'] = r'\usepackage{polski}'
 
         fig, axes = plt.subplots(*self.grid, constrained_layout=True)
         axes = self.map_axes_into_array(axes)
