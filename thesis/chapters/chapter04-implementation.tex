@@ -37,7 +37,7 @@ ogranicza się do podmiany jego algorytmów składowych, bez konieczności inger
 Aby uprościć organizację kodu zastosowano model obiektowy. Każdy z algorytmów wykorzystywanych w systemie
 został zamodelowany za pomocą odrębnej klasy. Dla każdej rodziny algorytmów tego samego typu istnieje
 nadrzędna klasa bazowa określająca interfejs dla tej rodziny. Korzyści wynikające z zastosowanego
-modelu, takie jak statyczny polimorfizm oraz dziedziczenie gwarantują bardziej wiarygodne działanie programu
+modelu, takie jak statyczny polimorfizm oraz dziedziczenie, gwarantują bardziej wiarygodne działanie programu
 oraz umożliwiają wykrywanie błędów strukturalnych już na etapie kompilacji projektu.
 
 \subsection{Bezstanowość}
@@ -56,15 +56,30 @@ nie mogą zmienić stanu aktualnie testowanego algorytmu. Gwarantuje to całkowi
 % rozbicie na wstrzykiwane komponenty
 
 \subsection{Diagram klas}
-% Model UML systemu,
+TODO: opis diagramu
+% Model UML systemu
 
 \begin{figure}[H]
 	\centering
-	\includesvg[inkscapelatex=false,width=1.0\columnwidth]{img/project-class-diagram.svg}
+	\includesvg[inkscapelatex=false,width=1.0\columnwidth]{img/uml/project-class-diagram.svg}
+	\caption{Diagram klas silnika testującego}
 \end{figure}
 
 \subsection{Diagram aktywności}
+TODO: opis diagramu
 % na wejściu przyjmuje konfigurację, w oparciu o konfigurację wywołuje testy i zapisuje do pliku
+
+\begin{figure}[H]
+	\centering
+	\subfloat[\centering silnik testujący]{
+		\includesvg[inkscapelatex=false,width=0.45\columnwidth]{img/uml/testing-engine-activity-diagram.svg}
+	}
+	\qquad
+	\subfloat[\centering silnik graficzny]{
+		\includesvg[inkscapelatex=false,width=0.45\columnwidth]{img/uml/graphic-engine-activity-diagram.svg}
+	}
+	\caption{Diagram aktywności projektowanego systemu}
+\end{figure}
 
 \section{Wzorce projektowe}
 
@@ -77,7 +92,7 @@ do obiektów bezpośrednio odpowiedzialnych za ich wykonanie.
 
 \begin{figure}[H]
 	\centering
-	\includesvg[inkscapelatex=false,width=0.6\columnwidth]{img/facade-class-diagram.svg}
+	\includesvg[inkscapelatex=false,width=0.6\columnwidth]{img/uml/facade-class-diagram.svg}
 \end{figure}
 
 \subsection{Obiekt-Wartość}
@@ -89,11 +104,14 @@ zmodyfikowane w trakcie przepływu danych pomiędzy procesami.
 
 \begin{figure}[H]
 	\centering
-	\includesvg[inkscapelatex=false,width=0.20\columnwidth]{img/value-object-class-diagram.svg}
+	\includesvg[inkscapelatex=false,width=0.20\columnwidth]{img/uml/value-object-class-diagram.svg}
 \end{figure}
 
 \subsection{Strategia}
 % wszystko to strategia, wstrzykiwany algorytm składowy jest strategią testowania
+
+\subsection{Budowniczy}
+% w trakcie budowania konfiguracji używany jest budowniczy
 
 % TODO executor
 
