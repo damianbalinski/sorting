@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="196px" preserveAspectRatio="none" style="width:408px;height:196px;background:#FFFFFF;" version="1.1" viewBox="0 0 408 196" width="408px" zoomAndPan="magnify"><defs><filter height="300%" id="f1fq5yo9w3gz1d" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[2b25c74531c39e7bc052d661516b47c4]
+class sorting--><rect codeLine="4" fill="#FEFECE" filter="url(#f1fq5yo9w3gz1d)" height="62.0234" id="sorting" style="stroke:#A80036;stroke-width:1.5;" width="101" x="129" y="7"/><ellipse cx="144" cy="27.0938" fill="#B4A7E5" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M145,24.0938 L145,30.0938 L147,30.0938 L147.4844,30.0938 L148,30.7188 L148,31.0938 L148,31.4688 L147.4844,32.0938 L147,32.0938 L141,32.0938 L140.5156,32.0938 L140,31.4688 L140,31.0938 L140,30.7188 L140.5156,30.0938 L141,30.0938 L143,30.0938 L143,24.0938 L141,24.0938 L140.5156,24.0938 L140,23.4688 L140,23.0938 L140,22.7188 L140.5156,22.0938 L141,22.0938 L147,22.0938 L147.4844,22.0938 L148,22.7188 L148,23.0938 L148,23.4688 L147.4844,24.0938 L147,24.0938 L145,24.0938 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="73" x="156" y="24.457">«Command»</text><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="37" x="174" y="39.5508">sorting</text><line style="stroke:#A80036;stroke-width:1.5;" x1="130" x2="229" y1="47.1875" y2="47.1875"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="27" x="135" y="62.6064">sort()</text><!--MD5=[a374dd668a24490351809ae1a67ffbfc]
+class quick_sort--><rect codeLine="9" fill="#FEFECE" filter="url(#f1fq5yo9w3gz1d)" height="53.8359" id="quick_sort" style="stroke:#A80036;stroke-width:1.5;" width="89" x="7" y="129"/><ellipse cx="22" cy="145" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M24,141.5 Q24.2031,141 24.4375,140.75 Q24.6719,140.5 24.9375,140.5 Q25.4063,140.5 25.7031,140.7813 Q26,141.0625 26,141.7188 L26,143.2813 Q26,143.9375 25.7188,144.2188 Q25.4375,144.5 25,144.5 Q24.6094,144.5 24.3594,144.3281 Q24.1094,144.1563 24,143.7031 Q23.9531,143.3906 23.7813,143.2188 Q23.4688,142.8906 22.9063,142.7031 Q22.3438,142.5 21.7813,142.5 Q21.0781,142.5 20.4844,142.7813 Q19.9063,143.0625 19.4531,143.6875 Q19,144.3125 19,145.1719 L19,146.0938 Q19,147.125 19.8438,147.8125 Q20.6875,148.5 22.1875,148.5 Q23.0781,148.5 23.7031,148.2969 Q24.0625,148.1875 24.4688,147.8281 Q24.7344,147.625 24.875,147.5625 Q25.0156,147.5 25.1875,147.5 Q25.5156,147.5 25.75,147.7656 Q26,148.0156 26,148.375 Q26,148.7188 25.6563,149.125 Q25.1563,149.7188 24.3594,150.0469 Q23.3125,150.5 22.0313,150.5 Q20.5313,150.5 19.3281,149.9063 Q18.3594,149.4375 17.6719,148.4219 Q17,147.4063 17,146.2031 L17,145.1094 Q17,143.8594 17.5938,142.7656 Q18.2031,141.6719 19.25,141.0938 Q20.3125,140.5 21.5,140.5 Q22.2188,140.5 22.8438,140.75 Q23.4688,141 24,141.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="57" x="36" y="149.9102">quick_sort</text><line style="stroke:#A80036;stroke-width:1.5;" x1="8" x2="95" y1="161" y2="161"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="27" x="13" y="176.4189">sort()</text><!--MD5=[1ba5dfe1cb4c9cc2fe8e8b12e660a2c9]
+class merge_sort--><rect codeLine="14" fill="#FEFECE" filter="url(#f1fq5yo9w3gz1d)" height="53.8359" id="merge_sort" style="stroke:#A80036;stroke-width:1.5;" width="96" x="131.5" y="129"/><ellipse cx="146.5" cy="145" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M148.5,141.5 Q148.7031,141 148.9375,140.75 Q149.1719,140.5 149.4375,140.5 Q149.9063,140.5 150.2031,140.7813 Q150.5,141.0625 150.5,141.7188 L150.5,143.2813 Q150.5,143.9375 150.2188,144.2188 Q149.9375,144.5 149.5,144.5 Q149.1094,144.5 148.8594,144.3281 Q148.6094,144.1563 148.5,143.7031 Q148.4531,143.3906 148.2813,143.2188 Q147.9688,142.8906 147.4063,142.7031 Q146.8438,142.5 146.2813,142.5 Q145.5781,142.5 144.9844,142.7813 Q144.4063,143.0625 143.9531,143.6875 Q143.5,144.3125 143.5,145.1719 L143.5,146.0938 Q143.5,147.125 144.3438,147.8125 Q145.1875,148.5 146.6875,148.5 Q147.5781,148.5 148.2031,148.2969 Q148.5625,148.1875 148.9688,147.8281 Q149.2344,147.625 149.375,147.5625 Q149.5156,147.5 149.6875,147.5 Q150.0156,147.5 150.25,147.7656 Q150.5,148.0156 150.5,148.375 Q150.5,148.7188 150.1563,149.125 Q149.6563,149.7188 148.8594,150.0469 Q147.8125,150.5 146.5313,150.5 Q145.0313,150.5 143.8281,149.9063 Q142.8594,149.4375 142.1719,148.4219 Q141.5,147.4063 141.5,146.2031 L141.5,145.1094 Q141.5,143.8594 142.0938,142.7656 Q142.7031,141.6719 143.75,141.0938 Q144.8125,140.5 146,140.5 Q146.7188,140.5 147.3438,140.75 Q147.9688,141 148.5,141.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="64" x="160.5" y="149.9102">merge_sort</text><line style="stroke:#A80036;stroke-width:1.5;" x1="132.5" x2="226.5" y1="161" y2="161"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="27" x="137.5" y="176.4189">sort()</text><!--MD5=[d6b14b5de6ec22c753678eeb3efe31b1]
+class quick_merge_sort--><rect codeLine="19" fill="#FEFECE" filter="url(#f1fq5yo9w3gz1d)" height="53.8359" id="quick_merge_sort" style="stroke:#A80036;stroke-width:1.5;" width="132" x="262.5" y="129"/><ellipse cx="277.5" cy="145" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M279.5,141.5 Q279.7031,141 279.9375,140.75 Q280.1719,140.5 280.4375,140.5 Q280.9063,140.5 281.2031,140.7813 Q281.5,141.0625 281.5,141.7188 L281.5,143.2813 Q281.5,143.9375 281.2188,144.2188 Q280.9375,144.5 280.5,144.5 Q280.1094,144.5 279.8594,144.3281 Q279.6094,144.1563 279.5,143.7031 Q279.4531,143.3906 279.2813,143.2188 Q278.9688,142.8906 278.4063,142.7031 Q277.8438,142.5 277.2813,142.5 Q276.5781,142.5 275.9844,142.7813 Q275.4063,143.0625 274.9531,143.6875 Q274.5,144.3125 274.5,145.1719 L274.5,146.0938 Q274.5,147.125 275.3438,147.8125 Q276.1875,148.5 277.6875,148.5 Q278.5781,148.5 279.2031,148.2969 Q279.5625,148.1875 279.9688,147.8281 Q280.2344,147.625 280.375,147.5625 Q280.5156,147.5 280.6875,147.5 Q281.0156,147.5 281.25,147.7656 Q281.5,148.0156 281.5,148.375 Q281.5,148.7188 281.1563,149.125 Q280.6563,149.7188 279.8594,150.0469 Q278.8125,150.5 277.5313,150.5 Q276.0313,150.5 274.8281,149.9063 Q273.8594,149.4375 273.1719,148.4219 Q272.5,147.4063 272.5,146.2031 L272.5,145.1094 Q272.5,143.8594 273.0938,142.7656 Q273.7031,141.6719 274.75,141.0938 Q275.8125,140.5 277,140.5 Q277.7188,140.5 278.3438,140.75 Q278.9688,141 279.5,141.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="100" x="291.5" y="149.9102">quick_merge_sort</text><line style="stroke:#A80036;stroke-width:1.5;" x1="263.5" x2="393.5" y1="161" y2="161"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="27" x="268.5" y="176.4189">sort()</text><!--MD5=[ecb66277e64221d8f3488b795f17102b]
+reverse link sorting to quick_sort--><path codeLine="23" d="M131.34,82.64 C114.15,98.22 95.33,115.28 80.28,128.92 " fill="none" id="sorting-backto-quick_sort" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="126.68,77.42,146.2,69.17,136.08,87.79,126.68,77.42" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[2d45d0f7d4b41f58bf51f6f022278773]
+reverse link sorting to merge_sort--><path codeLine="24" d="M179.5,89.61 C179.5,103.17 179.5,117.29 179.5,128.92 " fill="none" id="sorting-backto-merge_sort" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="172.5,89.17,179.5,69.17,186.5,89.17,172.5,89.17" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[0994713fd4b900e49a430f6deeb78c88]
+reverse link sorting to quick_merge_sort--><path codeLine="25" d="M234.04,81.46 C254.46,97.36 277.03,114.93 294.99,128.92 " fill="none" id="sorting-backto-quick_merge_sort" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="229.74,86.98,218.26,69.17,238.34,75.94,229.74,86.98" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[913e4f1f614211c423ec586097ef7480]
+@startuml
+'!include styles/card-style.puml
+
+hide sorting fields
+interface sorting <<Command>>{
+	sort()
+}
+
+hide quick_sort fields
+class quick_sort {
+	sort()
+}
+
+hide merge_sort fields
+class merge_sort {
+	sort()
+}
+
+hide quick_merge_sort fields
+class quick_merge_sort {
+	sort()
+}
+
+sorting <|.. quick_sort
+sorting <|.. merge_sort
+sorting <|.. quick_merge_sort
+
+@enduml
+
+@startuml
+
+hide sorting fields
+interface sorting <<Command>>{
+	sort()
+}
+
+hide quick_sort fields
+class quick_sort {
+	sort()
+}
+
+hide merge_sort fields
+class merge_sort {
+	sort()
+}
+
+hide quick_merge_sort fields
+class quick_merge_sort {
+	sort()
+}
+
+sorting <|.. quick_sort
+sorting <|.. merge_sort
+sorting <|.. quick_merge_sort
+
+@enduml
+
+PlantUML version 1.2021.11(Sat Oct 02 15:26:11 CEST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1250
+Language: pl
+Country: PL
+--></g></svg>

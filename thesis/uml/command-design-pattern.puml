@@ -1,0 +1,28 @@
+@startuml
+'!include styles/card-style.puml
+
+hide sorting fields
+interface sorting <<Command>>{
+	sort()
+}
+
+hide quick_sort fields
+class quick_sort {
+	sort()
+}
+
+hide merge_sort fields
+class merge_sort {
+	sort()
+}
+
+hide quick_merge_sort fields
+class quick_merge_sort {
+	sort()
+}
+
+sorting <|.. quick_sort
+sorting <|.. merge_sort
+sorting <|.. quick_merge_sort
+
+@enduml

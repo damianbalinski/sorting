@@ -2,7 +2,7 @@
 '!include styles/card-style.puml
 
 hide generator fields
-class generator <<Strategy>> {
+interface generator <<Strategy>> {
 	generate()
 }
 
@@ -21,8 +21,8 @@ class sorted_generator {
 	generate()
 }
 
-generator o-- random_generator
-generator o-- reversed_generator
-generator o-- sorted_generator
+generator <|.. random_generator
+generator <|.. reversed_generator
+generator <|.. sorted_generator
 
 @enduml
