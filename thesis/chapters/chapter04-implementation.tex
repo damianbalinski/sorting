@@ -92,7 +92,7 @@ do obiektów bezpośrednio odpowiedzialnych za ich wykonanie.
 
 \begin{figure}[H]
 	\centering
-	\includesvg[inkscapelatex=false,width=0.6\columnwidth]{img/uml/facade-class-diagram.svg}
+	\includesvg[inkscapelatex=false,width=0.6\columnwidth]{img/uml/facade-design-pattern.svg}
 \end{figure}
 
 \subsection{Obiekt-Wartość}
@@ -104,10 +104,19 @@ zmodyfikowane w trakcie przepływu danych pomiędzy procesami.
 
 \begin{figure}[H]
 	\centering
-	\includesvg[inkscapelatex=false,width=0.20\columnwidth]{img/uml/value-object-class-diagram.svg}
+	\includesvg[inkscapelatex=false,width=0.2\columnwidth]{img/uml/value-object-design-pattern.svg}
 \end{figure}
 
 \subsection{Strategia}
+Aby wymusić działanie algorytmu w przypadku optymistycznym, pesymistycznym oraz średnim konieczne jest przygotowanie
+spreparowanych danych, które dany przypadek spowodują. Aby to osiągnąć, dane testowe są generowane za pomocą \BOLD{obiektów-strategii}. W zależności od zestawu testowego, używana jest inna strategia generowania danych, co przekłada się na późniejsze wyniki testowania.
+
+\begin{figure}[H]
+	\centering
+	\includesvg[inkscapelatex=false,width=0.65\columnwidth]{img/uml/strategy-design-pattern.svg}
+\end{figure}
+
+W celu analizy przypadków granicznych rozpatrywanych algorytmów sortujących konieczne jest WYMUSZENIE
 % wszystko to strategia, wstrzykiwany algorytm składowy jest strategią testowania
 
 \subsection{Budowniczy}

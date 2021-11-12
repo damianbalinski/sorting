@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="196px" preserveAspectRatio="none" style="width:494px;height:196px;background:#FFFFFF;" version="1.1" viewBox="0 0 494 196" width="494px" zoomAndPan="magnify"><defs><filter height="300%" id="frb4a41iwhpwk" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[dd71179583cce17ecb14726d47c32e81]
+class generator--><rect codeLine="4" fill="#FEFECE" filter="url(#frb4a41iwhpwk)" height="62.0234" id="generator" style="stroke:#A80036;stroke-width:1.5;" width="87" x="204" y="7"/><ellipse cx="219" cy="27.0938" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M221,23.5938 Q221.2031,23.0938 221.4375,22.8438 Q221.6719,22.5938 221.9375,22.5938 Q222.4063,22.5938 222.7031,22.875 Q223,23.1563 223,23.8125 L223,25.375 Q223,26.0313 222.7188,26.3125 Q222.4375,26.5938 222,26.5938 Q221.6094,26.5938 221.3594,26.4219 Q221.1094,26.25 221,25.7969 Q220.9531,25.4844 220.7813,25.3125 Q220.4688,24.9844 219.9063,24.7969 Q219.3438,24.5938 218.7813,24.5938 Q218.0781,24.5938 217.4844,24.875 Q216.9063,25.1563 216.4531,25.7813 Q216,26.4063 216,27.2656 L216,28.1875 Q216,29.2188 216.8438,29.9063 Q217.6875,30.5938 219.1875,30.5938 Q220.0781,30.5938 220.7031,30.3906 Q221.0625,30.2813 221.4688,29.9219 Q221.7344,29.7188 221.875,29.6563 Q222.0156,29.5938 222.1875,29.5938 Q222.5156,29.5938 222.75,29.8594 Q223,30.1094 223,30.4688 Q223,30.8125 222.6563,31.2188 Q222.1563,31.8125 221.3594,32.1406 Q220.3125,32.5938 219.0313,32.5938 Q217.5313,32.5938 216.3281,32 Q215.3594,31.5313 214.6719,30.5156 Q214,29.5 214,28.2969 L214,27.2031 Q214,25.9531 214.5938,24.8594 Q215.2031,23.7656 216.25,23.1875 Q217.3125,22.5938 218.5,22.5938 Q219.2188,22.5938 219.8438,22.8438 Q220.4688,23.0938 221,23.5938 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="59" x="231" y="24.457">«Strategy»</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="53" x="234" y="39.5508">generator</text><line style="stroke:#A80036;stroke-width:1.5;" x1="205" x2="290" y1="47.1875" y2="47.1875"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="51" x="210" y="62.6064">generate()</text><!--MD5=[fb256fdf9858836e70a1c99163fc2220]
+class random_generator--><rect codeLine="9" fill="#FEFECE" filter="url(#frb4a41iwhpwk)" height="53.8359" id="random_generator" style="stroke:#A80036;stroke-width:1.5;" width="135" x="7" y="129"/><ellipse cx="22" cy="145" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M24,141.5 Q24.2031,141 24.4375,140.75 Q24.6719,140.5 24.9375,140.5 Q25.4063,140.5 25.7031,140.7813 Q26,141.0625 26,141.7188 L26,143.2813 Q26,143.9375 25.7188,144.2188 Q25.4375,144.5 25,144.5 Q24.6094,144.5 24.3594,144.3281 Q24.1094,144.1563 24,143.7031 Q23.9531,143.3906 23.7813,143.2188 Q23.4688,142.8906 22.9063,142.7031 Q22.3438,142.5 21.7813,142.5 Q21.0781,142.5 20.4844,142.7813 Q19.9063,143.0625 19.4531,143.6875 Q19,144.3125 19,145.1719 L19,146.0938 Q19,147.125 19.8438,147.8125 Q20.6875,148.5 22.1875,148.5 Q23.0781,148.5 23.7031,148.2969 Q24.0625,148.1875 24.4688,147.8281 Q24.7344,147.625 24.875,147.5625 Q25.0156,147.5 25.1875,147.5 Q25.5156,147.5 25.75,147.7656 Q26,148.0156 26,148.375 Q26,148.7188 25.6563,149.125 Q25.1563,149.7188 24.3594,150.0469 Q23.3125,150.5 22.0313,150.5 Q20.5313,150.5 19.3281,149.9063 Q18.3594,149.4375 17.6719,148.4219 Q17,147.4063 17,146.2031 L17,145.1094 Q17,143.8594 17.5938,142.7656 Q18.2031,141.6719 19.25,141.0938 Q20.3125,140.5 21.5,140.5 Q22.2188,140.5 22.8438,140.75 Q23.4688,141 24,141.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="103" x="36" y="149.9102">random_generator</text><line style="stroke:#A80036;stroke-width:1.5;" x1="8" x2="141" y1="161" y2="161"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="51" x="13" y="176.4189">generate()</text><!--MD5=[34f79dec2ddc7b2435de62503a616449]
+class reversed_generator--><rect codeLine="14" fill="#FEFECE" filter="url(#frb4a41iwhpwk)" height="53.8359" id="reversed_generator" style="stroke:#A80036;stroke-width:1.5;" width="140" x="177.5" y="129"/><ellipse cx="192.5" cy="145" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M194.5,141.5 Q194.7031,141 194.9375,140.75 Q195.1719,140.5 195.4375,140.5 Q195.9063,140.5 196.2031,140.7813 Q196.5,141.0625 196.5,141.7188 L196.5,143.2813 Q196.5,143.9375 196.2188,144.2188 Q195.9375,144.5 195.5,144.5 Q195.1094,144.5 194.8594,144.3281 Q194.6094,144.1563 194.5,143.7031 Q194.4531,143.3906 194.2813,143.2188 Q193.9688,142.8906 193.4063,142.7031 Q192.8438,142.5 192.2813,142.5 Q191.5781,142.5 190.9844,142.7813 Q190.4063,143.0625 189.9531,143.6875 Q189.5,144.3125 189.5,145.1719 L189.5,146.0938 Q189.5,147.125 190.3438,147.8125 Q191.1875,148.5 192.6875,148.5 Q193.5781,148.5 194.2031,148.2969 Q194.5625,148.1875 194.9688,147.8281 Q195.2344,147.625 195.375,147.5625 Q195.5156,147.5 195.6875,147.5 Q196.0156,147.5 196.25,147.7656 Q196.5,148.0156 196.5,148.375 Q196.5,148.7188 196.1563,149.125 Q195.6563,149.7188 194.8594,150.0469 Q193.8125,150.5 192.5313,150.5 Q191.0313,150.5 189.8281,149.9063 Q188.8594,149.4375 188.1719,148.4219 Q187.5,147.4063 187.5,146.2031 L187.5,145.1094 Q187.5,143.8594 188.0938,142.7656 Q188.7031,141.6719 189.75,141.0938 Q190.8125,140.5 192,140.5 Q192.7188,140.5 193.3438,140.75 Q193.9688,141 194.5,141.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="108" x="206.5" y="149.9102">reversed_generator</text><line style="stroke:#A80036;stroke-width:1.5;" x1="178.5" x2="316.5" y1="161" y2="161"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="51" x="183.5" y="176.4189">generate()</text><!--MD5=[252cd340d98754b2f6fd073d98a7a592]
+class sorted_generator--><rect codeLine="19" fill="#FEFECE" filter="url(#frb4a41iwhpwk)" height="53.8359" id="sorted_generator" style="stroke:#A80036;stroke-width:1.5;" width="127" x="353" y="129"/><ellipse cx="368" cy="145" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M370,141.5 Q370.2031,141 370.4375,140.75 Q370.6719,140.5 370.9375,140.5 Q371.4063,140.5 371.7031,140.7813 Q372,141.0625 372,141.7188 L372,143.2813 Q372,143.9375 371.7188,144.2188 Q371.4375,144.5 371,144.5 Q370.6094,144.5 370.3594,144.3281 Q370.1094,144.1563 370,143.7031 Q369.9531,143.3906 369.7813,143.2188 Q369.4688,142.8906 368.9063,142.7031 Q368.3438,142.5 367.7813,142.5 Q367.0781,142.5 366.4844,142.7813 Q365.9063,143.0625 365.4531,143.6875 Q365,144.3125 365,145.1719 L365,146.0938 Q365,147.125 365.8438,147.8125 Q366.6875,148.5 368.1875,148.5 Q369.0781,148.5 369.7031,148.2969 Q370.0625,148.1875 370.4688,147.8281 Q370.7344,147.625 370.875,147.5625 Q371.0156,147.5 371.1875,147.5 Q371.5156,147.5 371.75,147.7656 Q372,148.0156 372,148.375 Q372,148.7188 371.6563,149.125 Q371.1563,149.7188 370.3594,150.0469 Q369.3125,150.5 368.0313,150.5 Q366.5313,150.5 365.3281,149.9063 Q364.3594,149.4375 363.6719,148.4219 Q363,147.4063 363,146.2031 L363,145.1094 Q363,143.8594 363.5938,142.7656 Q364.2031,141.6719 365.25,141.0938 Q366.3125,140.5 367.5,140.5 Q368.2188,140.5 368.8438,140.75 Q369.4688,141 370,141.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="95" x="382" y="149.9102">sorted_generator</text><line style="stroke:#A80036;stroke-width:1.5;" x1="354" x2="479" y1="161" y2="161"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="51" x="359" y="176.4189">generate()</text><!--MD5=[763aacbbe99df1c9e230fef2b6afaf1b]
+reverse link generator to random_generator--><path codeLine="23" d="M192.73,75.73 C166.95,93.01 136.81,113.22 113.42,128.9 " fill="none" id="generator-backto-random_generator" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#FFFFFF" points="203.84,68.27,196.6289,68.2898,193.8737,74.9538,201.0848,74.934,203.84,68.27" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[a57d4547c40f656ef8256f7e31224de4]
+reverse link generator to reversed_generator--><path codeLine="24" d="M247.5,82.41 C247.5,98.05 247.5,115.21 247.5,128.92 " fill="none" id="generator-backto-reversed_generator" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#FFFFFF" points="247.5,69.17,243.5,75.17,247.5,81.17,251.5,75.17,247.5,69.17" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[b155f48437b20eab67b3c6c2f452d065]
+reverse link generator to sorted_generator--><path codeLine="25" d="M301.83,76.29 C326.87,93.48 355.96,113.45 378.58,128.98 " fill="none" id="generator-backto-sorted_generator" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#FFFFFF" points="291.02,68.87,293.7019,75.5638,300.9123,75.6627,298.2304,68.9689,291.02,68.87" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[4174d21fcd716ce63be055f735034ade]
+@startuml
+'!include styles/card-style.puml
+
+hide generator fields
+class generator <<Strategy>> {
+	generate()
+}
+
+hide random_generator fields
+class random_generator {
+	generate()
+}
+
+hide reversed_generator fields
+class reversed_generator {
+	generate()
+}
+
+hide sorted_generator fields
+class sorted_generator {
+	generate()
+}
+
+generator o- - random_generator
+generator o- - reversed_generator
+generator o- - sorted_generator
+
+@enduml
+
+@startuml
+
+hide generator fields
+class generator <<Strategy>> {
+	generate()
+}
+
+hide random_generator fields
+class random_generator {
+	generate()
+}
+
+hide reversed_generator fields
+class reversed_generator {
+	generate()
+}
+
+hide sorted_generator fields
+class sorted_generator {
+	generate()
+}
+
+generator o- - random_generator
+generator o- - reversed_generator
+generator o- - sorted_generator
+
+@enduml
+
+PlantUML version 1.2021.11(Sat Oct 02 15:26:11 CEST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1250
+Language: pl
+Country: PL
+--></g></svg>

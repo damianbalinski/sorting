@@ -1,0 +1,28 @@
+@startuml
+'!include styles/card-style.puml
+
+hide generator fields
+class generator <<Strategy>> {
+	generate()
+}
+
+hide random_generator fields
+class random_generator {
+	generate()
+}
+
+hide reversed_generator fields
+class reversed_generator {
+	generate()
+}
+
+hide sorted_generator fields
+class sorted_generator {
+	generate()
+}
+
+generator o-- random_generator
+generator o-- reversed_generator
+generator o-- sorted_generator
+
+@enduml

@@ -1,0 +1,57 @@
+{
+  "title": "Rozkład prawdopodobieństwa liczby operacji wykonanych\n przez algorytm Merge Sort dla losowych danych\nprzy stałym rozmiarze tablicy n = 1000",
+  "output": "merge-sort-density",
+  "prefix": "test5",
+  "grid": "(1, 2)",
+  "size": "(7, 3.5)",
+  "invariants": {
+    "range": {
+      "begin": 100,
+      "end": 1000,
+      "step": 100
+    },
+    "repeats": 100000
+  },
+  "plots": [
+    {
+      "type": "density",
+      "metadata": {
+        "title": "a) porównania",
+        "xlabel": "liczba porównań [n]",
+        "ylabel": "gęstość prawd.",
+        "xcolumn": "n",
+        "ycolumn": "comparisons",
+        "legend": "inside"
+      },
+      "functions": [
+      ],
+      "sortings": [
+        {
+          "algorithm": "merge_sort",
+          "label": "Merge Sort",
+	      "generator": "random"
+        }
+      ]
+    },
+    {
+      "type": "density",
+      "metadata": {
+        "title": "c) przypisania",
+        "xlabel": "liczba przypisań [n]",
+        "ylabel": "gęstość prawd.",
+        "xcolumn": "n",
+        "ycolumn": "assigns",
+        "legend": "inside"
+      },
+      "functions": [
+      ],
+      "sortings": [
+        {
+          "algorithm": "merge_sort",
+          "label": "Merge Sort",
+          "generator": "random"
+        }
+      ]
+    }
+  ]
+}
