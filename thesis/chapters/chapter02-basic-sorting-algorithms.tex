@@ -98,7 +98,7 @@ Przypadek średni (\ref{fig:merge-sort-optimistic-average-pessimistic-case}) zba
 W przeciwieństwie do algorytmu Quick Sort, algorytm Merge Sort wykonuje dokładnie tyle samo operacji porównania co operacji
 przypisania. Jest to zgodne z rzeczywistością, ponieważ w trakcie scalania każdej operacji porównania towarzyszy przypisanie wartości do bufora. Można zauważyć, że algorytm Merge Sort w rozpatrywanej postaci nie wykonuje operacji zamiany miejsc.\\
 
-Eksperymentalna analiza wartości oczekiwanej liczby operacji.
+Do analizy rozkładu prawdopodobieństwa liczby wykonanych operacji (\ref{fig:merge-sort-density}) użyto tablicy losowych danych o stałym rozmiarze $n = 1000$. W analizie pominięto liczbę operacji przypisania, która jest zerowa dla każdego przypadku. Analiza eksperymentalna dowodzi, że w przeciwieństwie do algorytmu Quick Sort, liczba operacji porównania dla algorytmu Merge Sort tworzy rozkład normalny, a więc prawdopodobieństwa otrzymania większej oraz mniejszej liczby operacji przypisania są jednakowe. Ponieważ dla badanego algorytmu, liczba operacji przypisania jest równa liczbie operacji porównania, rozkłady tych wartości są jednakowe.
 
 \begin{figure}[H]
 	\centering
@@ -107,10 +107,17 @@ Eksperymentalna analiza wartości oczekiwanej liczby operacji.
 	\label{fig:merge-sort-optimistic-average-pessimistic-case}
 \end{figure}
 
+\begin{figure}[H]
+	\centering
+	\includesvg[inkscapelatex=false,width=0.66\columnwidth]{img/plot/merge-sort-density.svg}
+	\caption[]{}
+	\label{fig:merge-sort-density}
+\end{figure}
+
 \subsection{Problemy związane z algorytmem Merge Sort}
-Słaba pesymistyczna złożoność czasowa.
-Konieczność alokacji dodatkowych zasobów, w obecnej implementacji potrzebuje n/2 dodatkowo zaalokowanej pamięci.
+Głównym problemem algorytmu Merge Sort jest konieczność alokacji dodatkowego bufora pamięci. W rozważanej implementacji algorytm alokuje dodatkowy bufor długości $n/2$, a więc może okazać się bezużyteczny dla systemów z ograniczonym zasobem pamięci.\\
 
 \subsection{Możliwości optymalizacyjne}
-% optymalizacja polega na ulepszeniu algorytmu mergujacego
-Modyfikacja buforów, aby nie alokowano dodatkowej pamięci. Być może modyfikacja algorytmu mergowania.
+% byc moze optymalizacja moze polegac na ulepszeniu algorytmu mergujacego
+Jednym ze sposobów na optymalizację algorytmu Merge Sort jest próba przekształcenia go w algorytm działający w miejscu.
+Cel ten może zostać osiągnięty poprzez skrzyżowanie algorytmu Merge Sort z innym algorytmem sortującym w taki sposób, aby bufor dodatkowej pamięci był częścią tablicy wejściowej. Rozwiązanie to zostanie przeanalizowane w dalszych rozdziałach.\\
