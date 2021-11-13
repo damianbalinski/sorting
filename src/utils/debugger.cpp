@@ -1,11 +1,17 @@
 #include "debugger.hpp"
 #include "array_utils.hpp"
 #include "colors.hpp"
+#include <fmt/format.h>
 #include <iostream>
 #include <sstream>
 
 static const int* arr_root = nullptr;
 static size_t n_root = 0;
+
+void __dbg_print(const char* const name, const size_t n)
+{
+	std::cout << fmt::format("{} = {}\n", name, n);
+}
 
 void __dbg_arr_init(const int* const arr, const size_t n)
 {
