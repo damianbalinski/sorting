@@ -5,7 +5,7 @@ void merge_sort::sort(int arr[], const size_t n, const operation& oper)
 {
 	if (n > 1)
 	{
-		const size_t n1 = n / 2;
+		const size_t n1 = (n+1) / 2;
 		const size_t n2 = n - n1;
 		
 		sort(arr, n1, oper);

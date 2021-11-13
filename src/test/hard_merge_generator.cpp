@@ -15,7 +15,7 @@ void hard_merge_generator::generate_recursively(int* arr, size_t n)
 		return;
 	}
 
-	const size_t n1 = n/2;
+	const size_t n1 = (n+1) / 2;
 	const size_t n2 = n - n1;
 	generate_recursively(arr, n1);
 	generate_recursively(arr+n1, n2);
