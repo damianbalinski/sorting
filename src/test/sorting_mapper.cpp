@@ -59,6 +59,10 @@ const sorting* sorting_mapper::allocate(const std::string& str)
 	if (str == "quick_sort_median_of_medians_of_five_pivot_selector") return new quick_sort{new lemuto_partition{new median_of_medians_of_five_pivot_selector{}}};
 	if (str == "quick_sort_median_of_medians_of_three_pivot_selector") return new quick_sort{new lemuto_partition{new median_of_medians_of_three_pivot_selector{}}};
 	if (str == "quick_sort_hoare_partition") return new quick_sort{ new hoare_partition{new simple_pivot_selector{}}};
+	if (str == "quick_sort_hoare_partition_median_of_three_pivot_selector") return new quick_sort{ new hoare_partition{new median_of_three_pivot_selector{}}};
+	if (str == "quick_sort_hoare_partition_pseudo_median_of_nine_pivot_selector") return new quick_sort{ new hoare_partition{new pseudo_median_of_nine_pivot_selector{}}};
+	if (str == "quick_sort_hoare_partition_median_of_medians_of_five_pivot_selector") return new quick_sort{ new hoare_partition{new median_of_medians_of_five_pivot_selector{}}};
+	if (str == "quick_sort_hoare_partition_median_of_medians_of_three_pivot_selector") return new quick_sort{ new hoare_partition{new median_of_medians_of_three_pivot_selector{}}};
 
 	fail("Unrecognized sorting algorithm");
 }
