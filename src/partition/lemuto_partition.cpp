@@ -2,7 +2,8 @@
 
 partition_result lemuto_partition::partitione(int arr[], const size_t n, const operation& oper) const
 {
-	const size_t pivot_index = (*selector)(arr, n, oper);
+	const size_t pivot_index = n-1;
+	(*selector)(arr, n, pivot_index, oper);
 	const int pivot = oper.assign(arr[pivot_index]);
 	size_t i = 0;
 
