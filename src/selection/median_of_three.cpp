@@ -1,6 +1,6 @@
 #include "median_of_three.hpp"
 
-int median_of_three(const int* const arr, const size_t ax, const size_t bx, const size_t  cx, const operation& oper)
+int median_of_three(int arr[], const size_t ax, const size_t bx, const size_t  cx, const operation& oper)
 {
 	const int a = arr[ax];
 	const int c = arr[bx];
@@ -11,7 +11,7 @@ int median_of_three(const int* const arr, const size_t ax, const size_t bx, cons
 	return c;
 }
 
-size_t median_of_three_index(const int* const arr, const size_t ax, const size_t bx, const size_t cx, const operation& oper)
+size_t median_of_three_index(int arr[], const size_t ax, const size_t bx, const size_t cx, const operation& oper)
 {
 	const int a = arr[ax];
 	const int b = arr[bx];
