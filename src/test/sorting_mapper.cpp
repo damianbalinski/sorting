@@ -19,6 +19,7 @@
 #include "simple_pivot_selector.hpp"
 #include "median_of_three_pivot_selector.hpp"
 #include "median_of_medians_of_five_pivot_selector.hpp"
+#include "median_of_medians_of_three_pivot_selector.hpp"
 #include "pseudo_median_of_nine_pivot_selector.hpp"
 #include "simple_dual_pivot_selector.hpp"
 #include "middle_pivot_selector.hpp"
@@ -55,6 +56,7 @@ const sorting* sorting_mapper::allocate(const std::string& str)
 	if (str == "quick_sort_median_of_three_pivot_selector") return new quick_sort{new lemuto_partition{new median_of_three_pivot_selector{}}};
 	if (str == "quick_sort_pseudo_median_of_nine_pivot_selector") return new quick_sort{new lemuto_partition{new pseudo_median_of_nine_pivot_selector{}}};
 	if (str == "quick_sort_median_of_medians_of_five_pivot_selector") return new quick_sort{new lemuto_partition{new median_of_medians_of_five_pivot_selector{}}};
+	if (str == "quick_sort_median_of_medians_of_three_pivot_selector") return new quick_sort{new lemuto_partition{new median_of_medians_of_three_pivot_selector{}}};
 
 	fail("Unrecognized sorting algorithm");
 }
