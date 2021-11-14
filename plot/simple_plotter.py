@@ -5,7 +5,7 @@ class SimplePlotter(Plotter):
 
     def draw(self, ax, metadata, lines):
         for l in lines:
-            ax.plot(l.x, l.y, color=l.color, label=l.label)
+            ax.plot(l.x, l.y, color=l.color, label=l.label, linestyle=l.linestyle)
 
         self.limits(ax, metadata)
         self.labels(ax, metadata)

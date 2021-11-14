@@ -3,6 +3,8 @@ from density_plotter import *
 from math import log
 from line import *
 import pandas as pd
+from matplotlib.lines import Line2D
+from colors import *
 
 
 def map_plotter(type):
@@ -34,7 +36,8 @@ def map_function(function, colors, n):
         [n for n in rng],
         [exp(n)+dy for n in rng],
         function['label'],
-        colors.next_gray()
+        colors.next_gray(),
+        function.get('linestyle', 'solid')
     )
 
 
@@ -44,6 +47,14 @@ def map_sorting(sorting, path, colors, metadata):
     return Line(
         [0] + list(df[metadata.xcolumn]),
         [0] + list(df[metadata.ycolumn]),
-        sorting['label'],
-        colors.next_color()
+        sorting.get('label', ''),
+        colors.next_color() if sorting.get('color') is None else colors.get_color(sorting.get('color')),
+        sorting.get('linestyle', 'solid')
     )
+
+
+def map_custom_legend(custom_legend):
+    if custom_legend is None:
+        return None
+    else:
+        return [Line2D([0], [0], color=Colors.get_color(l['color']), linestyle=l['linestyle'], label=l['label'], lw=1) for l in custom_legend]

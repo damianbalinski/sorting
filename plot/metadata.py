@@ -1,3 +1,6 @@
+from mapper import *
+
+
 class Metadata:
 
     def __init__(self, json, n):
@@ -7,6 +10,7 @@ class Metadata:
         self.xcolumn = json['xcolumn']
         self.ycolumn = json['ycolumn']
         self.legend = json['legend']
+        self.lines = map_custom_legend(json.get('custom_legend'))
         self.ymax = json.get('ymax')
         self.xmax = n
         self.n = n

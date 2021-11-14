@@ -12,12 +12,21 @@ class Plotter:
         )
 
     def legend(self, ax, metadata):
+        handles = self.legend_handles(ax, metadata)
         if metadata.legend == 'inside':
-            ax.legend()
+            ax.legend(handles=handles)
         elif metadata.legend == 'outside':
-            ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+            ax.legend(handles=handles, loc='center left', bbox_to_anchor=(1, 0.5))
         else:
             pass
 
     def grid(self, ax, metadata):
         ax.grid()
+
+    def legend_handles(self, ax, metadata):
+        if metadata.lines:
+            for line in ax.lines: line.set_label(s='')
+        handles, labels = ax.get_legend_handles_labels()
+        if metadata.lines:
+            handles.extend(metadata.lines)
+        return handles
