@@ -1,0 +1,98 @@
+{
+  "title": "Łączna liczba operacji wykonanych przez algorytm Quick Sort\n z podziałem na deterministyczne polityki wyboru pivota\n oraz metodę partycjonowania dla tablicy danych\n posortowanych odwrotnie",
+  "output": "quick-sort-deterministic-pivot-reversed",
+  "prefix": "test7",
+  "grid": "(1, 1)",
+  "size": "(5.8, 4)",
+  "invariants": {
+    "range": {
+      "begin": 100,
+      "end": 1000,
+      "step": 100
+    },
+    "repeats": 100
+  },
+  "plots": [
+    {
+      "type": "average",
+      "metadata": {
+        "title": "",
+        "xlabel": "rozmiar tablicy [n]",
+        "ylabel": "liczba porownań [n]",
+        "xcolumn": "n",
+        "ycolumn": "all",
+        "ymax": 100000,
+        "legend": "outside",
+        "custom_legend": [
+          { "color": "red", "linestyle": "solid", "label": "ostatni element"},
+          { "color": "blue", "linestyle": "solid", "label": "mediana z trzech"},
+          { "color": "orange", "linestyle": "solid", "label": "pseudo-mediana z dziewięciu"},
+          { "color": "green", "linestyle": "solid", "label": "mediana-median z pięciu"},
+          { "color": "pink", "linestyle": "solid", "label": "mediana-median z trzech"},
+          { "color": "black", "linestyle": "solid", "label": "metoda Lemuto"},
+          { "color": "black", "linestyle": "dotted", "label": "metoda Hoare"}
+        ]
+      },
+      "functions": [
+      ],
+      "sortings": [
+        {
+          "algorithm": "quick_sort",
+          "generator": "reversed",
+          "color": "red"
+        },
+        {
+          "algorithm": "quick_sort_median_of_three_pivot_selector",
+          "generator": "reversed",
+          "color": "blue"
+        },
+        {
+          "algorithm": "quick_sort_pseudo_median_of_nine_pivot_selector",
+          "generator": "reversed",
+          "color": "orange"
+        },
+        {
+          "algorithm": "quick_sort_median_of_medians_of_five_pivot_selector",
+          "generator": "reversed",
+          "color": "green"
+        },
+        {
+          "algorithm": "quick_sort_median_of_medians_of_three_pivot_selector",
+          "generator": "reversed",
+          "color": "pink"
+        },
+
+        {
+          "algorithm": "quick_sort_hoare_partition",
+          "generator": "reversed",
+          "color": "red",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "quick_sort_hoare_partition_median_of_three_pivot_selector",
+          "generator": "reversed",
+          "color": "blue",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "quick_sort_hoare_partition_pseudo_median_of_nine_pivot_selector",
+          "generator": "reversed",
+          "color": "orange",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "quick_sort_hoare_partition_median_of_medians_of_five_pivot_selector",
+          "generator": "reversed",
+          "color": "green",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "quick_sort_hoare_partition_median_of_medians_of_three_pivot_selector",
+          "generator": "reversed",
+          "color": "pink",
+          "linestyle": "dotted"
+        }
+      ]
+    }
+  ]
+}

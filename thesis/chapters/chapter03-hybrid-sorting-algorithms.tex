@@ -2,10 +2,15 @@
 \thispagestyle{chapterBeginStyle}
 
 \section{Główne sposoby modyfikacji algorytmów}
-1. Podmiana algorytmów składowych, np. inny algorytm partycjonowania.\\
-2. Łączenie wielu algorytmów w jeden.
+W celu poprawy wydajności algorytmów sortujących stosuje się ich modyfikacje oraz ulepszenia. W tej pracy wykorzystano dwa główne sposoby na usprawnienie algorytmów.\\
+
+Pierwszym sposobem jest modyfikacja składowych danego algorytmu. Wiele spośród znanych algorytmów składa się z kilku osobnych kroków, z których każdy można wyekstrahować do oddzielnego procesu. Pomysł ten polega na modyfikacji składowych algorytmu sortującego w taki sposób, aby np. lepiej radził on sobie w przypadku pesymistycznym.\\
+
+Drugim sposobem na ulepszenie jest próba połączenia wielu algorytmów sortujących. Niektóre algorytmy zachowują się lepiej dla stosunkowo małej ilości danych, inne zaś są znaczenie wydajniejsze przy rozbudowanym zbiorze danych wejściowych. Pomysł ten polega na opracowaniu algorytmu, którego działanie zmienia się w zależności od czynników zewnętrznych, np. długości danych do posortowania.\\
 
 \section{Rodzina algorytmów Quick Sort z deterministycznym algorytmem wyboru pivota}
+% Algorytm median-of-medians gwarantuje wybor dobrego pivota przy dodatkowym nakladzie czasowym, ktory redukuje sie dla 
+% przypadku pesymistycznego.
 Algorytmy Quick Sort z różnymi algorytmami partycjonowania oraz różnymi algorytmami wyboru pivota
 Wykresy porównujące algorytmy.\\
 1. Partycjonowanie metodą Lemuto (domyślne)\\
@@ -15,6 +20,19 @@ Wykresy porównujące algorytmy.\\
 5. Wybór pivota metodą pseudomedian of nine\\
 6. Wybór pivota algorytmem quick select
 
+\begin{figure}[H]
+	\centering
+	\includesvg[inkscapelatex=false,width=0.8\columnwidth]{img/plot/quick-sort-deterministic-pivot-random.svg}
+	\caption[]{}
+	\label{fig:quick-sort-deterministic-pivot-random}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includesvg[inkscapelatex=false,width=0.8\columnwidth]{img/plot/quick-sort-deterministic-pivot-reversed.svg}
+	\caption[]{}
+	\label{fig:quick-sort-deterministic-pivot-reversed}
+\end{figure}
 
 \section{Rodzina algorytmów Quick Sort z niedeterministycznym algorytmem wyboru pivota}
 1. QuickSort z losowaniem pivota\\
@@ -35,7 +53,8 @@ Wyniki analizy porównawczej
 
 \section{Intro Sort}
 Ogólny opis algorytmu, gdzie jest wykorzystywany (std::sort w g++), zalety.
-% TODO sprawdzic jakiego algorytmu partycjonowania uzywaja w srodku i spróbować podmienić
+% TODO sprawdzic jakiego algorytmu partycjonowania uzywaja w srodku i spróbować podmienić, zmienic na wariacje z randomowym
+% wyborem pivota
 \subsection{Pseudokod}
 
 \subsection{Analiza algorytmu}
