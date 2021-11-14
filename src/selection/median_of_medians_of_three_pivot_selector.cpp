@@ -15,7 +15,7 @@ size_t median_of_medians_of_three_pivot_selector::select_recursively(int arr[], 
 {
 	if (n == 1) return 0;
 	if (n == 2) return maximum_index(arr, 2, oper);
-	if (n <= 3) return median_of_three_index(arr, 0, n/2, n-1, oper);
+	if (n == 3) return median_of_three_index(arr, 0, n/2, n-1, oper);
 
 	const size_t i1 = pos(1, n);
 	const size_t i2 = pos(2, n);
