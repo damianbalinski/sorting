@@ -50,6 +50,7 @@ const sorting* sorting_mapper::allocate(const std::string& str)
 
 	// MIXED
 	if (str == "quick_sort_middle_pivot_selector") return new quick_sort{new lemuto_partition{new middle_pivot_selector{}}};
+	if (str == "quick_sort_median_of_three_pivot_selector") return new quick_sort{new lemuto_partition{new median_of_three_pivot_selector{}}};
 
 	fail("Unrecognized sorting algorithm");
 }
