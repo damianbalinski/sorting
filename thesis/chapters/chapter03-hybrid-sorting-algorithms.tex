@@ -9,16 +9,38 @@ Pierwszym sposobem jest modyfikacja składowych danego algorytmu. Wiele spośró
 Drugim sposobem na ulepszenie jest próba połączenia wielu algorytmów sortujących. Niektóre algorytmy zachowują się lepiej dla stosunkowo małej ilości danych, inne zaś są znaczenie wydajniejsze przy rozbudowanym zbiorze danych wejściowych. Pomysł ten polega na opracowaniu algorytmu, którego działanie zmienia się w zależności od czynników zewnętrznych, np. długości danych do posortowania.\\
 
 \section{Rodzina algorytmów Quick Sort z deterministycznym algorytmem wyboru pivota}
-% Algorytm median-of-medians gwarantuje wybor dobrego pivota przy dodatkowym nakladzie czasowym, ktory redukuje sie dla 
-% przypadku pesymistycznego.
-Algorytmy Quick Sort z różnymi algorytmami partycjonowania oraz różnymi algorytmami wyboru pivota
-Wykresy porównujące algorytmy.\\
-1. Partycjonowanie metodą Lemuto (domyślne)\\
-2. Partycjonowanie metodą Hoare\\
-3. Wybór pivota metodą median of three - pierwszy, środkowy, ostatni.\\
-4. Wybór pivota jako mediana of medians\\
-5. Wybór pivota metodą pseudomedian of nine\\
-6. Wybór pivota algorytmem quick select
+Analiza algorytmu z rodziny Quick Sort została przeprowadzona pod kątem następujących algorytmów partycjonowania:
+\begin{itemize}
+	\setlength\itemsep{0em}
+	\item \BOLD{metoda Lemuto} - domyślny algorytm partycjonowania, tablica jest iterowana od pierwszego do ostatniego elementu. Elementy mniejsze od pivota są przenoszone na lewą część tablicy, zaś elementy większe od pivota na jej prawą część. Algorytm kończy się z momentem przeniesienia ostatniego elementu.
+	\item \BOLD{metoda Hoarego} - tablica jest iterowana w dwóch kierunkach, zaczynając po obu jej końcach w kierunku środka. Pojedyncza iteracja trwa do momentu napotkania dwóch elementów, które nie znajdują się w odpowiednich częściach tablicy, tzn. element po lewej stronie jest większy od pivota, oraz element po prawej stronie jest mniejszy od pivota. Wtedy elementy te są zamieniane miejscami oraz algorytm jest kontynuowany aż do spotkania porównywanych elementów.
+\end{itemize}
+
+Dodatkowo badane były poniższe metody wyboru pivota:
+\begin{itemize}
+	\setlength\itemsep{0em}
+	\item \BOLD{ostatni element} - pivotem jest ostatni element tablicy
+	\item \BOLD{mediana z trzech} - pivotem jest mediana z pierwszego, środkowego oraz ostatniego elementu tablicy
+	\item \BOLD{pseudo-mediana z dziewięciu} - pivotem jest mediana z dziewięciu równo oddalonych d siebie elementów, z których pierwszym jest pierwszy element tablicy, oraz ostatnim jest ostatni element tablicy
+	\item \BOLD{mediana-median z pięciu} - pivot jest medianą pięciu median obliczanych rekurencyjnie
+	\item \BOLD{mediana-median z trzech} - pivot jest medianą trzech median obliczanych rekurencyjnie\\
+	
+\end{itemize}
+
+% analiza dla losowych danych, czyli dla przypadku sredniego
+% ktory algorytm sie sprawdza najlepiej, a ktory najgorzej
+
+% analiza dla danych posortowanych odwrotnie, czyli dla przypadku pesymistycznego dla tradycyjnego quick sorta,
+% - tradycyjny quick sort jako jedyny dziala ze zlozonoscia kwadratowa
+
+% roznica pomiedzy przypadkiem pesymistycznym a srednim
+
+% wnioski ogolne - algorymy z mediana dzialaja krocej niz kwadratowo,
+% algorytmy wyszukujace mediany zwiekszaja gwarancje na wybor dobrego pivota przy dodatkowym nakladzie czasowym, ktory dla przypadku pesymistycznego okazuje sie opłacalny. Wyjatkiem jest tutaj mediana-median z pieciu, przy wiliczaniu ktorej naklad czasowy jest na tyle duzy, ze caly proces okazuje sie nieoplacalny
+
+
+% Wykresy porównujące algorytmy.\\
+% Wykres porownujacy roznice pomiedzy przypadkiem srednim a pesymistycznym
 
 \begin{figure}[H]
 	\centering
@@ -32,6 +54,13 @@ Wykresy porównujące algorytmy.\\
 	\includesvg[inkscapelatex=false,width=0.8\columnwidth]{img/plot/quick-sort-deterministic-pivot-reversed.svg}
 	\caption[]{}
 	\label{fig:quick-sort-deterministic-pivot-reversed}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includesvg[inkscapelatex=false,width=0.8\columnwidth]{img/plot/quick-sort-deterministic-pivot-density.svg}
+	\caption[]{}
+	\label{fig:quick-sort-deterministic-pivot-density}
 \end{figure}
 
 \section{Rodzina algorytmów Quick Sort z niedeterministycznym algorytmem wyboru pivota}

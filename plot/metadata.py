@@ -12,5 +12,6 @@ class Metadata:
         self.legend = json['legend']
         self.lines = map_custom_legend(json.get('custom_legend'))
         self.ymax = json.get('ymax')
-        self.xmax = n
+        self.xmin = json.get('xmin', None)
+        self.xmax = json.get('xmax', n)
         self.n = n
