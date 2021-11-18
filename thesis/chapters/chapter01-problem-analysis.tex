@@ -15,6 +15,10 @@ TODO: Ponieważ rzeczywisty czas wykonywania algorytmu różni się w zależnoś
 na którym przeprowadzany test, zostało przyjęte następujące założenie:
 Złożoność czasowa została określona wzorem:
 
+TODO silnik testujący zlicza liczbę wykonanych operacji atomowych. Do operacji atomowych zaliczamy: operację porównania, zamiany miejsc oraz przypisania. W badanym systemie pominięte zostały operacje przeprowadzane na indeksach oraz iteratorach. Powodem tej decyzji jest fakt, że zarówno indeksy, jak i iteratory w większości systemów są typami podstawowymi, koszta takich operacji jest niewspółmiernie mniejszy niż np. porównywanie typów złożonych. W tej sytuacji zdecydowano się całkowicie pominąć liczbę wykonywanych operacji na typach prymitywnych.
+
+TODO łączna liczba wykonanych operacji jest sumą ważoną operacji atomowych.
+
 \boldmath$$T = n_c + 3 \cdot n_s + n_a $$
 
 Gdzie:\\

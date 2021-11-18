@@ -18,7 +18,7 @@
 
 inline void __progress_init(const char* const str, const size_t n)
 {
-	std::cout << fmt::format("{:28}  {:6} ", str, n);
+	std::cout << fmt::format("{:68}  {:6} ", str, n);
 }
 
 inline void __progress_step(const size_t i, const size_t n)

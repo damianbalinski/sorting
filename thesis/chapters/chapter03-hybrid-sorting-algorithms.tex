@@ -9,29 +9,37 @@ Pierwszym sposobem jest modyfikacja składowych danego algorytmu. Wiele spośró
 Drugim sposobem na ulepszenie jest próba połączenia wielu algorytmów sortujących. Niektóre algorytmy zachowują się lepiej dla stosunkowo małej ilości danych, inne zaś są znaczenie wydajniejsze przy rozbudowanym zbiorze danych wejściowych. Pomysł ten polega na opracowaniu algorytmu, którego działanie zmienia się w zależności od czynników zewnętrznych, np. długości danych do posortowania.\\
 
 \section{Rodzina algorytmów Quick Sort z deterministycznym algorytmem wyboru pivota}
-Analiza algorytmu z rodziny Quick Sort została przeprowadzona pod kątem następujących algorytmów partycjonowania:
+Podczas analizy algorytmów sortujących z rodziny Quick Sort zostały przetestowane wariacje algorytmów z różnymi metodami partycjonowania oraz różnymi metodami wyboru pivota. Do partycjonowania danych wejściowych wykorzystano poniższe metody:
+
 \begin{itemize}
 	\setlength\itemsep{0em}
-	\item \BOLD{metoda Lemuto} - domyślny algorytm partycjonowania, tablica jest iterowana od pierwszego do ostatniego elementu. Elementy mniejsze od pivota są przenoszone na lewą część tablicy, zaś elementy większe od pivota na jej prawą część. Algorytm kończy się z momentem przeniesienia ostatniego elementu.
-	\item \BOLD{metoda Hoarego} - tablica jest iterowana w dwóch kierunkach, zaczynając po obu jej końcach w kierunku środka. Pojedyncza iteracja trwa do momentu napotkania dwóch elementów, które nie znajdują się w odpowiednich częściach tablicy, tzn. element po lewej stronie jest większy od pivota, oraz element po prawej stronie jest mniejszy od pivota. Wtedy elementy te są zamieniane miejscami oraz algorytm jest kontynuowany aż do spotkania porównywanych elementów.
+	\item \BOLD{metoda Lemuto} - jest domyślnym algorytmem partycjonowania w projektowanym systemie. Tablica jest iterowana od pierwszego do ostatniego elementu. Elementy mniejsze od pivota są przenoszone na lewą część tablicy, zaś elementy większe od pivota na jej prawą część. Algorytm kończy się w momencie przeniesienia ostatniego elementu.
+	\item \BOLD{metoda Hoarego} - tablica jest partycjonowana za pomocą dwóch iteratorów umieszczonych po przeciwnych stronach tablicy oraz skierowanych do jej środka. Pojedyncza iteracja trwa do momentu napotkania dwóch elementów, które nie znajdują się w odpowiednich częściach tablicy, tzn. element po lewej stronie jest większy od pivota, oraz element po prawej stronie jest mniejszy od pivota. Wtedy elementy znajdujące się w miejscu iteratorów są zamieniane miejscami oraz algorytm jest kontynuowany. Program kończy się w momencie spotkania obydwu iteratorów.
 \end{itemize}
 
-Dodatkowo badane były poniższe metody wyboru pivota:
+Wykonując testy brano pod uwagę następujące metody wyboru pivota:
 \begin{itemize}
 	\setlength\itemsep{0em}
-	\item \BOLD{ostatni element} - pivotem jest ostatni element tablicy
-	\item \BOLD{mediana z trzech} - pivotem jest mediana z pierwszego, środkowego oraz ostatniego elementu tablicy
-	\item \BOLD{pseudo-mediana z dziewięciu} - pivotem jest mediana z dziewięciu równo oddalonych d siebie elementów, z których pierwszym jest pierwszy element tablicy, oraz ostatnim jest ostatni element tablicy
-	\item \BOLD{mediana-median z pięciu} - pivot jest medianą pięciu median obliczanych rekurencyjnie
-	\item \BOLD{mediana-median z trzech} - pivot jest medianą trzech median obliczanych rekurencyjnie\\
-	
+	\item \BOLD{ostatni element} - pivotem jest ostatni element tablicy,
+	\item \BOLD{mediana z trzech} - pivotem jest mediana z pierwszego, środkowego oraz ostatniego elementu tablicy,
+	\item \BOLD{pseudo-mediana z dziewięciu} - pivotem jest mediana z dziewięciu równo oddalonych d siebie elementów, z których pierwszym jest pierwszy element tablicy, oraz ostatnim jest ostatni element tablicy,
+	\item \BOLD{mediana-median z pięciu} - pivot jest medianą pięciu median obliczanych rekurencyjnie,
+	\item \BOLD{mediana-median z trzech} - pivot jest medianą trzech median obliczanych rekurencyjnie.\\
 \end{itemize}
 
-% analiza dla losowych danych, czyli dla przypadku sredniego
-% ktory algorytm sie sprawdza najlepiej, a ktory najgorzej
+\subsection{Analiza porównawcza algorytmów z rodziny Quick Sort}
 
-% analiza dla danych posortowanych odwrotnie, czyli dla przypadku pesymistycznego dla tradycyjnego quick sorta,
-% - tradycyjny quick sort jako jedyny dziala ze zlozonoscia kwadratowa
+Analizując wydajność algorytmów z rodziny Quick Sort badano liczbę wykonywanych operacji atomowych z podziałem na operacje porównanie, zamiany miejsc oraz przypisania. Dodatkowo badano łączną liczbę wykonywanych operacji jako suma ważona operacji atomowych.\\
+
+Przy losowych danych wejściowych (\ref{fig:quick-sort-deterministic-pivot-random}), czyli przypadku średniego w klasycznym algorytmie Quick Sort, partycjonowanie metodą Hoarego jest wydajniejsze lub tak samo wydajne jak partycjonowanie metodą Lemuto. Najlepsze wyniki otrzymano poprzez połączenie partycjonowania metodą Hoarego z wyborem pivota jako ostatni element tablicy. Najgorsze wyniki otrzymano wybierając pivot jako mediana-median z pięciu, przy czym najgorszy wynik osiągnięto niezależnie od wyboru metody partycjonowania.\\
+
+Przy danych wejściowych posortowanych w odwrotnej kolejności (\ref{fig:quick-sort-deterministic-pivot-reversed}), czyli dla przypadku pesymistycznego w klasycznym algorytmie Quick Sort, partycjonowanie metodą Hoarego jest również wydajniejsze lub tak samo wydajne jak partycjonowanie metodą Lemuto. Najlepsze wyniki otrzymano poprzez połączenie partycjonowania metodą Hoarego z wyborem pivota jako mediana z trzech. Najgorsze wyniki otrzymano dla klasycznego algorytmu Quick Sort, czyli poprzez połączenia partycjonowania metodą Lemuto z wyborem pivota jako ostatni element tablicy.\\
+
+Analizują liczbę wykonanych operacji atomowych ...
+ 
+
+% tabelka, procentowo średnia liczba wykonanych operacji dla każdej z metod przy stałym rozmiarze tablicy n = 1000
+
 
 % roznica pomiedzy przypadkiem pesymistycznym a srednim
 
@@ -42,26 +50,31 @@ Dodatkowo badane były poniższe metody wyboru pivota:
 % Wykresy porównujące algorytmy.\\
 % Wykres porownujacy roznice pomiedzy przypadkiem srednim a pesymistycznym
 
-\begin{figure}[H]
+\begin{figure}[]
 	\centering
 	\includesvg[inkscapelatex=false,width=0.8\columnwidth]{img/plot/quick-sort-deterministic-pivot-random.svg}
 	\caption[]{}
 	\label{fig:quick-sort-deterministic-pivot-random}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[]
 	\centering
 	\includesvg[inkscapelatex=false,width=0.8\columnwidth]{img/plot/quick-sort-deterministic-pivot-reversed.svg}
 	\caption[]{}
 	\label{fig:quick-sort-deterministic-pivot-reversed}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[]
 	\centering
 	\includesvg[inkscapelatex=false,width=0.8\columnwidth]{img/plot/quick-sort-deterministic-pivot-density.svg}
 	\caption[]{}
 	\label{fig:quick-sort-deterministic-pivot-density}
 \end{figure}
+
+\subsection{Wnioski}
+% dla badanych wariantów algorytmy rekurencyje wyliczające pivot są nieopłacalne
+% algotytmy z wyborem pivta jako mediana sprawdza sie dla danych wejsciowych prawie posortowaych rosnaca lub malejaco,
+% skutecznie zwiekszaja prawdopodobienstwo znalezienia dobrego pivota
 
 \section{Rodzina algorytmów Quick Sort z niedeterministycznym algorytmem wyboru pivota}
 1. QuickSort z losowaniem pivota\\
