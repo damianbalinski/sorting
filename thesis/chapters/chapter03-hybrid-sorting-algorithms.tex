@@ -93,26 +93,27 @@ Przy losowych danych wejściowych (\ref{fig:quick-sort-nondeterministic-pivot-ra
 
 Przy danych wejściowych posortowanych w odwrotnej kolejności (\ref{fig:quick-sort-nondeterministic-pivot-reversed}), czyli dla przypadku pesymistycznego w klasycznym algorytmie Quick Sort, najskuteczniejszą strategią sortowania również okazało się partycjonowanie metodą Hoarego przy wyborze pivota jako losowy element tablicy. Spośród randomizowanych strategii sortowania najmniej wydajną okazał się wybór pivota jako pseudo-mediana z dziewięciu losowych elementów. W przypadku danych wejściowych posortowanych w odwrotnej kolejności, każda ze strategii randomizowanych jest wydajniejsza od klasycznego podejścia w metodzie Quick Sort.\\
 
+Porównując liczbę wykonanych operacji (\ref{fig:quick-sort-nondeterministic-pivot-random-all}) można stwierdzić, że dla dowolnych randomizowanych strategii wyboru pivota, partycjonowanie metodą Hoare wykonuje większą liczbę operacji porównania oraz mniejszą liczbę operacji zamiany miejsc. Tak jak w przypadku algorytmów deterministycznych, czynnik ten może okazać się istotny w przypadku sortowania złożonych struktur.\\
 
 \begin{figure}[]
 	\centering
-	\includesvg[inkscapelatex=false,width=1.1\columnwidth]{img/plot/quick-sort-nondeterministic-pivot-random.svg}
+	\includesvg[inkscapelatex=false,width=1.0\columnwidth]{img/plot/quick-sort-nondeterministic-pivot-random.svg}
 	\caption[]{}
 	\label{fig:quick-sort-nondeterministic-pivot-random}
 \end{figure}
 
 \begin{figure}[]
 	\centering
-	\includesvg[inkscapelatex=false,width=1.1\columnwidth]{img/plot/quick-sort-nondeterministic-pivot-reversed.svg}
+	\includesvg[inkscapelatex=false,width=1.0\columnwidth]{img/plot/quick-sort-nondeterministic-pivot-reversed.svg}
 	\caption[]{}
 	\label{fig:quick-sort-nondeterministic-pivot-reversed}
 \end{figure}
 
 \begin{figure}[]
 	\centering
-	\includesvg[inkscapelatex=false,width=1.1\columnwidth]{img/plot/quick-sort-nondeterministic-pivot-density.svg}
+	\includesvg[inkscapelatex=false,width=1.1\columnwidth]{img/plot/quick-sort-nondeterministic-pivot-random-all.svg}
 	\caption[]{}
-	\label{fig:quick-sort-nondeterministic-pivot-density}
+	\label{fig:quick-sort-nondeterministic-pivot-random-all}
 \end{figure}
 
 \subsection{Wnioski}

@@ -1,6 +1,6 @@
 {
   "title": "Liczba operacji wykonanych przez algorytm Quick Sort\n z podziałem na niedeterministyczne polityki wyboru pivota\n oraz metodę partycjonowania dla tablicy losowych danych",
-  "output": "quick-sort-nondeterministic-pivot-density",
+  "output": "quick-sort-nondeterministic-pivot-random-all",
   "prefix": "test12",
   "grid": "(1, 3)",
   "size": "(11, 3)",
