@@ -1,0 +1,86 @@
+{
+  "title": "Łączna liczba operacji wykonanych przez algorytm Quick Sort\n z podziałem na niedeterministyczne polityki wyboru pivota\n oraz metodę partycjonowania dla tablicy danych\n posortowanych odwrotnie",
+  "output": "quick-sort-nondeterministic-pivot-reversed",
+  "prefix": "test11",
+  "grid": "(1, 1)",
+  "size": "(6.3, 4)",
+  "invariants": {
+    "range": {
+      "begin": 100,
+      "end": 1000,
+      "step": 100
+    },
+    "repeats": 100
+  },
+  "plots": [
+    {
+      "type": "average",
+      "metadata": {
+        "title": "",
+        "xlabel": "rozmiar tablicy [n]",
+        "ylabel": "liczba operacji [n]",
+        "xcolumn": "n",
+        "ycolumn": "all",
+        "ymax": 40000,
+        "legend": "outside",
+        "custom_legend": [
+          { "color": "gray", "linestyle": "solid", "label": "klasyczny Quick Sort"},
+          { "color": "red", "linestyle": "solid", "label": "losowy element"},
+          { "color": "blue", "linestyle": "solid", "label": "mediana z trzech wyborów"},
+          { "color": "green", "linestyle": "solid", "label": "pseudo-mediana z dziewięciu wyborów"},
+          { "color": "black", "linestyle": "solid", "label": "metoda Lemuto"},
+          { "color": "black", "linestyle": "dotted", "label": "metoda Hoare"}
+        ]
+      },
+      "functions": [
+      ],
+      "sortings": [
+        {
+          "algorithm": "quick_sort",
+          "generator": "reversed",
+          "color": "gray"
+        },
+        {
+          "algorithm": "quick_sort_random_pivot_selector",
+          "generator": "reversed",
+          "color": "red"
+        },
+        {
+          "algorithm": "quick_sort_median_of_three_choices_pivot_selector",
+          "generator": "reversed",
+          "color": "blue"
+        },
+        {
+          "algorithm": "quick_sort_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "reversed",
+          "color": "green"
+        },
+
+        {
+          "algorithm": "quick_sort_hoare_partition",
+          "generator": "reversed",
+          "color": "gray",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "quick_sort_hoare_partition_random_pivot_selector",
+          "generator": "reversed",
+          "color": "red",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "quick_sort_hoare_partition_median_of_three_choices_pivot_selector",
+          "generator": "reversed",
+          "color": "blue",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "quick_sort_hoare_partition_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "reversed",
+          "color": "green",
+          "linestyle": "dotted"
+        }
+      ]
+    }
+  ]
+}

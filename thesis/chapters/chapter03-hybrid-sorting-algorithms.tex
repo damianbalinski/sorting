@@ -22,14 +22,14 @@ Wykonując testy brano pod uwagę następujące metody wyboru pivota:
 	\setlength\itemsep{0em}
 	\item \BOLD{ostatni element} - pivotem jest ostatni element tablicy,
 	\item \BOLD{mediana z trzech} - pivotem jest mediana z pierwszego, środkowego oraz ostatniego elementu tablicy,
-	\item \BOLD{pseudo-mediana z dziewięciu} - pivotem jest mediana z dziewięciu równo oddalonych d siebie elementów, z których pierwszym jest pierwszy element tablicy, oraz ostatnim jest ostatni element tablicy,
+	\item \BOLD{pseudo-mediana z dziewięciu} - pivotem jest mediana z dziewięciu równo oddalonych od siebie elementów, z których pierwszym jest pierwszy element tablicy, oraz ostatnim jest ostatni element tablicy,
 	\item \BOLD{mediana-median z pięciu} - pivot jest medianą pięciu median obliczanych rekurencyjnie,
 	\item \BOLD{mediana-median z trzech} - pivot jest medianą trzech median obliczanych rekurencyjnie.\\
 \end{itemize}
 
-\subsection{Analiza porównawcza algorytmów z rodziny Quick Sort}
+\subsection{Analiza porównawcza algorytmów}
 
-Analizując wydajność algorytmów z rodziny Quick Sort badano liczbę wykonywanych operacji atomowych z podziałem na operacje porównanie, zamiany miejsc oraz przypisania. Dodatkowo badano łączną liczbę wykonywanych operacji jako suma ważona operacji atomowych.\\
+Analizując wydajność algorytmów z rodziny Quick Sort badano liczbę wykonywanych operacji atomowych z podziałem na operacje porównania, zamiany miejsc oraz przypisania. Dodatkowo badano łączną liczbę wykonanych operacji jako sumę ważoną liczby operacji atomowych.\\
 
 Przy losowych danych wejściowych (\ref{fig:quick-sort-deterministic-pivot-random}), czyli przypadku średniego w klasycznym algorytmie Quick Sort, partycjonowanie metodą Hoarego jest wydajniejsze lub tak samo wydajne jak partycjonowanie metodą Lemuto. Najlepsze wyniki otrzymano poprzez połączenie partycjonowania metodą Hoarego z wyborem pivota jako ostatni element tablicy. Najgorsze wyniki otrzymano wybierając pivot jako mediana-median z pięciu, przy czym najgorszy wynik osiągnięto niezależnie od wyboru metody partycjonowania.\\
 
@@ -77,16 +77,45 @@ W badanych implementacjach algorytmów z rodziny Quick Sort, partycjonowanie met
 Analizując zachowanie algorytmów można stwierdzić, że dla danych posortowanych lub prawie posortowanych, dobrym wyborem jest skorzystanie z kosztownej metody wyszukiwania pivota, która pomimo swojego dodatkowego nakładu czasowego zwiększa prawdopodobieństwo na znalezienie dobrego pivota. Wyjątkiem jest wybór pivota jako mediana-median z pięciu, w przypadku którego dodatkowy nakład czasowy sprawia, że algorytm jest znacznie mniej wydajny nawet dla uporządkowanych danych wejściowych. Przez pojęcie \BOLD{dobrego pivota} rozumiemy tutaj pozycję możliwie blisko środka partycjonowanej tablicy.\\
 
 \section{Rodzina randomizowanych algorytmów Quick Sort}
-% Niedeterministyczny wybor pivota, motywacja, losowosc moze sie przydac
-% badanie dla tych samych algorytmow partycjonowania co poprzednio
+Klasyczny algorytm Quick Sort kiepsko sobie radzi z uporządkowanymi lub prawie uporządkowanymi danymi wejściowymi. W najmniej skutecznym wariancie, tzn. podczas wyboru pivota jako ostatni element tablicy, algorytm ten działa ze złożonością czasową $O(n^2)$. W przypadku uporządkowanych danych wejściowych skutecznym sposobem może okazać się niedeterministyczny wybór pivota. W tym rozdziale dokonano analizy randomizowanych algorytmów z rodziny Quick Sort, z podziałem na metody partycjonowania Lemuto oraz Hoarego. W analizie wykorzystano następujące metody wyboru pivota:
 
-% Badano nastepujace metody wyboru pivota
-% losowy pivot
-% power of three choices - wariant metody power of two choices, mediana z trzech losowo wybranych liczb
-% randomizowana pseudo-mediana z dziewieciu
+\begin{itemize}
+	\setlength\itemsep{0em}
+	\item \BOLD{losowy element} - pivotem jest losowo wybrany element tablicy,
+	\item \BOLD{mediana z trzech wyborów} - przystosowanie meotdy \BOLD{power of two choices} do potrzeby wyznaczania mediany, pivotem jest mediana z trzech losowo wybranych elementów,
+	\item \BOLD{pseudo-mediana z dziewięciu wyborów} - pivotem jest mediana z dziewięciu losowo wybranych elementów.\\
+\end{itemize}
 
-1. QuickSort z losowaniem pivota\\
-2. QuickSort z losowaniem trzech liczb, wybór mediany (power of three choices)\\
+\subsection{Analiza porównawcza algorytmów}
+Tak jak w poprzednim rozdziale, algorytmy były analizowane pod kątem liczby wykonywanych operacji atomowych, z podziałem na operacje porównania, zamiany miejsc oraz przypisania. Dodatkowo badano łączną liczbę wykonanych operacji jako sumę ważoną liczby operacji atomowych.\\
+
+Przy losowych danych wejściowych (\ref{fig:quick-sort-nondeterministic-pivot-random}) większość randomizowanych metod wyboru pivota okazuje się mniej skuteczna od klasycznego algorytmu Quick Sort. Przy partycjonowaniu metodą Lemuto jedyną skuteczniejszą metodą jest wybór pivota jako mediana z trzech losowych elementów. Przy partycjonowaniu metodą Hoarego, najskuteczniejszym okazuje się wybór za pivota losowego elementu tablicy. Połączenie metody Hoarego z losowym wyborem pivota jest również najskuteczniejszym podejściem podczas sortowania losowych danych. Najmniej wydajną strategią sortowania okazał się wybór pivota jako pseudo-mediana z dziewięciu losowych elementów, przy czym najgorszy wynik osiągnięto dla obydwu metod partycjonowania.\\
+
+Przy danych wejściowych posortowanych w odwrotnej kolejności (\ref{fig:quick-sort-nondeterministic-pivot-reversed}), czyli dla przypadku pesymistycznego w klasycznym algorytmie Quick Sort, najskuteczniejszą strategią sortowania również okazało się partycjonowanie metodą Hoarego przy wyborze pivota jako losowy element tablicy. Spośród randomizowanych strategii sortowania najmniej wydajną okazał się wybór pivota jako pseudo-mediana z dziewięciu losowych elementów. W przypadku danych wejściowych posortowanych w odwrotnej kolejności, każda ze strategii randomizowanych jest wydajniejsza od klasycznego podejścia w metodzie Quick Sort.\\
+
+
+\begin{figure}[]
+	\centering
+	\includesvg[inkscapelatex=false,width=1.1\columnwidth]{img/plot/quick-sort-nondeterministic-pivot-random.svg}
+	\caption[]{}
+	\label{fig:quick-sort-nondeterministic-pivot-random}
+\end{figure}
+
+\begin{figure}[]
+	\centering
+	\includesvg[inkscapelatex=false,width=1.1\columnwidth]{img/plot/quick-sort-nondeterministic-pivot-reversed.svg}
+	\caption[]{}
+	\label{fig:quick-sort-nondeterministic-pivot-reversed}
+\end{figure}
+
+\begin{figure}[]
+	\centering
+	\includesvg[inkscapelatex=false,width=1.1\columnwidth]{img/plot/quick-sort-nondeterministic-pivot-density.svg}
+	\caption[]{}
+	\label{fig:quick-sort-nondeterministic-pivot-density}
+\end{figure}
+
+\subsection{Wnioski}
 
 \section{QuickMerge Sort}
 Koncepcja algorytmu, mocne strony (Merge Sort bez konieczności alokacji pamięci)

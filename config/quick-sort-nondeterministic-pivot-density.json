@@ -1,0 +1,205 @@
+{
+  "title": "Liczba operacji wykonanych przez algorytm Quick Sort\n z podziałem na niedeterministyczne polityki wyboru pivota\n oraz metodę partycjonowania dla tablicy losowych danych",
+  "output": "quick-sort-nondeterministic-pivot-density",
+  "prefix": "test12",
+  "grid": "(1, 3)",
+  "size": "(11, 3)",
+  "invariants": {
+    "range": {
+      "begin": 100,
+      "end": 1000,
+      "step": 100
+    },
+    "repeats": 100
+  },
+  "plots": [
+    {
+      "type": "average",
+      "metadata": {
+        "title": "a) porównania",
+        "xlabel": "rozmiar tablicy [n]",
+        "ylabel": "liczba porownań [n]",
+        "xcolumn": "n",
+        "ycolumn": "comparisons",
+        "legend": "none"
+      },
+      "functions": [
+      ],
+      "sortings": [
+        {
+          "algorithm": "quick_sort",
+          "generator": "random",
+          "color": "gray"
+        },
+        {
+          "algorithm": "quick_sort_random_pivot_selector",
+          "generator": "random",
+          "color": "red"
+        },
+        {
+          "algorithm": "quick_sort_median_of_three_choices_pivot_selector",
+          "generator": "random",
+          "color": "blue"
+        },
+        {
+          "algorithm": "quick_sort_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "random",
+          "color": "green"
+        },
+
+        {
+          "algorithm": "quick_sort_hoare_partition",
+          "generator": "random",
+          "color": "gray",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "quick_sort_hoare_partition_random_pivot_selector",
+          "generator": "random",
+          "color": "red",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "quick_sort_hoare_partition_median_of_three_choices_pivot_selector",
+          "generator": "random",
+          "color": "blue",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "quick_sort_hoare_partition_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "random",
+          "color": "green",
+          "linestyle": "dotted"
+        }
+      ]
+    },
+    {
+      "type": "average",
+      "metadata": {
+        "title": "b) zamiana miejsc",
+        "xlabel": "rozmiar tablicy [n]",
+        "ylabel": "liczba zamian miejsc [n]",
+        "xcolumn": "n",
+        "ycolumn": "swaps",
+        "legend": "none"
+      },
+      "functions": [
+      ],
+      "sortings": [
+        {
+          "algorithm": "quick_sort",
+          "generator": "random",
+          "color": "gray"
+        },
+        {
+          "algorithm": "quick_sort_random_pivot_selector",
+          "generator": "random",
+          "color": "red"
+        },
+        {
+          "algorithm": "quick_sort_median_of_three_choices_pivot_selector",
+          "generator": "random",
+          "color": "blue"
+        },
+        {
+          "algorithm": "quick_sort_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "random",
+          "color": "green"
+        },
+
+        {
+          "algorithm": "quick_sort_hoare_partition",
+          "generator": "random",
+          "color": "gray",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "quick_sort_hoare_partition_random_pivot_selector",
+          "generator": "random",
+          "color": "red",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "quick_sort_hoare_partition_median_of_three_choices_pivot_selector",
+          "generator": "random",
+          "color": "blue",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "quick_sort_hoare_partition_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "random",
+          "color": "green",
+          "linestyle": "dotted"
+        }
+      ]
+    },
+    {
+      "type": "average",
+      "metadata": {
+        "title": "c) przypisania",
+        "xlabel": "rozmiar tablicy [n]",
+        "ylabel": "liczba przypisań [n]",
+        "xcolumn": "n",
+        "ycolumn": "assigns",
+        "legend": "outside",
+        "custom_legend": [
+          { "color": "gray", "linestyle": "solid", "label": "klasyczny Quick Sort"},
+          { "color": "red", "linestyle": "solid", "label": "losowy element"},
+          { "color": "blue", "linestyle": "solid", "label": "mediana z trzech wyborów"},
+          { "color": "green", "linestyle": "solid", "label": "pseudo-mediana z dziewięciu wyborów"},
+          { "color": "black", "linestyle": "solid", "label": "metoda Lemuto"},
+          { "color": "black", "linestyle": "dotted", "label": "metoda Hoare"}
+        ]
+      },
+      "functions": [
+      ],
+      "sortings": [
+        {
+          "algorithm": "quick_sort",
+          "generator": "random",
+          "color": "gray"
+        },
+        {
+          "algorithm": "quick_sort_random_pivot_selector",
+          "generator": "random",
+          "color": "red"
+        },
+        {
+          "algorithm": "quick_sort_median_of_three_choices_pivot_selector",
+          "generator": "random",
+          "color": "blue"
+        },
+        {
+          "algorithm": "quick_sort_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "random",
+          "color": "green"
+        },
+
+        {
+          "algorithm": "quick_sort_hoare_partition",
+          "generator": "random",
+          "color": "gray",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "quick_sort_hoare_partition_random_pivot_selector",
+          "generator": "random",
+          "color": "red",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "quick_sort_hoare_partition_median_of_three_choices_pivot_selector",
+          "generator": "random",
+          "color": "blue",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "quick_sort_hoare_partition_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "random",
+          "color": "green",
+          "linestyle": "dotted"
+        }
+      ]
+    }
+  ]
+}

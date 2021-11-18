@@ -18,7 +18,7 @@
       "metadata": {
         "title": "",
         "xlabel": "rozmiar tablicy [n]",
-        "ylabel": "liczba porownań [n]",
+        "ylabel": "liczba operacji [n]",
         "xcolumn": "n",
         "ycolumn": "all",
         "legend": "outside",
