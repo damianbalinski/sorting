@@ -8,8 +8,8 @@ Pierwszym sposobem jest modyfikacja składowych danego algorytmu. Wiele spośró
 
 Drugim sposobem na ulepszenie jest próba połączenia wielu algorytmów sortujących. Niektóre algorytmy zachowują się lepiej dla stosunkowo małej ilości danych, inne zaś są znaczenie wydajniejsze przy rozbudowanym zbiorze danych wejściowych. Pomysł ten polega na opracowaniu algorytmu, którego działanie zmienia się w zależności od czynników zewnętrznych, np. długości danych do posortowania.\\
 
-\section{Rodzina algorytmów Quick Sort z deterministycznym algorytmem wyboru pivota}
-Podczas analizy algorytmów sortujących z rodziny Quick Sort zostały przetestowane wariacje algorytmów z różnymi metodami partycjonowania oraz różnymi metodami wyboru pivota. Do partycjonowania danych wejściowych wykorzystano poniższe metody:
+\section{Rodzina deterministycznych algorytmów Quick Sort}
+Podczas analizy algorytmów sortujących z rodziny Quick Sort zostały przetestowane wariacje algorytmów z różnymi metodami partycjonowania oraz różnymi deterministycznymi metodami wyboru pivota. Do partycjonowania danych wejściowych wykorzystano poniższe metody:
 
 \begin{itemize}
 	\setlength\itemsep{0em}
@@ -35,19 +35,12 @@ Przy losowych danych wejściowych (\ref{fig:quick-sort-deterministic-pivot-rando
 
 Przy danych wejściowych posortowanych w odwrotnej kolejności (\ref{fig:quick-sort-deterministic-pivot-reversed}), czyli dla przypadku pesymistycznego w klasycznym algorytmie Quick Sort, partycjonowanie metodą Hoarego jest również wydajniejsze lub tak samo wydajne jak partycjonowanie metodą Lemuto. Najlepsze wyniki otrzymano poprzez połączenie partycjonowania metodą Hoarego z wyborem pivota jako mediana z trzech. Najgorsze wyniki otrzymano dla klasycznego algorytmu Quick Sort, czyli poprzez połączenia partycjonowania metodą Lemuto z wyborem pivota jako ostatni element tablicy.\\
 
-Analizują liczbę wykonanych operacji atomowych ...
+Porównując liczbę wykonanych operacji pomiędzy badanymi algorytmami partycjonowania (\ref{fig:quick-sort-deterministic-pivot-all}) można stwierdzić, że partycjonowanie metodą Hoare wykonuje większą liczbę operacji porównania oraz mniejszą liczbę operacji zamiany miejsc. Czynnik ten może okazać się szczególnie istotny w przypadku sortowania złożonych struktur, dla których czas porównania dwóch elementów jest znacznie dłuższy.\\
  
+Do analizy rozkładu prawdopodobieństwa liczby wykonanych operacji (\ref{fig:quick-sort-deterministic-pivot-density}) użyto tablicy losowych danych o stałym rozmiarze $n = 1000$. Dla badanych algorytmów najmniejsze odchylenie standardowe mają algorytmy partycjonowania metodą Hoare przy wyborze pivota jako pseudo-mediana z dziewięciu lub mediana-median z trzech. Największe odchylenie standardowe występuje dla klasycznego algorytmu Quick Sort. Najmniejsza wartość oczekiwana liczby wykonanych operacji jest osiągana poprzez patycjonowanie metodą Hoare z wyborem pivota jako ostatni element tablicy.
 
 % tabelka, procentowo średnia liczba wykonanych operacji dla każdej z metod przy stałym rozmiarze tablicy n = 1000
-
-
-% roznica pomiedzy przypadkiem pesymistycznym a srednim
-
-% wnioski ogolne - algorymy z mediana dzialaja krocej niz kwadratowo,
-% algorytmy wyszukujace mediany zwiekszaja gwarancje na wybor dobrego pivota przy dodatkowym nakladzie czasowym, ktory dla przypadku pesymistycznego okazuje sie opłacalny. Wyjatkiem jest tutaj mediana-median z pieciu, przy wiliczaniu ktorej naklad czasowy jest na tyle duzy, ze caly proces okazuje sie nieoplacalny
-
-
-% Wykresy porównujące algorytmy.\\
+% tabelka, wyliczone odchylenie standardowe oraz wartość oczekiwana dla poszczególnych algorytmów
 % Wykres porownujacy roznice pomiedzy przypadkiem srednim a pesymistycznym
 
 \begin{figure}[]
@@ -71,12 +64,27 @@ Analizują liczbę wykonanych operacji atomowych ...
 	\label{fig:quick-sort-deterministic-pivot-density}
 \end{figure}
 
-\subsection{Wnioski}
-% dla badanych wariantów algorytmy rekurencyje wyliczające pivot są nieopłacalne
-% algotytmy z wyborem pivta jako mediana sprawdza sie dla danych wejsciowych prawie posortowaych rosnaca lub malejaco,
-% skutecznie zwiekszaja prawdopodobienstwo znalezienia dobrego pivota
+\begin{figure}[]
+	\centering
+	\includesvg[inkscapelatex=false,width=1.1\columnwidth]{img/plot/quick-sort-deterministic-pivot-random-all.svg}
+	\caption[]{}
+	\label{fig:quick-sort-deterministic-pivot-all}
+\end{figure}
 
-\section{Rodzina algorytmów Quick Sort z niedeterministycznym algorytmem wyboru pivota}
+\subsection{Wnioski}
+W badanych implementacjach algorytmów z rodziny Quick Sort, partycjonowanie metodą Hoare okazało się wydajniejsze niż partycjonowanie metodą Lemuto. Ponieważ partycjonowanie metodą Hoare wykonuje większą liczbę operacji porównania niż partycjonowanie metodą Lemuto, algorytm ten nadaje się do sortowania kolekcji zawierającej dane prymitywne, jednak w przypadku sortowania bardziej złożonych struktur metoda ta może okazać się mniej wydajna.\\
+
+Analizując zachowanie algorytmów można stwierdzić, że dla danych posortowanych lub prawie posortowanych, dobrym wyborem jest skorzystanie z kosztownej metody wyszukiwania pivota, która pomimo swojego dodatkowego nakładu czasowego zwiększa prawdopodobieństwo na znalezienie dobrego pivota. Wyjątkiem jest wybór pivota jako mediana-median z pięciu, w przypadku którego dodatkowy nakład czasowy sprawia, że algorytm jest znacznie mniej wydajny nawet dla uporządkowanych danych wejściowych. Przez pojęcie \BOLD{dobrego pivota} rozumiemy tutaj pozycję możliwie blisko środka partycjonowanej tablicy.\\
+
+\section{Rodzina randomizowanych algorytmów Quick Sort}
+% Niedeterministyczny wybor pivota, motywacja, losowosc moze sie przydac
+% badanie dla tych samych algorytmow partycjonowania co poprzednio
+
+% Badano nastepujace metody wyboru pivota
+% losowy pivot
+% power of three choices - wariant metody power of two choices, mediana z trzech losowo wybranych liczb
+% randomizowana pseudo-mediana z dziewieciu
+
 1. QuickSort z losowaniem pivota\\
 2. QuickSort z losowaniem trzech liczb, wybór mediany (power of three choices)\\
 

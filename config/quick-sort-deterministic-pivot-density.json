@@ -17,7 +17,7 @@
       "type": "density",
       "metadata": {
         "title": "",
-        "xlabel": "liczba operacji",
+        "xlabel": "liczba operacji [n]",
         "ylabel": "gęstość prawd.",
         "xcolumn": "n",
         "ycolumn": "all",
