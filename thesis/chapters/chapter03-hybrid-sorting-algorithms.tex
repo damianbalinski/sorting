@@ -95,20 +95,28 @@ Przy danych wejściowych posortowanych w odwrotnej kolejności (\ref{fig:quick-s
 
 Porównując liczbę wykonanych operacji (\ref{fig:quick-sort-nondeterministic-pivot-random-all}) można stwierdzić, że dla dowolnych randomizowanych strategii wyboru pivota, partycjonowanie metodą Hoare wykonuje większą liczbę operacji porównania oraz mniejszą liczbę operacji zamiany miejsc. Tak jak w przypadku algorytmów deterministycznych, czynnik ten może okazać się istotny w przypadku sortowania złożonych struktur.\\
 
-Badając rozkład prawdopodobieństwa liczby wykonanych operacji dla algorytmów randomizowanych,
+Badając rozkład prawdopodobieństwa liczby wykonanych operacji dla algorytmów randomizowanych (\ref{fig:quick-sort-nondeterministic-pivot-density}),
+% metoda hoarego skutecznie zmiejsza odchylenie standartowe.
 
 \begin{figure}[]
 	\centering
-	\includesvg[inkscapelatex=false,width=1.0\columnwidth]{img/plot/quick-sort-nondeterministic-pivot-random.svg}
+	\includesvg[inkscapelatex=false,width=0.8\columnwidth]{img/plot/quick-sort-nondeterministic-pivot-random.svg}
 	\caption[]{}
 	\label{fig:quick-sort-nondeterministic-pivot-random}
 \end{figure}
 
 \begin{figure}[]
 	\centering
-	\includesvg[inkscapelatex=false,width=1.0\columnwidth]{img/plot/quick-sort-nondeterministic-pivot-reversed.svg}
+	\includesvg[inkscapelatex=false,width=0.8\columnwidth]{img/plot/quick-sort-nondeterministic-pivot-reversed.svg}
 	\caption[]{}
 	\label{fig:quick-sort-nondeterministic-pivot-reversed}
+\end{figure}
+
+\begin{figure}[]
+	\centering
+	\includesvg[inkscapelatex=false,width=0.8\columnwidth]{img/plot/quick-sort-nondeterministic-pivot-density.svg}
+	\caption[]{}
+	\label{fig:quick-sort-nondeterministic-pivot-density}
 \end{figure}
 
 \begin{figure}[]
@@ -125,7 +133,7 @@ Koncepcja algorytmu, mocne strony (Merge Sort bez konieczności alokacji pamięc
 
 \subsection{Pseudokod}
 
-\subsection{Analiza algorytmu}
+\subsection{Analiza eksperymentalna algorytmu}
 Wykresy liczby wykonywanych operacji w porównaniu do algorytmów bazowych.
 Wykresy gęstości liczby wykonywanych operacji dla stałej liczby n, np n = 10000.
 
@@ -139,7 +147,7 @@ Ogólny opis algorytmu, gdzie jest wykorzystywany (std::sort w g++), zalety.
 % wyborem pivota
 \subsection{Pseudokod}
 
-\subsection{Analiza algorytmu}
+\subsection{Analiza eksperymentalna algorytmu}
 Wykresy liczby wykonywanych operacji w porównaniu do algorytmów bazowych.
 Wykresy gęstości liczby wykonywanych operacji dla stałej liczby n, np n = 10000.
 Wykresy dla różnych algorytmów partycjonowania.
