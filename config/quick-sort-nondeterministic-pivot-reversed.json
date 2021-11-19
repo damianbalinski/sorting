@@ -1,5 +1,5 @@
 {
-  "title": "Łączna liczba operacji wykonanych przez algorytm Quick Sort\n z podziałem na niedeterministyczne polityki wyboru pivota\n oraz metodę partycjonowania dla tablicy danych\n posortowanych odwrotnie",
+  "title": "Łączna liczba operacji wykonanych przez randomizowane wersje\n algorytmu Quick Sort z podziałem na polityki wyboru pivota\n oraz metodę partycjonowania dla tablicy danych\n posortowanych odwrotnie",
   "output": "quick-sort-nondeterministic-pivot-reversed",
   "prefix": "test11",
   "grid": "(1, 1)",
