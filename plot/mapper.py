@@ -35,7 +35,7 @@ def map_function(function, colors, n):
     return Line(
         [n for n in rng],
         [exp(n)+dy for n in rng],
-        function['label'],
+        function.get('label', ''),
         colors.next_gray(),
         function.get('linestyle', 'solid')
     )

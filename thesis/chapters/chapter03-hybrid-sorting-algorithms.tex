@@ -95,8 +95,7 @@ Przy danych wejściowych posortowanych w odwrotnej kolejności (\ref{fig:quick-s
 
 Porównując liczbę wykonanych operacji (\ref{fig:quick-sort-nondeterministic-pivot-random-all}) można stwierdzić, że dla dowolnych randomizowanych strategii wyboru pivota, partycjonowanie metodą Hoare wykonuje większą liczbę operacji porównania oraz mniejszą liczbę operacji zamiany miejsc. Tak jak w przypadku algorytmów deterministycznych, czynnik ten może okazać się istotny w przypadku sortowania złożonych struktur.\\
 
-Badając rozkład prawdopodobieństwa liczby wykonanych operacji dla algorytmów randomizowanych (\ref{fig:quick-sort-nondeterministic-pivot-density}),
-% metoda hoarego skutecznie zmiejsza odchylenie standartowe.
+Badając rozkład prawdopodobieństwa liczby wykonanych operacji dla algorytmów randomizowanych (\ref{fig:quick-sort-nondeterministic-pivot-density}) można zauważyć, że algorytmy korzystające z partycjonowania metodą Hoare mają mniejsze odchylenie standardowe niż algorytmy z partycjonowaniem metodą Lemuto. Każdy z randomizowanych algorytmów wyboru pivota daje w wyniku mniejsze odchylenie standardowe od klasycznego algorytmu Quick Sort. Najmniejsze odchylenie standardowe uzyskano dla partycjonowania metodą Hoare z wyborem pivota jako pseudo-mediana z dziewięciu wyborów, jednak równocześnie dla tego algorytmu uzyskano największą wartość oczekiwaną liczby wykonanych operacji. Najmniejszą wartość oczekiwaną uzyskano dla partycjonowania metodą Hoare przy wyborze pivota jako losowy element tablicy.
 
 \begin{figure}[]
 	\centering
@@ -127,13 +126,29 @@ Badając rozkład prawdopodobieństwa liczby wykonanych operacji dla algorytmów
 \end{figure}
 
 \subsection{Wnioski}
+W przypadku randomizowanych algorytmów z rodziny Quick Sort, podobnie jak dla algorytmów deterministycznych, partycjonowanie metodą Hoare skutecznie zmniejsza wartość oczekiwaną liczby wykonanych operacji przy danym rozmiarze tablicy. Należy jednak zauważyć, że partycjonowanie metodą Hoare wykonuje większą liczbę operacji porównania, więc strategia ta może okazać się mniej wydajna w przypadku sortowania złożonych struktur danych.\\
+
+Analizując liczbę wykonanych operacji można stwierdzić, że w przypadku algorytmów randomizowanych korzystanie z kosztownych strategii wyboru pivota jest nieopłacalne. Najskuteczniejszą metodą, zarówno dla losowych jak i posortowanych danych, okazuje się wybór losowego elementu tablicy.\\
+
 
 \section{QuickMerge Sort}
-Koncepcja algorytmu, mocne strony (Merge Sort bez konieczności alokacji pamięci)
+% Eksperymentalne wyznaczanie od którego momentu bardziej się opłaca używać Quick Sort niż Quick Sort, wyliczanie współczynnika na podstawie stosunku kosztu porównania do przypisania
 
+% Analizujac algorytmy Quick Sort można było zauważyć, że Merge sort wykonuje mniej operacji porównania od Quick Sort.
+% celem jest znalezienie algorytmu działającego w miejscu, który wykonuje możliwie mało porównań, dlateg wykorzystano partycjonowanie metoda lemuto
+Algorytm QuickMerge Sort to algorytm hybrydowy, w którym podjęto próbę eliminacji klasycznych problemów wynikających ze stosowania algorytmów Quick Sort oraz Merge Sort. Głównym problemem algorytmu Quick Sort jest jego słaba złożoność czasowa w przypadku pesymistycznym, równa $O(n^2)$.  W przypadku algorytmu Merge Sort problemem jest konieczność alokacji dodatkowego bufora pamięci.\\ 
+
+Algorytm QuickMerge Sort składa się z ... etapów.
+Idea/Koncepcja algorytmu, mocne strony (Merge Sort bez konieczności alokacji pamięci)
+
+Analiza algorytmow deterministycznych - najblizej asymptoteycznie jest pseudo-mediana z dziewieciu
 \subsection{Pseudokod}
 
 \subsection{Analiza eksperymentalna algorytmu}
+Ponieważ jednym z kroków algorytmu QuickMerge sort jest partycjonowanie tablicy wejściowej, analizę przeprowadzono z podziałem na deterministyczne oraz randomizowane wersje tego algorytmu.
+
+Dla metod partycjonowania uzyto klasycznej oraz najbardziej skutecznej z poprzedniego rozdzialu.
+
 Wykresy liczby wykonywanych operacji w porównaniu do algorytmów bazowych.
 Wykresy gęstości liczby wykonywanych operacji dla stałej liczby n, np n = 10000.
 
