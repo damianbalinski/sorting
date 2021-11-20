@@ -44,7 +44,7 @@ def map_function(function, colors, n):
 
 def map_sorting(sorting, path, colors, metadata):
     path = path.generator(sorting['generator']).algorithm(sorting['algorithm'])
-    df = pd.read_csv(path.get_path(), names=['n', 'comparisons', 'swaps', 'assigns', 'time', 'all', 'factor'])
+    df = pd.read_csv(path.get_path(), names=['n', 'comparisons', 'swaps', 'assigns', 'time', 'cost', 'factor'])
     return Line(
         [0] + list(df[metadata.xcolumn]),
         [0] + list(df[metadata.ycolumn]),
