@@ -1,0 +1,199 @@
+{
+  "title": "Liczba operacji wykonanych przez deterministyczne wersje algorytmu\nQuickMerge Sort w porównaniu do algorytmów Quick Sort oraz Merge Sort\nz podziałem na polityki wyboru pivota dla losowych danych",
+  "output": "quick-merge-sort-deterministic-pivot-random",
+  "prefix": "test13",
+  "grid": "(1, 3)",
+  "size": "(12.5, 3.5)",
+  "invariants": {
+    "range": {
+      "begin": 100,
+      "end": 1000,
+      "step": 100
+    },
+    "repeats": 100
+  },
+  "plots": [
+    {
+      "type": "average",
+      "metadata": {
+        "title": "a) porównania",
+        "xlabel": "rozmiar tablicy [n]",
+        "ylabel": "liczba porownań [n]",
+        "xcolumn": "n",
+        "ycolumn": "comparisons",
+        "legend": "none"
+      },
+      "functions": [
+        {
+          "expression": "nlog(n)",
+          "color": "gray"
+        }
+      ],
+      "sortings": [
+        {
+          "algorithm": "quick_sort",
+          "generator": "random",
+          "color": "black",
+          "linestyle": "dashed"
+        },
+        {
+          "algorithm": "merge_sort",
+          "generator": "random",
+          "color": "black",
+          "linestyle": "dotted"
+        },
+
+        {
+          "algorithm": "quick_merge_sort",
+          "generator": "random",
+          "color": "red"
+        },
+        {
+          "algorithm": "quick_merge_sort_median_of_three_pivot_selector",
+          "generator": "random",
+          "color": "blue"
+        },
+        {
+          "algorithm": "quick_merge_sort_pseudo_median_of_nine_pivot_selector",
+          "generator": "random",
+          "color": "orange"
+        },
+        {
+          "algorithm": "quick_merge_sort_median_of_medians_of_five_pivot_selector",
+          "generator": "random",
+          "color": "green"
+        },
+        {
+          "algorithm": "quick_merge_sort_median_of_medians_of_three_pivot_selector",
+          "generator": "random",
+          "color": "pink"
+        }
+      ]
+    },
+    {
+      "type": "average",
+      "metadata": {
+        "title": "b) zamiana miejsc",
+        "xlabel": "rozmiar tablicy [n]",
+        "ylabel": "liczba zamian miejsc [n]",
+        "xcolumn": "n",
+        "ycolumn": "swaps",
+        "legend": "none"
+      },
+      "functions": [
+        {
+          "expression": "nlog(n)",
+          "color": "gray"
+        }
+      ],
+      "sortings": [
+        {
+          "algorithm": "quick_sort",
+          "generator": "random",
+          "color": "black",
+          "linestyle": "dashed"
+        },
+        {
+          "algorithm": "merge_sort",
+          "generator": "random",
+          "color": "black",
+          "linestyle": "dotted"
+        },
+
+        {
+          "algorithm": "quick_merge_sort",
+          "generator": "random",
+          "color": "red"
+        },
+        {
+          "algorithm": "quick_merge_sort_median_of_three_pivot_selector",
+          "generator": "random",
+          "color": "blue"
+        },
+        {
+          "algorithm": "quick_merge_sort_pseudo_median_of_nine_pivot_selector",
+          "generator": "random",
+          "color": "orange"
+        },
+        {
+          "algorithm": "quick_merge_sort_median_of_medians_of_five_pivot_selector",
+          "generator": "random",
+          "color": "green"
+        },
+        {
+          "algorithm": "quick_merge_sort_median_of_medians_of_three_pivot_selector",
+          "generator": "random",
+          "color": "pink"
+        }
+      ]
+    },
+    {
+      "type": "average",
+      "metadata": {
+        "title": "c) przypisania",
+        "xlabel": "rozmiar tablicy [n]",
+        "ylabel": "liczba przypisań [n]",
+        "xcolumn": "n",
+        "ycolumn": "assigns",
+        "legend": "outside",
+        "custom_legend": [
+          { "color": "gray", "linestyle": "solid", "label": "$n\\log{}n$"},
+          { "color": "black", "linestyle": "dashed", "label": "Quick Sort"},
+          { "color": "black", "linestyle": "dotted", "label": "Merge Sort"},
+          { "color": "black", "linestyle": "solid", "label": "QuickMerge Sort"},
+          { "color": "red", "linestyle": "solid", "label": "pivot jako ostatni element"},
+          { "color": "blue", "linestyle": "solid", "label": "pivot jako mediana z trzech"},
+          { "color": "orange", "linestyle": "solid", "label": "pivot jako pseudo-mediana z dziewięciu"},
+          { "color": "green", "linestyle": "solid", "label": "pivot jako mediana-median z pięciu"},
+          { "color": "pink", "linestyle": "solid", "label": "pivot jako mediana-median z trzech"}
+        ]
+      },
+      "functions": [
+        {
+          "expression": "nlog(n)",
+          "color": "gray"
+        }
+      ],
+      "sortings": [
+        {
+          "algorithm": "quick_sort",
+          "generator": "random",
+          "color": "black",
+          "linestyle": "dashed"
+        },
+        {
+          "algorithm": "merge_sort",
+          "generator": "random",
+          "color": "black",
+          "linestyle": "dotted"
+        },
+
+        {
+          "algorithm": "quick_merge_sort",
+          "generator": "random",
+          "color": "red"
+        },
+        {
+          "algorithm": "quick_merge_sort_median_of_three_pivot_selector",
+          "generator": "random",
+          "color": "blue"
+        },
+        {
+          "algorithm": "quick_merge_sort_pseudo_median_of_nine_pivot_selector",
+          "generator": "random",
+          "color": "orange"
+        },
+        {
+          "algorithm": "quick_merge_sort_median_of_medians_of_five_pivot_selector",
+          "generator": "random",
+          "color": "green"
+        },
+        {
+          "algorithm": "quick_merge_sort_median_of_medians_of_three_pivot_selector",
+          "generator": "random",
+          "color": "pink"
+        }
+      ]
+    }
+  ]
+}

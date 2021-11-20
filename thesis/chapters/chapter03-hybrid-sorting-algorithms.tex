@@ -141,16 +141,24 @@ Algorytm QuickMerge Sort to algorytm hybrydowy, w którym podjęto próbę elimi
 Algorytm QuickMerge Sort składa się z ... etapów.
 Idea/Koncepcja algorytmu, mocne strony (Merge Sort bez konieczności alokacji pamięci)
 
-Analiza algorytmow deterministycznych - najblizej asymptoteycznie jest pseudo-mediana z dziewieciu
 \subsection{Pseudokod}
 
-\subsection{Analiza eksperymentalna algorytmu}
+\subsection{Analiza deterministycznych wersji algorytmu QuickMerge Sort}
 Ponieważ jednym z kroków algorytmu QuickMerge sort jest partycjonowanie tablicy wejściowej, analizę przeprowadzono z podziałem na deterministyczne oraz randomizowane wersje tego algorytmu.
-
 Dla metod partycjonowania uzyto klasycznej oraz najbardziej skutecznej z poprzedniego rozdzialu.
+Analiza algorytmow deterministycznych - najblizej asymptoteycznie jest pseudo-mediana z dziewieciu
 
-Wykresy liczby wykonywanych operacji w porównaniu do algorytmów bazowych.
-Wykresy gęstości liczby wykonywanych operacji dla stałej liczby n, np n = 10000.
+\begin{figure}[]
+	\centering
+	\includesvg[inkscapelatex=false,width=1.1\columnwidth]{img/plot/quick-merge-sort-deterministic-pivot-random.svg}
+	\caption[]{}
+	\label{fig:quick-merge-sort-deterministic-pivot-random}
+\end{figure}
+
+\subsection{Analiza randomizowanych wersji algorytmu QuickMerge Sort}
+
+
+
 
 \subsection{Wnioski}
 Wyniki analizy porównawczej
