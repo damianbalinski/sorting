@@ -20,7 +20,7 @@
         "xlabel": "współczynnik kosztu [$\\alpha$]",
         "ylabel": "łączny koszt operacji [n]",
         "xcolumn": "factor",
-        "ycolumn": "all",
+        "ycolumn": "cost",
         "xmin": 0.1,
         "xmax": 3.0,
         "ymax": 100000,
