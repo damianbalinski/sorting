@@ -11,6 +11,7 @@ def map_plotter(type):
     return {
         'simple': SimplePlotter(),
         'average': SimplePlotter(),
+        'cost_factor': SimplePlotter(),
         'density': DensityPlotter(),
     }[type]
 
@@ -43,7 +44,7 @@ def map_function(function, colors, n):
 
 def map_sorting(sorting, path, colors, metadata):
     path = path.generator(sorting['generator']).algorithm(sorting['algorithm'])
-    df = pd.read_csv(path.get_path(), names=['n', 'comparisons', 'swaps', 'assigns', 'time', 'all'])
+    df = pd.read_csv(path.get_path(), names=['n', 'comparisons', 'swaps', 'assigns', 'time', 'all', 'factor'])
     return Line(
         [0] + list(df[metadata.xcolumn]),
         [0] + list(df[metadata.ycolumn]),

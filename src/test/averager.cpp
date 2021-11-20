@@ -15,5 +15,5 @@ void averager::add(const results& results)
 results averager::average_results() const
 {
 	check_num_equal(repeats, counter);
-	return results{ comparisons/repeats, swaps/repeats, assigns/repeats, time/repeats };
+	return results{ comparisons/repeats, swaps/repeats, assigns/repeats, time/repeats, factor };
 }

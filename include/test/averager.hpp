@@ -4,8 +4,8 @@
 class averager
 {
 public:
-	averager(const size_t repeats) :
-		repeats(repeats), counter(0), comparisons(0), swaps(0), assigns(0), time(0) {}
+	averager(const size_t repeats, const double factor) :
+		repeats(repeats), counter(0), comparisons(0), swaps(0), assigns(0), time(0), factor(factor) {}
 
 	void add(const results& results);
 
@@ -18,4 +18,5 @@ private:
 	size_t swaps;
 	size_t assigns;
 	size_t time;
+	const double factor;
 };

@@ -2,7 +2,7 @@
 #include "timer.hpp"
 #include "assert_arr.hpp"
 
-results executor::test(const generator* generator, const sorting* sorting, const size_t n) const
+results executor::test(const generator* generator, const sorting* sorting, const size_t n, const double factor) const
 {
 	int* arr = (*generator)(n);
 
@@ -25,5 +25,5 @@ results executor::test(const generator* generator, const sorting* sorting, const
 
 	delete[] arr;
 
-	return results{ COMPARISONS, SWAPS, ASSIGNS, TIME };
+	return results{ COMPARISONS, SWAPS, ASSIGNS, TIME, factor };
 }

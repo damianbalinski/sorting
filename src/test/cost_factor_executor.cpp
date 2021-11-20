@@ -1,17 +1,17 @@
-#include "average_executor.hpp"
+#include "cost_factor_executor.hpp"
 #include "progress.hpp"
 #include "stream_utils.hpp"
 #include "averager.hpp"
 
-void average_executor::execute(std::ostream& output, const generator* const generator, const sorting* const sorting, const invariants& invariants) const
+void cost_factor_executor::execute(std::ostream& output, const generator* const generator, const sorting* const sorting, const invariants& invariants) const
 {
-	const range& range = invariants.range;
+	const size_t n = invariants.range.end;
 	const size_t repeats = invariants.repeats;
-	const double factor = 1.0;
 
-	for (size_t n = range.begin; n < range.end + range.step; n += range.step)
+	for (size_t factor10 = 1; factor10 <= 50; factor10 += 1)
 	{
 		PROGRESS_INIT(sorting->name(), n);
+		const double factor = factor10 / 10.0;
 		averager averager{ repeats, factor };
 
 		for (size_t i = 0; i < repeats; i++)

@@ -13,5 +13,5 @@ public:
 	virtual void execute(std::ostream& output, const generator* generator, const sorting* sorting, const invariants& invariants) const = 0;
 
 protected:
-	results test(const generator* generator, const sorting* sorting, size_t n) const;
+	results test(const generator* generator, const sorting* sorting, size_t n, double factor) const;
 };
