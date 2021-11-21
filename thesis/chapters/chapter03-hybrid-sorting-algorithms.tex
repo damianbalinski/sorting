@@ -29,15 +29,17 @@ Wykonując testy brano pod uwagę następujące metody wyboru pivota:
 
 \subsection{Analiza porównawcza algorytmów}
 
-Analizując wydajność algorytmów z rodziny Quick Sort badano liczbę wykonywanych operacji atomowych z podziałem na operacje porównania, zamiany miejsc oraz przypisania. Dodatkowo badano łączną liczbę wykonanych operacji jako sumę ważoną liczby operacji atomowych.\\
+Analizując wydajność algorytmów z rodziny Quick Sort badano liczbę wykonywanych operacji atomowych z podziałem na operacje porównania, zamiany miejsc oraz przypisania. Dodatkowo badano łączny koszt wykonanych operacji jako sumę ważoną liczby operacji atomowych, z uwzględnieniem wartości współczynnika kosztu. Badając łączną liczbę wykonanych operacji założono stałą wartość współczynnika kosztu $\alpha = 1.0$.\\
 
-Przy losowych danych wejściowych (\ref{fig:quick-sort-deterministic-pivot-random}), czyli przypadku średniego w klasycznym algorytmie Quick Sort, partycjonowanie metodą Hoarego jest wydajniejsze lub tak samo wydajne jak partycjonowanie metodą Lemuto. Najlepsze wyniki otrzymano poprzez połączenie partycjonowania metodą Hoarego z wyborem pivota jako ostatni element tablicy. Najgorsze wyniki otrzymano wybierając pivot jako mediana-median z pięciu, przy czym najgorszy wynik osiągnięto niezależnie od wyboru metody partycjonowania.\\
+Dla losowych danych wejściowych (\ref{fig:quick-sort-deterministic-pivot-random}), czyli przypadku średniego w klasycznym algorytmie Quick Sort, przy założeniu że operacja porównania jest czasowo równoważna operacji przypisania ($\alpha=1.0$), partycjonowanie metodą Hoarego jest wydajniejsze lub tak samo wydajne jak partycjonowanie metodą Lemuto. Najlepsze wyniki otrzymano poprzez połączenie partycjonowania metodą Hoarego z wyborem pivota jako ostatni element tablicy. Najgorsze wyniki otrzymano wybierając pivot jako mediana-median z pięciu, przy czym najgorszy wynik osiągnięto niezależnie od wyboru metody partycjonowania.\\
 
-Przy danych wejściowych posortowanych w odwrotnej kolejności (\ref{fig:quick-sort-deterministic-pivot-reversed}), czyli dla przypadku pesymistycznego w klasycznym algorytmie Quick Sort, partycjonowanie metodą Hoarego jest również wydajniejsze lub tak samo wydajne jak partycjonowanie metodą Lemuto. Najlepsze wyniki otrzymano poprzez połączenie partycjonowania metodą Hoarego z wyborem pivota jako mediana z trzech. Najgorsze wyniki otrzymano dla klasycznego algorytmu Quick Sort, czyli poprzez połączenia partycjonowania metodą Lemuto z wyborem pivota jako ostatni element tablicy.\\
+Dla danych wejściowych posortowanych w odwrotnej kolejności (\ref{fig:quick-sort-deterministic-pivot-reversed}), czyli dla przypadku pesymistycznego w klasycznym algorytmie Quick Sort, przy założeniu że operacja porównania jest czasowo równoważna operacji przypisania ($\alpha=1.0$), partycjonowanie metodą Hoarego jest również wydajniejsze lub tak samo wydajne jak partycjonowanie metodą Lemuto. Najlepsze wyniki otrzymano poprzez połączenie partycjonowania metodą Hoarego z wyborem pivota jako mediana z trzech. Najgorsze wyniki otrzymano dla klasycznego algorytmu Quick Sort, czyli poprzez połączenia partycjonowania metodą Lemuto z wyborem pivota jako ostatni element tablicy.\\
 
-Porównując liczbę wykonanych operacji pomiędzy badanymi algorytmami partycjonowania (\ref{fig:quick-sort-deterministic-pivot-all}) można stwierdzić, że partycjonowanie metodą Hoare wykonuje większą liczbę operacji porównania oraz mniejszą liczbę operacji zamiany miejsc. Czynnik ten może okazać się szczególnie istotny w przypadku sortowania złożonych struktur, dla których czas porównania dwóch elementów jest znacznie dłuższy.\\
+Analizując łączny koszt wykonanych operacji (\ref{fig:quick-sort-deterministic-pivot-cost-factor}) w zależności od wartości współczynnika kosztu $\alpha$ można zauważyć, że dla złożonych typów danych najskuteczniejszą z badanych strategii jest partycjonowanie metodą Lemuto z wyborem pivota jako mediana z trzech elementów. Metoda ta jest najskuteczniejsza powyżej wartości $\alpha = 2.0$, co można interpretować jako sortowanie struktur złożonych z co najmniej dwóch typów prostych. Najmniej skuteczną strategią sortowania złożonych struktur jest wybór pivota jako mediana-median z pięciu elementów.\\
+
+Porównując liczbę wykonanych operacji pomiędzy badanymi algorytmami partycjonowania (\ref{fig:quick-sort-deterministic-pivot-all}) można stwierdzić, że partycjonowanie metodą Hoare wykonuje większą liczbę operacji porównania oraz mniejszą liczbę operacji zamiany miejsc. Czynnik ten może okazać się szczególnie istotny w przypadku sortowania złożonych struktur danych.\\
  
-Do analizy rozkładu prawdopodobieństwa liczby wykonanych operacji (\ref{fig:quick-sort-deterministic-pivot-density}) użyto tablicy losowych danych o stałym rozmiarze $n = 1000$. Dla badanych algorytmów najmniejsze odchylenie standardowe mają algorytmy partycjonowania metodą Hoare przy wyborze pivota jako pseudo-mediana z dziewięciu lub mediana-median z trzech. Największe odchylenie standardowe występuje dla klasycznego algorytmu Quick Sort. Najmniejsza wartość oczekiwana liczby wykonanych operacji jest osiągana poprzez patycjonowanie metodą Hoare z wyborem pivota jako ostatni element tablicy.
+Do analizy rozkładu prawdopodobieństwa liczby wykonanych operacji (\ref{fig:quick-sort-deterministic-pivot-density}) użyto tablicy losowych danych o stałym rozmiarze $n = 1000$ oraz współczynnika kosztu o stałej wartości $\alpha = 1.0$. Dla badanych algorytmów najmniejsze odchylenie standardowe mają algorytmy partycjonowania metodą Hoare przy wyborze pivota jako pseudo-mediana z dziewięciu lub mediana-median z trzech. Największe odchylenie standardowe występuje dla klasycznego algorytmu Quick Sort. Najmniejsza wartość oczekiwana liczby wykonanych operacji jest osiągana poprzez patycjonowanie metodą Hoare z wyborem pivota jako ostatni element tablicy.
 
 % tabelka, procentowo średnia liczba wykonanych operacji dla każdej z metod przy stałym rozmiarze tablicy n = 1000
 % tabelka, wyliczone odchylenie standardowe oraz wartość oczekiwana dla poszczególnych algorytmów
@@ -79,6 +81,8 @@ Do analizy rozkładu prawdopodobieństwa liczby wykonanych operacji (\ref{fig:qu
 \end{figure}
 
 \subsection{Wnioski}
+TODO poprawic!!!
+
 W badanych implementacjach algorytmów z rodziny Quick Sort, partycjonowanie metodą Hoare okazało się wydajniejsze niż partycjonowanie metodą Lemuto. Ponieważ partycjonowanie metodą Hoare wykonuje większą liczbę operacji porównania niż partycjonowanie metodą Lemuto, algorytm ten nadaje się do sortowania kolekcji zawierającej dane prymitywne, jednak w przypadku sortowania bardziej złożonych struktur metoda ta może okazać się mniej wydajna.\\
 
 Analizując zachowanie algorytmów można stwierdzić, że dla danych posortowanych lub prawie posortowanych, dobrym wyborem jest skorzystanie z kosztownej metody wyszukiwania pivota, która pomimo swojego dodatkowego nakładu czasowego zwiększa prawdopodobieństwo na znalezienie dobrego pivota. Wyjątkiem jest wybór pivota jako mediana-median z pięciu, w przypadku którego dodatkowy nakład czasowy sprawia, że algorytm jest znacznie mniej wydajny nawet dla uporządkowanych danych wejściowych. Przez pojęcie \BOLD{dobrego pivota} rozumiemy tutaj pozycję możliwie blisko środka partycjonowanej tablicy.\\
@@ -94,11 +98,13 @@ Klasyczny algorytm Quick Sort kiepsko sobie radzi z uporządkowanymi lub prawie 
 \end{itemize}
 
 \subsection{Analiza porównawcza algorytmów}
-Tak jak w poprzednim rozdziale, algorytmy były analizowane pod kątem liczby wykonywanych operacji atomowych, z podziałem na operacje porównania, zamiany miejsc oraz przypisania. Dodatkowo badano łączną liczbę wykonanych operacji jako sumę ważoną liczby operacji atomowych.\\
+Tak jak w poprzednim rozdziale, algorytmy były analizowane pod kątem liczby wykonywanych operacji atomowych, z podziałem na operacje porównania, zamiany miejsc oraz przypisania. Dodatkowo badano łączny koszt wykonanych operacji jako sumę ważoną liczby operacji atomowych, z uwzględnieniem wartości współczynnika kosztu. Badając łączną liczbę wykonanych operacji założono stałą wartość współczynnika kosztu $\alpha = 1.0$.\\
 
-Przy losowych danych wejściowych (\ref{fig:quick-sort-nondeterministic-pivot-random}) większość randomizowanych metod wyboru pivota okazuje się mniej skuteczna od klasycznego algorytmu Quick Sort. Przy partycjonowaniu metodą Lemuto jedyną skuteczniejszą metodą jest wybór pivota jako mediana z trzech losowych elementów. Przy partycjonowaniu metodą Hoarego, najskuteczniejszym okazuje się wybór za pivota losowego elementu tablicy. Połączenie metody Hoarego z losowym wyborem pivota jest również najskuteczniejszym podejściem podczas sortowania losowych danych. Najmniej wydajną strategią sortowania okazał się wybór pivota jako pseudo-mediana z dziewięciu losowych elementów, przy czym najgorszy wynik osiągnięto dla obydwu metod partycjonowania.\\
+Dla losowych danych wejściowych (\ref{fig:quick-sort-nondeterministic-pivot-random}), przy założeniu że operacja porównania jest czasowo równoważna operacji przypisania ($\alpha=1.0$), większość randomizowanych metod wyboru pivota okazuje się mniej skuteczna od klasycznego algorytmu Quick Sort. Przy partycjonowaniu metodą Lemuto jedyną skuteczniejszą metodą jest wybór pivota jako mediana z trzech losowych elementów. Przy partycjonowaniu metodą Hoarego, najskuteczniejszym okazuje się wybór za pivota losowego elementu tablicy. Połączenie metody Hoarego z losowym wyborem pivota jest również najskuteczniejszym podejściem podczas sortowania losowych danych. Najmniej wydajną strategią sortowania okazał się wybór pivota jako pseudo-mediana z dziewięciu losowych elementów, przy czym najgorszy wynik osiągnięto dla obydwu metod partycjonowania.\\
 
-Przy danych wejściowych posortowanych w odwrotnej kolejności (\ref{fig:quick-sort-nondeterministic-pivot-reversed}), czyli dla przypadku pesymistycznego w klasycznym algorytmie Quick Sort, najskuteczniejszą strategią sortowania również okazało się partycjonowanie metodą Hoarego przy wyborze pivota jako losowy element tablicy. Spośród randomizowanych strategii sortowania najmniej wydajną okazał się wybór pivota jako pseudo-mediana z dziewięciu losowych elementów. W przypadku danych wejściowych posortowanych w odwrotnej kolejności, każda ze strategii randomizowanych jest wydajniejsza od klasycznego podejścia w metodzie Quick Sort.\\
+Dla danych wejściowych posortowanych w odwrotnej kolejności (\ref{fig:quick-sort-nondeterministic-pivot-reversed}), czyli dla przypadku pesymistycznego w klasycznym algorytmie Quick Sort, przy założeniu że operacja porównania jest czasowo równoważna operacji przypisania ($\alpha=1.0$), najskuteczniejszą strategią sortowania również okazało się partycjonowanie metodą Hoarego przy wyborze pivota jako losowy element tablicy. Spośród randomizowanych strategii sortowania najmniej wydajną okazał się wybór pivota jako pseudo-mediana z dziewięciu losowych elementów. W przypadku danych wejściowych posortowanych w odwrotnej kolejności, każda ze strategii randomizowanych jest wydajniejsza od klasycznego podejścia w metodzie Quick Sort.\\
+
+Analizując łączny koszt wykonanych operacji (\ref{fig:quick-sort-nondeterministic-pivot-cost-factor}) w zależności od wartości współczynnika kosztu $\alpha$ można zauważyć, że dla złożonych typów danych najskuteczniejszą z badanych strategii jest partycjonowanie metodą Lemuto z wyborem pivota jako mediana z trzech losowych elementów. Metoda ta jest najskuteczniejsza powyżej wartości $\alpha = 2.5$, co można interpretować jako sortowanie struktur złożonych z co najmniej trzech typów prostych. Najmniej skuteczną strategią sortowania złożonych struktur jest wybór pivota pseudo-mediana z dziewięciu losowych elementów.\\
 
 Porównując liczbę wykonanych operacji (\ref{fig:quick-sort-nondeterministic-pivot-random-all}) można stwierdzić, że dla dowolnych randomizowanych strategii wyboru pivota, partycjonowanie metodą Hoare wykonuje większą liczbę operacji porównania oraz mniejszą liczbę operacji zamiany miejsc. Tak jak w przypadku algorytmów deterministycznych, czynnik ten może okazać się istotny w przypadku sortowania złożonych struktur.\\
 
@@ -120,6 +126,13 @@ Badając rozkład prawdopodobieństwa liczby wykonanych operacji dla algorytmów
 
 \begin{figure}[]
 	\centering
+	\includesvg[inkscapelatex=false,width=0.8\columnwidth]{img/plot/quick-sort-nondeterministic-pivot-cost-factor.svg}
+	\caption[]{}
+	\label{fig:quick-sort-nondeterministic-pivot-cost-factor}
+\end{figure}
+
+\begin{figure}[]
+	\centering
 	\includesvg[inkscapelatex=false,width=0.8\columnwidth]{img/plot/quick-sort-nondeterministic-pivot-density.svg}
 	\caption[]{}
 	\label{fig:quick-sort-nondeterministic-pivot-density}
@@ -133,6 +146,8 @@ Badając rozkład prawdopodobieństwa liczby wykonanych operacji dla algorytmów
 \end{figure}
 
 \subsection{Wnioski}
+TODO poprawic!!!
+
 W przypadku randomizowanych algorytmów z rodziny Quick Sort, podobnie jak dla algorytmów deterministycznych, partycjonowanie metodą Hoare skutecznie zmniejsza wartość oczekiwaną liczby wykonanych operacji przy danym rozmiarze tablicy. Należy jednak zauważyć, że partycjonowanie metodą Hoare wykonuje większą liczbę operacji porównania, więc strategia ta może okazać się mniej wydajna w przypadku sortowania złożonych struktur danych.\\
 
 Analizując liczbę wykonanych operacji można stwierdzić, że w przypadku algorytmów randomizowanych korzystanie z kosztownych strategii wyboru pivota jest nieopłacalne. Najskuteczniejszą metodą, zarówno dla losowych jak i posortowanych danych, okazuje się wybór losowego elementu tablicy.\\
@@ -143,7 +158,9 @@ Analizując liczbę wykonanych operacji można stwierdzić, że w przypadku algo
 
 % Analizujac algorytmy Quick Sort można było zauważyć, że Merge sort wykonuje mniej operacji porównania od Quick Sort.
 % celem jest znalezienie algorytmu działającego w miejscu, który wykonuje możliwie mało porównań, dlateg wykorzystano partycjonowanie metoda lemuto
-Algorytm QuickMerge Sort to algorytm hybrydowy, w którym podjęto próbę eliminacji klasycznych problemów wynikających ze stosowania algorytmów Quick Sort oraz Merge Sort. Głównym problemem algorytmu Quick Sort jest jego słaba złożoność czasowa w przypadku pesymistycznym, równa $O(n^2)$.  W przypadku algorytmu Merge Sort problemem jest konieczność alokacji dodatkowego bufora pamięci.\\ 
+Algorytm QuickMerge Sort to algorytm hybrydowy, w którym podjęto próbę eliminacji klasycznych problemów wynikających ze stosowania algorytmów Quick Sort oraz Merge Sort. 
+TODO celem tego algorytmu jest minimalizacja liczby porownan, przy jednoczesnym braku koniecznosci alokowania dodatkowego bufora pamieci.
+Głównym problemem algorytmu Quick Sort jest jego słaba złożoność czasowa w przypadku pesymistycznym, równa $O(n^2)$.  W przypadku algorytmu Merge Sort problemem jest konieczność alokacji dodatkowego bufora pamięci.\\ 
 
 Algorytm QuickMerge Sort składa się z ... etapów.
 Idea/Koncepcja algorytmu, mocne strony (Merge Sort bez konieczności alokacji pamięci)

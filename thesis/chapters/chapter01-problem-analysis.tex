@@ -18,14 +18,22 @@ Złożoność czasowa została określona wzorem:
 TODO silnik testujący zlicza liczbę wykonanych operacji atomowych. Do operacji atomowych zaliczamy: operację porównania, zamiany miejsc oraz przypisania. W badanym systemie pominięte zostały operacje przeprowadzane na indeksach oraz iteratorach. Powodem tej decyzji jest fakt, że zarówno indeksy, jak i iteratory w większości systemów są typami podstawowymi, koszta takich operacji jest niewspółmiernie mniejszy niż np. porównywanie typów złożonych. W tej sytuacji zdecydowano się całkowicie pominąć liczbę wykonywanych operacji na typach prymitywnych.
 
 TODO łączna liczba wykonanych operacji jest sumą ważoną operacji atomowych.
+TODO wspolczynnik kosztu \boldmath$\alpha$, czyli ile razy kosztowniejsze jest porownanie od przypisania. zaklasamy ze zmiana miejsc to trzy przypisania. Dla potrzeb testow podstawowych przyjmuje sie \boldmath$\alpha = 1.0$.
 TODO w prostej analizie dla typow podstawowych przyjmujemy ze operacja zamiany miejsc jest 3 razy bardziej kosztowna od operacji przypisania oraz porownania.
 \boldmath$$T = n_c + 3 \cdot n_s + n_a $$
+
+TODO w celu przeprowadzenia analizy porównawczej wprowadzono pojęcie współczynnika kosztu.
 
 Gdzie:\\
 \boldmath$T$ - czas trwania algorytmu\\
 $n_c$ - liczba operacji porównania\\
 $n_s$ - liczba operacji zamiany miejsc\\
 $n_a$ - liczba operacji przypisania\\
+
+Ponieważ wszystkie algorytmy zawarte w silniku testującym są rekurencyjne, podczas badania algorytmów pominięto koszt związany z rekurencyjnym przejściem drzewa wywołania.
+Ponieważ w analizie porównawczej uwzględniono tylko algorytmy działające w miejscu, podczas badania nie uwzględniano kosztu alokacji pamięci, która dla każdego algorytmu miejscowego jest rzędu $O(1)$.
+
+Rozróżnić łączny koszt operacji od łącznej liczby operacji.
 
 \subsection{Założenia odnośnie danych wejściowych}
 TODO: Wiele algorytmów sortujących bazuje na pewnych założeniach odnośnie wejściowego zbioru danych.
