@@ -1,5 +1,5 @@
 {
-  "title": "Koszt operacji wykonanych przez deterministyczne wersje\nalgorytmu Quick Sort z podziałem na polityki wyboru pivota\n oraz metody partycjonowania w zależności od wartości\nwspółczynnika kosztu dla tablicy losowych danych",
+  "title": "Łączny koszt operacji wykonanych przez deterministyczne wersje\nalgorytmu Quick Sort z podziałem na polityki wyboru pivota\n oraz metody partycjonowania w zależności od wartości\nwspółczynnika kosztu dla tablicy losowych danych",
   "output": "quick-sort-deterministic-pivot-cost-factor",
   "prefix": "test14",
   "grid": "(1, 1)",
@@ -18,7 +18,7 @@
       "metadata": {
         "title": "",
         "xlabel": "współczynnik kosztu [$\\alpha$]",
-        "ylabel": "łączny koszt operacji [n]",
+        "ylabel": "koszt operacji [n]",
         "xcolumn": "factor",
         "ycolumn": "cost",
         "xmin": 0.1,

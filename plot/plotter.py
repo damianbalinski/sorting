@@ -1,7 +1,7 @@
 class Plotter:
 
     def limits(self, ax, metadata):
-        ax.set_ylim(ymin=0, ymax=metadata.ymax)
+        ax.set_ylim(ymin=metadata.ymin, ymax=metadata.ymax)
         ax.set_xlim(xmin=metadata.xmin, xmax=metadata.xmax)
 
     def labels(self, ax, metadata):

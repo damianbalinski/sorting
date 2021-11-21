@@ -1,7 +1,7 @@
 {
-  "title": "Rozkład prawdopodobieństwa liczby operacji wykonanych\n przez randomizowane wersje algorytmu Quick Sort dla losowych danych\n przy stałym rozmiarze tablicy n = 1000",
-  "output": "quick-sort-nondeterministic-pivot-density",
-  "prefix": "test12",
+  "title": "Łączny koszt operacji wykonanych przez randomizowane wersje\nalgorytmu Quick Sort z podziałem na polityki wyboru pivota\n oraz metody partycjonowania w zależności od wartości\nwspółczynnika kosztu dla tablicy losowych danych",
+  "output": "quick-sort-nondeterministic-pivot-cost-factor",
+  "prefix": "test15",
   "grid": "(1, 1)",
   "size": "(6.3, 3.8)",
   "invariants": {
@@ -10,19 +10,21 @@
       "end": 1000,
       "step": 100
     },
-    "repeats": 1000
+    "repeats": 100
   },
   "plots": [
     {
-      "type": "density",
+      "type": "cost_factor",
       "metadata": {
         "title": "",
-        "xlabel": "liczba operacji [n]",
-        "ylabel": "gęstość prawd.",
-        "xcolumn": "n",
+        "xlabel": "współczynnik kosztu [$\\alpha$]",
+        "ylabel": "koszt operacji [n]",
+        "xcolumn": "factor",
         "ycolumn": "cost",
-        "xmin": 20000,
-        "xmax": 40000,
+        "xmin": 0.1,
+        "xmax": 5.0,
+        "ymin": 10000,
+        "ymax": 100000,
         "legend": "outside",
         "custom_legend": [
           { "color": "gray", "linestyle": "solid", "label": "klasyczny Quick Sort"},

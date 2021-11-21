@@ -20,7 +20,7 @@
         "xlabel": "liczba operacji [n]",
         "ylabel": "gęstość prawd.",
         "xcolumn": "n",
-        "ycolumn": "all",
+        "ycolumn": "cost",
         "xmin": 20000,
         "xmax": 80000,
         "legend": "outside",

@@ -20,7 +20,7 @@
         "xlabel": "rozmiar tablicy [n]",
         "ylabel": "liczba operacji [n]",
         "xcolumn": "n",
-        "ycolumn": "all",
+        "ycolumn": "cost",
         "legend": "outside",
         "custom_legend": [
           { "color": "gray", "linestyle": "solid", "label": "klasyczny Quick Sort"},

@@ -20,7 +20,7 @@
         "xlabel": "rozmiar tablicy [n]",
         "ylabel": "liczba operacji [n]",
         "xcolumn": "n",
-        "ycolumn": "all",
+        "ycolumn": "cost",
         "ymax": 100000,
         "legend": "outside",
         "custom_legend": [
