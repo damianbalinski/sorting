@@ -1,5 +1,5 @@
 {
-  "title": "Liczba operacji wykonanych przez niedeterministyczne wersje algorytmu\nQuickMerge Sort w porównaniu do algorytmów Quick Sort oraz Merge Sort\nz podziałem na polityki wyboru pivota dla losowych danych",
+  "title": "Liczba operacji wykonanych przez randomizowane wersje algorytmu\nQuickMerge Sort w porównaniu do algorytmów Quick Sort oraz Merge Sort\nz podziałem na polityki wyboru pivota dla losowych danych",
   "output": "quick-merge-sort-nondeterministic-pivot-random",
   "prefix": "test14",
   "grid": "(1, 3)",
