@@ -1,0 +1,83 @@
+{
+  "title": "Łączny koszt operacji wykonanych przez deterministyczne wersje\nalgorytmu QuickMerge Sort w porównaniu do algorytmów Quick Sort\noraz Merge Sort z podziałem na polityki wyboru pivota\ndla tablicy losowych danych rozmiaru n = 1000",
+  "output": "quick-merge-sort-deterministic-pivot-cost-factor",
+  "prefix": "test16",
+  "grid": "(1, 1)",
+  "size": "(6.4, 3.8)",
+  "invariants": {
+    "range": {
+      "begin": 100,
+      "end": 1000,
+      "step": 100
+    },
+    "repeats": 100
+  },
+  "plots": [
+    {
+      "type": "cost_factor",
+      "metadata": {
+        "title": "",
+        "xlabel": "współczynnik kosztu [$\\alpha$]",
+        "ylabel": "koszt operacji [n]",
+        "xcolumn": "factor",
+        "ycolumn": "cost",
+        "xmin": 0.1,
+        "xmax": 10.0,
+        "ymax": 150000,
+        "legend": "outside",
+        "custom_legend": [
+          { "color": "black", "linestyle": "dashed", "label": "Quick Sort"},
+          { "color": "black", "linestyle": "dotted", "label": "Merge Sort"},
+          { "color": "black", "linestyle": "solid", "label": "QuickMerge Sort"},
+          { "color": "red", "linestyle": "solid", "label": "pivot jako ostatni element"},
+          { "color": "blue", "linestyle": "solid", "label": "pivot jako mediana z trzech"},
+          { "color": "orange", "linestyle": "solid", "label": "pivot jako pseudo-mediana z dziewięciu"},
+          { "color": "green", "linestyle": "solid", "label": "pivot jako mediana-median z pięciu"},
+          { "color": "pink", "linestyle": "solid", "label": "pivot jako mediana-median z trzech"}
+        ]
+      },
+      "functions": [
+      ],
+      "sortings": [
+        {
+          "algorithm": "quick_sort",
+          "generator": "random",
+          "color": "black",
+          "linestyle": "dashed"
+        },
+        {
+          "algorithm": "merge_sort",
+          "generator": "random",
+          "color": "black",
+          "linestyle": "dotted"
+        },
+
+        {
+          "algorithm": "quick_merge_sort",
+          "generator": "random",
+          "color": "red"
+        },
+        {
+          "algorithm": "quick_merge_sort_median_of_three_pivot_selector",
+          "generator": "random",
+          "color": "blue"
+        },
+        {
+          "algorithm": "quick_merge_sort_pseudo_median_of_nine_pivot_selector",
+          "generator": "random",
+          "color": "orange"
+        },
+        {
+          "algorithm": "quick_merge_sort_median_of_medians_of_five_pivot_selector",
+          "generator": "random",
+          "color": "green"
+        },
+        {
+          "algorithm": "quick_merge_sort_median_of_medians_of_three_pivot_selector",
+          "generator": "random",
+          "color": "pink"
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "title": "Łączny koszt operacji wykonanych przez randomizowane wersje\nalgorytmu Quick Sort z podziałem na polityki wyboru pivota\n oraz metody partycjonowania w zależności od wartości\nwspółczynnika kosztu dla tablicy losowych danych",
+  "title": "Łączny koszt operacji wykonanych przez randomizowane wersje\nalgorytmu Quick Sort z podziałem na polityki wyboru pivota\n oraz metody partycjonowania w zależności od wartości\nwspółczynnika kosztu dla tablicy losowych danych rozmiaru n = 1000",
   "output": "quick-sort-nondeterministic-pivot-cost-factor",
   "prefix": "test15",
   "grid": "(1, 1)",

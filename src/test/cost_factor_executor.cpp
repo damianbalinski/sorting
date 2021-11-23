@@ -8,7 +8,7 @@ void cost_factor_executor::execute(std::ostream& output, const generator* const 
 	const size_t n = invariants.range.end;
 	const size_t repeats = invariants.repeats;
 
-	for (size_t factor10 = 1; factor10 <= 50; factor10 += 1)
+	for (size_t factor10 = 1; factor10 <= 100; factor10 += 1)
 	{
 		PROGRESS_INIT(sorting->name(), n);
 		const double factor = factor10 / 10.0;
