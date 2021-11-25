@@ -1,0 +1,31 @@
+\begin{algorithm}
+	\unboldmath
+	\thinmuskip=6mu
+	\caption{QuickMerge Sort}
+	\begin{algorithmic}[1]
+		\Procedure{QuickMergeSort(arr, n)}{}
+		
+		\State
+		\If {$n = 1$} \COMMAND{end} \Comment{warunek wyjścia}
+		\EndIf
+		
+		\State
+		\State $\VAR{pivot}, n_1, n_2 \gets \CALL{Partition}{\VAR{arr}, n}$ \Comment{partycjonowanie}
+		
+		\State
+		\If {$n_1 < n_2$} \Comment{sortowanie}
+			\State $\VAR{buffer} \gets \VAR{arr+pivot}$
+			\State $\CALL{MergeSortBySwaps}{\VAR{arr}, n_1, \VAR{buffer}}$
+			\State $\CALL{QuickMergeSort}{\VAR{arr+pivot}, n_2}$
+		\Else
+			\State $\VAR{buffer} \gets \VAR{arr}$
+			\State $\CALL{MergeSortBySwaps}{\VAR{arr+pivot}, n_2, \VAR{buffer}}$
+			\State $\CALL{QuickMergeSort}{\VAR{arr}, n_1}$
+		\EndIf
+		
+		\EndProcedure
+	\end{algorithmic}
+	\boldmath
+	\thinmuskip=3mu
+	\label{pseudocode:quick-merge-sort}
+\end{algorithm}
