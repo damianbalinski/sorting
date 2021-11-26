@@ -24,7 +24,7 @@ void __check_num_in_range_right_open(const size_t a, const size_t min, const siz
 		__pretty_assertion(fmt::format("Number {} is not in range ({}, {})", a, min, max));
 }
 
-void __check_num_greater_than_zero(const int n)
+void __check_num_greater_than_zero(const long long n)
 {
 	if (!(n > 0))
 		__pretty_assertion(fmt::format("Number {} is not greater than zero", n));

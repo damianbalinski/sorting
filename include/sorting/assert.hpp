@@ -22,7 +22,7 @@ void __check_num_in_range(int a, int min, int max);
 
 void __check_num_in_range_right_open(size_t a, size_t min, size_t max);
 
-void __check_num_greater_than_zero(int n);
+void __check_num_greater_than_zero(long long n);
 
 void __check_num_greater_than(int a, int b);
 

@@ -1,7 +1,8 @@
 #pragma once
 #include "assert.hpp"
+#include <cmath>
 
-inline size_t log2(const size_t n)
+inline size_t safe_log2(const size_t n)
 {
 	check_num_greater_than_zero(n);
 	return log2(n*1.0);
