@@ -1,0 +1,82 @@
+{
+  "title": "Rozkład prawdopodobieństwa liczby operacji wykonanych\n przez deterministyczne wersje algorytmu QuickMerge Sort\nw porównaniu do algorytmów Quick Sort oraz Merge Sort\ndla tablicy losowych danych rozmiaru n = 1000",
+  "output": "quick-merge-sort-deterministic-pivot-density",
+  "prefix": "test20",
+  "grid": "(1, 1)",
+  "size": "(6.2, 3.8)",
+  "invariants": {
+    "range": {
+      "begin": 100,
+      "end": 1000,
+      "step": 100
+    },
+    "repeats": 1000
+  },
+  "plots": [
+    {
+      "type": "density",
+      "metadata": {
+        "title": "",
+        "xlabel": "liczba operacji [n]",
+        "ylabel": "gęstość prawd.",
+        "xcolumn": "n",
+        "ycolumn": "cost",
+        "xmin": 15000,
+        "xmax": 60000,
+        "legend": "outside",
+        "custom_legend": [
+          { "color": "black", "linestyle": "dashed", "label": "Quick Sort"},
+          { "color": "black", "linestyle": "dotted", "label": "Merge Sort"},
+          { "color": "black", "linestyle": "solid", "label": "QuickMerge Sort"},
+          { "color": "red", "linestyle": "solid", "label": "pivot jako ostatni element"},
+          { "color": "blue", "linestyle": "solid", "label": "pivot jako mediana z trzech"},
+          { "color": "orange", "linestyle": "solid", "label": "pivot jako pseudo-mediana z dziewięciu"},
+          { "color": "green", "linestyle": "solid", "label": "pivot jako mediana-median z pięciu"},
+          { "color": "pink", "linestyle": "solid", "label": "pivot jako mediana-median z trzech"}
+        ]
+      },
+      "functions": [
+      ],
+      "sortings": [
+        {
+          "algorithm": "quick_sort",
+          "generator": "random",
+          "color": "black",
+          "linestyle": "dashed"
+        },
+        {
+          "algorithm": "merge_sort",
+          "generator": "random",
+          "color": "black",
+          "linestyle": "dotted"
+        },
+
+        {
+          "algorithm": "quick_merge_sort",
+          "generator": "random",
+          "color": "red"
+        },
+        {
+          "algorithm": "quick_merge_sort_median_of_three_pivot_selector",
+          "generator": "random",
+          "color": "blue"
+        },
+        {
+          "algorithm": "quick_merge_sort_pseudo_median_of_nine_pivot_selector",
+          "generator": "random",
+          "color": "orange"
+        },
+        {
+          "algorithm": "quick_merge_sort_median_of_medians_of_five_pivot_selector",
+          "generator": "random",
+          "color": "green"
+        },
+        {
+          "algorithm": "quick_merge_sort_median_of_medians_of_three_pivot_selector",
+          "generator": "random",
+          "color": "pink"
+        }
+      ]
+    }
+  ]
+}

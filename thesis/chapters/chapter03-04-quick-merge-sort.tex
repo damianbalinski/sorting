@@ -1,0 +1,79 @@
+\section{QuickMerge Sort}
+Jednym z praktycznych zastosowań algorytmów sortujących jest porządkowanie złożonych struktur danych. Dla danych tego typu koszt pojedynczej operacji porównania może być nawet kilkukrotnie większy niż koszt operacji przypisania lub zamiany miejsc. W tym przypadku stosowanie klasycznego algorytmu Quick Sort nie jest zalecane z powodu dużej liczby kosztownych operacji porównania. Znacznie bardziej wydajnym podejściem wydaje się zastosowanie algorytmu Merge Sort, jednak w tym przypadku należy uwzględnić dodatkowe koszty związane z alokacją pamięci. CO więcej, ze względu na ograniczenia systemowe, w niektórych sytuacjach korzystanie z dodatkowego bufora pamięci jest niemożliwe. Ograniczenia te stały się motywacją do opracowania algorytmu QuickMerge Sort, którego analizę przedstawiono w bieżącym rozdziale.\\
+
+QuickMerge Sort to algorytm hybrydowy, będący połączeniem algorytmów Quick Sort oraz Merge Sort. Celem tego algorytmu jest minimalizacja liczby porównań, przy równoczesnym zachowaniu miejscowego działania algorytmu, bez konieczności alokacji dodatkowego bufora pamięci. Zasadniczą koncepcją tego algorytmu jest sortowanie algorytmem Merge Sort w taki sposób, aby buforem potrzebnym do scalenia tablic cząstkowych był fragment tej samej tablicy wejściowej.\\
+
+QuickMerge Sort jest algorytmem rekurencyjnym składającym się z trzech etapów. Pierwszym etapem jest partycjonowanie zbioru wejściowego. W kolejnym kroku wybierana jest mniejsza z otrzymanych partycji. Część ta jest sortowana przy użyciu algorytmu Merge Sort, przy czym bufor używany do scalenia tablic cząstkowych stanowi druga partycja. W ostatnim kroku sortowana jest druga partycja w sposób rekurencyjny. Ponieważ buforem w trakcie sortowania jest fragment tej samej tablicy, należy zagwarantować, że algorytm scalający nie nadpisze danych zawartych w buforze. Problem ten rozwiązano, stosując operację zamiany miejsc w miejsce klasycznej operacji przypisania.\\
+
+Ponieważ partycjonowanie metodą Hoare wykonuje więcej operacji porównania niż partycjonowanie metodą Lemuto, zaś stosowanie algorytmu QuickMerge Sort przynosi realne zyski podczas sortowania złożonych struktur danych, w analizie porównawczej uwzględniono tylko algorytm partycjonowania metodą Lemuto. Analizując wydajność algorytmów z rodziny QuickMerge Sort badano liczbę wykonywanych operacji atomowych z podziałem na operacje porównania, zamiany miejsc oraz przypisania. Dodatkowo badano łączny koszt wykonanych operacji jako sumę ważoną liczby operacji atomowych, z uwzględnieniem wartości współczynnika kosztu.\\
+
+% TODO diagram opisujacy sposob dzialania algorytmu
+
+
+% Eksperymentalne wyznaczanie od którego momentu bardziej się opłaca używać Quick Sort niż Quick Sort, wyliczanie współczynnika na podstawie stosunku kosztu porównania do przypisania
+
+
+
+
+
+
+\subsection{Pseudokod}
+
+\input{chapters/pseudocodes/quick-merge-sort}
+
+\subsection{Analiza deterministycznych wersji algorytmu QuickMerge Sort}
+Ponieważ jednym z kroków algorytmu QuickMerge sort jest partycjonowanie tablicy wejściowej, analizę przeprowadzono z podziałem na deterministyczne oraz randomizowane wersje tego algorytmu.
+Dla metod partycjonowania uzyto klasycznej oraz najbardziej skutecznej z poprzedniego rozdzialu.
+Analiza algorytmow deterministycznych - najblizej asymptoteycznie jest pseudo-mediana z dziewieciu
+
+Quick Merge sort było partycjonowane metoda lemuto.
+Algorytmy były porownywane do Merge Sort oraz do klasycznej metody QUick Sort (metoda Lemuto + pivot ostatni elemet)
+
+\begin{figure}[]
+	\centering
+	\includesvg[inkscapelatex=false,width=0.8\columnwidth]{img/plot/quick-merge-sort-deterministic-pivot-density.svg}
+	\caption[]{}
+	\label{fig:quick-merge-sort-deterministic-pivot-density}
+\end{figure}
+
+\begin{figure}[]
+	\centering
+	\includesvg[inkscapelatex=false,width=0.8\columnwidth]{img/plot/quick-merge-sort-deterministic-pivot-cost-factor.svg}
+	\caption[]{}
+	\label{fig:quick-merge-sort-deterministic-pivot-cost-factor}
+\end{figure}
+
+\begin{figure}[]
+	\centering
+	\includesvg[inkscapelatex=false,width=1.1\columnwidth]{img/plot/quick-merge-sort-deterministic-pivot-random.svg}
+	\caption[]{}
+	\label{fig:quick-merge-sort-deterministic-pivot-random}
+\end{figure}
+
+\subsection{Analiza randomizowanych wersji algorytmu QuickMerge Sort}
+Tak jak w poprzednim rozdziale, w analizie porownawczej nie uwzgledniono algorytmow partycjonowania metoda Hoare, poniewaz metoda ta wykonje wiecej operacji porownania.
+W analizie porownawczej wykorzystano klasyczny alorytm Merge Sort oraz Quick Sort z wyborem pivota jako losowy element tablicy.
+
+\begin{figure}[]
+	\centering
+	\includesvg[inkscapelatex=false,width=1.1\columnwidth]{img/plot/quick-merge-sort-nondeterministic-pivot-random.svg}
+	\caption[]{}
+	\label{fig:quick-merge-sort-nondeterministic-pivot-random}
+\end{figure}
+
+\begin{figure}[]
+	\centering
+	\includesvg[inkscapelatex=false,width=0.8\columnwidth]{img/plot/quick-merge-sort-nondeterministic-pivot-density.svg}
+	\caption[]{}
+	\label{fig:quick-merge-sort-nondeterministic-pivot-density}
+\end{figure}
+
+\begin{figure}[]
+	\centering
+	\includesvg[inkscapelatex=false,width=0.8\columnwidth]{img/plot/quick-merge-sort-nondeterministic-pivot-cost-factor.svg}
+	\caption[]{}
+	\label{fig:quick-merge-sort-nondeterministic-pivot-cost-factor}
+\end{figure}
+
+\subsection{Wnioski}
+Wyniki analizy porównawczej
