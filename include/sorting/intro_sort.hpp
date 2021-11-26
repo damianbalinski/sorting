@@ -21,5 +21,5 @@ private:
 	
 	void sort(int arr[], size_t n, size_t depth, const operation& oper) const;
 
-	static size_t calculate_max_depth(const size_t n) { return log2(n) * 2; }
+	static size_t calculate_max_depth(const size_t n) { return safe_log2(n) * 2; }
 };

@@ -3,7 +3,7 @@
   "output": "quick-merge-sort-nondeterministic-pivot-density",
   "prefix": "test21",
   "grid": "(1, 1)",
-  "size": "(5.8, 3.8)",
+  "size": "(5.6, 3.8)",
   "invariants": {
     "range": {
       "begin": 100,
@@ -22,7 +22,7 @@
         "xcolumn": "n",
         "ycolumn": "cost",
         "xmin": 15000,
-        "xmax": 60000,
+        "xmax": 50000,
         "legend": "outside",
         "custom_legend": [
           { "color": "black", "linestyle": "dashed", "label": "Quick Sort"},
