@@ -20,10 +20,9 @@ results executor::test(const generator* generator, const sorting* sorting, const
 	TIME = timer{
 		[&]() { (*sorting)(arr, n, oper); }
 	}.run();
+	const results results{ COMPARISONS, SWAPS, ASSIGNS, TIME, factor };
 
 	check_arr_sorted(arr, n, oper);
-
 	delete[] arr;
-
-	return results{ COMPARISONS, SWAPS, ASSIGNS, TIME, factor };
+	return results;
 }
