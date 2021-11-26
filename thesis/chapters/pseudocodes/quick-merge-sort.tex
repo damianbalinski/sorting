@@ -3,24 +3,24 @@
 	\thinmuskip=6mu
 	\caption{QuickMerge Sort}
 	\begin{algorithmic}[1]
-		\Procedure{QuickMergeSort(arr, n)}{}
+		\Procedure{QuickMergeSort(arr)}{}
 		
 		\State
-		\If {$n = 1$} \COMMAND{end} \Comment{warunek wyjścia}
+		\If {$\FUNC{len}{\VAR{arr}} = 1$} \COMMAND{end} \Comment{warunek wyjścia}
 		\EndIf
 		
 		\State
-		\State $\VAR{pivot}, n_1, n_2 \gets \CALL{Partition}{\VAR{arr}, n}$ \Comment{partycjonowanie}
+		\State $\VAR{arr}_1, \VAR{arr}_2 \gets \CALL{Partition}{\VAR{arr}}$ \Comment{partycjonowanie}
 		
 		\State
-		\If {$n_1 < n_2$} \Comment{sortowanie}
-			\State $\VAR{buffer} \gets \VAR{arr+pivot}$
-			\State $\CALL{MergeSortBySwaps}{\VAR{arr}, n_1, \VAR{buffer}}$
-			\State $\CALL{QuickMergeSort}{\VAR{arr+pivot}, n_2}$
+		\If {$\FUNC{len}{\VAR{arr}_1} < \FUNC{len}{\VAR{arr}_2}$} \Comment{sortowanie}
+			\State $\VAR{buffer} \gets \VAR{arr}_2$
+			\State $\CALL{MergeSortBySwaps}{\VAR{arr}_1, \VAR{buffer}}$
+			\State $\CALL{QuickMergeSort}{\VAR{arr}_2}$
 		\Else
-			\State $\VAR{buffer} \gets \VAR{arr}$
-			\State $\CALL{MergeSortBySwaps}{\VAR{arr+pivot}, n_2, \VAR{buffer}}$
-			\State $\CALL{QuickMergeSort}{\VAR{arr}, n_1}$
+			\State $\VAR{buffer} \gets \VAR{arr}_1$
+			\State $\CALL{MergeSortBySwaps}{\VAR{arr}_2, \VAR{buffer}}$
+			\State $\CALL{QuickMergeSort}{\VAR{arr}_1}$
 		\EndIf
 		
 		\EndProcedure
