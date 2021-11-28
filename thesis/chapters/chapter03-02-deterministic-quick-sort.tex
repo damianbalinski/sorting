@@ -19,7 +19,7 @@ Wykonując testy brano pod uwagę następujące metody wyboru pivota:
 
 \subsection{Analiza porównawcza algorytmów}
 
-Analizując wydajność algorytmów z rodziny Quick Sort badano liczbę wykonywanych operacji atomowych z podziałem na operacje porównania, zamiany miejsc oraz przypisania. Dodatkowo badano łączny koszt wykonanych operacji jako sumę ważoną liczby operacji atomowych, z uwzględnieniem wartości współczynnika kosztu. Badając łączną liczbę wykonanych operacji założono stałą wartość współczynnika kosztu $\alpha = 1.0$.\\
+Analizując wydajność algorytmów z rodziny Quick Sort, badano liczbę wykonywanych operacji atomowych z podziałem na operacje porównania, zamiany miejsc oraz przypisania. Dodatkowo badano łączny koszt wykonanych operacji jako sumę ważoną liczby operacji atomowych, z uwzględnieniem wartości współczynnika kosztu. Badając łączną liczbę wykonanych operacji założono stałą wartość współczynnika kosztu $\alpha = 1.0$.\\
 
 Dla losowych danych wejściowych (\ref{fig:quick-sort-deterministic-pivot-random}), czyli przypadku średniego w klasycznym algorytmie Quick Sort, przy założeniu że operacja porównania jest czasowo równoważna operacji przypisania ($\alpha=1.0$), partycjonowanie metodą Hoarego jest wydajniejsze lub tak samo wydajne jak partycjonowanie metodą Lemuto. Najlepsze wyniki otrzymano poprzez połączenie partycjonowania metodą Hoarego z wyborem pivota jako ostatni element tablicy. Najgorsze wyniki otrzymano wybierając pivot jako mediana-median z pięciu, przy czym najgorszy wynik osiągnięto niezależnie od wyboru metody partycjonowania.\\
 
