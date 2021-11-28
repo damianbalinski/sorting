@@ -15,7 +15,7 @@ public:
 
 private:
 
-	const static int MAX_DEPTH = 16;
+	const static int MAX_LENGTH = 19;
 
 	const partition* const partition;
 	

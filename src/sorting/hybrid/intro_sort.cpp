@@ -5,7 +5,7 @@
 
 void intro_sort::sort(int arr[], const size_t n, const size_t depth, const operation& oper) const
 {
-	if (n < MAX_DEPTH)
+	if (n < MAX_LENGTH)
 	{
 		insertion_sort::sort(arr, n, oper);
 		return;
