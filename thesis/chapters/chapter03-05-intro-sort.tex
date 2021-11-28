@@ -32,9 +32,9 @@ Dla losowych danych wejściowych (\ref{fig:intro-sort-deterministic-pivot-random
 
 Dla uporządkowanych danych wejściowych (\ref{fig:intro-sort-deterministic-pivot-reversed}), sortowanie metodą Intro Sort również jest wydajniejsze od algorytmu Quick Sort, niezależnie od metody partycjonowania oraz strategii wyboru piwota. Najwydajniejszym algorytmem sortującym dla tego typu danych wejściowych jest Intro Sort z metodą partycjonowania Hoare oraz wyborem piwota jako mediana z trzech elementów. Bardzo podobne wyniki otrzymano dla strategii wyboru piwota jako pseudo-mediana z dziewięciu elementów. W przypadku partycjonowania metodą Lemuto, najwydajniejszą strategią wyboru piwota jest pseudo-mediana z dziewięciu. Dla badanych algorytmów z rodziny Intro Sort, maksymalna złożoność czasowa nie przekracza wartości $O(n\log{n})$, niezależnie od metody partycjonowania oraz strategii wyboru piwota. Jest to znacząca optymalizacja w stosunku do algorytmu Quick Sort, dla którego pesymistyczna złożoność czasowa wynosi $O(n^2)$.\\
 
-Wykresy liczby wykonywanych operacji w porównaniu do algorytmów bazowych.
-Wykresy gęstości liczby wykonywanych operacji dla stałej liczby n, np n = 10000.
-Wykresy dla różnych algorytmów partycjonowania.
+Porównując liczbę wykonanych operacji porównania (\ref{fig:intro-sort-deterministic-pivot-random-all}) dla losowych danych wejściowych można zauważyć, że dla takich samych strategii wyboru piwota, metoda Lemuto osiąga nieznacznie lepsze rezultaty niż partycjonowanie metodą Hoare. Najmniejszą liczbę operacji porównania otrzymano, partycjonując dane metodą Lemuto przy wyborze piwota jako pseudo-mediana z dziewięciu lub mediana z trzech elementów. Badając liczbę operacji zamiany miejsc można stwierdzić, że partycjonowanie metodą Hoare jest znacznie wydajniejsze niż partycjonowanie metodą Lemuto. Najmniejszą liczbę operacji zamiany miejsc otrzymano poprzez partycjonowanie metodą Hoare, przy wyborze piwota jako mediana-median z trzech.\\
+
+Do analizy rozkładu prawdopodobieństwa liczby wykonanych operacji (\ref{fig:intro-sort-deterministic-pivot-density}) użyto tablicy losowych danych o stałym rozmiarze $n = 1000$. Dla badanych algorytmów z rodziny Intro Sort, najmniejszą wartość oczekiwaną liczby wykonanych operacji otrzymano dla metody partycjonowania Hoare, przy wyborze piwota jako mediana z trzech oraz pseudo-mediana z dziewięciu elementów, jednak w przypadku pseudo-mediany z dziewięciu otrzymano znacznie mniejsze odchylenie standardowe. Dodatkowo, dla metody tej otrzymano najmniejsze odchylenie standardowe spośród wszystkich badanych strategii, więc jest to zalecana metoda wyboru piwota podczas sortowania algorytmem Intro Sort.\\
 
 \begin{figure}[]
 	\centering
@@ -52,16 +52,16 @@ Wykresy dla różnych algorytmów partycjonowania.
 
 \begin{figure}[]
 	\centering
-	\includesvg[inkscapelatex=false,width=1.1\columnwidth]{img/plot/intro-sort-deterministic-pivot-random-all.svg}
+	\includesvg[inkscapelatex=false,width=0.8\columnwidth]{img/plot/intro-sort-deterministic-pivot-density.svg}
 	\caption[]{}
-	\label{fig:intro-sort-deterministic-pivot-random-all}
+	\label{fig:intro-sort-deterministic-pivot-density}
 \end{figure}
 
 \begin{figure}[]
 	\centering
-	\includesvg[inkscapelatex=false,width=0.8\columnwidth]{img/plot/intro-sort-deterministic-pivot-density.svg}
+	\includesvg[inkscapelatex=false,width=1.1\columnwidth]{img/plot/intro-sort-deterministic-pivot-random-all.svg}
 	\caption[]{}
-	\label{fig:intro-sort-deterministic-pivot-density}
+	\label{fig:intro-sort-deterministic-pivot-random-all}
 \end{figure}
 
 \subsection{Analiza randomizowanych wersji algorytmu Intro Sort}
