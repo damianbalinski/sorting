@@ -1,0 +1,205 @@
+{
+  "title": "Liczba operacji wykonanych przez randomizowane wersje\n algorytmu Intro Sort z podziałem na polityki wyboru pivota\n oraz metodę partycjonowania dla tablicy losowych danych",
+  "output": "intro-sort-nondeterministic-pivot-random-all",
+  "prefix": "test30",
+  "grid": "(1, 3)",
+  "size": "(11, 3)",
+  "invariants": {
+    "range": {
+      "begin": 100,
+      "end": 1000,
+      "step": 100
+    },
+    "repeats": 100
+  },
+  "plots": [
+    {
+      "type": "average",
+      "metadata": {
+        "title": "a) porównania",
+        "xlabel": "rozmiar tablicy [n]",
+        "ylabel": "liczba porownań [n]",
+        "xcolumn": "n",
+        "ycolumn": "comparisons",
+        "legend": "none"
+      },
+      "functions": [
+      ],
+      "sortings": [
+        {
+          "algorithm": "intro_sort",
+          "generator": "random",
+          "color": "gray"
+        },
+        {
+          "algorithm": "intro_sort_random_pivot_selector",
+          "generator": "random",
+          "color": "red"
+        },
+        {
+          "algorithm": "intro_sort_median_of_three_choices_pivot_selector",
+          "generator": "random",
+          "color": "blue"
+        },
+        {
+          "algorithm": "intro_sort_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "random",
+          "color": "orange"
+        },
+
+        {
+          "algorithm": "intro_sort_hoare_partition",
+          "generator": "random",
+          "color": "gray",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "intro_sort_hoare_partition_random_pivot_selector",
+          "generator": "random",
+          "color": "red",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "intro_sort_hoare_partition_median_of_three_choices_pivot_selector",
+          "generator": "random",
+          "color": "blue",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "intro_sort_hoare_partition_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "random",
+          "color": "orange",
+          "linestyle": "dotted"
+        }
+      ]
+    },
+    {
+      "type": "average",
+      "metadata": {
+        "title": "b) zamiana miejsc",
+        "xlabel": "rozmiar tablicy [n]",
+        "ylabel": "liczba zamian miejsc [n]",
+        "xcolumn": "n",
+        "ycolumn": "swaps",
+        "legend": "none"
+      },
+      "functions": [
+      ],
+      "sortings": [
+        {
+          "algorithm": "intro_sort",
+          "generator": "random",
+          "color": "gray"
+        },
+        {
+          "algorithm": "intro_sort_random_pivot_selector",
+          "generator": "random",
+          "color": "red"
+        },
+        {
+          "algorithm": "intro_sort_median_of_three_choices_pivot_selector",
+          "generator": "random",
+          "color": "blue"
+        },
+        {
+          "algorithm": "intro_sort_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "random",
+          "color": "orange"
+        },
+
+        {
+          "algorithm": "intro_sort_hoare_partition",
+          "generator": "random",
+          "color": "gray",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "intro_sort_hoare_partition_random_pivot_selector",
+          "generator": "random",
+          "color": "red",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "intro_sort_hoare_partition_median_of_three_choices_pivot_selector",
+          "generator": "random",
+          "color": "blue",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "intro_sort_hoare_partition_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "random",
+          "color": "orange",
+          "linestyle": "dotted"
+        }
+      ]
+    },
+    {
+      "type": "average",
+      "metadata": {
+        "title": "c) przypisania",
+        "xlabel": "rozmiar tablicy [n]",
+        "ylabel": "liczba przypisań [n]",
+        "xcolumn": "n",
+        "ycolumn": "assigns",
+        "legend": "outside",
+        "custom_legend": [
+          { "color": "gray", "linestyle": "solid", "label": "determistyczny Intro Sort"},
+          { "color": "red", "linestyle": "solid", "label": "losowy element"},
+          { "color": "blue", "linestyle": "solid", "label": "mediana z trzech wyborów"},
+          { "color": "orange", "linestyle": "solid", "label": "pseudo-mediana z dziewięciu wyborów"},
+          { "color": "black", "linestyle": "solid", "label": "metoda Lemuto"},
+          { "color": "black", "linestyle": "dotted", "label": "metoda Hoare"}
+        ]
+      },
+      "functions": [
+      ],
+      "sortings": [
+        {
+          "algorithm": "intro_sort",
+          "generator": "random",
+          "color": "gray"
+        },
+        {
+          "algorithm": "intro_sort_random_pivot_selector",
+          "generator": "random",
+          "color": "red"
+        },
+        {
+          "algorithm": "intro_sort_median_of_three_choices_pivot_selector",
+          "generator": "random",
+          "color": "blue"
+        },
+        {
+          "algorithm": "intro_sort_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "random",
+          "color": "orange"
+        },
+
+        {
+          "algorithm": "intro_sort_hoare_partition",
+          "generator": "random",
+          "color": "gray",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "intro_sort_hoare_partition_random_pivot_selector",
+          "generator": "random",
+          "color": "red",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "intro_sort_hoare_partition_median_of_three_choices_pivot_selector",
+          "generator": "random",
+          "color": "blue",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "intro_sort_hoare_partition_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "random",
+          "color": "orange",
+          "linestyle": "dotted"
+        }
+      ]
+    }
+  ]
+}

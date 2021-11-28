@@ -80,6 +80,20 @@ Do analizy rozkładu prawdopodobieństwa liczby wykonanych operacji (\ref{fig:in
 	\label{fig:intro-sort-nondeterministic-pivot-reversed}
 \end{figure}
 
+\begin{figure}[]
+	\centering
+	\includesvg[inkscapelatex=false,width=0.8\columnwidth]{img/plot/intro-sort-nondeterministic-pivot-density.svg}
+	\caption[]{}
+	\label{fig:intro-sort-nondeterministic-pivot-density}
+\end{figure}
+
+\begin{figure}[]
+	\centering
+	\includesvg[inkscapelatex=false,width=1.1\columnwidth]{img/plot/intro-sort-nondeterministic-pivot-random-all.svg}
+	\caption[]{}
+	\label{fig:intro-sort-nondeterministic-pivot-random-all}
+\end{figure}
+
 \subsection{Wnioski}
 - Dla losowych danych wejściowych, zarówno Quick Sort jak i Intro Sort działają ze złożonością czasową $O(n\log{n})$, jednak Intro sort jest wydajniejszy,
 - Dla uporządkowanych danych wejściowych, algorytm Quick Sort może mieć kwadratową złożoność czasową $O(n^2)$. Problem ten rozwiązuje algorytm Intro Sort, dla którego złożoność czasowa jest rzędu $O(n\log{n})$, niezależnie od porządku wdanych wejściowych.

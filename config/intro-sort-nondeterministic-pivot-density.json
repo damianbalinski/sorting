@@ -1,0 +1,75 @@
+{
+  "title": "Rozkład prawdopodobieństwa liczby operacji wykonanych\n przez randomizowane wersje algorytmu Intro Sort\ndla tablicy losowych danych rozmiaru n = 1000",
+  "output": "intro-sort-nondeterministic-pivot-density",
+  "prefix": "test29",
+  "grid": "(1, 1)",
+  "size": "(5.8, 3.8)",
+  "invariants": {
+    "range": {
+      "begin": 100,
+      "end": 1000,
+      "step": 100
+    },
+    "repeats": 1000
+  },
+  "plots": [
+    {
+      "type": "density",
+      "metadata": {
+        "title": "",
+        "xlabel": "liczba operacji [n]",
+        "ylabel": "gęstość prawd.",
+        "xcolumn": "n",
+        "ycolumn": "cost",
+        "xmin": 18000,
+        "xmax": 40000,
+        "legend": "outside",
+        "custom_legend": [
+          { "color": "red", "linestyle": "solid", "label": "losowy element"},
+          { "color": "blue", "linestyle": "solid", "label": "mediana z trzech wyborów"},
+          { "color": "orange", "linestyle": "solid", "label": "pseudo-mediana z dziewięciu\nwyborów"},
+          { "color": "black", "linestyle": "solid", "label": "metoda Lemuto"},
+          { "color": "black", "linestyle": "dotted", "label": "metoda Hoare"}
+        ]
+      },
+      "functions": [
+      ],
+      "sortings": [
+        {
+          "algorithm": "intro_sort_random_pivot_selector",
+          "generator": "random",
+          "color": "red"
+        },
+        {
+          "algorithm": "intro_sort_median_of_three_choices_pivot_selector",
+          "generator": "random",
+          "color": "blue"
+        },
+        {
+          "algorithm": "intro_sort_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "random",
+          "color": "orange"
+        },
+
+        {
+          "algorithm": "intro_sort_hoare_partition_random_pivot_selector",
+          "generator": "random",
+          "color": "red",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "intro_sort_hoare_partition_median_of_three_choices_pivot_selector",
+          "generator": "random",
+          "color": "blue",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "intro_sort_hoare_partition_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "random",
+          "color": "orange",
+          "linestyle": "dotted"
+        }
+      ]
+    }
+  ]
+}
