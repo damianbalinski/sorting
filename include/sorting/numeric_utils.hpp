@@ -5,7 +5,13 @@
 inline size_t safe_log2(const size_t n)
 {
 	check_num_greater_than_zero(n);
-	return log2(n*1.0);
+	return log2(n);
+}
+
+inline size_t safe_2log2(const size_t n)
+{
+	check_num_greater_than_zero(n);
+	return log2(2*n);
 }
 
 inline size_t min(const size_t a, const size_t b)

@@ -1,10 +1,27 @@
+\newpage
 \section{Intro Sort}
-Ogólny opis algorytmu, gdzie jest wykorzystywany (std::sort w g++), zalety.
-% TODO sprawdzic jakiego algorytmu partycjonowania uzywaja w srodku i spróbować podmienić, zmienic na wariacje z randomowym
-% wyborem pivota
-% SORTOWANIE INTROSPEKTYWNE 
+Głównym problemem wynikającym ze stosowania algorytmu Quick Sort jest jego słaba pesymistyczna złożoność czasowa. Dla uporządkowanych danych wejściowych, głębokość drzewa wywołań rekurencyjnych jest równa rozmiarowi tablicy wejściowej, zaś sam algorytm działa w czasie równym $O(n^2)$. Dodatkowo, dla tablicy małych rozmiarów, algorytm Quick Sort powoduje niepotrzebny nakład czasowy, związany ze wstępnym przygotowaniem kolekcji. Obydwa te problemy rozwiązano stosując algorytm Intro Sort, którego analizę przedstawiono w bieżącym rozdziale.\\
+
+Intro Sort, czyli sortowanie introspektywne, to algorytm hybrydowy będący połączeniem algorytmów Quick Sort, Insertion Sort oraz Heap Sort. Działanie algorytmu dostosowuje się w zależności od rozmiaru sortowanej tablicy oraz głębokości drzewa wywołań rekurencyjnych. Jeśli rozmiar tablicy jest mniejszy od punktu granicznego, kolekcja jest sortowana metodą Insertion Sort, wyznaczoną eksperymentalnie. Jeśli przekroczono maksymalną głębokość drzewa wywołań rekurencyjnych, łańcuch wywołań zostaje zakończony, zaś kolekcja zostaje posortowana metodą Heap Sort. Początkowa maksymalna głębokość drzewa wywołań rekurencyjnych jest wyznaczona wzorem $2\log{n}$. Ponieważ metoda Heap Sort działa z czasem $O(n\log{n})$ nawet w przypadku pesymistycznym, algorytm Intro Sort ma złożoność $O(n\log{n})$, niezależnie od porządku danych wejściowych.\\
+
+Z powodu swojej wydajności, algorytm Intro Sort jest niezwykle popularny we współczesnych systemach komputerowych. Jego implementacja jest wykorzystywana między innymi w standardowej funkcji sortującej \BOLD{std::sort} wewnątrz kompilatora gcc\,\footnote{Dokumentacja funkcji sortującej std::sort: \url{https://gcc.gnu.org/onlinedocs/libstdc++/libstdc++-html-USERS-4.4/a01027.html}}.\\
+
+% TODO The Microsoft .NET Framework Class Library link
+
+\subsection{Eksperymentalne wyznaczanie punktu granicznego}
+Stosowanie rekurencyjnych metod sortujących, wykorzystujących technikę dziel i zwyciężaj, wiąże się z dodatkowym nakładem czasowym spowodowanym koniecznością odpowiedniego przygotowania kolekcji przed jej posortowaniem. W przypadku algorytmu Quick Sort, dodatkowy nakład powoduje metoda partycjonowania. Z tego powodu, dla tablic o ograniczonym rozmiarze, bardziej wydajne okazuje się stosowanie elementarnych algorytmów sortujących.\\
+
+Analizując liczbę wykonanych operacji dla elementarnych algorytmów sortujących (\ref{fig:sorting-small-array}) można zauważyć, że dla tablicy o rozmiarze nieprzekraczającym $19$ elementów, najbardziej wydajnym algorytmem jest Insertion Sort. Co więcej algorytm ten działa liniowo w przypadku uporządkowanych danych wejściowych. Z tego powodu algorytm Insertion Sort został zastosowany jako algorytm sortowania kolekcji o rozmiarze poniżej punktu granicznego. Punktem granicznym jest tablica rozmiaru $19$ elementów.\\
+
+\begin{figure}[]
+	\centering
+	\includesvg[inkscapelatex=false,width=0.8\columnwidth]{img/plot/sorting-small-array.svg}
+	\caption[]{}
+	\label{fig:sorting-small-array}
+\end{figure}
 
 \subsection{Pseudokod}
+Algorytm Intro Sort można podzielić na trzy rozłączne etapy. Wybór etapu uzależniony jest od wielkości tablicy wejściowej oraz głębokości drzewa wywołań rekurencyjnych. Dla tablicy o rozmiarze nieprzekraczającym punktu granicznego, dane są sortowane algorytmem Insertion Sort (linia \ref{line:insertion-sort}). Dla tablicy rozmiaru powyżej punktu granicznego, w przypadku gdy przekroczono maksymalną głębokość drzewa wywołań rekurencyjnych, stosowany jest algorytm Heap Sort (linia \ref{line:heap-sort}). W pozostałych sytuacjach stosowane jest klasyczne podejście z algorytmu Quick Sort (linia \ref{line:quick-sort}), przy czym każdemu rekurencyjnemu wywołaniu algorytmu towarzyszy dekrementacja głębokości drzewa.
 
 \input{chapters/pseudocodes/intro-sort}
 
