@@ -16,8 +16,4 @@ private:
 	const partition* const partition;
 
 	void sort(int arr[], size_t n, const operation& oper) const;
-
-	static void merge_sort_by_swaps(int arr[], int buff[], size_t n, const operation& oper);
-	
-	static void merge_by_swaps(int arr[], int buff[], size_t n1, size_t n2, const operation& oper);
 };
