@@ -106,5 +106,5 @@ const sorting* sorting_mapper::allocate(const std::string& str)
 	// MIXED QUICK MERGE INTRO SORT
 	if (str == "quick_merge_intro_sort_pseudo_median_of_nine_pivot_selector") return new quick_merge_intro_sort{new lemuto_partition{new pseudo_median_of_nine_pivot_selector}};
 
-	fail("Unrecognized sorting algorithm");
+	fail("Unrecognized sorting algorithm", str);
 }

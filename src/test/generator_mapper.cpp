@@ -19,5 +19,5 @@ const generator* generator_mapper::allocate(const std::string& str)
 	if (str == "almost_sorted")	return new almost_sorted_generator{};
 	if (str == "hard_merge")	return new hard_merge_generator{};
 
-	fail("Unrecognized generator");
+	fail("Unrecognized generator", str);
 }

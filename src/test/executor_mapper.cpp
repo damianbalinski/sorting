@@ -17,5 +17,5 @@ const executor* executor_mapper::allocate(const std::string& str)
 	if (str == "density")		return new density_executor{};
 	if (str == "cost_factor")	return new cost_factor_executor{};
 
-	fail("Unrecognized executor");
+	fail("Unrecognized executor", str);
 }
