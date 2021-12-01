@@ -1,0 +1,148 @@
+{
+  "title": "Łączna liczba operacji wykonanych przez algorytmy z rodziny Quick Sort\nz podziałem na metody partycjonowania oraz polityki wyboru pivota\ndla tablicy uporządkowanych danych",
+  "output": "quick-sort-deterministic-nondeterministic",
+  "prefix": "test33",
+  "grid": "(1, 2)",
+  "size": "(8.0, 4.0)",
+  "invariants": {
+    "range": {
+      "begin": 100,
+      "end": 1000,
+      "step": 100
+    },
+    "repeats": 100
+  },
+  "plots": [
+    {
+      "type": "average",
+      "metadata": {
+        "title": "a) algorytmy deterministyczne",
+        "xlabel": "rozmiar tablicy [n]",
+        "ylabel": "liczba operacji [n]",
+        "xcolumn": "n",
+        "ycolumn": "cost",
+        "ymax": 40000,
+        "legend": "none"
+      },
+      "functions": [
+      ],
+      "sortings": [
+        {
+          "algorithm": "quick_sort",
+          "generator": "almost_sorted",
+          "color": "red"
+        },
+        {
+          "algorithm": "quick_sort_median_of_three_pivot_selector",
+          "generator": "almost_sorted",
+          "color": "blue"
+        },
+        {
+          "algorithm": "quick_sort_pseudo_median_of_nine_pivot_selector",
+          "generator": "almost_sorted",
+          "color": "orange"
+        },
+        {
+          "algorithm": "quick_sort_median_of_medians_of_five_pivot_selector",
+          "generator": "almost_sorted",
+          "color": "green"
+        },
+        {
+          "algorithm": "quick_sort_median_of_medians_of_three_pivot_selector",
+          "generator": "almost_sorted",
+          "color": "pink"
+        },
+
+        {
+          "algorithm": "quick_sort_hoare_partition",
+          "generator": "almost_sorted",
+          "color": "red",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "quick_sort_hoare_partition_median_of_three_pivot_selector",
+          "generator": "almost_sorted",
+          "color": "blue",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "quick_sort_hoare_partition_pseudo_median_of_nine_pivot_selector",
+          "generator": "almost_sorted",
+          "color": "orange",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "quick_sort_hoare_partition_median_of_medians_of_five_pivot_selector",
+          "generator": "almost_sorted",
+          "color": "green",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "quick_sort_hoare_partition_median_of_medians_of_three_pivot_selector",
+          "generator": "almost_sorted",
+          "color": "pink",
+          "linestyle": "dotted"
+        }
+      ]
+    },
+    {
+      "type": "average",
+      "metadata": {
+        "title": "c) algorytmy randomizowane",
+        "xlabel": "rozmiar tablicy [n]",
+        "ylabel": "liczba operacji [n]",
+        "xcolumn": "n",
+        "ycolumn": "cost",
+        "ymax": 40000,
+        "legend": "inside",
+        "custom_legend": [
+          { "color": "red", "linestyle": "solid", "label": "pojedynczy element"},
+          { "color": "blue", "linestyle": "solid", "label": "mediana z trzech"},
+          { "color": "orange", "linestyle": "solid", "label": "pseudo-mediana z dziewięciu"},
+          { "color": "green", "linestyle": "solid", "label": "mediana-median z pięciu"},
+          { "color": "pink", "linestyle": "solid", "label": "mediana-median z trzech"},
+          { "color": "black", "linestyle": "solid", "label": "metoda Lemuto"},
+          { "color": "black", "linestyle": "dotted", "label": "metoda Hoare"}
+        ]
+      },
+      "functions": [
+      ],
+      "sortings": [
+        {
+          "algorithm": "quick_sort_random_pivot_selector",
+          "generator": "almost_sorted",
+          "color": "red"
+        },
+        {
+          "algorithm": "quick_sort_median_of_three_choices_pivot_selector",
+          "generator": "almost_sorted",
+          "color": "blue"
+        },
+        {
+          "algorithm": "quick_sort_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "almost_sorted",
+          "color": "orange"
+        },
+
+        {
+          "algorithm": "quick_sort_hoare_partition_random_pivot_selector",
+          "generator": "almost_sorted",
+          "color": "red",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "quick_sort_hoare_partition_median_of_three_choices_pivot_selector",
+          "generator": "almost_sorted",
+          "color": "blue",
+          "linestyle": "dotted"
+        },
+        {
+          "algorithm": "quick_sort_hoare_partition_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "almost_sorted",
+          "color": "orange",
+          "linestyle": "dotted"
+        }
+      ]
+    }
+  ]
+}
