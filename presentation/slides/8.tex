@@ -1,0 +1,30 @@
+\begin{frame}[squeeze]{Intro Sort - pseudokod}
+	
+	\begin{algorithm}[H]
+		\unboldmath
+		\thinmuskip=6mu
+		\begin{algorithmic}[1]
+			\Procedure{IntroSort(arr, depth)}{}
+			
+			\State
+			\If {$\FUNC{len}{\VAR{arr}} \leq \VAR{maxLength}$} \Comment{sortowanie przez wstawianie} \label{line:insertion-sort}
+			\State $\CALL{InsertionSort}{\VAR{arr}}$
+			
+			\State
+			\ElsIf {$\VAR{depth} = 0$} \Comment{sortowanie przez kopcowanie} \label{line:heap-sort}
+			\State $\CALL{HeapSort}{\VAR{arr}}$
+			
+			\State
+			\Else \Comment{szybkie sortowanie} \label{line:quick-sort}
+			\State $\VAR{arr}_1, \VAR{arr}_2 \gets \CALL{Partition}{\VAR{arr}}$
+			\State $\CALL{IntroSort}{\VAR{arr}_1, \VAR{depth-1}}$
+			\State $\CALL{IntroSort}{\VAR{arr}_2, \VAR{depth-1}}$
+			\EndIf
+
+			\EndProcedure
+		\end{algorithmic}
+		\boldmath
+		\thinmuskip=3mu
+	\end{algorithm}
+	
+\end{frame}

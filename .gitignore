@@ -370,6 +370,8 @@ FodyWeavers.xsd
 *.blg
 *.gz
 *.toc
+*.nav
+*.snm
 
 # JetBrains
 .idea

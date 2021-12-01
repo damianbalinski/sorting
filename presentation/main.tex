@@ -1,0 +1,107 @@
+\documentclass[xcolor=dvipsnames]{beamer}
+\mode<presentation>
+
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{mathptmx}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{theorems}[numbered]
+\setbeamertemplate{items}[default]
+\setbeamercovered{dynamic}
+\setlength{\unitlength}{1cm}
+\setbeamertemplate{footline}[frame number]
+\usepackage{setspace}
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+\usepackage{pgf,pgfarrows}
+
+
+\usepackage{graphics}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{scalefnt}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{svg}
+\usepackage{float}
+
+\usepackage{sansmathaccent}
+\pdfmapfile{+sansmathaccent.map}
+
+
+\usetikzlibrary{arrows,automata,snakes}
+\usetheme{Frankfurt}
+\usecolortheme{seahorse} %crane
+\useinnertheme{circles}
+
+\newtheorem*{lemat}{Lemat}
+\newtheorem{twierdzenie}{Twierdzenie}
+\newcommand{\myitem}{\item[$\vartriangleright$]}
+\newcommand{\nota}[1]{{\color{gray} \emph{#1}}}
+\newcommand{\HarmonicN}[1]{H_{#1}}
+\newcommand{\BALL}[2]{\mathbf{B}(#1,#2)}
+\newcommand{\DISC}[2]{\mathbf{D}(#1,#2)}
+\newcommand{\SPHERE}[2]{\mathbf{S}(#1,#2)}
+\newcommand{\BigO}[1]{\mathcal{O}\left(#1\right)}
+\newcommand{\BigTh}[1]{\Theta\left(#1\right)}
+\newcommand{\slfrac}[2]{\left.#1\middle/#2\right.}
+\newcommand{\PR}[1]{\mathrm{Pr}\left[#1\right]}
+\newcommand{\E}[1]{\mathbb{E}\left[#1\right]}
+\newcommand{\var}[1]{\mathbb{V}\mathrm{ar}\left[#1\right]}
+\newcolumntype{C}{>{\centering\arraybackslash}p{0.5cm}}
+\newcolumntype{Y}{>{\columncolor{blue!5}}C}
+
+\newcommand{\source}[1]{\caption*{Source: {#1}} }
+
+\newcommand{\COMMAND}[1]{\textbf{#1}}
+
+\newcommand{\CALL}[2]{\textbf{#1(}#2\textbf{)}}
+
+\newcommand{\FUNC}[2]{\text{#1(}#2\text{)}}
+
+\newcommand{\VAR}[1]{\textit{#1}}
+
+%\pgfpagesuselayout{4 on 1 with notes}[a4paper,border shrink=3mm]
+
+%\setbeamercolor*{palette tertiary}{bg=Green}
+%\setbeamercolor{frametitle}{fg=Green,bg=Green!10}
+%\setbeamercolor{section in head/foot}{bg=Green!10}
+
+\usepackage[nottoc]{tocbibind}
+
+\title{Analiza eksperymentalna nowych algorytmów sortowania w miejscu}
+
+\author{
+	\textbf{Damian Baliński}
+}
+
+
+\date{2021, Wrocław}
+
+\begin{document}
+
+\begin{frame}[plain]{}
+	\titlepage
+\end{frame}
+
+\section{Motywacja}
+\input{slides/1.tex}
+
+\section{Podstawowe algorytmy sortujące}
+\input{slides/2.tex}
+\input{slides/3.tex}
+
+\section{Hybrydowe algorytmy sortujące}
+\input{slides/4.tex}
+\input{slides/5.tex}
+\input{slides/6.tex}
+\input{slides/7.tex}
+\input{slides/8.tex}
+\input{slides/9.tex}
+
+\section{Bibliografia}
+\input{slides/10.tex}
+
+\end{document} 
