@@ -7,11 +7,11 @@
 			\Procedure{IntroSort(arr, depth)}{}
 			
 			\State
-			\If {$\FUNC{len}{\VAR{arr}} \leq \VAR{maxLength}$} \Comment{sortowanie przez wstawianie} \label{line:insertion-sort}
+			\If {$\FUNC{len}{\VAR{arr}} < \VAR{maxLength}$} \Comment{sort. przez wstawianie} \label{line:insertion-sort}
 			\State $\CALL{InsertionSort}{\VAR{arr}}$
 			
 			\State
-			\ElsIf {$\VAR{depth} = 0$} \Comment{sortowanie przez kopcowanie} \label{line:heap-sort}
+			\ElsIf {$\VAR{depth} = 0$} \Comment{sort. przez kopcowanie} \label{line:heap-sort}
 			\State $\CALL{HeapSort}{\VAR{arr}}$
 			
 			\State
