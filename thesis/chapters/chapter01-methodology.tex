@@ -1,0 +1,44 @@
+\chapter{Metodologia}
+
+\section{Liczba operacji}
+W pracy badano złożoność czasową algorytmów sortujących. Ponieważ rzeczywisty czas trwania uzależniony jest od maszyny oraz architektury systemu, na którym przeprowadzane są testy, podstawowym wskaźnikiem podczas analizy złożoności czasowej była łączna liczba operacji atomowych wykonywanych na danych testowych. W zbiorze operacji atomowych uwzględniono operacje porównania, zamiany miejsc oraz przypisania. Łączną liczbę operacji, będącą sumą ważoną operacji atomowych, określono wzorem:\\
+$$N = n_c + 3n_s + n_a $$
+
+\begin{conditions}
+	N		&  łączna liczba operacji 			\\
+	n_c		&  liczba operacji porównania 		\\   
+	n_s		&  liczba operacji zamiany miejsc 	\\
+	n_a		&  liczba operacji przypisania		\\
+\end{conditions}
+
+Wzór ten wynika z faktu, że operacja zamiany może zostać rozbita na trzy operacje przypisania, z wykorzystaniem zmiennej tymczasowej.
+
+\section{Koszt operacji}
+Należy zauważyć, że nie wszystkie operacje są równoważne pod względem czasowym. Sortując typy podstawowe, wszystkie operacje mają zbliżony czas trwania. Inaczej jest w przypadku złożonych struktur danych, dla których operacja porównania może trwać znacznie dłużej niż pojedyncza operacja przypisania. Różnica ta wynika ze sposobu przechowywania danych w pamięci. W przypadku złożonych struktur, efektywnym podejściem wydaje się użycie tablicy wskaźników do sortowanych struktur. W tej sytuacji, operacja przypisania ogranicza się do zmiany jednego pola tablicy. Z kolei operacja porównania może prowadzić do dereferencji wszystkich składowych struktury. Przy takim podejściu, czas trwania operacji porównania rośnie wraz ze wzrostem złożoności sortowanych danych.\\
+
+Aby uwzględnić powyższy fakt, wprowadzono pojęcie współczynnika kosztu. Współczynnik kosztu określa, ile razy operacja porównania jest czasowo dłuższa od operacji przypisania. 
+Łączny koszt operacji, będący sumą ważoną operacji atomowych z uwzględnieniem współczynnika kosztu, określono wzorem:\\
+
+$$C = \alpha n_c + 3n_s + n_a $$
+
+\begin{conditions}
+	C		&  łączny koszt operacji 			\\
+	\alpha	&  wartość współczynnika kosztu 	\\   
+\end{conditions}
+
+\section{Założenia}
+Aby uprościć analizę algorytmów, dokonano szeregu uproszczeń oraz założeń. Uwzględnienie poniższych parametrów byłoby problematyczne z punktu widzenia systemu, zaś ich pominięcie nie wpływa znacząco na wynik analizy.\\
+
+\subsection{Operacje na iteratorach}
+Podczas zliczania operacji atomowych pominięte zostały operacje wykonywane na iteratorach oraz indeksach sortowanych tablic.
+Powodem tej decyzji jest fakt, że indeksy oraz iteratory w większości systemów są reprezentowane jako typy podstawowe,
+a więc koszt tych operacji jest relatywnie niski. Dodatkowo, ponieważ w większości algorytmów iterowana jest cała tablica, łączna liczba operacji na iteratorach oraz indeksach jest asymptotycznie równa dla wszystkich badanych algorytmów sortujących.\\
+
+\subsection{Rekurencja}
+Ponieważ wszystkie badane algorytmy są rekurencyjne, w analizie kosztu pominięto czas związany z alokacją i zwalnianiem ramek stosu. Dodatkowo pominięto czas związany z rekurencyjnym przejściem drzewa wywołań algorytmu.\\
+
+\subsection{Alokacja pamięci}
+W pracy badano złożoność czasową algorytmów działających w miejscu. Z tego powodu w analizie kosztu nie uwzględniano czasu związanego z alokacją oraz zwalnianiem pamięci dla zmiennych pomocniczych. Czas ten w przypadku algorytmów działających w miejscu jest rzędu $O(\log{n})$, a więc nie wpływa znacząco na wynik analizy.\\
+
+\subsection{Dane wejściowe}
+Badając optymistyczną oraz pesymistyczną złożoność czasową algorytmów, przyjęto różne strategie generowania danych testowych. Losowe dane generowane są przy użyciu funkcji bibliotecznej, oraz mogą zawierać powtórzenia. Posortowane dane testowe to permutacja identycznościowa. Dane posortowane w odwrotnej kolejności to permutacja, dla której liczba inwersji jest maksymalna.\\
