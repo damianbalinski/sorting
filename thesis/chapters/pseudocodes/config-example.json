@@ -1,0 +1,44 @@
+{
+  "title": "Tytul zestawu testowego",
+  "output": "nazwa-pliku-wizualizacji",
+  "prefix": "test1",
+  "grid": "(1, 2)",
+  "size": "(8, 3.5)",
+  "invariants": {
+    "range": {
+      "begin": 1000,
+      "end": 1000000,
+      "step": 1000
+    },
+    "repeats": 1000
+  },
+  "plots": [
+    {
+      "type": "average",
+      "metadata": {
+        "title": "a) dane losowe",
+        "xlabel": "rozmiar tablicy [n]",
+        "ylabel": "liczba operacji [n]",
+        "xcolumn": "n",
+        "ycolumn": "cost",
+        "legend": "none"
+      },
+      "functions": [
+        {
+          "label": "$n$",
+          "expression": "n"
+        }
+      ],
+      "sortings": [
+        {
+          "algorithm": "quick_sort",
+          "generator": "random"
+        },
+        {
+          "algorithm": "quick_sort_hoare_partition",
+          "generator": "reversed"
+        }
+      ]
+    }
+  ]
+}

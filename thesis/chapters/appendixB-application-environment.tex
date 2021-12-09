@@ -1,27 +1,54 @@
 \chapter{Środowisko uruchomieniowe aplikacji}
 \thispagestyle{chapterBeginStyle}
-Platforma uruchomieniowa aplikacji - Windows. Wykorzystane języki programowania - C++, Python.
+Dedykowanym środowiskiem dla implementowanego systemu jest platforma Windows 10. Do prawidłowego funkcjonowania aplikacji, konieczna jest wcześniejsza instalacja kompilatora języka C++\footnote{Kompilator języka C++: \url{https://www.mingw-w64.org/downloads/}} oraz interpretera języka Python\footnote{Interpreter języka Python: \url{https://www.python.org/downloads/}}.\\
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{img/screen}
+	\caption[]{Fragment ekranu w trakcie działania silnika testującego}
+	\label{fig:screen}
+\end{figure}
+
+% wykorzystanie biblioteki standardowej pythona oraz C++
 
 \section{Zmienne środowiskowe}
-Opis zmiennych środowiskowych TEST-DIRECTORY, CONFIG-DIRECTORY, PLOT-DIRECTORY.
+Ponieważ parametry wejściowe powinny być współdzielone przez wszystkie składowe systemu, dane te są przekazywane za pomocą zmiennych środowiskowych. Każda ze zmiennych określa konkretną lokalizację na dysku systemowym:
 
-% potrzebne sa trzy zmienne środowiskowe
-% FILE_PATH_CONFIG
-% FILE_PATH_TEST
-% FILE_PATH_PLOT
+\begin{itemize}
+	\setlength\itemsep{0em}
+	\item \MONOBOLD{CONFIG\FF DIRECTORY} - lokalizacja pliku konfiguracyjnego,
+	\item \MONOBOLD{TEST\FF DIRECTORY} - lokalizacja pośrednich plików testowych,
+	\item \MONOBOLD{PLOT\FF DIRECTORY} - lokalizacja wynikowego pliku wizualizacji.
+\end{itemize}
 
 \section{Biblioteki zewnętrzne}
-Biblioteki w C++ oraz Pythonie potrzebne do uruchomienia aplikacji wraz z numerami wersji.
-% C++: fmt - formatowane wyjście z interpolacją napisów
+W systemie wykorzystywano następujące biblioteki języka C++ w podanych wersjach:
+\begin{itemize}
+	\setlength\itemsep{0em}
+	\item \MONOBOLD{fmt:7.1.3} - formatowane wyjście z interpolacją napisów,
+	\item \MONOBOLD{nlohmann-json:3.9.1} - deserializacja pliku w formacie json,
+	\item \MONOBOLD{scnlib:0.4} - parsowanie pliku w formacie csv.
+\end{itemize}
 
-\section{Instalowanie aplikacji}
-Uruchamianie skryptu zaciągającego potrzebne zależności.
-Uruchamianie pliku makefile kompilującego i instalującego aplikację.
-Cykl pracy programu - tworzenie konfiguracji, testowanie silnikiem testującym, wizualizacja wyników przy użycia
-silnika graficznego.
+Silnik graficzny wykorzystuje poniższe biblioteki języka Python:
+\begin{itemize}
+	\setlength\itemsep{0em}
+	\item \MONOBOLD{scipy:1.7.1} - implementacje algorytmów numerycznych,
+	\item \MONOBOLD{numpy:1.21.3} - agregacja danych liczbowych,
+	\item \MONOBOLD{matplotlib:3.4.3} - tworzenie wizualizacji,
+	\item \MONOBOLD{pandas:1.3.4} - parsowanie pliku w formacie csv,
+	\item \MONOBOLD{SciencePlots:1.0.9} - naukowy styl wykresów.
+\end{itemize}
+
+\section{Cykl pracy programu}
+Pracę ze środowiskiem można podzielić na trzy części. Na początku tworzony jest plik konfiguracyjny w formacie json.
+Następnie, w oparciu o przygotowaną konfigurację, uruchamiany jest silnik testujący, który generuje pośrednie pliki wyjściowe. W ostatnim kroku uruchamiany jest silnik graficzny, który w oparciu o pliki wyjściowe pochodzące z silnika testującego, przygotowuje ostateczną wizualizację wyników. Ponieważ przy starcie silnika graficznego weryfikowana jest poprawność wszystkich plików pośrednich, każdy z kroków wykonywany jest sekwencyjnie, zaś cały program działa synchronicznie.\\
 
 \section{Przykładowy plik konfiguracyjny}
-Plik konfiguracyjny w jsonie. Omówienie pliku, na początku są dane współdzielone przez wszystkie testy.
-Potem plik zawiera listę elementów typu plot, czyli listę osobnych testów.
+Plik konfiguracyjny to dokument tekstowy w formacie json, zawierający wszystkie parametry potrzebne do przeprowadzanie testów.
+W pliku ten można wyodrębnić dwie główne części. Część pierwsza zawiera parametry konfiguracyjne wspólne dla wszystkich testów, jak np. tytuł zestawu testowego, nazwa pliku wyjściowego czy rozmiar generowanej wizualizacji. W części drugiej zawarte są parametry unikatowe dla poszczególnych testów. Do parametrów tych należą m. in. opisy osi rzędnych i odciętych, generatory danych wejściowych dla poszczególnych testów oraz tytuły dla każdego wykresów. Dokładny spis wszystkich parametrów zawarty jest na końcu tego rozdziału. Poniżej znajduje się przykładowy plik konfiguracyjny.
 
-% TODO screendhot z silnika testujacego
+\newpage
+\lstinputlisting[language=json, caption=Przykładowy plik konfiguracyjny, captionpos=b]{chapters/pseudocodes/config-example.json}
+
+\input{chapters/tables/configuration}
