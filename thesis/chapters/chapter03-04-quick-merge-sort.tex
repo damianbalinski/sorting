@@ -5,7 +5,7 @@ QuickMerge Sort to algorytm hybrydowy, będący połączeniem algorytmów Quick 
 
 % TODO diagram opisujacy sposob dzialania algorytmu
 
-Ponieważ partycjonowanie metodą Hoare wykonuje więcej operacji porównania niż partycjonowanie metodą Lemuto, zaś stosowanie algorytmu QuickMerge Sort przynosi realne zyski podczas sortowania złożonych struktur danych, w analizie porównawczej uwzględniono tylko algorytm partycjonowania metodą Lemuto oraz różne strategie wyboru piwota.\\
+Ponieważ partycjonowanie metodą Hoare wykonuje więcej operacji porównania niż partycjonowanie metodą Lomuto, zaś stosowanie algorytmu QuickMerge Sort przynosi realne zyski podczas sortowania złożonych struktur danych, w analizie porównawczej uwzględniono tylko algorytm partycjonowania metodą Lomuto oraz różne strategie wyboru piwota.\\
 
 \subsection{Pseudokod}
 
@@ -14,10 +14,10 @@ QuickMerge Sort jest algorytmem rekurencyjnym składającym się z trzech etapó
 \input{chapters/pseudocodes/quick-merge-sort}
 
 \subsection{Analiza deterministycznych wersji algorytmu QuickMerge Sort}
-Analizując wydajność deterministycznych algorytmów z rodziny QuickMerge Sort, badano liczbę wykonywanych operacji atomowych z podziałem na operacje porównania, zamiany miejsc oraz przypisania. Dodatkowo badano łączny koszt wykonanych operacji jako sumę ważoną liczby operacji atomowych, z uwzględnieniem wartości współczynnika kosztu. Badając liczbę poszczególnych operacji uwzględniono klasyczny algorytm Merge Sort oraz najbardziej klasyczną wersję algorytmu Quick Sort z partycjonowaniem metodą Lemuto oraz wyborem piwota jako ostatni element tablicy.\\ 
+Analizując wydajność deterministycznych algorytmów z rodziny QuickMerge Sort, badano liczbę wykonywanych operacji atomowych z podziałem na operacje porównania, zamiany miejsc oraz przypisania. Dodatkowo badano łączny koszt wykonanych operacji jako sumę ważoną liczby operacji atomowych, z uwzględnieniem wartości współczynnika kosztu. Badając liczbę poszczególnych operacji uwzględniono klasyczny algorytm Merge Sort oraz najbardziej klasyczną wersję algorytmu Quick Sort z partycjonowaniem metodą Lomuto oraz wyborem piwota jako ostatni element tablicy.\\ 
 
 Badając liczbę wykonanych operacji porównania (\ref{fig:quick-merge-sort-deterministic-pivot-random}) można stwierdzić, 
-że spośród badanych algorytmów działających w miejscu, najbardziej wydajnym algorytmem jest QuickMerge Sort z partycjonowaniem metodą Lemuto oraz wyborem piwota jako pseudo-mediana z dziewięciu. Podobne, nieznacznie gorsze wyniki osiąga metoda wyboru piwota jako mediana z trzech elementów. Dla obydwu tych strategii liczba wykonywanych operacji porównania jest mniejsza niż w przypadku algorytmu Quick Sort.\\
+że spośród badanych algorytmów działających w miejscu, najbardziej wydajnym algorytmem jest QuickMerge Sort z partycjonowaniem metodą Lomuto oraz wyborem piwota jako pseudo-mediana z dziewięciu. Podobne, nieznacznie gorsze wyniki osiąga metoda wyboru piwota jako mediana z trzech elementów. Dla obydwu tych strategii liczba wykonywanych operacji porównania jest mniejsza niż w przypadku algorytmu Quick Sort.\\
 
 Analizując liczbę operacji zamiany miejsc oraz przypisania (\ref{fig:quick-merge-sort-deterministic-pivot-random}) można zauważyć, że niezależnie od strategii wyboru piwota, algorytm QuickMerge Sort wykonuje około dwa razy więcej operacji zamiany miejsc niż klasyczny algorytm Quick Sort. Fakt ten może okazać się szczególnie istotny w przypadku sortowania złożonych struktur, dla których koszt operacji przypisania jest znacznie mniejszy niż koszt operacji porównania. Ponieważ dla większości badanych algorytmów działających w miejscu liczba operacji przypisania jest znikoma w porównaniu do pozostałych operacji, ich obecność nie wpływa na wydajność algorytmów.\\
 
@@ -48,10 +48,10 @@ Można zauważyć, że sortując dane algorytmem QuickMerge Sort, skutecznie zmn
 \end{figure}
 
 \subsection{Analiza randomizowanych wersji algorytmu QuickMerge Sort}
-Tak jak w przypadku algorytmów deterministycznych, algorytmy randomizowane poddano analizie pod kątem liczby wykonywanych operacji atomowych, z podziałem na operacje porównania, zamiany miejsc oraz przypisania. Dodatkowo badano łączny koszt wykonanych operacji jako sumę ważoną liczby operacji atomowych, z uwzględnieniem wartości współczynnika kosztu. Badając liczbę poszczególnych operacji uwzględniono klasyczny algorytm Merge Sort oraz wersję algorytmu Quick Sort z partycjonowaniem metodą Lemuto oraz wyborem piwota jako losowy element tablicy.\\
+Tak jak w przypadku algorytmów deterministycznych, algorytmy randomizowane poddano analizie pod kątem liczby wykonywanych operacji atomowych, z podziałem na operacje porównania, zamiany miejsc oraz przypisania. Dodatkowo badano łączny koszt wykonanych operacji jako sumę ważoną liczby operacji atomowych, z uwzględnieniem wartości współczynnika kosztu. Badając liczbę poszczególnych operacji uwzględniono klasyczny algorytm Merge Sort oraz wersję algorytmu Quick Sort z partycjonowaniem metodą Lomuto oraz wyborem piwota jako losowy element tablicy.\\
 
 Badając liczbę wykonanych operacji porównania (\ref{fig:quick-merge-sort-nondeterministic-pivot-random}) można zauważyć, 
-że każdy z randomizowanych algorytmów QuickMerge Sort wykonuje mniejszą liczbę porównań niż randomizowany algorytm Quick Sort. Najmniejszą liczbę operacji porównania spośród badanych algorytmów działających w miejscu osiąga QuickMerge Sort z partycjonowaniem metodą Lemuto oraz wyborem piwota jako pseudo-mediana z dziewięciu losowych elementów. Podobne, nieznacznie gorsze wyniki osiąga metoda wyboru piwota jako mediana z trzech losowych elementów. Najgorsze wyniki osiąga algorytm Quick Sort, z wyborem piwota jako losowy element tablicy.\\
+że każdy z randomizowanych algorytmów QuickMerge Sort wykonuje mniejszą liczbę porównań niż randomizowany algorytm Quick Sort. Najmniejszą liczbę operacji porównania spośród badanych algorytmów działających w miejscu osiąga QuickMerge Sort z partycjonowaniem metodą Lomuto oraz wyborem piwota jako pseudo-mediana z dziewięciu losowych elementów. Podobne, nieznacznie gorsze wyniki osiąga metoda wyboru piwota jako mediana z trzech losowych elementów. Najgorsze wyniki osiąga algorytm Quick Sort, z wyborem piwota jako losowy element tablicy.\\
 
 Analizując liczbę operacji zamiany miejsc oraz przypisania (\ref{fig:quick-merge-sort-nondeterministic-pivot-random}) można stwierdzić, że niezależnie od strategii wyboru piwota, algorytm QuickMerge Sort wykonuje około dwa razy więcej operacji zamiany miejsc niż randomizowany algorytm Quick Sort. Co więcej, żadna z randomizowanych implementacji nie wykonuje operacji przypisania.\\
 
@@ -89,6 +89,6 @@ TODO wnioski
 
 %Z przeprowadzonej analizy wynika, że dla złożonych struktor wejściowych, stosowanie algorytmu QuickMerge Sort jest wydajniejsze od klasycznego podejścia Quick Sort. Najwydajniejszym z badanych algorytmów jest ...
 
-%Analiza algorytmow deterministycznych - najblizej asymptoteycznie do merge sort jest lemuto z pseudo-mediana z dziewieciu
+%Analiza algorytmow deterministycznych - najblizej asymptoteycznie do merge sort jest lomuto z pseudo-mediana z dziewieciu
 
 %że dla dowolnych randomizowanych strategii wyboru piwota, partycjonowanie metodą Hoare wykonuje większą liczbę operacji porównania oraz mniejszą liczbę operacji zamiany miejsc. Tak jak w przypadku algorytmów deterministycznych, czynnik ten może okazać się istotny w przypadku sortowania złożonych struktur.\\
