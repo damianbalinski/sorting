@@ -38,21 +38,21 @@ liczbą pozostałych operacji.\\
 
 Analizując rozkład prawdopodobieństwa liczby wykonanych operacji (\ref{fig:quick-sort-density}) użyto tablicy losowych danych o stałym rozmiarze $n = 10000$. Można zauważyć, że liczba operacji porównania oraz liczba operacji zamiany miejsc nie są przedstawiane za pomocą rozkładu normalnego. Bardziej prawdopodobne jest wykonanie większej liczby tych operacji w stosunku do wartości średniej. Z kolei rozkład liczby wykonanych operacji przypisania przedstawia się za pomocą rozkładu normalnego, z jednakowym prawdopodobieństwem liczba ta może być większa lub mniejsza od wartości średniej.\\
 
-\begin{figure}[H]
+\begin{figure}[]
 	\centering
 	\includesvg[inkscapelatex=false,width=1.0\columnwidth]{img/plot/quick-sort-optimistic-average-case.svg}
 	\caption[]{}
 	\label{fig:quick-sort-optimistic-average}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[]
 	\centering
 	\includesvg[inkscapelatex=false,width=1.0\columnwidth]{img/plot/quick-sort-pessimistic-case.svg}
 	\caption[]{}
 	\label{fig:quick-sort-pessimistic}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[]
 	\centering
 	\includesvg[inkscapelatex=false,width=1.0\columnwidth]{img/plot/quick-sort-density.svg}
 	\caption[]{}
@@ -98,14 +98,14 @@ przypisania. Jest to zgodne z rzeczywistością, ponieważ w trakcie scalania ka
 
 Do analizy rozkładu prawdopodobieństwa liczby wykonanych operacji (\ref{fig:merge-sort-density}) użyto tablicy losowych danych o stałym rozmiarze $n = 1000$. W analizie pominięto liczbę operacji przypisania, która jest zerowa dla każdego przypadku. Analiza eksperymentalna dowodzi, że w przeciwieństwie do algorytmu Quick Sort, liczba operacji porównania dla algorytmu Merge Sort tworzy rozkład normalny, a więc prawdopodobieństwa otrzymania większej oraz mniejszej liczby operacji przypisania są jednakowe. Ponieważ dla badanego algorytmu, liczba operacji przypisania jest równa liczbie operacji porównania, rozkłady tych wartości są jednakowe.
 
-\begin{figure}[H]
+\begin{figure}[]
 	\centering
 	\includesvg[inkscapelatex=false,width=1.0\columnwidth]{img/plot/merge-sort-optimistic-average-pessimistic-case.svg}
 	\caption[]{}
 	\label{fig:merge-sort-optimistic-average-pessimistic-case}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[]
 	\centering
 	\includesvg[inkscapelatex=false,width=0.66\columnwidth]{img/plot/merge-sort-density.svg}
 	\caption[]{}
