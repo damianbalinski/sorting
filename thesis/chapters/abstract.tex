@@ -1,58 +1,30 @@
 \chapter{Wstęp}
 \thispagestyle{chapterBeginStyle}
 
-Ogólna historia algorytmów sortujących. Motywacja tworzenie algorytmów 
-
-\iffalse
-- początki sortwania (Bubble Sort, Insertion Sort)
-- przełom 1 (Quick Sort - brytyjski naukowiec Antony Hoare)
-- przełom 2 (Vladimir Yaroslavskiy - )
-- dalsze wynalazki (QuickMerge, Intro Sort)
-
-Problem porządkowania zbioru elementów towarzyszy informatyce od początku.
-Nic więc dziwnego, że sortowanie jest jednym z najbardziej powszechnych problemów
-współczenej informatyki. 
-
-W literaturze idea sortowania danych po raz pierwszy pojawiła się w ..., kiedy to ...
-opublikował pracę ...,
-
-Od tamtego czasu wiele rzeczy się zmieniło, powstawały coraz to nowsze algorytmy sortujące.
-
-Prawdziwym przełomem był rok ... kiedy to ... opracował algorytm Dual Pivot Quick Sort.
-Przez kilka następnych lat koncepcja sortowania wielopiwotowego została niesamowicie
-wyeksploatowana, a efekty badań z tamtego okresu widoczne są we współczesnych implementacjach.
-Np. biblioteka standardowa javy do dnia dzisiajszego (java ...) stsuje algorytm
-dual pivot quick sort jako główny algorytm sortujący.
-
-Mijały lata, a wiemy że jeżeli coś się nie rozwija to w świecie IT cofa się.
-Wiemy że każdy z algorytmów ma swoje słabe i mocne strony. Quick sort ... merge sort ...
-
-Ludzie zastanawiali się w jaki sposób połączyć algorytmy sortujące w taki sposób, aby
-kożystać z tego, co mają najlepsze: tak narodził się pomysł na QuickMergeSort
-
-Powstały algorytmy hybrydowe, czyli połączenie wielu podstawowych algorytmów sortujących
-w specyficzny sposób. Dzięki czemu możliwe jest wykorzystywanie zalet, które niesie ze
-sobą każdy z algorytów oraz niwelowanie wad. Algorytmy hybrydowe łączą ze sobą najlepsze
-części algorytmów podstawowych.
-\fi
+Porządkowanie zbioru danych to jeden z podstawowych problemów współczesnej informatyki. Za algorytmy przełomowe w historii sortowania można uznać opracowany przez Johna von Neumanna algorytm \BOLD{Merge Sort}, oraz algorytm  \BOLD{Quick Sort} autorstwa Tonyego Hoare.
+Obydwa algorytmy wykorzystują rekurencyjne podejście dziel i zwyciężaj, efektywnie rozbijając problem sortowania na mniejsze podproblemy. Od czasów ich wynalezienia ludzkość nieustannie stara się modyfikować te algorytmy, tworząc coraz efektywniejsze implementacje, które niwelują wady swoich poprzedników oraz zachowują swoją wydajność nawet dla przypadku pesymistycznego. W poniższej pracy dokonano analizy kliku nowoczesnych technik sortowania, opierających się na efektywnym łączniu kilku algorytmów podstawowych.\\
 
 \section{Cel pracy}
-TODO: Motywem przewodnim pracy jest analiza nowoczesnych algorytmów sortujących w miejscu, takich jak koncepcja QuickMerge Sort. W tym celu przygotowano analizę porównawczą podstawowych algorytmów sortujących oraz dokonano przeglądu
-zmodyfikowanych wersji tych algorytmów oraz przeanalizowano nowoczesne algorytmy hybrydowe, będące połączeniem dwóch
-lub wielu algorytmów podstawowych.
-
-% TODO jak zdaze to tez proba modyfikacji istniejacych algorytmow
+Motywem przewodnim pracy była analiza eksperymentalna wybranych technik sortujących w miejscu, wykorzystujących nowatorskie podejście do problemu sortowania. W pracy zbadano algorytmy \BOLD{QuickMerge Sort} i \BOLD{Intro Sort}, oraz ich deterministyczne i randomizowane modyfikacje. Algorytmy były analizowane pod kątem czasowej złożoności obliczeniowej.\\
 
 \section{Zakres pracy}
-TODO: Aby ułatwić analizę algorytmów przygotowany został silnik testujący oraz silnik graficzny, które w oparciu o plik
-konfiguracyjny przeprowadzają testy oraz tworzą wizualizację wyników tych testów. Wykorzystując podane narzędzia
-została przeprowadzona analiza podstawowych oraz hybrydowych algorytmów.
+Aby ułatwić analizę algorytmów przygotowano narzędzia usprawniające proces testowania. Do tych narzędzi należą silnik graficzny oraz silnik testujący, które w oparciu o plik konfiguracyjny przeprowadzają testy oraz tworzą wizualizację wyników.
+Wykorzystując podane narzędzia, przygotowano analizę podstawowych algorytmów sortujących oraz dokonano przeglądu zmodyfikowanych wersji tych algorytmów. Następnie przeanalizowano nowoczesne algorytmy hybrydowe, będące połączeniem dwóch lub wielu algorytmów podstawowych.\\
 
 \section{Przegląd literatury}
-TODO: Ogólny opis pracy Sebastiana Wilda. Pomysł na algorytm QuickMerge Sort.
+W pracy badano algorytm QuickMerge Sort, którego koncepcja została opisana przez Sebastiana Wilda w publikacji \boldquotes{QuickXsort – A Fast Sorting Scheme in Theory and Practice}. Informacje na temat tego algorytmu można znaleźć również w pracach \boldquotes{QuickMergesort: Practically Efficient Constant-Factor Optimal Sorting} oraz \boldquotes{Worst-Case Efficient Sorting with QuickMergesort}, których autorami są Stefan Edelkamp i Armin Weiß.\\
 
-\section{Zawartości pracy}
-TODO: Ogólny sposób organizacji dokumentu.
-Rozdział pierwszy - analiza matematyczna problemu.
-Rozdział drugi - przegląd podstawowych algorytmów sortujących.
-Rozdział trzeci - przegląd hybrydowych algorytmów sortujących.
+Kolejnym badanym algorytmem był Intro Sort. Informacje na ten temat znaleźć w publikacji \boldquotes{Pattern-defeating Quicksort} autorstwa Orsona R. L. Petersa.\\
+
+\section{Zawartość pracy}
+Praca składa się z pięciu rozdziałów.
+W rozdziale pierwszym przedstawiono ogólny cel oraz zakres pracy.
+Rozdział drugi poświęcony jest metodologii prowadzenia badań. W rozdziale tym wyjaśniono sposób, w jaki zliczano liczbę wykonywanych operacji porównania, przypisania oraz zamiany miejsc, uwzględniając koszt każdej takiej operacji.
+Rozdział trzeci zawiera przegląd podstawowych algorytmów sortujących, z wyszczególnieniem problemów, jakie wiążą się ze stosowania tych algorytmów.
+W rozdziale czwartym przedstawiono nowoczesne sposoby na tworzenie algorytmów hybrydowych. W rozdziale tym dokonano analizy porównawczej opisywanych algorytmów, z podziałem na wersje deterministyczne oraz randomizowane.
+Rozdział piąty zawiera podsumowanie wyników z wcześniej przeprowadzonych badań. W rozdziale tym wyłoniono kandydatów na najbardziej optymalny algorytm w danej kategorii.
+Ostatni rozdział to opis implementacji oraz wykorzystanych technik programowania. W tym rozdziale opisano koncepcję silnika testującego oraz wzorce projektowe użyte w systemie.\\
+
+Dodatkowo praca zawiera dwa dodatki.
+Dodatek A to słownik pojęć wykorzystywanych w pracy.
+Dodatek B zawiera informacje na temat instalowania zewnętrznych zależności oraz uruchamiania aplikacji.\\
