@@ -7,14 +7,14 @@ Podczas analizy algorytmów sortujących z rodziny Quick Sort zostały przetesto
 	\item \BOLD{metoda Hoare} - tablica jest partycjonowana za pomocą dwóch iteratorów umieszczonych po przeciwnych stronach tablicy oraz skierowanych do jej środka. Pojedyncza iteracja trwa do momentu napotkania dwóch elementów, które nie znajdują się w odpowiednich częściach tablicy, tzn. element po lewej stronie jest większy od piwota, oraz element po prawej stronie jest mniejszy od piwota. Wtedy elementy znajdujące się w miejscu iteratorów są zamieniane miejscami oraz algorytm jest kontynuowany. Program kończy się w momencie spotkania obydwu iteratorów.
 \end{itemize}
 
-Wykonując testy brano pod uwagę następujące metody wyboru piwota:
+Wykonując testy brano pod uwagę następujące deterministyczne metody wyboru piwota:
 \begin{itemize}
 	\setlength\itemsep{0em}
 	\item \BOLD{ostatni element} - piwotem jest ostatni element tablicy,
 	\item \BOLD{mediana z trzech} - piwotem jest mediana z pierwszego, środkowego oraz ostatniego elementu tablicy,
 	\item \BOLD{pseudo-mediana z dziewięciu} - piwotem jest mediana z dziewięciu równo oddalonych od siebie elementów, z których pierwszym jest pierwszy element tablicy, oraz ostatnim jest ostatni element tablicy,
-	\item \BOLD{mediana-median z pięciu} - piwot jest medianą pięciu median obliczanych rekurencyjnie,
-	\item \BOLD{mediana-median z trzech} - piwot jest medianą trzech median obliczanych rekurencyjnie.\\
+	\item \BOLD{mediana-median z pięciu} - elementy tablicy są grupowane z zbiory 5-elementowe, z każdego zbioru wybierana jest mediana, następnie algorytm jest wywoływany rekurencyjnie dla wybranych elementów,
+	\item \BOLD{mediana-median z trzech} - tablica jest dzielona na trzy równe części, w każdej z części rekurencyjnie wyszukiwana jest mediana, następnie zwracana jest mediana z otrzymanych wyników.\\
 \end{itemize}
 
 \subsection{Analiza porównawcza algorytmów}
@@ -29,7 +29,7 @@ Analizując łączny koszt wykonanych operacji (\ref{fig:quick-sort-deterministi
 
 Porównując liczbę wykonanych operacji pomiędzy badanymi algorytmami partycjonowania (\ref{fig:quick-sort-deterministic-pivot-all}) można stwierdzić, że partycjonowanie metodą Hoare wykonuje większą liczbę operacji porównania oraz mniejszą liczbę operacji zamiany miejsc. Czynnik ten może okazać się szczególnie istotny w przypadku sortowania złożonych struktur danych.\\
 
-Do analizy rozkładu prawdopodobieństwa liczby wykonanych operacji (\ref{fig:quick-sort-deterministic-pivot-density}) użyto tablicy losowych danych o stałym rozmiarze $n = 1000$ oraz współczynnika kosztu o stałej wartości $\alpha = 1.0$. Dla badanych algorytmów najmniejsze odchylenie standardowe mają algorytmy partycjonowania metodą Hoare przy wyborze piwota jako pseudo-mediana z dziewięciu lub mediana-median z trzech. Największe odchylenie standardowe występuje dla klasycznego algorytmu Quick Sort. Najmniejsza wartość oczekiwana liczby wykonanych operacji jest osiągana poprzez partycjonowanie metodą Hoare z wyborem piwota jako ostatni element tablicy.
+Do analizy histogramu liczby wykonanych operacji (\ref{fig:quick-sort-deterministic-pivot-density}) użyto tablicy losowych danych o stałym rozmiarze $n = 1000$ oraz współczynnika kosztu o stałej wartości $\alpha = 1.0$. Dla badanych algorytmów najmniejsze odchylenie standardowe mają algorytmy partycjonowania metodą Hoare przy wyborze piwota jako pseudo-mediana z dziewięciu lub mediana-median z trzech. Największe odchylenie standardowe występuje dla klasycznego algorytmu Quick Sort. Najmniejsza średnia liczba wykonanych operacji jest osiągana poprzez partycjonowanie metodą Hoare z wyborem piwota jako ostatni element tablicy.
 
 % tabelka, procentowo średnia liczba wykonanych operacji dla każdej z metod przy stałym rozmiarze tablicy n = 1000
 % tabelka, wyliczone odchylenie standardowe oraz wartość oczekiwana dla poszczególnych algorytmów
@@ -73,4 +73,4 @@ Do analizy rozkładu prawdopodobieństwa liczby wykonanych operacji (\ref{fig:qu
 \subsection{Wnioski}
 W przypadku danych wejściowych typu prostego, tzn. takich, dla których operacja porównania jest czasowo równoważna operacji przypisania, partycjonowanie metodą Hoare okazało się wydajniejsze niż partycjonowanie metodą Lomuto. W przypadku złożonych struktur danych, wydajniejsze jest partycjonowanie metodą Lomuto. Wartość współczynnika kosztu, od której partycjonowanie metodą Lomuto jest bardziej wydajne dla dowolnej strategii wyboru piwota wynosi $\alpha = 2.0$, co można interpretować jako sortowania struktur danych złożonych z co najmniej dwóch typów prostych.\\
 
-Analizując zachowanie algorytmów można stwierdzić, że dla danych posortowanych lub prawie posortowanych, dobrym wyborem jest skorzystanie z kosztownej metody wyszukiwania piwota, która pomimo swojego dodatkowego nakładu czasowego zwiększa prawdopodobieństwo na znalezienie dobrego piwota. Wyjątkiem jest wybór piwota jako mediana-median z pięciu, w przypadku którego dodatkowy nakład czasowy sprawia, że algorytm jest znacznie mniej wydajny nawet dla uporządkowanych danych wejściowych. Przez pojęcie \BOLD{dobrego piwota} rozumiemy tutaj pozycję możliwie blisko środka partycjonowanej tablicy.\\
+Analizując zachowanie algorytmów można stwierdzić, że dla danych posortowanych lub prawie posortowanych, dobrym wyborem jest skorzystanie z kosztownej metody wyszukiwania piwota, która pomimo swojego dodatkowego nakładu czasowego zwiększa prawdopodobieństwo znalezienia dobrego piwota. Wyjątkiem jest wybór piwota jako mediana-median z pięciu, w przypadku którego dodatkowy nakład czasowy sprawia, że algorytm jest znacznie mniej wydajny nawet dla uporządkowanych danych wejściowych. Przez pojęcie \BOLD{dobrego piwota} rozumiemy tutaj element, którego pozycja w procedurze partycjonowania znajduje się możliwie blisko środka tablicy.\\
