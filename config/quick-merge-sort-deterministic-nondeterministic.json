@@ -16,7 +16,7 @@
     {
       "type": "average",
       "metadata": {
-        "title": "a) algorytmy deterministyczne - Lemuto",
+        "title": "a) algorytmy deterministyczne - Lomuto",
         "xlabel": "rozmiar tablicy [n]",
         "ylabel": "koszt operacji [n]",
         "xcolumn": "n",
@@ -87,7 +87,7 @@
     {
       "type": "average",
       "metadata": {
-        "title": "c) algorytmy randomizowane - Lemuto",
+        "title": "c) algorytmy randomizowane - Lomuto",
         "xlabel": "rozmiar tablicy [n]",
         "ylabel": "koszt operacji [n]",
         "xcolumn": "n",

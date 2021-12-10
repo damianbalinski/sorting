@@ -28,7 +28,7 @@
           { "color": "orange", "linestyle": "solid", "label": "pseudo-mediana z dziewięciu"},
           { "color": "green", "linestyle": "solid", "label": "mediana-median z pięciu"},
           { "color": "pink", "linestyle": "solid", "label": "mediana-median z trzech"},
-          { "color": "black", "linestyle": "solid", "label": "metoda Lemuto"},
+          { "color": "black", "linestyle": "solid", "label": "metoda Lomuto"},
           { "color": "black", "linestyle": "dotted", "label": "metoda Hoare"}
         ]
       },

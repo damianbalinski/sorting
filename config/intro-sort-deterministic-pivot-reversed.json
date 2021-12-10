@@ -16,7 +16,7 @@
     {
       "type": "average",
       "metadata": {
-        "title": "a) metoda Lemuto",
+        "title": "a) metoda Lomuto",
         "xlabel": "rozmiar tablicy [n]",
         "ylabel": "liczba operacji [n]",
         "xcolumn": "n",

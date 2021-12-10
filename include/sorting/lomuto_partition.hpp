@@ -3,12 +3,12 @@
 #include "pivot_selector.hpp"
 #include "string_utils.hpp"
 
-class lemuto_partition: public partition
+class lomuto_partition: public partition
 {
 public:
 	const char* name() const override { return concat("", selector->name()); }
 
-	lemuto_partition(const pivot_selector* const selector) : partition(selector) {}
+	lomuto_partition(const pivot_selector* const selector) : partition(selector) {}
 
 	partition_result operator()(int arr[], const size_t n, const operation& oper) const override { return partitione(arr, n, oper); }
 

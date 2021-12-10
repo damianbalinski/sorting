@@ -1,6 +1,6 @@
-#include "lemuto_partition.hpp"
+#include "lomuto_partition.hpp"
 
-partition_result lemuto_partition::partitione(int arr[], const size_t n, const operation& oper) const
+partition_result lomuto_partition::partitione(int arr[], const size_t n, const operation& oper) const
 {
 	const size_t pivot_index = n-1;
 	(*selector)(arr, n, pivot_index, oper);
@@ -20,7 +20,7 @@ partition_result lemuto_partition::partitione(int arr[], const size_t n, const o
 	return prepare_partition_result(arr, n, i);
 }
 
-partition_result lemuto_partition::prepare_partition_result(int arr[], const size_t n, const size_t pivot)
+partition_result lomuto_partition::prepare_partition_result(int arr[], const size_t n, const size_t pivot)
 {
 	return partition_result{
 		pivot,

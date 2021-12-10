@@ -31,7 +31,7 @@
           { "color": "red", "linestyle": "solid", "label": "losowy element"},
           { "color": "blue", "linestyle": "solid", "label": "mediana z trzech wyborów"},
           { "color": "green", "linestyle": "solid", "label": "pseudo-mediana z dziewięciu wyborów"},
-          { "color": "black", "linestyle": "solid", "label": "metoda Lemuto"},
+          { "color": "black", "linestyle": "solid", "label": "metoda Lomuto"},
           { "color": "black", "linestyle": "dotted", "label": "metoda Hoare"}
         ]
       },
