@@ -62,18 +62,13 @@ interface partition {
 	partition()
 }
 
-hide lemuto_partition fields
-class lemuto_partition {
+hide lomuto_partition fields
+class lomuto_partition {
 	partition()
 }
 
 hide hoare_partition fields
 class hoare_partition {
-	partition()
-}
-
-hide median_of_three_parition fields
-class median_of_three_parition {
 	partition()
 }
 
@@ -120,9 +115,8 @@ dual_pivot_quick_sort o-- partition
 quick_merge_sort o-- partition
 intro_sort o-- partition
 
-partition <|.. lemuto_partition
+partition <|.. lomuto_partition
 partition <|.. hoare_partition
-partition <|.. median_of_three_parition
 
 
 sorting *-- operation

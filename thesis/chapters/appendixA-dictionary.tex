@@ -1,8 +1,12 @@
 \chapter{Słownik pojęć}
 
-\section{Notacja O())}
+\section{Notacja duże-$O$}
+Określa asymptotyczne tempo wzrostu danej funkcji. Wykorzystywana jest do opisu złożoności obliczeniowej.
+Mówimy, że funkcja $f$ ma złożoność rzędu $g$, tzn. $f \in O(g)$, jeśli spełniony jest warunek:
+$$(\exists n_0 > 0) (\exists c > 0) (\forall n \geq n_0) f(n) \leq c \cdot g(n)$$
 
 \section{Algorytm działający w miejscu}
+Aby efektywnie posortować tablicę wejściową algorytm potrzebuje co najwyżej $O(\log{n})$ dodatkowej pamięci. Algorytmem działającym w miejscu nie jest klasyczny Merge Sort.\\
 
 \section{Algorytm stabilny}
-Algorytm nie zamienia kolejnością elementów o tej samej wartości.
+Algorytm stabilny w trakcie sortowania nie zamienia kolejnością elementów równoważnych względem porządku sortowania. Relatywne ułożenie elementów o tej samej wartości pozostaje takie samo.\\
