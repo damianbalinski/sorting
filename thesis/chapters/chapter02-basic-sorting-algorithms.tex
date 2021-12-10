@@ -28,11 +28,11 @@ rozbija na sortowanie dwóch podtablic.
 Liczba operacji wykonywanych przez algorytm Quick Sort została przeanalizowana pod kątem trzech przypadków:
 optymistycznego, średniego oraz pesymistycznego.\\
 
-Dla algorytmu Quick Sort przypadek optymistyczny (\ref{fig:quick-sort-optimistic-average}) następuje wówczas, gdy algorytm partycjonowania przy każdym wywołaniu dzieli tablicę wejściową na dwie równe części. Efekt ten uzyskano, wprowadzając dane już posortowane oraz stosując algorytm wybierający pivot dokładnie w połowie tablicy. Z analizy eksperymentalnej wynika, że w przypadku optymistycznym algorytm działa ze złożonością czasową $O(n\log{}n)$.\\
+Dla algorytmu Quick Sort przypadek optymistyczny (\ref{fig:quick-sort-optimistic-average}) następuje wówczas, gdy algorytm partycjonowania przy każdym wywołaniu dzieli tablicę wejściową na dwie równe części. Efekt ten uzyskano, wprowadzając dane już posortowane oraz stosując algorytm wybierający piwot dokładnie w połowie tablicy. Z analizy eksperymentalnej wynika, że w przypadku optymistycznym algorytm działa ze złożonością czasową $O(n\log{}n)$.\\
 
-Przypadek pesymistyczny (\ref{fig:quick-sort-pessimistic}) zachodzi, gdy drzewo wowołań rekurencyjnych jest możliwie najgłębsze. Efekt ten uzyskano, wprowadzając dane już posortowane oraz stosując algorytm wybierający pivot jako ostatni element tablicy. W tej sytuacji w kolejnych iteracjach rozpatrywana jest tablica z rozmiarem o jeden mniejszy od poprzedniej, a więc drzewo wywołań rekurencyjnych ma głębokość $n$. Z analizy wynika, że złożoność czasowa algorytmu w przypadku pesymistycznym wynosi $O(n^2)$.\\
+Przypadek pesymistyczny (\ref{fig:quick-sort-pessimistic}) zachodzi, gdy drzewo wowołań rekurencyjnych jest możliwie najgłębsze. Efekt ten uzyskano, wprowadzając dane już posortowane oraz stosując algorytm wybierający piwot jako ostatni element tablicy. W tej sytuacji w kolejnych iteracjach rozpatrywana jest tablica z rozmiarem o jeden mniejszy od poprzedniej, a więc drzewo wywołań rekurencyjnych ma głębokość $n$. Z analizy wynika, że złożoność czasowa algorytmu w przypadku pesymistycznym wynosi $O(n^2)$.\\
 
-Przypadek średni (\ref{fig:quick-sort-optimistic-average}) został zbadany wprowadzając losowe dane z powtórzeniami oraz stosując algorytm wybierający pivot jako ostatni element tablicy. Analiza eksperymentalna wykazała, że w przypadku średnim algorytm Quick Sort ma złożoność czasową równą $O(n\log{}n)$, a więc jest tego samego rzędu co dla przypadku optymistycznego.\\
+Przypadek średni (\ref{fig:quick-sort-optimistic-average}) został zbadany wprowadzając losowe dane z powtórzeniami oraz stosując algorytm wybierający piwot jako ostatni element tablicy. Analiza eksperymentalna wykazała, że w przypadku średnim algorytm Quick Sort ma złożoność czasową równą $O(n\log{}n)$, a więc jest tego samego rzędu co dla przypadku optymistycznego.\\
 
 Porównując liczbę wykonywanych operacji można zauważyć, że algorytm Quick Sort wykonuje prawie dwa więcej operacji porównania
 niż operacji zamiany miejsc. Liczba pojedynczych operacji przypisania rośnie liniowo, a więc jest znikoma w porównaniu z
@@ -68,7 +68,7 @@ Kolejnym problemem tego algorytmu jest stosunkowo duża liczba wykonywanych oper
 wykonanie pojedynczej operacji porównania jest znacznie kosztowniejsze od pozostałych operacji. W tym przypadku bardziej wskazanym wydaje się użycie algorytmu Merge Sort, którego analizę przeprowadzono w kolejnym rozdziale.
 
 \subsection{Możliwości optymalizacyjne}
-Ponieważ złożoność czasowa algorytmu Quick Sort uwarunkowana jest poprzez złożoność algorytmu partycjonowania, optymalizacja algorytmu może opierać się ulepszanie algorytmu partycjonowania, aby jak najefektywniej wyszukiwał pivot, zapewniając podział tablicy wejściowej na dwie tablice o zbliżonej długości.
+Ponieważ złożoność czasowa algorytmu Quick Sort uwarunkowana jest poprzez złożoność algorytmu partycjonowania, optymalizacja algorytmu może opierać się ulepszanie algorytmu partycjonowania, aby jak najefektywniej wyszukiwał piwot, zapewniając podział tablicy wejściowej na dwie tablice o zbliżonej długości.
  
 % Tabelka sortowania
 
