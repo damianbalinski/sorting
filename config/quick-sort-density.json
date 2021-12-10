@@ -1,5 +1,5 @@
 {
-  "title": "Rozkład prawdopodobieństwa liczby operacji wykonanych\n przez algorytm Quick Sort dla losowych danych\nprzy stałym rozmiarze tablicy n = 10000",
+  "title": "Histogram liczby operacji wykonanych\n przez algorytm Quick Sort dla losowych danych\nprzy stałym rozmiarze tablicy n = 10000",
   "output": "quick-sort-density",
   "prefix": "test3",
   "grid": "(1, 3)",
@@ -21,6 +21,8 @@
         "ylabel": "gęstość prawd.",
         "xcolumn": "n",
         "ycolumn": "comparisons",
+        "xmin": 140000,
+        "xmax": 200000,
         "legend": "inside"
       },
       "functions": [
@@ -41,6 +43,8 @@
         "ylabel": "gęstość prawd.",
         "xcolumn": "n",
         "ycolumn": "swaps",
+        "xmin": 65000,
+        "xmax": 120000,
         "legend": "inside"
       },
       "functions": [
@@ -61,6 +65,8 @@
         "ylabel": "gęstość prawd.",
         "xcolumn": "n",
         "ycolumn": "assigns",
+        "xmin": 6600,
+        "xmax": 6775,
         "legend": "inside"
       },
       "functions": [

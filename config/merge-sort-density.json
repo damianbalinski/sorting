@@ -1,5 +1,5 @@
 {
-  "title": "Rozkład prawdopodobieństwa liczby operacji wykonanych\n przez algorytm Merge Sort dla losowych danych\nprzy stałym rozmiarze tablicy n = 1000",
+  "title": "Histogram liczby operacji wykonanych\n przez algorytm Merge Sort dla losowych danych\nprzy stałym rozmiarze tablicy n = 1000",
   "output": "merge-sort-density",
   "prefix": "test5",
   "grid": "(1, 2)",
@@ -21,6 +21,8 @@
         "ylabel": "gęstość prawd.",
         "xcolumn": "n",
         "ycolumn": "comparisons",
+        "xmin": 8625,
+        "xmax": 8800,
         "legend": "inside"
       },
       "functions": [
@@ -41,6 +43,8 @@
         "ylabel": "gęstość prawd.",
         "xcolumn": "n",
         "ycolumn": "assigns",
+        "xmin": 8625,
+        "xmax": 8800,
         "legend": "inside"
       },
       "functions": [
