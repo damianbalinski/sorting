@@ -1,5 +1,5 @@
 {
-  "title": "Rozkład prawdopodobieństwa liczby operacji wykonanych\n przez niedeterministyczne wersje algorytmu QuickMerge Sort\nw porównaniu do algorytmów Quick Sort oraz Merge Sort\ndla tablicy losowych danych rozmiaru n = 1000",
+  "title": "Histogram liczby operacji wykonanych\n przez randomizowane wersje algorytmu QuickMerge Sort\nw porównaniu do algorytmów Quick Sort oraz Merge Sort\ndla tablicy losowych danych rozmiaru n = 1000",
   "output": "quick-merge-sort-nondeterministic-pivot-density",
   "prefix": "test21",
   "grid": "(1, 1)",
