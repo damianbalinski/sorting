@@ -1,5 +1,5 @@
 {
-  "title": "Rozkład prawdopodobieństwa liczby operacji wykonanych\n przez deterministyczne wersje algorytmu Quick Sort\ndla tablicy losowych danych rozmiaru n = 1000",
+  "title": "Histogram liczby operacji wykonanych\n przez deterministyczne wersje algorytmu Quick Sort\ndla tablicy losowych danych rozmiaru n = 1000",
   "output": "quick-sort-deterministic-pivot-density",
   "prefix": "test19",
   "grid": "(1, 1)",

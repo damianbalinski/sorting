@@ -1,5 +1,5 @@
 {
-  "title": "Rozkład prawdopodobieństwa liczby operacji wykonanych\n przez deterministyczne wersje algorytmu QuickMerge Sort\nw porównaniu do algorytmów Quick Sort oraz Merge Sort\ndla tablicy losowych danych rozmiaru n = 1000",
+  "title": "Histogram liczby operacji wykonanych\n przez deterministyczne wersje algorytmu QuickMerge Sort\nw porównaniu do algorytmów Quick Sort oraz Merge Sort\ndla tablicy losowych danych rozmiaru n = 1000",
   "output": "quick-merge-sort-deterministic-pivot-density",
   "prefix": "test20",
   "grid": "(1, 1)",
