@@ -1,0 +1,40 @@
+\newpage
+\section{QuickMergeIntro Sort}
+- w poprzednich rozdziałach omówione zostały algorytmy QuickMerge Sort oraz Intro Sort, które optymalizują.
+W tym rozdziale podjęto próbę połączenia tych algorytmów, tworząc algorytm QuickMergeIntro Sort. Celem tego połączenia jest optymalizacja algorytmu dla przypadku pesymistycznego w klasycznym Quick Sort
+- proba polaczenia intro sort z algorytmem quickMerge sort
+- stosowanie merge sort ma sens tylko dla zlozonych struktur danych, dlatego wszystkie testy zaklasaja ze $\alpha \geq 10.0$. stosowano tylko partycjonowanie metodą Lomuto, które lepiej sobie radzi dla zlozonych struktur danych.
+- biorąc pod uwagę porzednie testy, w badaniach zrezygnowano ze strategii wyboru piwota jako mediana-median, dla których wyniki w porzednich testach były niesatysfakcjonujace
+
+\subsection{Pseudokod}
+
+\input{chapters/pseudocodes/quick-merge-intro-sort}
+
+\subsection{Analiza deterministycznych wersji algorytmu QuickMergeIntro Sort}
+
+GESTOSC
+- porownywano do najwyjadniejszych odpowiednikow Intro Sort oraz QuickMerge Sort. napisac jakie to odpowiedniki!
+- w przypadku danych losowych sa to Intro Sort oraz QuickMergeSort z partycjoinowaniem metodę Lomuto oraz wyborem piwota jako mediana z trzech ...
+
+\begin{figure}[]
+	\centering
+	\includesvg[inkscapelatex=false,width=1.0\columnwidth]{img/plot/quick-merge-intro-sort-deterministic-pivot-density.svg}
+	\caption[]{}
+	\label{fig:quick-merge-intro-sort-deterministic-pivot-density}
+\end{figure}
+
+\subsection{Analiza randomizowanych wersji algorytmu QuickMergeIntro Sort}
+
+GESTOSC
+- porownywano do najwyjadniejszych odpowiednikow Intro Sort oraz QuickMerge Sort. napisac jakie to odpowiedniki!
+- w przypadku danych losowych sa to Intro Sort oraz QuickMergeSort z partycjoinowaniem metodę Lomuto oraz wyborem piwota jako mediana z trzech losowych elementow talbvcy 
+
+\begin{figure}[]
+	\centering
+	\includesvg[inkscapelatex=false,width=1.0\columnwidth]{img/plot/quick-merge-intro-sort-nondeterministic-pivot-density.svg}
+	\caption[]{}
+	\label{fig:quick-merge-intro-sort-nondeterministic-pivot-density}
+\end{figure}
+
+\subsection{Wnioski}
+- bardzo podobny do QuickMerge Sort, gorszy dla losowych danych, lepszy dla uporzadkowanych danych, dlatego bedzie preferowanym algorytmem dzialajacym w miejscu

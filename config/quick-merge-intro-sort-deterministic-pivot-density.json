@@ -17,19 +17,20 @@
       "type": "density",
       "metadata": {
         "title": "a) dane losowe",
+        "ticklabel_format": "plain",
         "xlabel": "liczba operacji [n]",
         "ylabel": "gęstość prawd.",
         "xcolumn": "n",
         "ycolumn": "cost",
         "xmin": 200000,
-        "xmax": 300000,
+        "xmax": 275000,
         "legend": "none"
       },
       "functions": [
       ],
       "sortings": [
         {
-          "algorithm": "intro_sort_median_of_three_pivot_selector",
+          "algorithm": "intro_sort_pseudo_median_of_nine_pivot_selector",
           "generator": "random",
           "color": "black",
           "linestyle": "dashed"
@@ -62,12 +63,13 @@
       "type": "density",
       "metadata": {
         "title": "b) dane uporządkowane",
+        "ticklabel_format": "plain",
         "xlabel": "liczba operacji [n]",
         "ylabel": "gęstość prawd.",
         "xcolumn": "n",
         "ycolumn": "cost",
         "xmin": 140000,
-        "xmax": 160000,
+        "xmax": 157000,
         "legend": "outside",
         "custom_legend": [
           { "color": "black", "linestyle": "dashed", "label": "Intro Sort"},
