@@ -45,9 +45,15 @@ def map_function(function, colors, n):
 def map_sorting(sorting, path, colors, metadata):
     path = path.generator(sorting['generator']).algorithm(sorting['algorithm'])
     df = pd.read_csv(path.get_path(), names=['n', 'comparisons', 'swaps', 'assigns', 'time', 'cost', 'factor'])
+
+    # noise
+    y = np.array(df[metadata.ycolumn])
+    # max = 0.01 * np.max(y)
+    # noise = np.random.uniform(low=-max, high=max, size=len(y,))
+    # y = y + noise
     return Line(
         [0] + list(df[metadata.xcolumn]),
-        [0] + list(df[metadata.ycolumn]),
+        [0] + list(y),
         sorting.get('label', ''),
         colors.next_color() if sorting.get('color') is None else colors.get_color(sorting.get('color')),
         sorting.get('linestyle', 'solid')

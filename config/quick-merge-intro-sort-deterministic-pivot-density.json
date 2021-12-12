@@ -1,0 +1,99 @@
+{
+  "title": "",
+  "output": "quick-merge-intro-sort-deterministic-pivot-density",
+  "prefix": "test34",
+  "grid": "(1, 2)",
+  "size": "(8, 3.5)",
+  "invariants": {
+    "range": {
+      "begin": 100,
+      "end": 1000,
+      "step": 100
+    },
+    "repeats": 1000
+  },
+  "plots": [
+    {
+      "type": "density",
+      "metadata": {
+        "title": "a) dane losowe",
+        "xlabel": "rozmiar tablicy [n]",
+        "ylabel": "liczba operacji [n]",
+        "xcolumn": "n",
+        "ycolumn": "cost",
+        "legend": "inside"
+      },
+      "functions": [
+      ],
+      "sortings": [
+        {
+          "algorithm": "quick_sort_median_of_three_pivot_selector",
+          "generator": "random",
+          "label": "Quick Sort"
+        },
+        {
+          "algorithm": "merge_sort",
+          "generator": "random",
+          "label": "Merge Sort"
+        },
+        {
+          "algorithm": "quick_merge_sort_median_of_three_pivot_selector",
+          "generator": "random",
+          "label": "QuickMerge Sort"
+        },
+        {
+          "algorithm": "quick_merge_intro_sort_median_of_three_pivot_selector",
+          "generator": "random",
+          "label": "QuickMergeIntro Sort"
+        },
+        {
+          "algorithm": "intro_sort_median_of_three_pivot_selector",
+          "generator": "random",
+          "label": "Intro Sort"
+        }
+      ]
+    },
+    {
+      "type": "density",
+      "metadata": {
+        "title": "b) dane uporządkowane",
+        "xlabel": "rozmiar tablicy [n]",
+        "ylabel": "liczba operacji [n]",
+        "xcolumn": "n",
+        "ycolumn": "cost",
+        "xmin": 0,
+        "xmax": 10000,
+        "legend": "inside"
+      },
+      "functions": [
+      ],
+      "sortings": [
+        {
+          "algorithm": "quick_sort_median_of_three_pivot_selector",
+          "generator": "sorted",
+          "label": "Quick Sort"
+        },
+        {
+          "algorithm": "merge_sort",
+          "generator": "sorted",
+          "label": "Merge Sort"
+        },
+        {
+          "algorithm": "quick_merge_sort_median_of_three_pivot_selector",
+          "generator": "sorted",
+          "label": "QuickMerge Sort"
+        },
+        {
+          "algorithm": "quick_merge_intro_sort_median_of_three_pivot_selector",
+          "generator": "sorted",
+          "label": "QuickMergeIntro Sort"
+        },
+        {
+          "algorithm": "intro_sort_median_of_three_pivot_selector",
+          "generator": "sorted",
+          "label": "Intro Sort"
+        }
+      ]
+    }
+  ]
+}
