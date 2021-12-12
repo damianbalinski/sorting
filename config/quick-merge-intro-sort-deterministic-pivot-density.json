@@ -1,5 +1,5 @@
 {
-  "title": "Histogram liczby operacji wykonanych przez\ndeterministyczne wersje algorytmu QuickMergeIntro Sort\nw porównaniu do algorytmów Intro Sort oraz QuickMerge Sort\ndla tablicy losowych danych rozmiaru n = 1000",
+  "title": "Histogram liczby operacji wykonanych przez\ndeterministyczne wersje algorytmu QuickMergeIntro Sort\nw porównaniu do algorytmów Intro Sort oraz\nQuickMerge Sort dla tablicy rozmiaru n = 1000",
   "output": "quick-merge-intro-sort-deterministic-pivot-density",
   "prefix": "test34",
   "grid": "(1, 2)",

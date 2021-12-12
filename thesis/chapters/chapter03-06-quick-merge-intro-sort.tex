@@ -16,11 +16,21 @@ GESTOSC
 - porownywano do najwyjadniejszych odpowiednikow Intro Sort oraz QuickMerge Sort. napisac jakie to odpowiedniki!
 - w przypadku danych losowych sa to Intro Sort oraz QuickMergeSort z partycjoinowaniem metodę Lomuto oraz wyborem piwota jako mediana z trzech ...
 
+GESTOSC ALL
+- w histogramie pominieto peracje przypisania, dla wiekszosci algorytmow jest ona zerowa a wiec nie wplywa na wydajnosc algorytmow
+
 \begin{figure}[]
 	\centering
 	\includesvg[inkscapelatex=false,width=1.0\columnwidth]{img/plot/quick-merge-intro-sort-deterministic-pivot-density.svg}
 	\caption[]{}
 	\label{fig:quick-merge-intro-sort-deterministic-pivot-density}
+\end{figure}
+
+\begin{figure}[]
+	\centering
+	\includesvg[inkscapelatex=false,width=1.0\columnwidth]{img/plot/quick-merge-intro-sort-deterministic-pivot-density-sorted.svg}
+	\caption[]{}
+	\label{fig:quick-merge-intro-sort-deterministic-pivot-density-sorted}
 \end{figure}
 
 \subsection{Analiza randomizowanych wersji algorytmu QuickMergeIntro Sort}
@@ -34,6 +44,13 @@ GESTOSC
 	\includesvg[inkscapelatex=false,width=1.0\columnwidth]{img/plot/quick-merge-intro-sort-nondeterministic-pivot-density.svg}
 	\caption[]{}
 	\label{fig:quick-merge-intro-sort-nondeterministic-pivot-density}
+\end{figure}
+
+\begin{figure}[]
+	\centering
+	\includesvg[inkscapelatex=false,width=1.0\columnwidth]{img/plot/quick-merge-intro-sort-nondeterministic-pivot-density-sorted.svg}
+	\caption[]{}
+	\label{fig:quick-merge-intro-sort-nondeterministic-pivot-density-sorted}
 \end{figure}
 
 \subsection{Wnioski}

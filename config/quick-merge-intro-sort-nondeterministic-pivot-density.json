@@ -1,5 +1,5 @@
 {
-  "title": "Histogram liczby operacji wykonanych przez\nrandomizowane wersje algorytmu QuickMergeIntro Sort\nw porównaniu do algorytmów Intro Sort oraz QuickMerge Sort\ndla tablicy losowych danych rozmiaru n = 1000",
+  "title": "Histogram liczby operacji wykonanych przez\nrandomizowane wersje algorytmu QuickMergeIntro Sort\nw porównaniu do algorytmów Intro Sort oraz\nQuickMerge Sort dla tablicy rozmiaru n = 1000",
   "output": "quick-merge-intro-sort-nondeterministic-pivot-density",
   "prefix": "test35",
   "grid": "(1, 2)",
@@ -75,7 +75,6 @@
           { "color": "black", "linestyle": "dashed", "label": "Intro Sort"},
           { "color": "black", "linestyle": "dotted", "label": "QuickMerge Sort"},
           { "color": "black", "linestyle": "solid", "label": "QuickMergeIntro Sort"},
-
           { "color": "red", "linestyle": "solid", "label": "losowy element element"},
           { "color": "blue", "linestyle": "solid", "label": "mediana z trzech wyborów"},
           { "color": "orange", "linestyle": "solid", "label": "pseudo-mediana\nz dziewięciu wyborów"}
