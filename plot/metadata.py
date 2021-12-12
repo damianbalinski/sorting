@@ -15,4 +15,5 @@ class Metadata:
         self.ymax = json.get('ymax')
         self.xmin = json.get('xmin', 0)
         self.xmax = json.get('xmax', n)
+        self.ticklabel_format = json.get('ticklabel_format', 'scientific')
         self.n = n

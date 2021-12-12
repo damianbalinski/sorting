@@ -8,8 +8,9 @@ class Plotter:
         ax.set(
             title=metadata.title,
             xlabel=metadata.xlabel,
-            ylabel=metadata.ylabel
+            ylabel=metadata.ylabel,
         )
+        ax.ticklabel_format(style=metadata.ticklabel_format)
 
     def legend(self, ax, metadata):
         handles = self.legend_handles(ax, metadata)
