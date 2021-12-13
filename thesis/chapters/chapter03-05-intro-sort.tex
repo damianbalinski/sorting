@@ -105,9 +105,10 @@ Do analizy histogramu liczby wykonanych operacji (\ref{fig:intro-sort-nondetermi
 \end{figure}
 
 \subsection{Wnioski}
-TODO wnioski
-% Rozwiazuje problem pesymistycznej zlozonosci obliczeniowej dla klasycznego Quick Sort.
-% - Dla losowych danych wejściowych, zarówno Quick Sort jak i Intro Sort działają ze złożonością czasową $O(n\log{n})$, jednak Intro sort jest wydajniejszy,
-% - Dla uporządkowanych danych wejściowych, algorytm Quick Sort może mieć kwadratową złożoność czasową $O(n^2)$. Problem ten rozwiązuje algorytm Intro Sort, dla którego złożoność czasowa jest rzędu $O(n\log{n})$, niezależnie od porządku wdanych wejściowych.
-% - Intro Sort jest lepszy od Quick Sort zarówno dla losowych, jak i uporządkowanych danych wejściowych.
-% - Intro Sort rozwiazuje problem z przypadkiem pesymistycznym dla Quick Sorta, działa maksymalnie ze złożonością $O(n\log{n})$.
+Algorytm Intro Sort wprowadza dwie główne optymalizacje do klasycznego podejścia Quick Sort. Pierwszą z nich jest zastosowanie nierekurencyjnego algorytmu do sortowania małych kolekcji. Przygotowując kolekcję przed wywołaniem rekurencyjnym, algorytmy wykonują dodatkowe operacje, które w przypadku małych tablic okazują się niepotrzebnym nakładem obliczeniowym. Eksperymentalnie wyznaczono, że dla listy posiadającej co najwyżej $19$ elementów, najwydajniejszym algorytmem sortującym jest klasyczny Insertion Sort.\\
+
+Kolejną optymalizacją jest ograniczenie liczby wywołań rekurencyjnych. Po osiągnięciu maksymalnej głębokości drzewa wywołań, algorytm Quick Sort zostaje zamieniony na Heap Sort. Dzięki temu podejściu udało się zredukować pesymistyczną złożoność obliczeniową do wartości $O(n\log{n})$, rozwiązując tym samym problem kwadratowej złożoności obliczeniowej dla uporządkowanych danych wejściowych.\\
+
+Przeprowadzona analiza sugeruje, że dla danych typu podstawowego każdy z wariantów algorytmu Intro Sort jest wydajniejszy od swojego odpowiednika Quick Sort, niezależnie od porządku danych wejściowych. Najwydajniejszym randomizowanym wariantem jest połączenie algorytmu Intro Sort z partycjonowaniem metodą Hoare oraz wyborem piwota jako pseudo-mediana z dziewięciu losowych elementów, przy czym druga z przedstawionych strategii osiąga mniejsze odchylenie standardowe liczby wykonanych operacji.\\
+
+Najwydajniejszym deterministycznym algorytmem jest połączenie Intro Sort z partycjonowaniem metodą Hoare oraz wyborem piwota jako pseudo-mediana z dziewięciu elementów. Co więcej, strategia ta jest najwydajniejszą spośród algorytmów z rodziny Intro Sort. Z tego powodu wariant ten jest sugerowanym algorytmem sortującym tablicę danych typu podstawowego.\\
