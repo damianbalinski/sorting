@@ -66,8 +66,10 @@ TODO: opis diagramu
 \end{figure}
 
 \subsection{Diagram aktywności}
-TODO: opis diagramu
-% na wejściu przyjmuje konfigurację, w oparciu o konfigurację wywołuje testy i zapisuje do pliku
+W każdym z modułów systemu można wyróżnić dwa główne procesy - przygotowanie konfiguracji oraz testowanie. 
+W silniku testującym proces przygotowania konfiguracji polega na mapowaniu pliku konfiguracyjnego w formacie json do postaci obiektów testów jednostkowych. Ważnym krokiem jest usuwanie duplikatów, dzięki czemu program nie wykonuje redundantnych operacji. Następnie silnik testujący przechodzi do fazy testowania. Dla każdego z testów jednostkowych generowane są dane testowe, a następnie uruchamiany jest testowany algorytm. W trakcie trwania algorytmu zliczane są liczby poszczególnych operacji. Po zakończonym teście wyniki są utrwalane w zewnętrznym dokumencie tekstowym.\\
+
+W silniku graficznym proces przygotowania konfiguracji również polega na sparsowaniu pliku konfiguracyjnego w formacie json. W tym przypadku parametry konfiguracyjne określają ułożenie poszczególnych wykresów na planszy. W fazie testowania silnik graficzny grupuje pojedyncze testy do postaci wykresów. Dla każdego z testów odczytywane są dane, utrwalone wcześniej w pliku tekstowym. Wczytane wyniki są nakładane na odpowiedni wykres. Po wyczerpaniu puli testów dla pojedynczego wykresu, gotowy wykres jest dodawany do planszy zgodnie z pozycją w pliku konfiguracyjnym. Cały proces jest powtarzany do momentu wyczerpania puli wykresów.\\
 
 \begin{figure}[H]
 	\centering
