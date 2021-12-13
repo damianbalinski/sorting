@@ -6,11 +6,11 @@
 		\Procedure{QuickMergeIntroSort(arr, depth)}{}
 		
 		\State
-		\If {$\FUNC{len}{\VAR{arr}} \leq \VAR{maxLength}$} \Comment{sortowanie przez wstawianie} \label{line:insertion-sort}
+		\If {$\FUNC{len}{\VAR{arr}} \leq \VAR{maxLength}$} \Comment{sortowanie przez wstawianie} \label{line:qmi-insertion-sort}
 		\State $\CALL{InsertionSort}{\VAR{arr}}$
 		
 		\State
-		\ElsIf {$\VAR{depth} = 0$} \Comment{sortowanie przez kopcowanie} \label{line:heap-sort}
+		\ElsIf {$\VAR{depth} = 0$} \Comment{sortowanie przez kopcowanie} \label{line:qmi-heap-sort}
 		\State $\CALL{HeapSort}{\VAR{arr}}$
 		
 		\State
@@ -21,11 +21,11 @@
 		\If {$\FUNC{len}{\VAR{arr}_1} < \FUNC{len}{\VAR{arr}_2}$} \Comment{sortowanie}
 		\State $\VAR{buffer} \gets \VAR{arr}_2$
 		\State $\CALL{MergeSortBySwaps}{\VAR{arr}_1, \VAR{buffer}}$
-		\State $\CALL{QuickMergeIntroSort}{\VAR{arr}_2}$
+		\State $\CALL{QuickMergeIntroSort}{\VAR{arr}_2, \VAR{depth-1}}$
 		\Else
 		\State $\VAR{buffer} \gets \VAR{arr}_1$
 		\State $\CALL{MergeSortBySwaps}{\VAR{arr}_2, \VAR{buffer}}$
-		\State $\CALL{QuickMergeIntroSort}{\VAR{arr}_1}$
+		\State $\CALL{QuickMergeIntroSort}{\VAR{arr}_1, \VAR{depth-1}}$
 		\EndIf
 		\EndIf
 		

@@ -1,23 +1,30 @@
 \newpage
 \section{QuickMergeIntro Sort}
-- w poprzednich rozdziałach omówione zostały algorytmy QuickMerge Sort oraz Intro Sort, które optymalizują.
-W tym rozdziale podjęto próbę połączenia tych algorytmów, tworząc algorytm QuickMergeIntro Sort. Celem tego połączenia jest optymalizacja algorytmu dla przypadku pesymistycznego w klasycznym Quick Sort
-- proba polaczenia intro sort z algorytmem quickMerge sort
-- stosowanie merge sort ma sens tylko dla zlozonych struktur danych, dlatego wszystkie testy zaklasaja ze $\alpha \geq 10.0$. stosowano tylko partycjonowanie metodą Lomuto, które lepiej sobie radzi dla zlozonych struktur danych.
-- biorąc pod uwagę porzednie testy, w badaniach zrezygnowano ze strategii wyboru piwota jako mediana-median, dla których wyniki w porzednich testach były niesatysfakcjonujace
+W poprzednich rozdziałach omówione zostały algorytmy Intro Sort oraz QuickMerge Sort. Algorytm Intro Sort rozwiązuje problem pesymistycznej złożoności obliczeniowej obecny w klasycznym algorytmie Quick Sort. Z kolei algorytm QuickMerge Sort optymalizuje liczbę wykonywanych operacji porównania, przez co jest niezwykle wydajny podczas sortowania złożonych typów danych. W tym rozdziale podjęto próbę połączenia tych dwóch technik, tworząc algorytm QuickMergeIntro Sort.\\
+
+Algorytm QuickMergeIntro Sort, tak jak algorytm Intro Sort, zmienia swoje działanie w zależności od czynników zewnętrznych. Jeśli rozmiar tablicy jest mniejszy od punktu granicznego, tablica jest sortowana metodą Insertion Sort. Jeśli przekroczono maksymalną głębokość drzewa wywołań rekurencyjnych, tablica jest sortowana algorytmem Heap Sort. W przeciwnym wypadku, jeśli żaden w powyższych warunków nie zachodzi, stosowane jest podejście znane z algorytmu QuickMerge Sort. Algorytm partycjonujący dzieli tablicę wejściową na dwie części, z których mniejsza jest sortowana metodą Merge Sort, zaś pozostała jest sortowana rekurencyjnie algorytmem QuickMergeIntro Sort.\\
+
+Ponieważ stosowanie algorytmu QuickMerge Sort przynosi realne korzyści podczas sortowania złożonych struktur danych, w testach założono, że współczynnik kosztu ma wartość $\alpha = 10.0$. Przeprowadzane wcześniej testy sugerują, że dla złożonych struktur danych partycjonowanie metodą Lomuto osiąga lepsze rezultaty niż partycjonowanie metodą Hoare. Z tego powodu w analizie uwzględniono tylko pierwszą z przedstawionych metod. Dodatkowo w analizie zrezygnowano ze strategii wyboru piwota jako mediana-median, które dla poprzednich testów okazały się niewydajne, powodując dodatkowy nakład obliczeniowy.\\
 
 \subsection{Pseudokod}
+
+Podobnie jak w przypadku algorytmu Intro Sort, algorytm QuickMergeIntro Sort można podzielić na trzy rozłączne etapy. Wybór etapu uzależniony jest od wielkości tablicy wejściowej oraz głębokości drzewa wywołań rekurencyjnych. Dla tablicy o rozmiarze nieprzekraczającym punktu granicznego, dane są sortowane algorytmem Insertion Sort (linia \ref{line:qmi-insertion-sort}). Dla tablicy rozmiaru powyżej punktu granicznego, w przypadku gdy przekroczono maksymalną głębokość drzewa wywołań rekurencyjnych, stosowany jest algorytm Heap Sort (linia \ref{line:qmi-heap-sort}). Jeśli żaden z powyższych przypadków nie zachodzi, stosowane jest podejście znane z algorytmu QuickMerge Sort (linia \ref{line:quick-merge-intro-sort}). Tablica wejściowa jest partycjonowana, zaś krótsza z partycji jest sortowana metodą Merge Sort. Tak jak w przypadku algorytmu QuickMerge Sort, bufor służącym do scalania tablicy wynikowej stanowi druga partycja. Na koniec druga partycja zostaje posortowana algorytmem QuickMergeIntro Sort, przy czym każdemu rekurencyjnemu wywołaniu towarzyszy dekrementacja głębokości drzewa.\\
 
 \input{chapters/pseudocodes/quick-merge-intro-sort}
 
 \subsection{Analiza deterministycznych wersji algorytmu QuickMergeIntro Sort}
+Analizując wydajność deterministycznych algorytmów z rodziny Intro Sort, badano liczbę wykonywanych operacji atomowych z podziałem na operacje porównania, zamiany miejsc oraz przypisania. W testach przyjęto stałą wartość współczynnika kosztu równą $\alpha = 10.0$.\\
 
-GESTOSC
-- porownywano do najwyjadniejszych odpowiednikow Intro Sort oraz QuickMerge Sort. napisac jakie to odpowiedniki!
-- w przypadku danych losowych sa to Intro Sort oraz QuickMergeSort z partycjoinowaniem metodę Lomuto oraz wyborem piwota jako mediana z trzech ...
+Badając liczbę wykonanych operacji dla losowych danych wejściowych (\ref{fig:quick-merge-intro-sort-deterministic-pivot-random-sorted}), wykorzystano partycjonowanie metodą Lomuto.
+Połączenie algorytmu QuickMergeIntro Sort z wyborem piwota jako mediana z trzech lub pseudo-mediana z dziewięciu elementów, osiąga podobne rezultaty co zastosowanie algorytmu QuickMerge Sort. Algorytm QuickMergeIntro Sort dla złożonych struktur wejściowych jest wydajniejszy od algorytmu Intro Sort.\\
 
-GESTOSC ALL
-- w histogramie pominieto peracje przypisania, dla wiekszosci algorytmow jest ona zerowa a wiec nie wplywa na wydajnosc algorytmow
+Analizując liczbę wykonanych operacji dla uporządkowanych danych wejściowych (\ref{fig:quick-merge-intro-sort-deterministic-pivot-random-sorted}), również wykorzystano partycjonowanie metodą Lomuto. Tak jak w przypadku losowych danych, połączenie algorytmu QuickMergeIntro Sort z wyborem piwota jako mediana z trzech lub pseudo-mediana z dziewięciu elementów, prowadzi do zbliżonych rezultatów co zastosowanie algorytmu QuickMerge Sort. W tym przypadku zastosowanie strategii wyboru piwota jako ostatni element tablicy powoduje drastyczny wzrost złożoności obliczeniowej.\\
+
+Badając średnią liczbę wykonanych operacji dla losowych danych wejściowych (\ref{fig:quick-merge-intro-sort-deterministic-pivot-density}), porównywano różne wersje algorytmu QuickMergeIntro Sort z algorytmami QuickMerge Sort oraz Intro Sort. W przypadku dwóch ostatnich, zastosowano wybór piwota jako pseudo-mediana z dziewięciu elementów. Analiza eksperymentalna sugeruje, że dla złożonych danych wejściowych, połączenie algorytmu QuickMergeIntro Sort z partycjonowaniem metodą Lomuto oraz wyborem piwota jako pseudo-mediana z dziewięciu elementów jest nieznacznie wydajniejsze od algorytmu QuickMerge Sort oraz sporo wydajniejsze od swojeg odpowiednika Intro Sort.\\ 
+
+Analizując średnią liczbę wykonanych operacji dla uporządkowanych danych wejściowych (\ref{fig:quick-merge-intro-sort-deterministic-pivot-density}), również porównywano wariacje algorytmu QuickMergeIntro Sort z algorytmami QuickMerge Sort oraz Intro Sort. Dla algorytmów QuickMerge Sort oraz Intro Sort zastosowano wybór piwota jako mediana z trzech elementów. Analiza eksperymentalna sugeruje, że podczas sortowania uporządkowanych danych wejściowych, połączenie algorytmu QuickMergeIntro Sort z partycjonowaniem metodą Lomuto oraz wyborem piwota jako mediana z trzech elementów jest wydajniejsze zarówno od algorytmów QuickMerge Sort oraz Intro Sort.\\
+
+Badając średnią liczbę wykonanych operacji (\ref{fig:quick-merge-intro-sort-deterministic-pivot-density-sorted}), z rozbiciem na poszczególne operacje, pominięto operacje przypisania, która w większości badanych przypadków była zerowa.  Można zauważyć, że połączenie algorytmu QuickMergeIntro Sort z partycjonowaniem metodą Lomuto oraz wyborem piwota jako pseudo-mediana z dziewięciu elementów, wykonuje nieznacznie mniejszą liczbę operacji porównania od swojego odpowiednika QuickMerge Sort. Wszystkie badane wersje algorytmu QuickMergeIntro Sort wykonywały zbliżoną liczbę operacji zamiany miejsc, jednak najmniejsze odchylenie standardowe zaobserwowano dla algorytmu Intro Sort.\\
 
 \begin{figure}[]
 	\centering
@@ -43,8 +50,8 @@ GESTOSC ALL
 \subsection{Analiza randomizowanych wersji algorytmu QuickMergeIntro Sort}
 
 GESTOSC
-- porownywano do najwyjadniejszych odpowiednikow Intro Sort oraz QuickMerge Sort. napisac jakie to odpowiedniki!
-- w przypadku danych losowych sa to Intro Sort oraz QuickMergeSort z partycjoinowaniem metodę Lomuto oraz wyborem piwota jako mediana z trzech losowych elementow talbvcy 
+- TODO porownywano do najwyjadniejszych odpowiednikow Intro Sort oraz QuickMerge Sort. napisac jakie to odpowiedniki!
+- TODO w przypadku danych losowych sa to Intro Sort oraz QuickMergeSort z partycjoinowaniem metodę Lomuto oraz wyborem piwota jako mediana z trzech losowych elementow talbvcy 
 
 \begin{figure}[]
 	\centering
@@ -68,4 +75,5 @@ GESTOSC
 \end{figure}
 
 \subsection{Wnioski}
-- bardzo podobny do QuickMerge Sort, gorszy dla losowych danych, lepszy dla uporzadkowanych danych, dlatego bedzie preferowanym algorytmem dzialajacym w miejscu
+- TODO QuickMergeIntro Sort najwydajniejsze dla deterministycznych (Strategia ta jest najwydajniejsza spośród badanych algorytmów.)
+- TODO bardzo podobny do QuickMerge Sort, gorszy dla losowych danych, lepszy dla uporzadkowanych danych, dlatego bedzie preferowanym algorytmem dzialajacym w miejscu
