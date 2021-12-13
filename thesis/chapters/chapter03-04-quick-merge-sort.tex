@@ -81,12 +81,9 @@ Do analizy histogramu liczby wykonanych operacji (\ref{fig:quick-merge-sort-nond
 \end{figure}
 
 \subsection{Wnioski}
-TODO wnioski
-% QuickMerge Sort optymalizuje liczbe wykonywanych operacji porownania, jednczesnie dziala w miejscu.
-%Z analizy porównawczej wynika, że dla struktór alfa > 7.0 QuickMerge Sort jest wydajniejsze niż Quick Sort.
+Stosowanie algorytmu QuickMerge Sort wiąże się z dodatkowym nakładem obliczeniowym, który wynika z konieczności zachowania elementów bufora w trakcie procesu scalania. Aby zapobiec nadpisywaniu elementów, zamiast klasycznego przypisania, wykorzystywana jest operacja zamiany miejsc, która jest ok. trzykrotnie kosztowniejsza od operacji przypisania. Z tego powodu, algorytm QuickMerge Sort wykonuje więcej operacji zamiany miejsc niż algorytm Quick Sort,
+jednak dzięki temu optymalizuje on liczbę wykonywanych operacji porównania oraz działa w miejscu, nie powodując dodatkowych kosztów związanych z alokacją oraz zwalnianiem pamięci.\\
 
-%Z przeprowadzonej analizy wynika, że dla złożonych struktor wejściowych, stosowanie algorytmu QuickMerge Sort jest wydajniejsze od klasycznego podejścia Quick Sort. Najwydajniejszym z badanych algorytmów jest ...
+Prowadzi to do wniosku, że algorytm ten przynosi realne korzyści podczas sortowania złożonych struktur danych, dla których koszt pojedynczej operacji porównania może być wielokrotnie większy od kosztu operacji przypisania. Eksperymentalnie wyznaczono, że dla struktur o współczynniku kosztu większym niż $\alpha > 6.0$, niektóre warianty algorytmu QuickMerge Sort są wydajniejsze od klasycznego podejścia Quick Sort.\\
 
-%Analiza algorytmow deterministycznych - najblizej asymptoteycznie do merge sort jest lomuto z pseudo-mediana z dziewieciu
-
-%że dla dowolnych randomizowanych strategii wyboru piwota, partycjonowanie metodą Hoare wykonuje większą liczbę operacji porównania oraz mniejszą liczbę operacji zamiany miejsc. Tak jak w przypadku algorytmów deterministycznych, czynnik ten może okazać się istotny w przypadku sortowania złożonych struktur.\\
+Przeprowadzona analiza sugeruje, że dla złożonych struktur danych, najwydajniejszą deterministyczną strategią sortowania jest połączenie algorytmu QuickMerge Sort z partycjonowaniem metodą Lomuto oraz wyborem piwota jako pseudo-mediana z dziewięciu elementów. Pod względem liczby wykonywanych operacji, wariant ten jest asymptotycznie najbliższy klasycznemu podejściu Merge Sort, jednak dodatkowo działa on w miejscu. Spośród badanych algorytmów, najwydajniejszym randomizowanym wariantem okazało się połączenie algorytmu QuickMerge Sort z partycjonowaniem metodą Lomuto oraz wyborem piwota jako pseudo-mediana z dziewięciu losowych elementów.\\
