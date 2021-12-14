@@ -1,6 +1,6 @@
 \chapter{Podsumowanie}
 \thispagestyle{chapterBeginStyle}
-W trakcie analizy eksperymentalnie badano hybrydowe algorytmy sortujące w miejscu, z wykorzystaniem różnych metod partycjonowania oraz deterministycznych i randomizowanych strategii wyboru piwota. Przeprowadzone eksperymenty można podzielić na cztery kategorie, w zależności od danych wejściowych:
+W trakcie analizy, eksperymentalnie badano hybrydowe algorytmy sortujące w miejscu, z wykorzystaniem różnych metod partycjonowania oraz deterministycznych i randomizowanych strategii wyboru piwota. Przeprowadzone eksperymenty można podzielić na cztery kategorie, w zależności od danych wejściowych:
 
 \begin{itemize}
 	\setlength\itemsep{0em}
@@ -13,6 +13,7 @@ W każdej z powyższych kategorii wyłoniony został kandydat na najbardziej wyd
 
 \newpage
 \section{Losowe dane typu podstawowego}
+Przeprowadzona analiza sugeruje, że najwydajniejszym algorytmem sortującym losowe dane typu podstawowego jest połączenie algorytmu Intro Sort z partycjonowaniem metodą Hoare oraz wyborem piwota jako pseudo-mediana z dziewięciu elementów, przy czym wersja randomizowana wykonuje zbliżoną liczbę operacji.\\
 
 \begin{figure}[H]
 	\centering
@@ -31,6 +32,7 @@ W każdej z powyższych kategorii wyłoniony został kandydat na najbardziej wyd
 
 \newpage
 \section{Uporządkowane dane typu podstawowego}
+Analiza eksperymentalna sugeruje, że najwydajniejszym spośród badanych algorytmów, sortującym uporządkowane dane typu podstawowego, jest połączenie algorytmu Intro Sort z partycjonowaniem metodą Hoare oraz wyborem piwota jako pseudo-mediana z dziewięciu elementów tablicy.\\
 
 \begin{figure}[H]
 	\centering
@@ -49,6 +51,7 @@ W każdej z powyższych kategorii wyłoniony został kandydat na najbardziej wyd
 
 \newpage
 \section{Losowe dane typu złożonego}
+Przeprowadzona analiza sugeruje, że najwydajniejszym algorytmem sortującym losowe dane typu złożonego jest połączenie algorytmu QuickMergeIntro Sort z partycjonowaniem metodą Lomuto oraz wyborem piwota jako pseudo-mediana z dziewięciu losowych elementów. W tym przypadku zastosowanie odpowiednika w postaci QuickMerge Sort prowadzi do podobnych rezultatów.\\
 
 \begin{figure}[H]
 	\centering
@@ -67,6 +70,7 @@ W każdej z powyższych kategorii wyłoniony został kandydat na najbardziej wyd
 
 \newpage
 \section{Uporządkowane dane typu złożonego}
+Analiza eksperymentalna sugeruje, że najwydajniejszym spośród badanych algorytmów, sortującym uporządkowane dane typu złożonego, jest połączenie algorytmu QuickMergeIntro Sort z partycjonowaniem metodą Lomuto oraz wyborem piwota jako mediana z trzech elementów.\\
 
 \begin{figure}[H]
 	\centering
@@ -82,11 +86,3 @@ W każdej z powyższych kategorii wyłoniony został kandydat na najbardziej wyd
 			\item \BOLD{QuickMergeIntro Sort B} - Lomuto, pseudo-mediana z dziewięciu wyborów
 	\end{itemize}}
 \end{figure}
-
-- dane losowe, typ podstawowy
-Intro Sort, Hoare partition, pseudo-mediana z dziewięciu -> podobna wartość oczekiwana liczby wykonanych operacji do Intro Sort, Hoare partition, mediana z trzech, jednak dla psaeudo-mediany z dziewieciu jest mniejsze odchylenie standardowe
-
-- dane losowe, typ złożony
-
-- dane uporządkowane, typ podstawowy
-- dane uporządkowane, typ złożony

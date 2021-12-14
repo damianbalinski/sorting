@@ -84,6 +84,8 @@ const sorting* sorting_mapper::allocate(const std::string& str)
 	if (str == "quick_merge_sort_median_of_three_choices_pivot_selector") return new quick_merge_sort{new lomuto_partition{new median_of_three_choices_pivot_selector{}}};
 	if (str == "quick_merge_sort_pseudo_median_of_nine_choices_pivot_selector") return new quick_merge_sort{new lomuto_partition{new pseudo_median_of_nine_choices_pivot_selector{}}};
 	if (str == "quick_merge_sort_hoare_partition") return new quick_merge_sort{new hoare_partition{new simple_pivot_selector{}}};
+	if (str == "quick_merge_sort_hoare_partition_pseudo_median_of_nine_pivot_selector") return new quick_merge_sort{ new hoare_partition{ new pseudo_median_of_nine_pivot_selector{}}};
+	if (str == "quick_merge_sort_hoare_partition_pseudo_median_of_nine_choices_pivot_selector") return new quick_merge_sort{ new hoare_partition{ new pseudo_median_of_nine_choices_pivot_selector{}}};
 
 	// MIXED INTRO SORT
 	if (str == "intro_sort_middle_pivot_selector") return new intro_sort{new lomuto_partition{new middle_pivot_selector{}}};
@@ -104,7 +106,13 @@ const sorting* sorting_mapper::allocate(const std::string& str)
 	if (str == "intro_sort_hoare_partition_pseudo_median_of_nine_choices_pivot_selector") return new intro_sort{new hoare_partition{new pseudo_median_of_nine_choices_pivot_selector{}}};
 
 	// MIXED QUICK MERGE INTRO SORT
+	if (str == "quick_merge_intro_sort_median_of_three_pivot_selector") return new quick_merge_intro_sort{new lomuto_partition{ new median_of_three_pivot_selector{}}};
 	if (str == "quick_merge_intro_sort_pseudo_median_of_nine_pivot_selector") return new quick_merge_intro_sort{new lomuto_partition{new pseudo_median_of_nine_pivot_selector}};
+	if (str == "quick_merge_intro_sort_median_of_medians_of_five_pivot_selector") return new quick_merge_intro_sort{new lomuto_partition{ new median_of_medians_of_five_pivot_selector}};
+	if (str == "quick_merge_intro_sort_median_of_medians_of_three_pivot_selector") return new quick_merge_intro_sort{ new lomuto_partition{ new median_of_medians_of_three_pivot_selector{}}};
+	if (str == "quick_merge_intro_sort_random_pivot_selector") return new quick_merge_intro_sort{ new lomuto_partition{ new random_pivot_selector{}}};
+	if (str == "quick_merge_intro_sort_median_of_three_choices_pivot_selector") return new quick_merge_intro_sort{ new lomuto_partition{ new median_of_three_choices_pivot_selector{}}};
+	if (str == "quick_merge_intro_sort_pseudo_median_of_nine_choices_pivot_selector") return new quick_merge_intro_sort{ new lomuto_partition{new pseudo_median_of_nine_choices_pivot_selector}};
 
 	fail("Unrecognized sorting algorithm", str);
 }
