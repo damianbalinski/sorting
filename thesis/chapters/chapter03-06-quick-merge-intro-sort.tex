@@ -81,6 +81,8 @@ Badając średnią liczbę wykonanych operacji z rozbiciem na poszczególne oper
 \end{figure}
 
 \subsection{Wnioski}
-Ponieważ zarówno algorytm QuickMerge Sort optymalizuje liczbę wykonywanych operacji porównania, zaś algorytm Intro Sort minimalizuje łączną liczbę operacji, spodziewano się że połączenie tych dwóch algorytmów zwiększy wydajność, szczególnie podczas sortowania złożonych struktur danych.
-- TODO QuickMergeIntro Sort najwydajniejsze dla deterministycznych (Strategia ta jest najwydajniejsza spośród badanych algorytmów.)
-- TODO bardzo podobny do QuickMerge Sort, gorszy dla losowych danych, lepszy dla uporzadkowanych danych, dlatego bedzie preferowanym algorytmem dzialajacym w miejscu
+Ponieważ algorytm QuickMerge Sort minimalizuje liczbę wykonywanych operacji porównania, zaś algorytm Intro Sort optymalizuje łączną liczbę operacji, spodziewano się że połączenie tych dwóch algorytmów doprowadzi do jeszcze większego wzrostu wydajności, szczególnie podczas sortowania złożonych struktur danych.\\
+
+Przeprowadzona analiza eksperymentalna sugeruje, że istnieją warianty algorytmu QuickMerge Sort, które są wydajniejsze zarówno od QuickMerge Sort, jak i Intro Sort. Dla złożonych danych wejściowych w losowej kolejności, najwydajniejszym algorytmem sortującym jest randomizowana wersja algorytmu QuickMergeIntro Sort z partycjonowaniem metodą Lomuto oraz wyborem piwota jako pseudo-mediana z dziewięciu losowych elementów.\\
+
+Sortując uporządkowany ciąg złożonych struktur, najwydajniejszą spośród badanych strategii jest połączenie deterministycznego algorytmu QuickMergeIntro Sort z partycjonowaniem metodą Lomuto oraz wyborem piwota jako mediana z trzech elementów. Ponieważ przedstawione strategie osiągają wyniki lepsze niż algorytm QuickMerge Sort, metody te są sugerowanym podejściem podczas sortowania tablicy złożonych danych wejściowych.\\ 
