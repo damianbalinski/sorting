@@ -1,0 +1,62 @@
+{
+  "title": "Łączna liczba operacji wykonanych przez algorytmy\nsortujące w miejscu dla tablicy losowych danych\ntypu podstawowego",
+  "output": "best-sorting-random-simple-data",
+  "prefix": "test40",
+  "grid": "(1, 1)",
+  "size": "(5.2, 3.8)",
+  "invariants": {
+    "range": {
+      "begin": 100,
+      "end": 1000,
+      "step": 100
+    },
+    "repeats": 100
+  },
+  "plots": [
+    {
+      "type": "average",
+      "metadata": {
+        "title": "",
+        "xlabel": "rozmiar tablicy [n]",
+        "ylabel": "liczba operacji [n]",
+        "xcolumn": "n",
+        "ycolumn": "cost",
+        "legend": "outside"
+      },
+      "functions": [
+      ],
+      "sortings": [
+        {
+          "algorithm": "intro_sort_hoare_partition_pseudo_median_of_nine_pivot_selector",
+          "generator": "random",
+          "label": "Intro Sort A"
+        },
+        {
+          "algorithm": "intro_sort_hoare_partition_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "random",
+          "label": "Intro Sort B"
+        },
+        {
+          "algorithm": "quick_merge_sort_hoare_partition_pseudo_median_of_nine_pivot_selector",
+          "generator": "random",
+          "label": "QuickMerge Sort A"
+        },
+        {
+          "algorithm": "quick_merge_sort_hoare_partition_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "random",
+          "label": "QuickMerge Sort B"
+        },
+        {
+          "algorithm": "quick_sort_hoare_partition_median_of_three_pivot_selector",
+          "generator": "random",
+          "label": "Quick Sort A"
+        },
+        {
+          "algorithm": "quick_sort_hoare_partition_random_pivot_selector",
+          "generator": "random",
+          "label": "Quick Sort B"
+        }
+      ]
+    }
+  ]
+}

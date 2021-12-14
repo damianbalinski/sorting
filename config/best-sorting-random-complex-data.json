@@ -1,0 +1,62 @@
+{
+  "title": "Łączny koszt operacji wykonanych przez algorytmy\nsortujące w miejscu dla tablicy losowych danych\ntypu złożonego",
+  "output": "best-sorting-random-complex-data",
+  "prefix": "test42",
+  "grid": "(1, 1)",
+  "size": "(5.5, 3.8)",
+  "invariants": {
+    "range": {
+      "begin": 100,
+      "end": 1000,
+      "step": 100
+    },
+    "repeats": 100
+  },
+  "plots": [
+    {
+      "type": "average",
+      "metadata": {
+        "title": "",
+        "xlabel": "rozmiar tablicy [n]",
+        "ylabel": "koszt operacji [n]",
+        "xcolumn": "n",
+        "ycolumn": "cost",
+        "legend": "outside"
+      },
+      "functions": [
+      ],
+      "sortings": [
+                {
+          "algorithm": "intro_sort_pseudo_median_of_nine_pivot_selector",
+          "generator": "random",
+          "label": "Intro Sort A"
+        },
+        {
+          "algorithm": "intro_sort_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "random",
+          "label": "Intro Sort B"
+        },
+        {
+          "algorithm": "quick_merge_sort_pseudo_median_of_nine_pivot_selector",
+          "generator": "random",
+          "label": "QuickMerge Sort A"
+        },
+        {
+          "algorithm": "quick_merge_sort_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "random",
+          "label": "QuickMerge Sort B"
+        },
+        {
+          "algorithm": "quick_merge_intro_sort_median_of_three_pivot_selector",
+          "generator": "random",
+          "label": "QuickMergeIntro Sort A"
+        },
+        {
+          "algorithm": "quick_merge_intro_sort_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "random",
+          "label": "QuickMergeIntro Sort B"
+        }
+      ]
+    }
+  ]
+}

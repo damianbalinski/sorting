@@ -1,10 +1,87 @@
 \chapter{Podsumowanie}
 \thispagestyle{chapterBeginStyle}
+W trakcie analizy eksperymentalnie badano hybrydowe algorytmy sortujące w miejscu, z wykorzystaniem różnych metod partycjonowania oraz deterministycznych i randomizowanych strategii wyboru piwota. Przeprowadzone eksperymenty można podzielić na cztery kategorie, w zależności od danych wejściowych:
 
-Badania były przeprowadzane z podziałem na 4 kategorie. W każdej kategorii został wyłoniony najbardziej optymalny z badanych algorytmów, czyli algorytm wykonujący najmniejszą liczbę operacji, z uwzględnieniem współczynnika kosztu.
-Podsumowanie najlepszych algorytmów działających w miejscu
-Podsumowanie wyników testowania algorytmów. Wnioski z analizy algorytmów hybrydowych.
-Wybrac najlepsze z badanych metod sortujacych z podziałem na 4 kategorie:
+\begin{itemize}
+	\setlength\itemsep{0em}
+	\item losowe dane typu podstawowego,
+	\item uporządkowane dane typu podstawowego,
+	\item losowe dane typu złożonego,
+	\item uporządkowane dane typu złożonego.
+\end{itemize}
+W każdej z powyższych kategorii wyłoniony został kandydat na najbardziej wydajny algorytm sortujący. Dokonując wyboru sugerowano się łączną liczbą oraz kosztem wykonywanych operacji, z uwzględnieniem wartości współczynnika kosztu.\\
+
+\newpage
+\section{Losowe dane typu podstawowego}
+
+\begin{figure}[H]
+	\centering
+	\captionsetup{singlelinecheck=off}
+	\includesvg[inkscapelatex=false,width=0.8\columnwidth]{img/plot/best-sorting-random-simple-data.svg}
+	\caption[]{
+		\begin{itemize}
+			\item \BOLD{Intro Sort A} - Hoare, pseudo-mediana z dziewięciu
+			\item \BOLD{Intro Sort B} - Hoare, pseudo-mediana z dziewięciu wyborów
+			\item \BOLD{QuickMerge Sort A} - Hoare, pseudo-mediana z dziewięciu
+			\item \BOLD{QuickMerge Sort B} - Hoare, pseudo-mediana z dziewięciu wyborów
+			\item \BOLD{Quick Sort A} - Hoare, mediana z trzech
+			\item \BOLD{Quick Sort B} - Hoare, losowy elementów
+	\end{itemize}}
+\end{figure}
+
+\newpage
+\section{Uporządkowane dane typu podstawowego}
+
+\begin{figure}[H]
+	\centering
+	\captionsetup{singlelinecheck=off}
+	\includesvg[inkscapelatex=false,width=0.8\columnwidth]{img/plot/best-sorting-sorted-simple-data.svg}
+	\caption[]{
+		\begin{itemize}
+			\item \BOLD{Intro Sort A} - Hoare, pseudo-mediana z dziewięciu
+			\item \BOLD{Intro Sort B} - Hoare, pseudo-mediana z dziewięciu wyborów
+			\item \BOLD{QuickMerge Sort A} - Hoare, pseudo-mediana z dziewięciu
+			\item \BOLD{QuickMerge Sort B} - Hoare, pseudo-mediana z dziewięciu wyborów
+			\item \BOLD{Quick Sort A} - Hoare, mediana z trzech
+			\item \BOLD{Quick Sort B} - Hoare, losowy elementów
+	\end{itemize}}
+\end{figure}
+
+\newpage
+\section{Losowe dane typu złożonego}
+
+\begin{figure}[H]
+	\centering
+	\captionsetup{singlelinecheck=off}
+	\includesvg[inkscapelatex=false,width=0.8\columnwidth]{img/plot/best-sorting-random-complex-data.svg}
+	\caption[]{
+		\begin{itemize}
+			\item \BOLD{Intro Sort A} - Lomuto, pseudo-mediana z dziewięciu
+			\item \BOLD{Intro Sort B} - Lomuto, pseudo-mediana z dziewięciu wyborów
+			\item \BOLD{QuickMerge Sort A} - Lomuto, pseudo-mediana z dziewięciu
+			\item \BOLD{QuickMerge Sort B} - Lomuto, pseudo-mediana z dziewięciu wyborów
+			\item \BOLD{QuickMergeIntro Sort A} - Lomuto, mediana z trzech
+			\item \BOLD{QuickMergeIntro Sort B} - Lomuto, pseudo-mediana z dziewięciu wyborów
+	\end{itemize}}
+\end{figure}
+
+\newpage
+\section{Uporządkowane dane typu złożonego}
+
+\begin{figure}[H]
+	\centering
+	\captionsetup{singlelinecheck=off}
+	\includesvg[inkscapelatex=false,width=0.8\columnwidth]{img/plot/best-sorting-sorted-complex-data.svg}
+	\caption[]{
+		\begin{itemize}
+			\item \BOLD{Intro Sort A} - Lomuto, pseudo-mediana z dziewięciu
+			\item \BOLD{Intro Sort B} - Lomuto, pseudo-mediana z dziewięciu wyborów
+			\item \BOLD{QuickMerge Sort A} - Lomuto, pseudo-mediana z dziewięciu
+			\item \BOLD{QuickMerge Sort B} - Lomuto, pseudo-mediana z dziewięciu wyborów
+			\item \BOLD{QuickMergeIntro Sort A} - Lomuto, mediana z trzech
+			\item \BOLD{QuickMergeIntro Sort B} - Lomuto, pseudo-mediana z dziewięciu wyborów
+	\end{itemize}}
+\end{figure}
 
 - dane losowe, typ podstawowy
 Intro Sort, Hoare partition, pseudo-mediana z dziewięciu -> podobna wartość oczekiwana liczby wykonanych operacji do Intro Sort, Hoare partition, mediana z trzech, jednak dla psaeudo-mediany z dziewieciu jest mniejsze odchylenie standardowe
@@ -13,5 +90,3 @@ Intro Sort, Hoare partition, pseudo-mediana z dziewięciu -> podobna wartość o
 
 - dane uporządkowane, typ podstawowy
 - dane uporządkowane, typ złożony
-
-Dodać wykres przedstawiający najlepsze algorytmy w każdej z kategorii, w porównaniu do klasycznych Quick Sort oraz merge sort.
