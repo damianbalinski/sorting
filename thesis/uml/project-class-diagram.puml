@@ -5,7 +5,7 @@ hide unit methods
 class unit {
 	executor
 	sorting
-	averager
+	generator
 }
 
 hide invariants members
@@ -22,9 +22,9 @@ interface sorting {
 	sort()
 }
 
-hide averager fields
-class averager {
-	average()
+hide generator fields
+class generator {
+	generate()
 }
 
 hide executor fields
@@ -97,7 +97,7 @@ hide count_assigner members
 engine o-- unit
 engine o-- invariants
 
-unit *-- averager
+unit *-- generator
 unit *-- executor
 unit *-- sorting
 
