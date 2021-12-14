@@ -56,22 +56,21 @@ nie mogą zmienić stanu aktualnie testowanego algorytmu. Gwarantuje to całkowi
 % rozbicie na wstrzykiwane komponenty
 
 \subsection{Diagram klas}
-TODO: opis diagramu
-% Model UML systemu
+Kluczowe komponenty silnika testującego (\ref{fig:uml-class}) zostały zamodelowane za pomocą obiektów. Każdy z algorytmów reprezentowany jest za pomocą interfejsu, którego implementacja określa działanie algorytmu. Po sparsowaniu pliku konfiguracyjnego, silnik testujący przechowuje listę testów. Każdy z testów składa się z algorytmu sortującego (\MONOBOLD{sorting}), strategii generowania danych wejściowych (\MONOBOLD{generator}) oraz narzędzia określającego sposób testowania (\MONOBOLD{executor}). Za przechowywanie wyników w trakcie trwania pojedynczego testu odpowiedzialna jest fasada (\MONOBOLD{operation}), która określa jednolity interfejs dla wszystkich wykonywanych operacji.\\
 
-\begin{figure}[H]
+\begin{figure}[]
 	\centering
 	\includesvg[inkscapelatex=false,width=1.0\columnwidth]{img/uml/project-class-diagram.svg}
 	\caption{Diagram klas silnika testującego}
+	\label{fig:uml-class}
 \end{figure}
 
 \subsection{Diagram aktywności}
-W każdym z modułów systemu można wyróżnić dwa główne procesy - przygotowanie konfiguracji oraz testowanie. 
-W silniku testującym proces przygotowania konfiguracji polega na mapowaniu pliku konfiguracyjnego w formacie json do postaci obiektów testów jednostkowych. Ważnym krokiem jest usuwanie duplikatów, dzięki czemu program nie wykonuje redundantnych operacji. Następnie silnik testujący przechodzi do fazy testowania. Dla każdego z testów jednostkowych generowane są dane testowe, a następnie uruchamiany jest testowany algorytm. W trakcie trwania algorytmu zliczane są liczby poszczególnych operacji. Po zakończonym teście wyniki są utrwalane w zewnętrznym dokumencie tekstowym.\\
+W każdym z modułów systemu (\ref{fig:uml-activity}) można wyróżnić dwa główne procesy - przygotowanie konfiguracji oraz testowanie. W silniku testującym proces przygotowania konfiguracji polega na mapowaniu pliku konfiguracyjnego w formacie json do postaci obiektów testów jednostkowych. Ważnym krokiem jest usuwanie duplikatów, dzięki czemu program nie wykonuje redundantnych operacji. Następnie silnik testujący przechodzi do fazy testowania. Dla każdego z testów jednostkowych generowane są dane testowe, a następnie uruchamiany jest testowany algorytm. W trakcie trwania algorytmu zliczane są liczby poszczególnych operacji. Po zakończonym teście wyniki są utrwalane w zewnętrznym dokumencie tekstowym.\\
 
 W silniku graficznym proces przygotowania konfiguracji również polega na sparsowaniu pliku konfiguracyjnego w formacie json. W tym przypadku parametry konfiguracyjne określają ułożenie poszczególnych wykresów na planszy. W fazie testowania silnik graficzny grupuje pojedyncze testy do postaci wykresów. Dla każdego z testów odczytywane są dane, utrwalone wcześniej w pliku tekstowym. Wczytane wyniki są nakładane na odpowiedni wykres. Po wyczerpaniu puli testów dla pojedynczego wykresu, gotowy wykres jest dodawany do planszy zgodnie z pozycją w pliku konfiguracyjnym. Cały proces jest powtarzany do momentu wyczerpania puli wykresów.\\
 
-\begin{figure}[H]
+\begin{figure}[]
 	\centering
 	\subfloat[\centering silnik testujący]{
 		\includesvg[inkscapelatex=false,width=0.45\columnwidth]{img/uml/testing-engine-activity-diagram.svg}
@@ -81,6 +80,7 @@ W silniku graficznym proces przygotowania konfiguracji również polega na spars
 		\includesvg[inkscapelatex=false,width=0.45\columnwidth]{img/uml/graphic-engine-activity-diagram.svg}
 	}
 	\caption{Diagram aktywności projektowanego systemu}
+	\label{fig:uml-activity}
 \end{figure}
 
 \section{Wzorce projektowe}
