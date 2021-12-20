@@ -1,14 +1,14 @@
 {
-  "title": "Liczba wykonanych operacji w algorytmie Quick Sort\n dla danych posortowanych w odwrotnej kolejności\n w zależności od rozmiaru tablicy",
-  "output": "quick-sort-average-reversed",
-  "prefix": "test1",
-  "grid": "(1, 3)",
-  "size": "(10.5, 3.5)",
+  "title": "Łączny koszt operacji wykonanych przez algorytmy\nsortujące w miejscu dla tablicy uporządkowanych danych\ntypu złożonego",
+  "output": "best-sorting-sorted-complex-dataA",
+  "prefix": "test43A",
+  "grid": "(1, 1)",
+  "size": "(5.5, 3.8)",
   "invariants": {
     "range": {
-      "begin": 100,
-      "end": 1000,
-      "step": 100
+      "begin": 5000,
+      "end": 100000,
+      "step": 5000
     },
     "repeats": 100
   },
@@ -16,72 +16,45 @@
     {
       "type": "average",
       "metadata": {
-        "title": "a) porównania",
+        "title": "",
         "xlabel": "rozmiar tablicy [n]",
-        "ylabel": "liczba porownań [n]",
+        "ylabel": "koszt operacji [n]",
         "xcolumn": "n",
-        "ycolumn": "comparisons",
-        "legend": "inside"
+        "ycolumn": "cost",
+        "legend": "outside"
       },
       "functions": [
-        {
-          "label": "$\\frac{1}{2} n^2$",
-          "expression": "0.5n*n"
-        }
       ],
       "sortings": [
+                {
+          "algorithm": "intro_sort_pseudo_median_of_nine_pivot_selector",
+          "generator": "sorted",
+          "label": "Intro Sort A"
+        },
         {
-          "algorithm": "quick_sort",
-          "label": "Quick Sort",
-          "generator": "reversed"
-        }
-      ]
-    },
-    {
-      "type": "average",
-      "metadata": {
-        "title": "b) zamiana miejsc",
-        "xlabel": "rozmiar tablicy [n]",
-        "ylabel": "liczba zamian miejsc [n]",
-        "xcolumn": "n",
-        "ycolumn": "swaps",
-        "legend": "inside"
-      },
-      "functions": [
+          "algorithm": "intro_sort_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "sorted",
+          "label": "Intro Sort B"
+        },
         {
-          "label": "$\\frac{1}{2} n^2$",
-          "expression": "0.5n*n"
-        }
-      ],
-      "sortings": [
+          "algorithm": "quick_merge_sort_pseudo_median_of_nine_pivot_selector",
+          "generator": "sorted",
+          "label": "QuickMerge Sort A"
+        },
         {
-          "algorithm": "quick_sort",
-          "label": "Quick Sort",
-          "generator": "reversed"
-        }
-      ]
-    },
-    {
-      "type": "average",
-      "metadata": {
-        "title": "c) przypisania",
-        "xlabel": "rozmiar tablicy [n]",
-        "ylabel": "liczba przypisań [n]",
-        "xcolumn": "n",
-        "ycolumn": "assigns",
-        "legend": "inside"
-      },
-      "functions": [
+          "algorithm": "quick_merge_sort_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "sorted",
+          "label": "QuickMerge Sort B"
+        },
         {
-          "label": "$n$",
-          "expression": "n"
-        }
-      ],
-      "sortings": [
+          "algorithm": "quick_merge_intro_sort_median_of_three_pivot_selector",
+          "generator": "sorted",
+          "label": "QuickMergeIntro Sort A"
+        },
         {
-          "algorithm": "quick_sort",
-          "label": "Quick Sort",
-          "generator": "reversed"
+          "algorithm": "quick_merge_intro_sort_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "sorted",
+          "label": "QuickMergeIntro Sort B"
         }
       ]
     }
