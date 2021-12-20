@@ -1,0 +1,30 @@
+\addcontentsline{toc}{chapter}{Wstęp}
+\chapter*{Wstęp}
+\thispagestyle{chapterBeginStyle}
+
+Porządkowanie zbioru danych to jeden z podstawowych problemów współczesnej informatyki. Za algorytmy przełomowe w historii sortowania można uznać opracowany przez Johna von Neumanna algorytm \BOLD{Merge Sort}, oraz algorytm  \BOLD{Quick Sort} autorstwa Tonyego Hoare.
+Obydwa algorytmy wykorzystują rekurencyjne podejście dziel i zwyciężaj, efektywnie rozbijając problem sortowania na mniejsze podproblemy. Od czasów ich wynalezienia ludzkość nieustannie stara się modyfikować te algorytmy, tworząc coraz efektywniejsze implementacje, które niwelują wady swoich poprzedników oraz zachowują swoją wydajność nawet dla przypadku pesymistycznego. W poniższej pracy dokonano analizy kliku nowoczesnych technik sortowania, opierających się na efektywnym łączniu kilku algorytmów podstawowych.\\
+
+\section*{Cel pracy}
+Motywem przewodnim pracy była analiza eksperymentalna wybranych technik sortujących w miejscu, wykorzystujących nowatorskie podejście do problemu sortowania. W pracy zbadano algorytmy \BOLD{QuickMerge Sort} i \BOLD{Intro Sort}, oraz ich deterministyczne i randomizowane modyfikacje. Algorytmy były analizowane pod kątem czasowej złożoności obliczeniowej.\\
+
+\section*{Zakres pracy}
+Aby ułatwić analizę algorytmów przygotowano narzędzia usprawniające proces testowania. Do tych narzędzi należą silnik graficzny oraz silnik testujący, które w oparciu o plik konfiguracyjny przeprowadzają testy oraz tworzą wizualizację wyników.
+Wykorzystując podane narzędzia, przygotowano analizę podstawowych algorytmów sortujących oraz dokonano przeglądu zmodyfikowanych wersji tych algorytmów. Następnie przeanalizowano nowoczesne algorytmy hybrydowe, będące połączeniem dwóch lub wielu algorytmów podstawowych.\\
+
+\section*{Przegląd literatury}
+W pracy badano algorytm QuickMerge Sort, którego koncepcja została opisana przez Sebastiana Wilda w publikacji \boldquotes{QuickXsort – A Fast Sorting Scheme in Theory and Practice} \cite{QuickXsort}. Informacje na temat tego algorytmu można znaleźć również w pracach \boldquotes{QuickMergesort: Practically Efficient Constant-Factor Optimal Sorting} \cite{QuickMergesort1} oraz \boldquotes{Worst-Case Efficient Sorting with QuickMergesort} \cite{QuickMergesort2}, których autorami są Stefan Edelkamp i Armin Weiß.\\
+
+Kolejnym badanym algorytmem był Intro Sort. Informacje na ten temat znaleźć w publikacji \boldquotes{Pattern-defeating Quicksort} \cite{IntroSort} autorstwa Orsona R. L. Petersa.\\
+
+\section*{Zawartość pracy}
+Praca składa się z pięciu rozdziałów.
+Rozdział pierwszy poświęcony jest metodologii prowadzenia badań. W rozdziale tym wyjaśniono sposób, w jaki zliczano liczbę wykonywanych operacji porównania, przypisania oraz zamiany miejsc, uwzględniając koszt każdej operacji.
+Rozdział drugi zawiera przegląd podstawowych algorytmów sortujących, z wyszczególnieniem problemów, jakie wiążą się ze stosowania tych algorytmów.
+W rozdziale trzecim przedstawiono nowoczesne sposoby na tworzenie algorytmów hybrydowych. W rozdziale tym dokonano analizy porównawczej opisywanych algorytmów, z podziałem na wersje deterministyczne oraz randomizowane.
+Rozdział czwarty zawiera podsumowanie wyników z wcześniej przeprowadzonych badań. W rozdziale tym wyłoniono kandydatów na najbardziej optymalny algorytm w danej kategorii.
+Ostatni rozdział to opis implementacji oraz wykorzystanych technik programowania. W tym rozdziale opisano koncepcję silnika testującego oraz wzorce projektowe użyte w systemie.\\
+
+Dodatkowo praca zawiera dwa dodatki.
+Dodatek A to słownik pojęć wykorzystywanych w pracy.
+Dodatek B zawiera informacje na temat instalowania zewnętrznych zależności oraz uruchamiania aplikacji.\\

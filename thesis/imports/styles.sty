@@ -17,7 +17,9 @@
 \fancypagestyle{custom}{
 	\fancyhf{}									% wyczyść stopki i nagłówki
 	\fancyhead[RO]{								% Prawy, nieparzysty nagłówek
-		\hrulefill \hspace{16pt} \large Rozdział \thechapter
+		%korekta ALD: 
+		%\hrulefill \hspace{16pt} \large Rozdział \thechapter
+		\hrulefill \hspace{16pt} \large \ifnum \thechapter>0 {Rozdział \thechapter} \else{Wstęp}\fi
 		\put(-472.1, 12.1){%
 			\makebox(0,0)[l]{%
 				\includegraphics[width=0.05\textwidth]{img/pwr-logo}
@@ -30,14 +32,19 @@
 		}
 	}
 	\fancyhead[LE]{								% Lewy, parzysty nagłówek
-		\large Rozdział \thechapter \hspace{16pt} \hrulefill 
+		%korekta ALD: 
+		%\large Rozdział \thechapter \hspace{16pt} \hrulefill 
+		\large \ifnum \thechapter>0 {Rozdział \thechapter} \else{Wstęp}\fi \hspace{16pt} \hrulefill 
 		\put(-22, 12.1){%
 			\makebox(0,0)[l]{%
-				\includegraphics[width=0.05\textwidth]{img/wit-logo}
-			}
+				%korekta ALD
+				%\includegraphics[width=0.05\textwidth]{img/pwr-logo}
+				\includegraphics[width=0.05\textwidth]{img/wit-logo}			}
 		}
 		\put(-210,5.5){%
 			\makebox(0,0)[l]{%
+				%				\small Wydział Podstawowych Problemów Techniki
+				%Korekta ALD
 				\small Wydział Informatyki i Telekomunikacji
 			}
 		}
@@ -48,6 +55,7 @@
 	\renewcommand{\headrulewidth}{0pt}			% Grubość linii w nagłówku
 	\renewcommand{\footrulewidth}{0.2pt}		% Grubość linii w stopce
 }
+
 
 % Domyślny styl dla bibliografii
 \fancypagestyle{bibliographyStyle}{
@@ -69,11 +77,14 @@
 		\large Bibliografia \hspace{16pt} \hrulefill 
 		\put(-22, 12.1){%
 			\makebox(0,0)[l]{%
+				%korekta ALD	\includegraphics[width=0.05\textwidth]{wppt-logo}
 				\includegraphics[width=0.05\textwidth]{img/wit-logo}
 			}
 		}
 		\put(-210,5.5){%
 			\makebox(0,0)[l]{%
+				%korekta ALD
+				%\small Wydział Podstawowych Problemów Techniki
 				\small Wydział Informatyki i Telekomunikacji
 			}
 		}
@@ -85,11 +96,12 @@
 	\renewcommand{\footrulewidth}{0.2pt}		% Grubość linii w stopce
 }
 
+
 % Domyślny styl dla dodatków
 \fancypagestyle{appendixStyle}{
 	\fancyhf{}									% wyczyść stopki i nagłówki
 	\fancyhead[RO]{								% Prawy, nieparzysty nagłówek
-		\hrulefill \hspace{16pt} \large Dodatek \thechapter
+		\hrulefill \hspace{16pt} \large Załącznik \thechapter
 		\put(-472.1, 12.1){%
 			\makebox(0,0)[l]{%
 				\includegraphics[width=0.05\textwidth]{img/pwr-logo}
@@ -102,14 +114,17 @@
 		}
 	}
 	\fancyhead[LE]{								% Lewy, parzysty nagłówek
-		\large Dodatek \thechapter \hspace{16pt} \hrulefill 
+		\large Załącznik \thechapter \hspace{16pt} \hrulefill 
 		\put(-22, 12.1){%
 			\makebox(0,0)[l]{%
+				%korekta ALD:				\includegraphics[width=0.05\textwidth]{wppt-logo}
 				\includegraphics[width=0.05\textwidth]{img/wit-logo}
 			}
 		}
 		\put(-210,5.5){%
 			\makebox(0,0)[l]{%
+				%korekta ALD
+				%\small Wydział Podstawowych Problemów Techniki
 				\small Wydział Informatyki i Telekomunikacji
 			}
 		}
@@ -140,8 +155,6 @@
 	\renewcommand{\headrulewidth}{0pt}
 	\renewcommand{\footrulewidth}{0.2pt}
 }
-
-
 % Formatowanie tytułów rozdziałów i/lub sekcji
 \usepackage{titlesec}
 
@@ -149,7 +162,8 @@
 \titleformat{\chapter}[hang]					% kształt
 {
 	\vspace{-10ex}
-	\Huge
+	%\Huge
+	\large
 	\bfseries
 }												% formatowanie tekstu modyfikowanego elementu
 {}												% etykieta występująca przed tekstem modyfikowanego elementu, niewidoczna w spisie treści
@@ -157,7 +171,7 @@
 	10pt
 }												% odstęp formatowanego tytułu od lewego marginesu/etykiety
 {
-	\Huge
+	\large
 	\bfseries
 }												% formatowanie elementów przed modyfikowanym tytułem
 [
@@ -172,7 +186,7 @@
 {
 	\vspace{2ex}
 	%	\titlerule\vspace{1ex}
-	\Large\bfseries
+	\large\bfseries
 }												% formatowanie tekstu modyfikowanego elementu
 {
 	\thesection									% etykieta występująca przed tekstem modyfikowanego elementu, niewidoczna w spisie treści
@@ -181,11 +195,20 @@
 	0pt
 }												% odstęp formatowanego tytułu od lewego marginesu/etykiety
 {
-	\Large
+	\large
 	\bfseries
 }												% formatowanie elementów przed modyfikowanym tytułem
 
-% LINKI
+
+%ALD- ustawienia wielkości fontów dla rozdziałów i sekcji
+\usepackage{sectsty}
+%\chapterfont{\fontsize{14}{17.6}\selectfont}
+\sectionfont{\fontsize{13}{16.8}\selectfont}
+\subsectionfont{\fontsize{12}{15.6}\selectfont}
+
+% ***************************************************************************************************
+% Linki
+% ***************************************************************************************************
 
 % Umożliwia wstawianie hiperłączy do dokumentu
 \usepackage{hyperref}							% Aktywuje linki
@@ -199,6 +222,13 @@
 
 % Do stworzenia hiperłączy zostanie użyta ta sama (same) czcionka co dla reszty dokumentu
 \urlstyle{same}
+
+
+
+
+% ***************************************************************************************************
+% Linki
+% ***************************************************************************************************
 
 % Umożliwia zdefiniowanie własnego stylu wyliczeniowego
 \usepackage{enumitem}
@@ -260,3 +290,11 @@
 	{[}{{{\color{delim}{[}}}}{1}
 	{]}{{{\color{delim}{]}}}}{1},
 }
+
+%ALD - nowe środowisko do streszczenia i abstractu
+\newenvironment{streszczenie}{
+	\par\noindent {\large \textbf{Streszczenie}\\[14pt]\indent}
+}{}
+\newenvironment{abstract}{
+	\par\noindent {\large \textbf{Abstract}\\[14pt]\indent}
+}{}

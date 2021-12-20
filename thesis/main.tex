@@ -1,4 +1,4 @@
-\documentclass{book}
+\documentclass[twoside,openany]{book}
 
 \usepackage{imports/imports}
 
@@ -10,47 +10,71 @@
 
 \begin{document}
 
+	\pagestyle{empty}
 	\begin{titlingpage}
 		\vspace*{\fill}
 		\begin{center}
-			\begin{picture}(300,510)
-				\put(11,520){\makebox(0,0)[l]{\large \textsc{Wydział Informatyki i Telekomunikacji}}}
-				\put(11,500){\makebox(0,0)[l]{\large \textsc{Politechnika Wrocławska}}}
+			\begin{picture}(430,500)
 
-				\put(80,320){\Huge \textsc{Analiza eksperymentalna}}
-				\put(80,280){\Huge \textsc{nowych algorytmów}}
-				\put(80,240){\Huge \textsc{sortowania w miejscu}}
-
-				\put(90,200){\makebox(0,0)[l]{\large \textsc{Damian Baliński}}}
-				\put(90,180){\makebox(0,0)[l]{\large \textsc{Nr indeksu: 250332}}}
-
-				\put(200,100){\makebox(0,0)[l]{\large Praca inżynierska napisana}}
-				\put(200,80){\makebox(0,0)[l]{\large pod kierunkiem}}
-				\put(200,60){\makebox(0,0)[l]{\large dr. inż. Zbigniewa Gołębiewskiego}}
+				\put(85,590){\makebox(0,0)[l]{\huge \textbf{Politechnika Wrocławska}}}
+				\put(74,565){\makebox(0,0)[l]{\Large \textbf{Wydział Informatyki i Telekomunikacji}}}
+				\put(0,550){\line(1,0){430}}
+				\put(0,510){\makebox(0,0)[l]{\large Kierunek: \textbf{INF-PPT}}}
+				\put(0,490){\makebox(0,0)[l]{\large Specjalność: \textbf{-}}}                             
 				
-				\put(115,-70){\includegraphics[width=0.15\textwidth]{img/pwr}}
-				\put(106,-80){\makebox(0,0)[bl]{\large \textsc{Wrocław 2021}}}
-			\end{picture}
-		\end{center}	
-		\vspace*{\fill}
-	\end{titlingpage}
+				\put(0,370){\begin{minipage}{0.9\textwidth}
+					\centering
+					\Huge \textsc{Praca Dyplomowa\\ Inżynierska}
+				\end{minipage}}
 	
-    \cleardoublepage
-		
+				\put(0,230){\begin{minipage}{0.9\textwidth}
+					\centering
+					\LARGE \textbf{Analiza eksperymentalna nowych algorytmów sortowania w miejscu}
+				\end{minipage}}
+			
+				\put(0,170){\begin{minipage}{0.9\textwidth}
+					\centering
+					\Large {Damian Baliński}
+				\end{minipage}}
+			
+				\put(0,90){\begin{minipage}{0.9\textwidth}
+					\centering
+					\large{
+						Opiekun pracy\\
+						\textbf{dr inż. Zbigniew Gołębiewski}}
+				\end{minipage}}
+
+				\put(0,-30){
+				\begin{minipage}{0.9\textwidth}
+					\normalsize{
+						Słowa kluczowe: sortowanie w miejscu, QuickMerge Sort, Intro Sort}
+				\end{minipage}}
+
+	\put(0,-80){\line(1,0){430}}
+	\put(175,-100){\makebox(0,0)[bl]{\large \textsc{Wrocław 2022}}}
+	\end{picture}
+	\end{center}	
+	\vspace*{\fill}
+	\end{titlingpage}
+
+	
+	% ABSTRACT
+	\cleardoublepage
+	\input{chapters/abstract}
+	\cleardoublepage
 	\pagenumbering{Roman}
 	\pagestyle{tableOfContentStyle}
 	\tableofcontents
-	\cleardoublepage
-		
+	
+	% INTRODUCTION
 	\pagestyle{custom}
 	\mainmatter
 	\boldmath
 	
-	% CHAPTERS
-
-	\input{chapters/abstract}
+	\input{chapters/chapter00-introduction}
 	\cleardoublepage
 
+	% CHAPTERS
 	\input{chapters/chapter01-methodology}
 	\cleardoublepage
 	
@@ -58,7 +82,6 @@
 	\cleardoublepage
 	
 	\input{chapters/chapter03-hybrid-sorting-algorithms}
-	\cleardoublepage
 	
 	\input{chapters/chapter04-summary}
 	\cleardoublepage
