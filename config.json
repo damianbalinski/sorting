@@ -1,60 +1,128 @@
 {
-  "title": "Łączny koszt operacji wykonanych przez algorytmy\nsortujące w miejscu dla tablicy uporządkowanych danych\ntypu złożonego",
-  "output": "best-sorting-sorted-complex-dataA",
-  "prefix": "test43A",
-  "grid": "(1, 1)",
-  "size": "(5.5, 3.8)",
+  "title": "Łączna liczba operacji wykonanych przez nierekurencyjne\nalgorytmy sortujące w porównaniu do algorytmu Quick Sort",
+  "output": "sorting-small-array",
+  "prefix": "test25",
+  "grid": "(1, 2)",
+  "size": "(8, 3.5)",
   "invariants": {
     "range": {
-      "begin": 5000,
-      "end": 100000,
-      "step": 5000
+      "begin": 1,
+      "end": 25,
+      "step": 1
     },
-    "repeats": 100
+    "repeats": 10000
   },
   "plots": [
     {
       "type": "average",
       "metadata": {
-        "title": "",
+        "title": "a) dane losowe",
         "xlabel": "rozmiar tablicy [n]",
-        "ylabel": "koszt operacji [n]",
+        "ylabel": "liczba operacji [n]",
         "xcolumn": "n",
         "ycolumn": "cost",
-        "legend": "outside"
+        "ymax": 300,
+        "legend": "none"
       },
       "functions": [
       ],
       "sortings": [
-                {
-          "algorithm": "intro_sort_pseudo_median_of_nine_pivot_selector",
-          "generator": "sorted",
-          "label": "Intro Sort A"
+        {
+          "algorithm": "quick_sort",
+          "generator": "random",
+          "color": "black",
+          "linestyle": "dashed"
         },
         {
-          "algorithm": "intro_sort_pseudo_median_of_nine_choices_pivot_selector",
-          "generator": "sorted",
-          "label": "Intro Sort B"
+          "algorithm": "shell_sort",
+          "generator": "random",
+          "color": "blue"
         },
         {
-          "algorithm": "quick_merge_sort_pseudo_median_of_nine_pivot_selector",
-          "generator": "sorted",
-          "label": "QuickMerge Sort A"
+          "algorithm": "bubble_sort",
+          "generator": "random",
+          "color": "cyan"
         },
         {
-          "algorithm": "quick_merge_sort_pseudo_median_of_nine_choices_pivot_selector",
-          "generator": "sorted",
-          "label": "QuickMerge Sort B"
+          "algorithm": "comb_sort",
+          "generator": "random",
+          "color": "green"
         },
         {
-          "algorithm": "quick_merge_intro_sort_median_of_three_pivot_selector",
-          "generator": "sorted",
-          "label": "QuickMergeIntro Sort A"
+          "algorithm": "insertion_sort",
+          "generator": "random",
+          "color": "red"
         },
         {
-          "algorithm": "quick_merge_intro_sort_pseudo_median_of_nine_choices_pivot_selector",
+          "algorithm": "selection_sort",
+          "generator": "random",
+          "color": "orange"
+        },
+        {
+          "algorithm": "heap_sort",
+          "generator": "random",
+          "color": "pink"
+        }
+      ]
+    },
+    {
+      "type": "average",
+      "metadata": {
+        "title": "b) dane uporządkowane",
+        "xlabel": "rozmiar tablicy [n]",
+        "ylabel": "liczba operacji [n]",
+        "xcolumn": "n",
+        "ycolumn": "cost",
+        "ymax": 300,
+        "legend": "outside",
+        "custom_legend": [
+          { "color": "black", "linestyle": "dashed", "label": "Quick Sort"},
+          { "color": "blue", "linestyle": "solid", "label": "Shell Sort"},
+          { "color": "cyan", "linestyle": "solid", "label": "Bubble Sort"},
+          { "color": "green", "linestyle": "solid", "label": "Comb Sort"},
+          { "color": "red", "linestyle": "solid", "label": "Insertion Sort"},
+          { "color": "orange", "linestyle": "solid", "label": "Selection Sort"},
+          { "color": "pink", "linestyle": "solid", "label": "Heap Sort"}
+        ]
+      },
+      "functions": [
+      ],
+      "sortings": [
+        {
+          "algorithm": "quick_sort",
           "generator": "sorted",
-          "label": "QuickMergeIntro Sort B"
+          "color": "black",
+          "linestyle": "dashed"
+        },
+        {
+          "algorithm": "shell_sort",
+          "generator": "sorted",
+          "color": "blue"
+        },
+        {
+          "algorithm": "bubble_sort",
+          "generator": "sorted",
+          "color": "cyan"
+        },
+        {
+          "algorithm": "comb_sort",
+          "generator": "almost_sorted",
+          "color": "green"
+        },
+        {
+          "algorithm": "insertion_sort",
+          "generator": "sorted",
+          "color": "red"
+        },
+        {
+          "algorithm": "selection_sort",
+          "generator": "sorted",
+          "color": "orange"
+        },
+        {
+          "algorithm": "heap_sort",
+          "generator": "sorted",
+          "color": "pink"
         }
       ]
     }

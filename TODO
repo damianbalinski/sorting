@@ -6,11 +6,26 @@
 
 - skrypt instalacyjny (rownoczescie spis uzywanych bibliotek)
 
+/*
+inline void __progress_num(const size_t i, const size_t n)
+{
+	const size_t len = log10(i ^ (i+1))+1;
+	for (size_t j = 0; j < len; j++) std::cout << '\b';
+	std::cout << BLUE << (i ^ (i+1)) << WHITE;
+}
+*/
+
+TODO zmienic zeby multi_pivot_selector nie zwracala wartosci, tak jak pivot_selector,
 
 SHELL SORT
 - algorytm jest ulepszona wersja insertion sort, wykorzystujemy fakt, ze
 dla optymistycznego przypadku insertion sort wykonuje sie w czasie O(n)
 
+BLOCK SORT
+SMOOTH SORT
+
+- partitioning - fat partitioning
+- partitioning - dijkstra-3-way-partitioning
 
 - Library sort, or gapped insertion sort
 - Timsort (sortowanie typów obiektowych w javie wykorzystuje algorytm TimSort)
@@ -21,15 +36,100 @@ dla optymistycznego przypadku insertion sort wykonuje sie w czasie O(n)
 
 - zliaczanie operacji w bucket_sort, counting_sort
 
+- napisac skrypt ktory bierze liste nazw plikow konfiguracyjnych i generuje wykresy 
 
 podczas zliczania wlaczyc flage NDEBUG
 
 skrypt testuj¹cy
 
-
-- TODO rozwazyc dodanie wzorca projektowego budowniczy
-
 - TODO merge-sort merge na kilka czesci, wiecej niz 2
 
-- TODO przechowywac algorytm partycjonowania w quick sort, przechowywac algorytm wyboru pivota w partycjonowaniu,
-inicjalizowac w parserze konfiguracji, wywolywac w metodzie sortujacej
+- TODO hoare ostatnia linijka swap A[i++] with A[j--]
+
+- TODO srting_mapper jest fabryka, na podstawie stringa tworzy algorytm sortujacy
+
+- TODO w analizie rodziny algorytmow Quick Sort dodac wyszukiwanie pivota jako n/2 quick select
+
+- TODO rozwazyc generowanie tabelek, z eksperymentalnie wyznaczona zlozonoscia obliczeniowa,
+
+- TODO sprobowac dodac intro sort z algorytmem granicznym jako Merge Sort o stalym buforze, sprawdzic czasowo czy nie jest wydajniejszy
+
+- TODO uporzadkowac obrazki tak jak w intro sort nondeterministic
+
+- TODO napisac rozdzial o instalowaniu aplikacji
+Uruchamianie skryptu zaci¹gaj¹cego potrzebne zale¿noœci.
+Uruchamianie pliku makefile kompiluj¹cego i instaluj¹cego aplikacjê.
+
+QUICK SORT
+- dodac tablke sortowania
+
+MERGE SORT
+- sprawdzic czy przypadek pesymistyczny dziala
+- przeczytaæ analizê algorytmu Merge Sort
+
+ZALOZENIA
+- opisac rozdzial zalozenia
+
+
+COMMON
+- poprawic rozmieszczenie obrazkow
+- dodac tutuly subsekcji w custom_legend
+
+
+
+- przygotowac wybor pivota algorytmem QUICK SELECT n/2
+
+- zaprojektowac tabelke porownujaca wydajnosc algorytmow
+- dodac tabelke poronujaca wydajnosc algorytmow
+- quick sort family dodac wykres roznicy miedzy liczba operacji pesymistyczna odj¹æ liczba operacji srednia
+- napisac wnioski dla algorytmow deterministycznych				DONE
+
+
+QUICK MERGE SORT
+- napisac historyjne, opisac idee algorytmu, pomysl stworzenia hybrydy merge sort ktora dziala w miejscu
+- napisac pseudokod algorytmu,
+
+- przygotowac plik konfiguracyjny - liczba wykonanych wszystkich operacji, z porownaniem do quick sort oraz merge sort
+- przygotowac plik konfiguracyjny - wartosc oczekiwana liczby wykoannych operacji atomowych
+- przygotowac plik konfiguracyjny - wartosc oczekiwana liczby wszystkich operacji
+
+- dodac wykres z wyznaczaniem kosztu
+
+
+TODO
+- przeniesc podrozdzialy z rozdzialy hybrid do osobnych dokumentow
+- uporzadkowac rozdzial 1 - analiza problemu
+- rozwazyc dodanie punktow przeciecia do wykresow kosztu operacji
+- poprawic wnioski z Quick Sort deterministic
+- poprawic wnioski z Quick Sort nondeterministic
+
+INTRO SORT
+- napisac historyjke o intro sort
+- zrobic wykres - eksperymentalne wyznaczanie punktu granicznego dla danych posortowanych i nieposortowanych
+
+- zrobic wykres dla posortowanych danych liczby wykonanych operracji z podzialem na hoare i lomuto
+- zrobic wykres dla wszystkich operacji dla posortowanych danych z podzialem na hoare i lomuto
+
+ANALIZA PROBLEMU
+- napisac podrozdzial zalozenia
+- napisac podrozdzial model matematyczny przypadku sredniego
+- napisac podrozdzial model matematyczny przypadku pesymistycznego
+- todo znaleŸæ miejsce dla podrozdzialow \section{Model matematyczny przypadku œredniego} oraz \section{Model matematyczny przypadku pesymistycznego}
+
+- zamienic wszystkie Lemuto -> Lomuto, ³¹cznie z wykresami + pliki cpp = wykresy uml
+- zamienic wszystkie Hoarego -> Hoare
+
+- TODO change O notatnio with $\mathcal{O}(n\log{}n)$
+
+
+FIX
+- dodac matematycznie wyliczone wartosci dla QuickSort
+- dodac matematycznie wyliczone wartosci dla MergeSort
+- poprawic QuickSort -> (czasowa na obliczeniowa, wynika na sugeruje, rozk³ad prawdopodobieñstwa -> histogram)
+- poprawic MergeSort
+- wyszukaæ wszytkie "porównaæ"
+
+QUICK MERGE INTRO SORT
+- density, z porownaniem do intro sort quickMerge sort
+- density dla poszczegolnych operacji z porownaniem do intro sort oraz quickMerge sort
+- laczna liczba poszzczegolnych operacji z porownaniem do intro sort oraz quickMerge sort

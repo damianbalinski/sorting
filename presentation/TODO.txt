@@ -1,0 +1,6 @@
+- przemyslec rozdzialy w prezentacji 
+- w wykresach zmianic Lemuto na Lomuto
+
++ Propozycja dalszych badań, można użyć DualPivot Quick Sort albo sortowanie wielopiwotowe
++ A Quick Select,
++ rozdzial implementacja systemu
