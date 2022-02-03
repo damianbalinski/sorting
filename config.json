@@ -1,128 +1,109 @@
 {
-  "title": "Łączna liczba operacji wykonanych przez nierekurencyjne\nalgorytmy sortujące w porównaniu do algorytmu Quick Sort",
-  "output": "sorting-small-array",
-  "prefix": "test25",
+  "title": "Łączny koszt operacji wykonanych przez algorytmy z rodziny\nQuickMergeIntro Sort z podziałem na metody partycjonowania\ndla tablicy uporządkowanych danych przy współczynniku kosztu równym \\boldmath$\\alpha = 10.0$",
+  "output": "quick-merge-intro-sort-deterministic-nondeterministic",
+  "prefix": "test50",
   "grid": "(1, 2)",
-  "size": "(8, 3.5)",
+  "size": "(7.8, 4.0)",
   "invariants": {
     "range": {
-      "begin": 1,
-      "end": 25,
-      "step": 1
+      "begin": 100,
+      "end": 1000,
+      "step": 100
     },
-    "repeats": 10000
+    "repeats": 100
   },
   "plots": [
     {
       "type": "average",
       "metadata": {
-        "title": "a) dane losowe",
+        "title": "a) algorytmy deterministyczne - Lomuto",
         "xlabel": "rozmiar tablicy [n]",
-        "ylabel": "liczba operacji [n]",
+        "ylabel": "koszt operacji [n]",
         "xcolumn": "n",
         "ycolumn": "cost",
-        "ymax": 300,
         "legend": "none"
       },
       "functions": [
       ],
       "sortings": [
         {
-          "algorithm": "quick_sort",
-          "generator": "random",
-          "color": "black",
-          "linestyle": "dashed"
-        },
-        {
-          "algorithm": "shell_sort",
-          "generator": "random",
-          "color": "blue"
-        },
-        {
-          "algorithm": "bubble_sort",
-          "generator": "random",
-          "color": "cyan"
-        },
-        {
-          "algorithm": "comb_sort",
-          "generator": "random",
-          "color": "green"
-        },
-        {
-          "algorithm": "insertion_sort",
-          "generator": "random",
+          "algorithm": "quick_merge_intro_sort",
+          "generator": "almost_sorted",
           "color": "red"
         },
         {
-          "algorithm": "selection_sort",
-          "generator": "random",
-          "color": "orange"
+          "algorithm": "quick_merge_intro_sort_median_of_three_pivot_selector",
+          "generator": "almost_sorted",
+          "color": "blue"
         },
         {
-          "algorithm": "heap_sort",
-          "generator": "random",
-          "color": "pink"
+          "algorithm": "quick_merge_intro_sort_pseudo_median_of_nine_pivot_selector",
+          "generator": "almost_sorted",
+          "color": "orange"
+        },
+
+        {
+          "algorithm": "quick_merge_sort_median_of_three_pivot_selector",
+          "generator": "almost_sorted",
+          "linestyle": "dotted",
+          "color": "black"
+        },
+        {
+          "algorithm": "intro_sort_pseudo_median_of_nine_pivot_selector",
+          "generator": "almost_sorted",
+          "linestyle": "dashed",
+          "color": "black"
         }
       ]
     },
     {
       "type": "average",
       "metadata": {
-        "title": "b) dane uporządkowane",
+        "title": "c) algorytmy randomizowane - Lomuto",
         "xlabel": "rozmiar tablicy [n]",
-        "ylabel": "liczba operacji [n]",
+        "ylabel": "koszt operacji [n]",
         "xcolumn": "n",
         "ycolumn": "cost",
-        "ymax": 300,
-        "legend": "outside",
+        "legend": "inside",
         "custom_legend": [
-          { "color": "black", "linestyle": "dashed", "label": "Quick Sort"},
-          { "color": "blue", "linestyle": "solid", "label": "Shell Sort"},
-          { "color": "cyan", "linestyle": "solid", "label": "Bubble Sort"},
-          { "color": "green", "linestyle": "solid", "label": "Comb Sort"},
-          { "color": "red", "linestyle": "solid", "label": "Insertion Sort"},
-          { "color": "orange", "linestyle": "solid", "label": "Selection Sort"},
-          { "color": "pink", "linestyle": "solid", "label": "Heap Sort"}
+          { "color": "red", "linestyle": "solid", "label": "pojedynczy element"},
+          { "color": "blue", "linestyle": "solid", "label": "mediana z trzech"},
+          { "color": "orange", "linestyle": "solid", "label": "pseudo-mediana z dziewięciu"},
+          { "color": "black", "linestyle": "solid", "label": "QuickMergeIntro Sort"},
+          { "color": "black", "linestyle": "dotted", "label": "QuickMerge Sort"},
+          { "color": "black", "linestyle": "dashed", "label": "Intro Sort"}
         ]
       },
       "functions": [
       ],
       "sortings": [
         {
-          "algorithm": "quick_sort",
-          "generator": "sorted",
-          "color": "black",
-          "linestyle": "dashed"
-        },
-        {
-          "algorithm": "shell_sort",
-          "generator": "sorted",
-          "color": "blue"
-        },
-        {
-          "algorithm": "bubble_sort",
-          "generator": "sorted",
-          "color": "cyan"
-        },
-        {
-          "algorithm": "comb_sort",
+          "algorithm": "quick_merge_intro_sort_random_pivot_selector",
           "generator": "almost_sorted",
-          "color": "green"
-        },
-        {
-          "algorithm": "insertion_sort",
-          "generator": "sorted",
           "color": "red"
         },
         {
-          "algorithm": "selection_sort",
-          "generator": "sorted",
-          "color": "orange"
+          "algorithm": "quick_merge_intro_sort_median_of_three_choices_pivot_selector",
+          "generator": "almost_sorted",
+          "color": "blue"
         },
         {
-          "algorithm": "heap_sort",
-          "generator": "sorted",
-          "color": "pink"
+          "algorithm": "quick_merge_intro_sort_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "almost_sorted",
+          "color": "orange"
+        },
+
+        {
+          "algorithm": "quick_merge_sort_median_of_three_choices_pivot_selector",
+          "generator": "almost_sorted",
+          "linestyle": "dotted",
+          "color": "black"
+        },
+        {
+          "algorithm": "intro_sort_pseudo_median_of_nine_choices_pivot_selector",
+          "generator": "almost_sorted",
+          "linestyle": "dashed",
+          "color": "black"
         }
       ]
     }

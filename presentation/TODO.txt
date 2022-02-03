@@ -4,3 +4,6 @@
 + Propozycja dalszych badań, można użyć DualPivot Quick Sort albo sortowanie wielopiwotowe
 + A Quick Select,
 + rozdzial implementacja systemu
+
+
+- zadać kilka pytań, na które odpowiadaja inżynierka
